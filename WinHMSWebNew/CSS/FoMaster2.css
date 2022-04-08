@@ -1,0 +1,86 @@
+﻿/*form input[type="text"]:focus, form input[type="password"]:focus
+{
+	-webkit-box-shadow: 0 0 2px #808080 inset;
+	-moz-box-shadow: 0 0 2px #ed1c24 inset;
+	-ms-box-shadow: 0 0 2px #ed1c24 inset;
+	-o-box-shadow: 0 0 2px #ed1c24 inset;
+	box-shadow: 0 0 2px #ed1c24 inset;
+	background-color: #fff;
+	border: 1px solid #ed1c24;
+	outline: none;
+}
+form input[type="image"]:focus, form input[type="checkbox"]:focus, form input[type="radio"]:focus
+{
+	-webkit-box-shadow: 0 0 2px #ed1c24 inset;
+	-moz-box-shadow: 0 0 2px #ed1c24 inset;
+	-ms-box-shadow: 0 0 2px #ed1c24 inset;
+	-o-box-shadow: 0 0 2px #ed1c24 inset;
+	border: 1px solid #ed1c24;
+	outline:#ed1c24 solid 1px;
+}
+
+form select:focus, form a:focus
+{
+	-webkit-box-shadow: 0 0 2px #ed1c24 inset;
+	-moz-box-shadow: 0 0 2px #ed1c24 inset;
+	-ms-box-shadow: 0 0 2px #ed1c24 inset;
+	-o-box-shadow: 0 0 2px #ed1c24 inset;
+	box-shadow: 0 0 2px #ed1c24 inset;
+	background-color: #fff;
+	border: 1px solid #ed1c24;
+	outline: none;
+}
+    */
+/*//Anjana*/
+
+body {
+}
+.must {
+    color: Red;
+    font-weight: bold;
+}
+.fieldset_border {
+    border: thin solid #f9faad;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: inset 0 0 5px #808080;
+    -webkit-box-shadow: inset 0 0 5px#808080;
+    /*box-shadow: inner 1px 1px 5px #808080;*/
+    display: block;
+}
+.text_area {
+   font-size: 12px;
+            font-family:  Arial, Helvetica, sans-serif;
+    resize: none;
+}
+.lblNAtxt{width: 150px;float: left;text-align: left;margin-right: 5px;}
+.NAinbox{width:330px;float:left;margin-left:-5px}
+.NAinbox1{width:330px;float:left;}
+.lblOutletlabel{width: 80px;float: left;text-align: left;margin-right: 5px;}
+.lblOutlettxt{width: 160px;float: left;text-align: left;margin-left: 5px;}
+.lblRevtxt{width: 450px;float: left;text-align: left;margin-left: 5px;}
+.MPvrowline{width:100%;float:left;margin:1.0% 0% 0 0%;}
+.Mstline{width:100%;float:left;margin:0.8% 0.5% 0 0%;}
+.Slsinbox{width:370px;float:left;}
+.Tinbox {width:185px;float:right;}
+.lblDStxt{width: 150px;float: left;text-align: right;margin-right: 25px;}
+.MstCmpyline{width:100%;float:left;margin:0.8% 0.5% 1.5% 1%; margin-right:15px}
+.Mstable{width:50%;float:left;}
+.Mstable1{width:50%;float:right;}
+.SRowline{width:98%;float:left;margin:0.8% 0% 0 0%;}
+
+
+/*monthly Budget*/
+.NAMlbltxt{width:190px;float:left;text-align:right;margin:2% 0% 0 0%;}
+.NAMSTrwline1{width:100%;float:left;margin:15% 0% 0 0%;}
+.NAMSTrwline2{width:100%;float:left;margin:5% 0% 0 0%;}
+.NAMSTrwline3{width:100%;float:left;margin:85% 0% 0 0%;}
+.NAMSTrwline4{width:100%;float:left;margin:45% 0% 0 0%;}
+.NAFClbltxt{width:30px;float:left;margin-left:10px;}
+.MbCAlbltxt2{width:85px;float:left;text-align:right}
+.MbCAlbltxt{width:300px;float:left;text-align:right}
+.MbCAlbltxt3{width:200px;float:left;text-align:left}
+
+
+

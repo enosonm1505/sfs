@@ -1,0 +1,78 @@
+﻿<div class="TopHdr" >
+    <div class="TopHdrMod">
+        <div class="logcnt">
+            <img src="../../Images/winhmslogo.png" style="">
+        </div>
+        <div class="TextWidth" style="margin-left:20px; width:250px; float:left; top:10px; text-align:left;" id="divPropbox">
+        </div><i style="padding:6px; padding-top:16px; cursor:pointer; float:left;" class="fa fa-search fa-lg"></i>
+        @*<span style="float: left;top: 5px;    left: 450px;  position: absolute;"> <i class="fa fa-money fa-lg"></i> Currency : <span style="color:red;"> INR </span></span>*@
+        @if (ViewBag.Icon != "")
+        {
+            <label style="color: black; font-weight: bold; font-size:13px; margin-bottom:0px; margin-right: 300px;"><i class="fa @ViewBag.Icon fa-lg"></i>   @ViewBag.Title</label>
+        }
+        else
+        {
+            <img src="~/Images/@ViewBag.Image" style="height:25px; width:30px" /><label style="color: black; font-weight: bold; font-size:13px; margin-right: 200px; margin-bottom:0px;"> @ViewBag.Title</label>
+        }
+        @*<i style="padding:6px; padding-top:16px; cursor:pointer; float:left;" class="fa fa-search fa-lg"></i>
+        <label style="color: black; font-weight: bold; font-size:12px; margin-bottom:0px;  margin-right: 280px;"><i class="fa fa-desktop fa-lg"></i>   Reservation</label>*@
+    </div>
+    <div class="HdrBtnBx">
+        <button type="button" class="btn btn-custom" data-button="New" title="Add"><i class='fa fa fa-plus'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Amend" title="Amend"><i class='fa fa-search'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Query" title="Query"><i class='fa fa fa-question'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Relcanc" title="RelCancel"><i class='fa fa-eye-slash'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Relnoshow" title="RelnNoShow"><i class='fa fa-eye'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Cancres" title="CancRes" ><i class='fa fa-times'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Addon" title="Addon"><i class='fa fa-plug'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Save" title="Save"><i class='fa fa-save'></i> </button>
+    </div>
+</div>
+
+<script type="text/javascript">
+        /*Global Variables of this Project*/
+        window.Prop_Id = "";
+        window.pageurl = "";
+        window.pgindic = "";
+        window.Request = "";
+        /*Global Variables of this Project*/
+
+        var DropCall = function (data) {
+            //debugger;          
+            requestData = data;
+            $.ajax({
+                async: false,
+                url: "/FO/API_CALL",
+                type: 'POST',               
+                datatype: 'json',
+                data: "request=" + requestData,
+                success: function (data) {
+                    var ddlcomp = JSON.parse(data);
+                    $("#divPropbox").kendoDropDownList({ dataTextField: "COMPANY_NM", dataValueField: "COMPANY_ID", dataSource: ddlcomp, height: 100 });
+                    $("#divPropbox").data("kendoDropDownList").bind("change", OnchangeProp);
+                    $("#divPropbox").data("kendoDropDownList").value(Prop_Id);
+                },
+                error: function (request, status, error) {
+                    console.log("Error Failrue");
+                }
+            });
+        }
+
+        var adjustDropDownWidth = function (e) {
+            var listenobject = e.sender.list.closest('.k-list-container');
+            listenobject.width(listenobject.width() + kendo.support.scrollbar());
+        }
+
+        var OnchangeProp = function () {
+            var dropdowlist = $("#divPropbox").data("kendoDropDownList");
+            Prop_Id = dropdowlist.value();
+
+            if ($.trim(Prop_Id) != "") {
+                $("#divTheme").removeClass("pagefalse");
+                DropdownCall(Request, pageurl, $.trim(Prop_Id)); //Request, pageurl, Prop_Id Given Id is the Window Variables of this Project   
+            }
+            else {
+                $("#divTheme").addClass("pagefalse");
+            }
+        }
+</script>

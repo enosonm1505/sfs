@@ -1,0 +1,401 @@
+﻿
+/* Blue Theme */
+img{border:none}
+body {
+    background-color: #F3F3F3;
+    background-size: 100% 800px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px 0px 0px 0px;
+    padding: 0;
+    overflow: hidden !important;
+    
+}
+/* making all th items in normal font */
+th{font-weight:normal}
+/* main cintainer width 100% */
+.container{width:100%;float:left}
+/* page top header */
+.mainheader{color:#fff;text-align:left;
+    width: 98%;padding-left:2%;
+    line-height:25px;
+    background-color:#52CAEF;
+    float:left;
+    font-weight:bold
+}
+.mainheader span{color:#fff !important;font-weight:bold !important}
+/* center align */
+.centeraln{width:100%;margin:0 auto;background-color:#fff;}
+@media (min-width:1380px) {
+    .centeraln{width:1366px;margin:0 auto;background-color:#fff;}
+
+}
+
+/* main white inner box  */
+.themedes{
+    width:98%;
+    float:left;
+    background-color:#F3F3F3;
+    /*height:800px !important;*/
+    min-height:500px !important;
+    overflow:hidden;
+    padding:1%;box-shadow:inset 0 0 3px 1px #ddd;
+}
+
+/* input and select  box style  */
+select, input[type="text"] {border:1px solid #C3C3C3;padding-left:1px;}
+textarea{border:1px solid #C3C3C3;padding-left:1px;}
+input, select { font-family:inherit; font-size:inherit
+}
+    input[type="image"] {vertical-align:middle;}
+
+
+/* select box width and height */
+select{
+    height:20px;
+    width:150px
+}
+/* text box width and height */
+input[type="text"] {width:100px;height:16px;}
+
+
+/*Total Grid*/
+.grid
+{
+	background-color: #fff;
+	border:1px solid #BFBFBF;
+	color: #333;
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+/* grid header */
+.GrdHeaderStyle{background-color: #D0D0D0 !important;color: White;height:18px;cursor:default;border:1px solid #BFBFBF;color: #333;
+}
+/*END*/
+
+
+
+/*For header-down button color,font [siva]*/
+.themedes input[type="image"] {margin-bottom:2px;}
+.themedes .btnButton 
+{border: 1px solid #8BCADE;background-color: #C0EAF7;font-weight:normal}
+.popmain .btnButton 
+{border-left: 1px solid #ccc;
+    border-right:  1px solid #989898;
+    border-top: 1px solid #989898;
+    border-bottom: 1px solid #bbb; background-color: #f5f5f5;font-weight:normal;margin-left:1px}
+
+.themedes .btnButton{margin-left:0;margin-bottom:2px;padding:0px 3px 0px}
+.btnButton 
+{ border-left: 1px solid #ccc;
+    border-right:  1px solid #989898;
+    border-top: 1px solid #989898;
+    border-bottom: 1px solid #bbb;
+    display: inline-block;
+    padding:1px 7px 1px;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 18px;
+    color: #333333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    background-color: #f5f5f5; font-weight:bold;
+    background-position:-162px 6px; 
+  
+    background-repeat:no-repeat;
+    border-bottom-color: #bbb;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-left: .3em;
+    background-image: url("../images/sprite.png") no-repeat top left;
+}
+.btnButton:disabled
+{border-left: 1px solid #ccc;margin-top:2px;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #bbb;
+    display: inline-block;
+    padding:1px 7px 1px;
+    margin-bottom: 2px;
+    font-size: 13px;
+    line-height: 18px;
+    color: #CFCFCF;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    background-color: #f5f5f5; font-weight:bold;
+    background-position:-162px 6px; 
+  
+    background-repeat:no-repeat;
+    border-bottom-color: #bbb;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-left: .3em;
+    background-image: url("../images/sprite.png") no-repeat top left;
+}
+.btnButtonClick
+{border-left: 1px solid #ccc !important;
+    border-right: 1px solid #ccc !important;
+    border-top: 1px solid #ccc !important;
+    border-bottom: 1px solid #bbb !important;
+    display: inline-block;
+    padding:1px 7px 1px;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 18px;
+    color: #333333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    background-color: #DBDBDB; font-weight:bold;
+    background-position:-162px 6px; 
+  
+    background-repeat:no-repeat;
+    border-bottom-color: #bbb;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin-left: .3em;
+    background-image: url("../images/sprite.png") no-repeat top left;
+}
+
+.btncomputebutton
+{
+            border:1px solid #5FBFD1;border-radius:3px;
+            background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+            background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
+            background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
+            background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
+            background-image: linear-gradient(top,#4d90fe,#4787ed);
+            background-color:#4d90fe;
+            text-shadow:0 1px rgba(0,0,0,0.1);color:#fff;border: 1px solid #3079ed;padding:1px 15px;
+            float: right;padding:3px 10px;margin-top:4px;background-image:-webkit-linear-gradient(top,#8CE900,#00B41D)
+}
+/*END*/
+
+.Hide
+{
+	display: none; /*visibility:hidden;*/
+	width: 1px;
+}
+.hide
+{
+	display: none; /*visibility:hidden;*/
+	width: 1px;
+}
+/*Alert CssClass*/
+.alertmain{width:100%;height:100%;left:0;top:0;z-index:5;position:absolute;overflow:hidden; background-color:rgba(0, 0, 0, 0.37)}
+.alertbox{top:0;bottom:0;left:0;right:0;margin:auto;background-color:#F9F9F9;border:1px solid #DADADA;
+        padding:3px;color:#000; position:absolute;text-align:center}
+.alertwdt{width:375px;height:138px}
+.alrtimg{width:75px;float:left;padding-top:25px;height:55px;}
+.alrtimg img{width:35px;}
+.alrtcnt{width:260px;padding:28px 0 0 20px;float:left;text-align:left}
+.alrtbtn{width:98%;float:left;text-align:right}
+.alrtbtn input{width:50px;}
+/*END*/
+/*Popup CssClass*/
+.poppage{top:0;bottom:0;left:0;right:0;margin:auto;background-color:#F9F9F9;border:1px solid #DADADA;
+        padding:3px;color:#000; position:absolute}
+.popmain{width:100%;height:100%;left:0;top:0;z-index:5;position:absolute;overflow:hidden; background-color:rgba(0, 0, 0, 0.25)}
+.popheader{width: 98%;
+    line-height:25px;text-align:center;
+    background-color:#4CCAEF;
+    float:left;padding-left:2%;
+    color:#fff; 
+  }
+
+.popbtns{ text-align:right;width:99%;line-height:25px;float:left;padding-right:1%; }
+
+.btnbox{width:99%;padding-right:1%;float:left;text-align:right}
+
+/*END*/
+.watermark{width: 100%; float: left; line-height: 14px;font-size:10px;color:#8C8C8C}
+
+
+/*Header CssClass*/
+
+.TopHdr{width:100%;float:left;line-height:40px;color:#333; background-color:#F7F7F7;
+}
+.HdrBtnBx{float:right;text-align:right;z-index:5;position:relative;right:8px;}
+
+.TopHdrMod{font-weight:bold;position:absolute;text-align:center;width:100%;}
+.TopHdrName{color:#666;z-index:11;right:0;position:absolute;line-height:32px;top:0;text-align:right;padding-right:10px;
+
+}
+.compnys {float:left;padding-right:43px;}
+.usr {float:left;padding-right:25px;}
+.usr img{margin-bottom:1px;
+    vertical-align: text-bottom;
+    padding-right: 4px;
+}
+.dashbrd{float:left;padding-right:6px;}
+.dashbrd img{vertical-align:middle }
+  .logcnt{float:left;margin-left:10px;}
+  .logcnt img{ vertical-align:middle;width:115px;}
+
+  
+.propbox {
+   float: left;color:#333;margin-left:25px;z-index:3;position:relative;
+}
+.propbox select{border:1px solid #ddd !important;height:23px;}
+
+  /*END*/
+
+
+  /**For Refresh Block*/
+
+  .popBlock{width:100%;height:600px;left:0;top:64px;position:absolute;overflow:hidden; background-color:rgba(255, 255, 255, 0.12);}
+  /*END*/
+  /*Search Button using image*/
+  .BtnOption {
+     background-image: url('../images/SearchButton.png');
+    background-attachment: inherit;
+    background-size:100%;
+    width: 20px;
+    height: 20px;margin-bottom:2px;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border-style: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+  /*END*/
+   /**Tab Container using div(Not accordation Tab)*/
+
+.tabbtns{width:100%;float:left;background-color:#fff;line-height:30px;padding-top:7px;border-bottom:4px solid #5CD5F9}
+.tabbtns :first-child{margin-top:-3px;padding-top:3px;color:#fff;background-color:#5CD5F9}
+.tabbtns div{color:#343434;
+            background-color:rgb(226, 226, 226);padding-right: 9px;float:left;border-top: 1px solid #fff;border-right: 2px solid #fff;line-height:25px;padding-left: 9px;border-top-right-radius: 6px;border-top-left-radius: 6px;}
+
+ .TabColor {
+            margin-top: -3px;
+            padding-top: 3px;
+            color: #fff !important;
+            background-color: #5CD5F9 !important;
+        }
+
+        .TabColor1 {
+            color: #343434 !important;
+            margin-top: 0px !important;
+            padding-top: 0px !important;
+            background-color: rgb(226, 226, 226) !important;
+        }
+         /*END*/
+
+/* POP UP IN Advance,Refund,Amendment CSS */
+.buttonbox{
+      float: left;
+      width:99%;
+      padding:5px 0 5px 0;
+     
+}
+
+  /*END*/
+
+         /*For Future use*/
+
+         /*For Accordation Menu [srini]*/
+
+.accordionContent {
+    background-color: #ffffff;
+    border-color: -moz-use-text-color #2F4F4F #2F4F4F;
+    border-right: 1px initial #2F4F4F;
+    border-style: none solid solid solid;
+    border-width: medium 1px 1px;
+    padding: 10px 5px 5px;
+    width: 98%;
+}
+ 
+.accordionHeaderSelected 
+{
+    background-color: #072769;
+padding-top: 4px;
+border-top: 4px solid #FFBE17;
+    color: white;
+    cursor: pointer;
+    font-family: Arial,Sans-Serif;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 5px;
+    width: 98%;
+}
+ 
+.accordionHeader 
+{
+    background-color: #072769;
+    padding-top: 4px;
+border-top: 4px solid #FFBE17;
+    color: white;
+    cursor: pointer;
+    font-family: Arial,Sans-Serif;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 5px;
+    width: 98%;
+}
+  /*END*/
+  /*For Future use*/
+
+  /* Tab container Header */
+#tabContainter_header{background-color:#072769;padding-top:4px;border-top:4px solid #FFBE17}
+#Tabs_header{background-color:#072769;padding-top:4px;border-top:4px solid #FFBE17}
+  /* tabContainter selected button  */
+.green .ajax__tab_header .ajax__tab_active .ajax__tab_tab{
+    background-color:#5CD5F9;
+    height: 14px;
+    margin-bottom:-4px;
+    padding: 7px 20px 7px 20px;
+    font-weight:normal;
+    border:0;
+    color:#ffffff;
+}
+/* tabContainter unselected button  */
+.green .ajax__tab_tab{
+    padding:4px 8px;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    color:#343434;
+    background:#D0D0D0;
+    margin-right:3px;
+    margin-bottom:-4px;
+    font-weight:normal;
+}
+.green {
+/*border: 1px solid #09B;*/
+}
+.green .ajax__tab_body
+{
+    padding:10px;background-color:#fff;
+    border-top:3px solid #5CD5F9;
+    }
+.green .ajax__tab_header
+{
+   
+    text-transform:none; 
+    font-weight:bold;
+    /*background: #427fed;
+    border-top: solid 4px #0a49b9;*/
+    /*border-bottom: 1px solid #bbb;
+    border-top:1px solid #09B*/
+    }
+.green .ajax__tab_header .ajax__tab_active .ajax__tab_outer
+{
+    }
+
+.green .ajax__tab_header .ajax__tab_active .ajax__tab_inner
+{
+    padding-left: 3px;
+    /*border-right:1px solid #09B;
+    border-left:1px solid #09B;*/
+    border-bottom:0;
+    }
+
+#tabContainter {float:left;/*margin-top:10px;*/}
+    /*END*/

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="PurService.PurMasters" CodeBehind="PurMasters.svc.cs" %>

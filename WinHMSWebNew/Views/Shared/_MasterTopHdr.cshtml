@@ -1,0 +1,27 @@
+﻿@Html.Partial("~/Views/Shared/_MenuHdr.aspx")
+
+
+
+<div class="TopHdr1">
+    <div class="TopHdrMod">
+        <div class="logcnt">
+            <img src="../../Images/winhmslogo.png">
+        </div>
+        <div class="TextWidth" style="margin-left:20px; width:250px; float:left; top:10px; text-align:left;" id="divPropbox">
+        </div>
+        <div id="Divtit">
+            <label style="color: black; font-weight: bold; font-size:13px; margin-bottom:0px; margin-right: 300px;" id="Divtitle">
+                @ViewBag.Title
+            </label>
+        </div>
+    </div>
+    <div class="HdrBtnBx" style="padding-right:75px">
+        <button class="btnButton" id="btnNew">New</button>
+        <button class="btnButton" id="btnopen">Open</button>
+        <button class="btnButton" id="btnsave">Save</button>
+        <button class="btnButton" id="btnview">View</button>
+        <button class="btnButton" id="btndel">Delete</button>
+        <button class="btnButton" id="btnrfsh">Refresh</button>
+        @*<button class="btnButton" id="btnhelp">Help</button>*@
+    </div>
+</div>

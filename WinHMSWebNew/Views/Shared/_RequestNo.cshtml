@@ -1,0 +1,260 @@
+﻿<div class="modal fade" id="CmnReqNo" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:80%; margin-left:20%;">
+            <div class="modal-header">
+                <h4 class="modal-title" id="lblearndect"><i id="earnicon" class="fa fa-plus-circle"></i> <span id="CmnHeading">Quote Request Search</span> </h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class=" form-group align" style="margin-bottom:0px">
+                        <label class="col-sm-6  col-lg-6 control-label" style="width:128px"> Req Date >=</label>
+                        <div class="col-lg-5 col-sm-3 col-md-5" style="z-index:15">
+                            <input id="Scdt" value="" title="Event Date" style="height:20% !important; width:60%;" data-id="">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div id="CmnGridReqno" style="height:350px" data-text="NM"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCnclReqno" type="button" class="btn btn-warning" data-dissmiss="modal"><i class="fa fa-close (alias)"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #CmnGridReqno .k-grid-content {
+        height: 320px !important;
+    }
+</style>
+<script>
+    $(document).ready(function () {        
+        debugger;
+
+        var today=new Date();
+        var dd='1';
+        var mm=today.getMonth()+1;
+        var yyyy=today.getFullYear();
+
+           
+
+        if(dd<10)
+        {
+            dd='0'+dd;
+        }
+        if(mm<10)
+        {
+            mm='0'+mm;
+        }
+        today=dd+'/'+mm+'/'+yyyy;
+
+       $("#Scdt").kendoDatePicker({format: "dd/MM/yyyy"});
+      //  var today = kendo.toString(kendo.parseDate(new Date()), 'dd/MM/yyyy');     
+        $("#Scdt").val(today);
+    })
+
+    $("#btnCnclReqno").click(function () {
+        debugger;
+        $("#CmnReqNo").modal("hide");
+    })
+
+
+    $("#Scdt").change(function (){
+        debugger;
+
+        GridpopReqeuno();
+      
+        var reqobj = {};
+        reqobj["COMPID"] = $("#divPropbox").data("kendoDropDownList").value(); 
+        reqobj["REQTYPE"] = "REQUESTNOGRD";
+        reqobj["DATE"] =  $("#Scdt").val();
+
+        var ParamVal = JSON.stringify(reqobj);
+        $.ajax({
+            async: false,
+            url: "/PurchaseQuote/API_CALL",
+            type: 'POST',
+            data: "request=" + ParamVal,
+            success: function (data) {
+                //debugger;
+                var Detemp = JSON.parse(data);
+
+                var grid = $("#CmnGridReqno").data("kendoGrid");
+                grid.dataSource.data(Detemp.REQNO);
+
+            },
+            error: function (request, status, error) {
+                console.log("Error Failrue");
+            }
+
+        });
+
+
+        $("#CmnHeading").val("Party Seach");
+        $("#CmnReqNo").modal("show");
+    });
+
+
+    $("#CmnGridReqno").on("dblclick", "tbody > tr>td", function () {
+        debugger;
+        var row = {};
+        var gridop = $("#CmnGridReqno").data("kendoGrid");
+        var row = $(this).closest("tr");
+        var rowindex = gridop.selectable.userEvents.currentTarget.rowindex;
+        var selitem = gridop.dataItem(gridop.select());
+
+        if(selitem != null)
+        {
+            console.log(selitem);
+            $("#edbReqNo").val(selitem.RFQ_ID);
+
+            var Reqid = selitem.RFQ_ID;
+
+            var reqopmd = {};
+            reqopmd["COMPID"] = @Html.Raw(Json.Encode(ViewBag.COMPID)),
+            reqopmd["REQTYPE"] = "REQESTOPENMODE";
+            reqopmd["REQIDOP"] = Reqid;
+
+            var paramval = JSON.stringify(reqopmd);
+            $.ajax({
+                async: false,
+                url: "/PurchaseQuote/API_CALL",
+                type: 'POST',
+                data: "request=" + paramval,
+                success: function(data){
+                    debugger;
+                    var reqopmd = JSON.parse(data);
+
+                    var valbind = reqopmd.MAINREQ ;               
+                    $("#edbParty").val(valbind[0].PARTY_NM.replace("&", "and")); 
+                    $("#EdbReqDet").val(valbind[0].REM);
+                    $("#ScRqDt").data("kendoDatePicker").value(valbind[0].RFQDT);                 
+                    $("#ScExpDt").data("kendoDatePicker").value(valbind[0].RFQEX);                  
+                    $("#ScDelDt").data("kendoDatePicker").value(valbind[0].DELIV); 
+                    window.grdReqid =  valbind[0].PARTY_ID; 
+                    $("#cmbQtBaseTp").data("kendoDropDownList").value(valbind[0].QUOTE_BASIS);
+                    if(valbind[0].batch_ID != "")
+                    {
+                        $("#divbatch").show();
+                        $("#chkQtBtch")[0].checked = true;
+                        window.edbBtchNo1 = valbind[0].BATCH_ID
+                        $("#edbbatchNo").val(valbind[0].DISP_NO);
+                        $("#edbBtchRfNo").val(valbind[0].BATCH_REF);
+                        $("#edbBtchDesc").val(valbind[0].BATCH_DESC); 
+                    }
+                    else
+                    {                       
+                        window.edbBtchNo1 = "";
+                        $("#edbbatchNo").val("");
+                        $("#edbBtchRfNo").val("");
+                        $("#edbBtchDesc").val("");
+                    }
+
+                    var MainGrd = reqopmd.MAINREQGRD;
+                    var gridnm = $("#PurMainGrd").data("kendoGrid");
+                    gridnm.dataSource.data([]);
+
+                    for(var i =0; i<MainGrd.length; i++)
+                    {
+                        var newrw = {};                                 
+
+                        newrw.Itemid = MainGrd[i].PROD_ID ;
+                        newrw.ItemNm = MainGrd[i].PROD_NM1.replace("&", "and");
+                        newrw.Datails = MainGrd[i].PROD_DETAILS.replace("&", "and");
+                        newrw.Qty = MainGrd[i].REQUIRE_QTY;
+                        newrw.PROD_UOM = MainGrd[i].PROD_UOM;
+                        newrw.ARRV = MainGrd[i].REQUIREDT;
+                        newrw.Narration = MainGrd[i].PRODREM.replace("&", "and");
+                        gridnm.dataSource.add(newrw);
+                    }
+
+                    var gridnm1 = $("#GridTermsCond").data("kendoGrid");
+                    var valInstr = reqopmd.TERMSCON ;  
+
+
+                    for (var j = 0; j < gridnm1._data.length; j++) {
+
+                    for(var i =0; i<valInstr.length; i++)
+                    {                     
+                     
+                            if( gridnm1.dataSource._data[j].PO_TERMS_TY_ID == valInstr[i].TERMS_TY_ID )
+                            {
+
+                                gridnm1._data[j].PO_TERMS_TY_ID  = valInstr[i].TERMS_TY_ID;
+                                gridnm1._data[j].PO_TERMS_ID  = valInstr[i].PO_TERMS_ID;
+                                if((valInstr[i].PO_TERMS_1 != "")&&(valInstr[i].PO_TERMS_1 != null))
+                                    gridnm1._data[j].TEXTBOX  = valInstr[i].PO_TERMS_1.replace("&", " and ");   
+                                else
+                                    gridnm1._data[j].TEXTBOX  = valInstr[i].PO_TERMS_1; 
+                            }
+                        }
+                    }
+                    gridnm1.refresh();
+
+                    var congrd = $("#GridInstruc").data("kendoGrid");
+                    congrd.dataSource.data([]);
+                    var Vartermcon = reqopmd.INSTRUC ;  
+                    if(Vartermcon.length != "0")
+                    {
+                        for(var i =0; i<Vartermcon.length; i++)
+                        {
+                            var newrw = {};
+                            newrw.SNo = i+1 ;
+                            newrw.Instruction = Vartermcon[i].INSTRUCTION_LINE;
+                            congrd.dataSource.add(newrw);
+                        }    
+                    }
+                    else
+                    {                   
+                            var newrw = {};
+                            newrw.SNo = 1 ;
+                            newrw.Instruction = "";
+                            congrd.dataSource.add(newrw);
+
+                    }
+
+                    $("#btnCnclReqno").click();
+                }, 
+                error: function (request, status, error) {
+                    console.log("Error Failrue");
+                }
+
+            });
+        }
+    });
+
+
+
+    $("#GridBatchqu").on("dblclick", "tbody > tr > td", function () {
+        debugger;
+        var row = {};
+        var getbatch = "";
+        var grdbtcg = $("#GridBatchqu").data("kendoGrid");
+        var row = $(this).closest("tr");
+        var rowindex = grdbtcg.selectable.userEvents.currentTarget.rowindex;
+        var selitem = grdbtcg.dataItem(grdbtcg.select());
+
+        if (selitem != null) {
+            debugger;
+            console.log(selitem);
+            $("#edbbatchNo").val(selitem.BATCH_ID);
+            $("#edbBtchRfNo").val(selitem.BATCH_REF);
+            $("#edbBtchDesc").val(selitem.BATCH_DESC);
+
+            $("#btnCnclBatchqu").click();
+        }
+        else {
+            $("#btnCnclBatchqu").click();
+            $("#edbbatchNo").val("");
+            $("#edbBtchRfNo").val("");
+            $("#edbBtchDesc").val("");
+        }
+
+    });
+    
+    </script>

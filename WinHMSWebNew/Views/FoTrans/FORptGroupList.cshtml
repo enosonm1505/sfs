@@ -1,0 +1,1063 @@
+﻿@{
+    ViewBag.Title = "Group List";
+    //ViewBag.Icon = "fa-desktop";
+    //Layout = "~/Views/Shared/_ReservationLayoutSM.cshtml";
+   
+    //if (ViewBag.VMD == "2") { Layout = "~/Views/Shared/Layout/FO_LayoutSM.cshtml"; }
+    //else
+    //{ Layout = "~/Views/Shared/_FoTransLayout.cshtml"; }
+    Layout = "~/Views/Shared/_FoComLayout.cshtml";
+}
+
+
+
+<script>
+
+    $(document).ready(function () {
+        var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+        var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+        webix.ready(function () {
+            $("#LoadDIv").hide();
+            debugger;
+            var Prop_Id =  @Html.Raw(Json.Encode(ViewBag.COMP));
+            var Propertyload = LoadProperty();
+            var CurrDt = current_dt();
+            var vToDt=formatDate1(CurrDt);
+            webix.ui({
+                view: "richselect",
+                label: "Property",
+                id: "ddlproperty",
+                container: "dtProperty",
+                options: Propertyload,
+                //value: Prop_Id,
+                css: "ddlpro",
+                height: 40,
+                on: {
+                    onChange: function (newv, oldv) {
+                        sessionReassign();
+                        LoadCurrDet(newv);
+                    }
+
+                }
+            });
+            webix.ui({
+                view: "datepicker",
+                label: "Arrival From",
+                labelWidth: "100",
+                id: "startDt",
+                disable: true,
+                container: "dtFromdt",
+                format: "%d/%m/%Y",
+                value: vToDt,
+                stringResult: true,
+                on: {
+                    onItemClick: function () {
+
+                    },
+                    onChange: function (NewVal, OldVal) {
+                        $$("dtGroupList").clearAll();
+                    },
+                },
+
+            });
+            webix.ui({
+                view: "datepicker",
+                label: "To",
+                labelWidth: "40",
+                labelAlign: "center",
+                id: "EndDt",
+                disable: true,
+                container: "dtTodt",
+                format: "%d/%m/%Y",
+                value: vToDt,
+                stringResult: true,
+                on: {
+                    onItemClick: function () {
+
+                    },
+                    onChange: function (NewVal, OldVal) {
+                        $$("dtGroupList").clearAll();
+                    },
+                },
+                width: "180",
+
+            });
+
+            webix.ui({
+                view: "button",
+                name: "btnDisplay",
+                value: "Display",
+                id: "btnDisplayRpt",
+                width: 70,
+                container: "BtnDisplay",
+                align: "right",
+                on: {
+                    onItemClick: function () {
+                        DisplayTGroup();
+                    }
+                }
+            });
+            webix.ui({
+                view: "checkbox",
+                id: "chkInHouse",
+                placeholder: "",
+                width: 170,
+                container: "dvChkInHouse",
+                label: "InHouse",
+                labelWidth: 70,
+                click: function () {
+                    $$("dtGroupList").clearAll();
+                    if ($$("chkInHouse").getValue() == 0 && $$("chkCheckedout").getValue() == 0 && $$("chkExcept").getValue() == 0) $$("chkInHouse").setValue(1);
+
+                },
+                on: {
+                    onChange: function (newv, oldv) {
+
+                    }
+                }
+            });
+            webix.ui({
+                view: "checkbox",
+                id: "chkExcept",
+                placeholder: "",
+                width: 170,
+                container: "dvCheckExcept",
+                label: "Expected",
+                labelWidth: 70,
+                click: function () {
+                    debugger;
+                    $$("dtGroupList").clearAll();
+                    if ($$("chkInHouse").getValue() == 0 && $$("chkCheckedout").getValue() == 0 && $$("chkExcept").getValue() == 0) $$("chkExcept").setValue(1);
+                },
+                on: {
+                    onChange: function (newv, oldv) {
+
+                    }
+                }
+            });
+            webix.ui({
+                view: "checkbox",
+                id: "chkCheckedout",
+                placeholder: "",
+                width: 170,
+                container: "dvCheckedout",
+                label: "Checked Out",
+                labelWidth: 100,
+                click: function () {
+                    $$("dtGroupList").clearAll();
+                    if ($$("chkInHouse").getValue() == 0 && $$("chkCheckedout").getValue() == 0 && $$("chkExcept").getValue() == 0) $$("chkCheckedout").setValue(1);
+                },
+                on: {
+                    onChange: function (newv, oldv) {
+
+                    }
+                }
+            });
+            webix.ui({
+                view: "button",
+                name: "btnOptions",
+                value: "Options",
+                id: "btnOptionsRpt",
+                width: 70,
+                container: "dvOptions",
+                align: "right",
+                on: {
+                    onItemClick: function () {
+                        BindPopUpbtnOptions();
+                    }
+                }
+            });
+            webix.ui({
+                view: "button",
+                name: "btnExcel",
+                value: "Excel",
+                id: "btnExcelRpt",
+                width: 70,
+                //height:40,
+                container: "BtnExcel",
+                align: "right", label: excel, tooltip: true,
+                on: {
+                    onItemClick: function () {
+                        DisplayExcel();
+                    }
+                }
+            });
+            webix.ui({
+                view: "button", id: "Print", value: "Print", width: 70, container: "divPrint", label: Print, tooltip: true,
+                on: {
+                    onItemClick: function () {
+                        fnGridPrint();
+                    }
+                }
+
+            });
+            @*Prop_Id =  @Html.Raw(Json.Encode(ViewBag.COMP));*@
+            debugger;
+            $$("ddlproperty").setValue(Prop_Id);
+            LoadCurrDet(Prop_Id);
+            $$("chkExcept").setValue(1);
+            dtLoadReport();
+
+        });
+    });
+    function formatDate1(StrDt) {
+        debugger;
+        var Parts = StrDt.split("/");
+        var Dt = Parts[0];
+        var Mn = Parts[1];
+        var Yr = Parts[2].substring(0, 4);
+        var Str = Yr + "-" + Mn + "-" + Dt;
+        return Str;
+    };
+    function current_dt() {
+
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETCURRENTDT";
+        reqobj["DateFormat"] = "D";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/getCurrentDate",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+                    debugger;
+                    if (d != "" && d != undefined && d != null) {
+                        //rowData = JSON.parse(d);
+                        rowData = JSON.parse(d);
+
+
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+        return rowData.CURR_DT;
+    }
+    function LoadCurrDet(vProperty) {
+        //debugger;
+        var reqobj={};
+        reqobj["REQTYPE"] = "GETCURRFORMATDETAILS";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/GetCurrFormatDetails",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+                    debugger;
+                    if (d != "" && d != undefined && d != null) {
+                        //rowData = JSON.parse(d);
+                        rowData = JSON.parse(d);
+                        $("#CURRENCY_FORMAT").val(rowData.CURRENCY_DECIMLIMIT);
+                        $("#CURRENCY_DELIMIT").val(rowData.CURRENCY_DELIMIT);
+                        $("#CURRENCY_DECIMLIMIT").val(rowData.CURRENCY_DECIMLIMIT);
+
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+    };
+    function fnCurrFormat(value) {
+        debugger;
+        var Currfrmt = $("#CURRENCY_FORMAT").val();
+        var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+        var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+        return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+    }
+    function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+        debugger;
+
+        if (value == null) return "";
+
+        if (value.toString() != "") {
+
+
+            if (Currfrmt == "L") {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+                var afterPoint = '';
+                if (x.indexOf('.') > 0) {
+                    afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                    afterPoint = CurrDelimit + afterPoint
+                }
+
+
+
+                x = Math.floor(x);
+                x = x.toString();
+                var lastThree = x.substring(x.length - 3);
+                var otherNumbers = x.substring(0, x.length - 3);
+                if (otherNumbers != '' && otherNumbers != '-')
+                    lastThree = ',' + lastThree;
+                return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+            }
+            else {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+
+                //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                //var res = x.replace(/(\d{3})/g, "1,")
+                var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                if (res.indexOf('.') > 0) {
+
+                    res = res.replace(".", CurrDelimit)
+                }
+
+
+                return res;
+            }
+        }
+        else {
+            return value;
+        }
+    };
+
+    function fnGridPrint() {
+        debugger;
+        $("#lblRptCaption").empty();
+        $("#lblRptCaption").append("Group List");
+        var vHeader = $("#lblRptCaption").text();
+        var FullData = "";
+
+        FullData = $$("dtGroupList").serialize();
+        var len = FullData.length;
+        if (len > 0) {
+            webix.print($$("dtGroupList"), {
+                docHeader: vHeader,
+                fontSize: 25,
+                textAlign: "left",
+                mode: "landscape",
+                fit: "data"
+            });
+        }
+        else {
+            alert("Records not present in Report");
+        }
+
+    };
+    function DisplayExcel() {
+        debugger;
+        var FullData = "";
+        var len = 0;
+        FullData = $$("dtGroupList").serialize();
+        len = FullData.length;
+        if (len > 0) {
+            var data = $$("dtGroupList");
+            webix.toExcel($$("dtGroupList"), {
+
+                filename: "Group List",
+                styles: false,
+                name: "Group List",
+                rawValues: true,
+                spans: true,
+                filterHTML: true,
+                title:true,
+            });
+        }
+        else
+        {
+            alert("Records not present in Report");
+        }
+    }
+    function sessionReassign() {
+        var PropertyId = $$("ddlproperty").getValue();
+        $.ajax({
+            type: "POST",
+            url: "/FoTrans/PeopertySessionReAssign",
+            data: "PropertyId=" + PropertyId,
+            success: function (data) {
+                $$("dtGroupList").clearAll();
+            }
+        });
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "/Reports/GetCurrFormatDetails",
+            data: "CmpId=" + PropertyId,
+            success: function (d) {
+                return true;
+            }
+        });
+    }
+    function LoadProperty() {
+        debugger;
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GET_PROPERTYLOAD_WEBIX";
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: "/FoTrans/fnGetProperty",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+                debugger;
+                if (d != "" && d != undefined && d != null) {
+                    rowData = d;
+
+
+                }
+
+            },
+        });
+        return rowData;
+
+    }
+    function BindPopUpbtnOptions() {
+        webix.ui({
+            view: "window",
+            close: true,
+            modal: true,
+            id: "OptionsPopup",
+            head: "Options",
+            position: "center",
+            css: "WebIxStyle",
+            height: 500,
+            width: 300,
+            move: true,
+            body: {
+                padding: { top: 20, left: 30, bottom: 20, right: 10 },
+                rows: [
+                    {
+                        view: "checkbox",
+                        id: "chkpopSegment",
+                        placeholder: "",
+                        width: 170,
+                        //container: "dvCheckExcept",
+                        label: "Segment",
+                        labelWidth: 70,
+                        on: {
+                            onChange: function (newv, oldv) {
+
+                            }
+
+                        }
+                    },
+                    {
+                        view: "checkbox",
+                        id: "chkpopSource",
+                        placeholder: "",
+                        width: 170,
+                        label: "Source",
+                        labelWidth: 70,
+                        on: {
+                            onChange: function (newv, oldv) {
+
+                            }
+                        }
+                    },
+                    {
+                        view: "checkbox",
+                        id: "chkpopTotTariff",
+                        placeholder: "",
+                        width: 170,
+                        label: "Total Tariff",
+                        labelWidth: 70,
+                        on: {
+                            onChange: function (newv, oldv) {
+
+                            }
+                        }
+                    },
+                    {
+                        cols: [{}, {
+                            view: 'button',
+                            //label: 'Ok',
+                            //width: 100,
+                            //id: "btnSaveeRows",
+                            type: "icon", id: "btnSaveeRows", icon: "wxi-check", label: "OK", inputWidth: 80, width: 80,
+                            on: {
+                                onItemClick: function () {
+                                    debugger;
+                                    $$("OptionsPopup").hide();
+                                    OptionShowClick();
+                                    $$("dtGroupList").clearAll();
+                                }
+                            }
+                        }],
+                    }
+                ]
+            }
+        });
+
+        $$("OptionsPopup").show();
+
+    }
+    //function BindPopUpbtnOptions() {
+    //    webix.ui({
+    //        view: "window",
+    //        close: true,
+    //        modal: true,
+    //        id: "OptionsPopup",
+    //        head: "Options",
+    //        position: "center",
+    //        css: "WebIxStyle",
+    //        height: 500,
+    //        width: 480,
+    //        body: {
+    //            view: "form",
+    //            elements: [{
+    //                rows: [{
+    //                    view: "checkbox",
+    //                    id: "chkpopSegment",
+    //                    placeholder: "",
+    //                    width: 170,
+    //                    //container: "dvCheckExcept",
+    //                    label: "Segment",
+    //                    labelWidth: 70,
+    //                    on: {
+    //                        onChange: function (newv, oldv) {
+
+    //                        }
+    //                    }
+    //                },
+    //                {
+    //                    view: "checkbox",
+    //                    id: "chkpopSource",
+    //                    placeholder: "",
+    //                    width: 170,
+    //                    label: "Source",
+    //                    labelWidth: 70,
+    //                    on: {
+    //                        onChange: function (newv, oldv) {
+
+    //                        }
+    //                    }
+    //                },
+    //                {
+    //                    view: "checkbox",
+    //                    id: "chkpopTotTariff",
+    //                    placeholder: "",
+    //                    width: 170,
+    //                    label: "Total Tariff",
+    //                    labelWidth: 70,
+    //                    on: {
+    //                        onChange: function (newv, oldv) {
+
+    //                        }
+    //                    }
+    //                },
+    //                {
+    //                    view: 'button',
+    //                    label: 'Ok',
+    //                    width: 60,
+    //                    id: "btnSaveeRows",
+    //                    align: "right",
+    //                    on: {
+    //                        onItemClick: function () {
+    //                            debugger;
+    //                            $$("OptionsPopup").hide();
+    //                            OptionShowClick();
+    //                            $$("dtGroupList").clearAll();
+    //                        }
+    //                    }
+    //                },
+    //                ],
+    //            }],
+    //        }
+    //    });
+    //    $$("OptionsPopup").show();
+    //    //debugger;
+    //    //webix.ui({
+    //    //    view: "window",
+    //    //    close: true,
+    //    //    //modal: true,
+    //    //    id: "OptionsPopup",
+    //    //    head: "Options",
+    //    //    position: "center",
+    //    //    //minWidth: 500,
+    //    //    //maxWidth: 500,
+    //    //    width: 400,
+    //    //    height: 250,
+    //    //    resize: true,
+    //    //    left:50,
+    //    //    autowidth: true,
+    //    //    body: {
+
+    //    //        rows: [{
+    //    //            view: "checkbox",
+    //    //            id: "chkpopSegment",
+    //    //            placeholder: "",
+    //    //            width: 170,
+    //    //            //container: "dvCheckExcept",
+    //    //            label: "Segment",
+    //    //            labelWidth: 70,
+    //    //            on: {
+    //    //                onChange: function (newv, oldv) {
+
+    //    //                }
+    //    //            }
+    //    //        },
+    //    //            {
+    //    //                view: "checkbox",
+    //    //                id: "chkpopSource",
+    //    //                placeholder: "",
+    //    //                width: 170,
+    //    //                label: "Source",
+    //    //                labelWidth: 70,
+    //    //                on: {
+    //    //                    onChange: function (newv, oldv) {
+
+    //    //                    }
+    //    //                }
+    //    //            },
+    //    //             {
+    //    //                 view: "checkbox",
+    //    //                 id: "chkpopTotTariff",
+    //    //                 placeholder: "",
+    //    //                 width: 170,
+    //    //                 label: "Total Tariff",
+    //    //                 labelWidth: 70,
+    //    //                 on: {
+    //    //                     onChange: function (newv, oldv) {
+
+    //    //                     }
+    //    //                 }
+    //    //             },
+    //    //              {
+    //    //                  view: 'button',
+    //    //                  label: 'Ok',
+    //    //                  width: 100,
+    //    //                  id: "btnSaveeRows",
+    //    //                  on: {
+    //    //                      onItemClick: function () {
+    //    //                          debugger;
+    //    //                          $$("OptionsPopup").hide();
+    //    //                          OptionShowClick();
+    //    //                          $$("dtGroupList").clearAll();
+    //    //                      }
+    //    //                  }
+    //    //              },
+    //    //        ],
+
+
+    //    //    }
+    //    //});
+
+    //    //BindOptionsGrid();
+
+
+    //}
+    function OptionShowClick() {
+        if ($$("chkpopSegment").getValue() == 1) {
+            $$("dtGroupList").showColumn("Segment");
+        }
+        else {
+            $$("dtGroupList").hideColumn("Segment");
+        }
+        if ($$("chkpopSource").getValue() == 1) {
+            $$("dtGroupList").showColumn("Source");
+        }
+        else {
+            $$("dtGroupList").hideColumn("Source");
+        }
+        if  ($$("chkpopTotTariff").getValue() == 1){
+            $$("dtGroupList").showColumn("TotalTariff");
+        }
+        else {
+            $$("dtGroupList").hideColumn("TotalTariff");
+        }
+    }
+    function BindOptionsGrid() {
+        debugger;
+        $$("dtOptionPop").refresh();
+        $$("OptionsPopup").show();
+        $$("dtOptionPop").select($$("dtOptionPop").getFirstId());
+        webix.UIManager.setFocus($$("dtOptionPop"));
+        $$("dtOptionPop").refresh();
+    }
+    function GridDesign() {
+        webix.ui({
+            id: "gridRpt",
+            container: "gridRptt",
+            select: 'row',
+            view: "treetable",
+            rowHeight: 30,
+            fixedRowHeight: false,
+            rowLineHeight: 23,
+            css: "WebIxStyle",
+            height: '400',
+            data: [],
+            on: {
+                onBeforeClose: function () {
+                    return false;
+                },
+            },
+        });
+    }
+
+
+    function DisplayTGroup() {
+        debugger;
+
+        $("#LoadDIv").show();
+        $$("dtGroupList").clearAll();
+        var reqobj = {};
+        var DispalyLedgerval = "";
+
+        if ($$("EndDt").getText() == "") {
+            webix.message({ type: 'warning', text: "To Date cann't be empty" });
+            return;
+        }
+
+        if ($$("startDt").getText() == "") {
+            webix.message({ type: 'warning', text: "From Date cann't be empty" });
+            return;
+        }
+
+        if ($$("ddlproperty").getText() == "") {
+            webix.message({ type: 'warning', text: "Property cann't be empty" });
+            return;
+        }
+
+
+
+        reqobj["FromDt"] = $$("startDt").getText();
+        reqobj["ToDt"] = $$("EndDt").getText();
+        reqobj["REQTYPE"] = "GET_FOGROUPLIST";
+        if ($$("chkInHouse").getValue() == 1)
+            reqobj["chkInHouse"] = "1";
+        if ($$("chkExcept").getValue() == 1)
+            reqobj["chkExcept"] = "1";
+        if ($$("chkCheckedout").getValue() == 1)
+            reqobj["chkCheckedout"] = "1";
+        var check = $$("dtGroupList").isColumnVisible("TotalTariff")
+        if(check == true)
+            reqobj["chkpopTotTariff"] = "1";
+        //reqobj["chkInHouse"] = $$("chkInHouse").getValue();
+        //reqobj["chkExcept"] = $$("chkExcept").getValue();
+        //reqobj["chkCheckedout"] = $$("chkCheckedout").getValue();
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/FoTrans/fnDisplayGroupList",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+                debugger;
+                if (d != "" && d != undefined && d != null) {
+                    //rowData = JSON.parse(d);
+                    rowData = d;
+                    $$("dtGroupList").clearAll();
+                    $$("dtGroupList").parse(rowData);
+                    $$("dtGroupList").refresh();
+
+                }
+                else {
+                    AlertMessage("No records found");
+                }
+
+            },
+        });
+        $("#LoadDIv").hide();
+
+    }
+    $(document).on('shown.lte.pushmenu', function () {
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(1);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+      
+    }).on('collapsed.lte.pushmenu', function(){
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(2);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+    });
+    function  sidebarFn(val){
+        //var rowDatad = $$("dtGroupList").serialize();
+
+        //if ($$("dtGroupList"))
+        //    $$("dtGroupList").destructor();
+
+        //dtLoadReport();
+
+        //$$("dtGroupList").clearAll();
+        //$$("dtGroupList").parse(rowDatad);
+        $$("dtGroupList").resize();
+    }
+    function dtLoadReport() {
+        webix.ui({
+            view: "treetable",
+            id: "dtGroupList",
+            select: 'row',
+            fixedRowHeight: false,
+            rowLineHeight: 23,
+            height: 450,
+           minWidth: 900,
+            spans: true,
+            autoConfig: true,
+            resizeColumn: true,
+            data: [],
+            css: "webix_header_border",
+            //rawValues: true,
+            container: "grdReport",
+            columns: [
+                { header: "Arrival", id: "ARRIVAL_DT", width: 90, css: { 'text-align': 'left ! important' } },
+                { header: "Departure", id: "DEPARTURE_DT", width: 90, css: { 'text-align': 'center ! important' } },
+                { header: "Status", id: "Status", width: 80, css: { 'text-align': 'center ! important' } },
+                { header: "Reserve no", id: "Reserve_NO", width: 90, css: { 'text-align': 'center ! important' } },
+                { header: "Guest", id: "GUEST_INFORM_NM", width: 180, css: { 'text-align': 'left ! important' } },
+                { header: "Pax", id: "PAX", width: 60, css: { 'text-align': 'center ! important' } },
+                { header: "Agent", id: "Agent", width: 150, css: { 'text-align': 'left ! important' } },
+                { header: "Company", id: "Company", width: 200, css: { 'text-align': 'left ! important' } },
+                { header: "Rooms", id: "ROOMS", width: 60, css: { 'text-align': 'center ! important' } },
+                { header: "Nights", id: "rnights", width: 60, css: { 'text-align': 'center ! important' } },
+                { header: "Type", id: "room_ty_id", width: 80, css: { 'text-align': 'center ! important' } },
+                { header: "Room no", id: "room_no", width: 90, css: { 'text-align': 'center ! important' } },
+                { header: "Segment", id: "Segment", width: 130, css: { 'text-align': 'left ! important' }, hidden: true },
+                { header: "Source", id: "Source", width: 130, css: { 'text-align': 'left ! important' }, hidden: true },
+                { header: "Rate type", id: "Rate_Type", width: 140, css: { 'text-align': 'left ! important' } },
+                { header: "Tariff", id: "Tariff", width: 125, css: { 'text-align': 'right ! important' },
+                    format: function (value) {
+                        return fnCurrFormat(value);
+                    },
+                    exportType: "number",
+                    exportFormat: "#,##0.00",
+                },
+
+                { header: "Total tariff", id: "TotalTariff", width: 125, css: { 'text-align': 'right ! important' }, hidden: true,
+                    format: function (value) {
+                        return fnCurrFormat(value);
+                    },
+                    exportType: "number",
+                    exportFormat: "#,##0.00",
+                },
+
+            ],
+            scheme: {
+                $change: function (item) {
+                    if (item.ARRIVAL_DT != "" && item.ARRIVAL_DT != null) {
+
+                        if (item.ARRIVAL_DT.substr(0, 5) == "GROUP") {
+                            $$("dtGroupList").addSpan(item.id, "ARRIVAL_DT", 16, 1, null, "GrpHead");
+                        }
+
+
+                    }
+                    if (item.Rate_Type != "" && item.Rate_Type != null) {
+                        if (item.Rate_Type.substr(0, 5) == "Total") {
+                            $$("dtGroupList").addSpan(item.id, "Rate_Type", 1, 1, null, "GrpTot1");
+                            $$("dtGroupList").addSpan(item.id, "Tariff", 1, 1, null, "GrpTot1");
+                            $$("dtGroupList").addSpan(item.id, "TotalTariff", 1, 1, null, "GrpTot1");
+
+
+                        }
+                    }
+
+                },
+
+            },
+
+            on: {
+                onAfterLoad: function () {
+                    var rowId = this.getFirstId();
+                },
+
+                onBeforeClose: function () {
+                    return false;
+
+                },
+
+            },
+        });
+
+    }
+    function AlertMessage(Text) {
+        return webix.alert({
+            ok: "Ok",
+            width: 350,
+            title: "Alert Message",
+            text: Text,
+            modal: true,
+        });
+    }
+</script>
+<style>
+    .textaligntotal {
+        text-align: right;
+    }
+
+    .GrpTot1 {
+        color: red;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: right !important;
+    }
+
+    .GrpTot2 {
+        color: red;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: right !important;
+    }
+
+    .GrpHead {
+        color: #4894ca;
+        font-weight: Bold;
+        font-family: Arial !important;
+    }
+
+    .btnXX {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 1.5;
+    }
+    .webix_button {
+        background-color: #dad6d6 !important;
+        color: #454545 !important;
+    }
+
+
+    .webix_secondary .webix_button:focus, .webix_secondary .webix_button:hover {
+        color: #fff !important;
+        background-color: #1a388a !important;
+    }
+
+    webix_secondary .webix_button:active {
+        color: #fff !important;
+        background-color: #1a388a !important;
+    }
+
+    .new_hdr {
+        background: rgba(220, 239, 252,0.15);
+        -webkit-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        -moz-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        padding: 10px 0px 9px 10px;
+        margin-top: 40px !important;
+    }
+    .webix_dtable {
+        cursor: default;
+        position: relative;
+        z-index: 0;
+       
+    }
+</style>
+<link href="~/Content/sidemenu-custom.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <div id="MAIN" class="FullwidthDIV">
+        <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+            <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row new_hdr">
+
+
+
+            <div class="col-sm-3">
+                <div class="" style="width:100%" id="divPropbox">
+                    <div style="width:100%" id="dtProperty"></div>
+                </div>
+            </div>
+            <div class="col-sm-5 text-center">
+                <label class="mt-1" style="color: black; font-weight: bold" id="lblRptCaption"><strong class="mt-1 wc_hdr_tlt">Group List</strong></label>
+
+            </div>
+            <div class="col-sm-4 text-right">
+                <div id="divPrint" class="btnXX"></div>
+                <div id="BtnExcel" class="btnXX"></div>
+            </div>
+            @*<div id="BtnExcel" class="btnXX"></div>*@
+        </div>
+        <div class="themedes" style="margin-top:5px;">
+            <div class="controlbox">
+                <div id="FoQuery1" style="height: 50px;">
+                    <div class="Glrowline">
+                        <div style="width:20%;float:left">
+                            <div id="dtFromdt"></div>
+                        </div>
+                        <div style="width:17%;float:left">
+                            <div id="dtTodt"></div>
+                        </div>
+                        <div style="width:7%;float:left">
+                            <div id="BtnDisplay"></div>
+                        </div>
+
+                        <div style="width:10%;float:left">
+                            <div id="dvCheckExcept"></div>
+                        </div>
+                        <div style="width:10%;float:left">
+                            <div id="dvChkInHouse"></div>
+                        </div>
+                        <div style="width:12%;float:left">
+                            <div id="dvCheckedout"></div>
+                        </div>
+                        <div style="width:8%;float:left">
+                            <div id="dvOptions"></div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="dvRpt" style="float: left; width: 100%; background-color: #fff;">
+                    <div id="grdReport" style="float: left; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <input type="hidden" id="CURRENCY_FORMAT" />
+    <input type="hidden" id="CURRENCY_DELIMIT" />
+    <input type="hidden" id="CURRENCY_DECIMLIMIT" />

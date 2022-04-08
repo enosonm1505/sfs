@@ -1,0 +1,33 @@
+﻿<div class="modal fade" id="divcreditcard" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:78%">
+            <div class="modal-header">
+
+                <h4 class="modal-title" id="lblearndect"><i id="earnicon" class="fa fa-plus-circle"></i> <span id="CmnHeading"> </span> </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div id="GridCredit" style="height:300px" data-text="NM"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCncl" type="button" class="btn btn-warning" data-dissmiss="modal">
+                    <i class="fa fa-close (alias)"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  
+    $(document).ready(function () {
+        debugger;
+        $("#btnCncl").click(function () {
+            $("#divcreditcard").modal("hide");
+        });
+
+    });
+
+
+</script>

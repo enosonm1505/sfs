@@ -1,0 +1,55 @@
+﻿<div class="modal fade" id="MulSup" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:80%; margin-left:20%;">
+            <div class="modal-header">
+                <h4 class="modal-title" id="lblearndect"><i id="earnicon" class="fa fa-plus-circle"></i> <span id="CmnHeading">Party Search </span> </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div id="MulSupGrid" style="height:370px" data-text="NM"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnMulsup" type="button" class="btn btn-warning" data-dissmiss="modal"><i class="fa fa-close (alias)"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #MulSupGrid .k-grid-content {
+        height: 300px;
+    }
+</style>
+
+
+<script type="text/javascript">
+    $("#btnMulsup").click(function () {
+        $("#MulSup").modal("hide");
+    });
+
+    $("#MulSupGrid").on("dblclick", "tbody > tr > td", function () {
+        debugger;
+        var row = {};
+        var getparent = "";
+        var grid = $("#MulSupGrid").data("kendoGrid");
+        var row = $(this).closest("tr");
+        var rowindx = grid.selectable.userEvents.currentTarget.rowIndex;
+        var selectedItem = grid.dataItem(grid.select());
+        if (selectedItem != null) {
+            debugger;
+            console.log(selindex);
+            var getchild = $("#PurReqMul").data("kendoGrid").dataSource.data()[selindex];
+            getchild.PARTY_ID = selectedItem.PARTY_ID;
+            getchild.PARTY_NM = selectedItem.PARTY_NM.replace("&", "and");
+
+            $("#PurReqMul").data("kendoGrid").refresh();
+
+
+            $("#btnMulsup").click();
+        }
+        $("#btnMulsup").click();
+    });
+
+
+</script>

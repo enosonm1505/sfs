@@ -1,0 +1,91 @@
+﻿ 
+.multiline {
+    line-height: 16px !important;
+    justify-content: center;
+    align-items: center;
+    content: 'x';
+    display: flex; 
+                            
+}  
+
+.TEgrid .webix_column>div.webix_cell_select,.TEgrid .webix_column>div.webix_column_select,.TEgrid .webix_column>div.webix_row_select {
+    background: #fff !important;
+    color: black !important;
+}
+
+.TEgrid .webix_dtable_focused .webix_column > div.webix_column_select,.TEgrid .webix_dtable_focused .webix_column > div.webix_row_select {
+    background: #fff !important;
+    color: black !important;
+} 
+
+.TEgrid .webix_column > div,.TEgrid .webix_table_cell {   
+    padding: 0 3pt;
+} 
+
+.TEgrid .webix_dt_editor input,.TEgrid .webix_dt_editor select {
+    border-color: #dadee0! important;
+    border-radius: 2px;
+    background-color: white;
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+.webix_column > div .TEgridbtn {   
+    padding: 1pt 1pt !important;
+}
+
+.TEgrid .TEgridbtn > div {   
+     padding: 1pt 1pt !important;
+} 
+
+
+/*.TEgridbtn .webix_cell {    
+    background-color:#dad6d6 !important;
+    text-align:center !important;
+    border-radius: 4px;  
+    border-color:darkgray;
+    width:24px !important;   
+    left:2px !important;
+    top:2px !important;
+}*/
+
+.TEGridIconBtn {
+    background-color: #dad6d6 !important;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    /*border-color: darkgray;*/    
+    text-align: center;    
+    line-height: 24px;
+    font-size: 17px;
+    border: 1px solid #8e8989;
+}
+
+.TEgrid .TEGridIconBtn:hover {
+    background-color: #1c2e8c !important; 
+    color:white;   
+    border: 1px solid #8e8989;
+}
+
+.WeakEndCol {
+    color: red !important;
+}
+
+.REDFORECOL{
+    color: red !important;
+}
+.TEDtSugg {
+   width:fit-content ! important;
+   min-width:100px !important;
+   
+}
+
+.TEDtSugg1 {
+    width:fit-content ! important;
+    min-width:100px !important; 
+}
+
+.TEDisabledColor{
+    background-color: #dad6d6 !important;
+}
+

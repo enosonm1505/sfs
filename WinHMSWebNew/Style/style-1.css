@@ -1,0 +1,491 @@
+.style-1
+{
+}
+.List
+{
+	border-right: #004088 1px solid;
+	border-top: #004088 1px solid;
+	font-size: 11px;
+	border-left: #004088 1px solid;
+	color: #004088;
+	border-bottom: #004088 1px solid;
+	font-family: verdana,arial,sans-serif;
+}
+
+.top-link
+{
+	font-weight: bold;
+	font-size: 11px;
+	color: #ffffff;
+	font-family: Verdana;
+	text-decoration: none;
+}
+.tr1
+{
+	background-color: #7E517E;
+	font-weight: bold;
+	font-family: Verdana;
+	font-size: small;
+	height:5px; 
+	margin: 0px 0px 0px 0px;
+    color: White;
+}
+.layer-link
+{
+	font-size: 12px;
+	color: #003399;
+	font-family: Verdana;
+	text-decoration: none;
+}
+/*a:hover {font-family: Verdana; color: #8b0000; text-decoration: none;}*/
+/*a:hover {font-family: Verdana; color: #8b0000; text-decoration: none; background: none}*/
+
+
+.BOTTOM-LINE
+{
+	border-right: black 0px solid;
+	border-top: black 0px solid;
+	border-left: black 0px solid;
+	border-bottom: #666666 1px solid;
+}
+.heading-1
+{
+	font-weight: bold;
+	font-size: 15px;
+	color: #990000;
+	font-family: Verdana;
+}
+.layer-link-1
+{
+	font-size: 12px;
+	color: #000000;
+	font-family: Verdana;
+	text-decoration: none;
+}
+.cursor
+{
+	cursor: nw-resize;
+}
+.border
+{
+	border-right: #000000 2px double;
+	border-top: #000000 2px double;
+	border-left: #000000 2px double;
+	border-bottom: #000000 2px double;
+}
+.TITLES
+{
+	font-weight: bold;
+	font-size: 12px;
+	color: #ffff00;
+	font-family: Verdana;
+	text-decoration: none;
+}
+.small-font
+{
+	font-size: 9px;
+	font-family: Verdana;
+}
+.cursor-1
+{
+	cursor: hand;
+}
+.layeer-title
+{
+	font-weight: bold;
+	font-size: 12px;
+	color: #000000;
+	font-family: Verdana;
+	text-decoration: none;
+}
+.layer-link-2
+{
+	font-size: 11px;
+	color: #000000;
+	font-family: Verdana;
+	text-decoration: none;
+}
+.back
+{
+	background-position: left top;
+	background-attachment: fixed;
+	background-image: url(background.gif);
+	background-repeat: no-repeat;
+}
+.right
+{
+	border-right: #004080 2px solid;
+	border-top: black 0px solid;
+	border-left: black 0px solid;
+	border-bottom: #004080 2px solid;
+}
+.right-border
+{
+	border-right: #ffffff 2px solid;
+	border-top: black 0px solid;
+	border-left: black 0px solid;
+	border-bottom: black 0px solid;
+}
+.bottom
+{
+	border-right: black 0px solid;
+	border-top: black 0px solid;
+	border-left: black 0px solid;
+	border-bottom: #ffffff 1px solid;
+}
+.logincontent
+{
+	font-weight: bold;
+	font-size: 14px;
+	color: #000033;
+	font-style: normal;
+	font-family: Verdana;
+	text-decoration: none;
+}
+.textstyle
+{
+	font-size: 10px;
+	color: #004088;
+	font-family: Verdana;
+}
+.textstyle3
+{
+	font-size: 11px;
+	color: #000000;
+	font-family: Verdana;
+}
+
+.textstyle1cancl
+{
+	border-right: #dee3e0 1px solid;
+	border-top: #dee3e0 1px solid;
+	font-size: 11px;
+	border-left: #dee3e0 1px solid;
+	color: #dee3e0;
+	border-bottom: #dee3e0 1px solid;
+	background-color: Red;
+	font-family: Verdana;
+}
+.nEWtextstyle1
+{
+	border-right: #004088 1px solid;
+	border-top: #004088 1px solid;
+	font-size: 11px;
+	border-left: #004088 1px solid;
+	color: #004088;
+	border-bottom: #004088 1px solid;
+	font-family: Courier New;
+}
+.forbutton
+{
+	border-right: black 1px solid;
+	border-top: black 1px solid;
+	font-size: 11px;
+	border-left: black 1px solid;
+	border-bottom: black 1px solid;
+	font-family: Verdana;
+	wdith: 200;
+}
+.forbutton1
+{
+	border-right: black 1px solid;
+	border-top: black 1px solid;
+	font-size: 11px;
+	border-left: black 1px solid;
+	color: white;
+	border-bottom: black 1px solid;
+	font-family: Verdana;
+	background-color: #004080;
+	wdith: 200;
+}
+.forsearchbutton
+{
+	border-right: 0px solid;
+	border-top: 0px solid;
+	font-size: 11px;
+	border-left: 0px solid;
+	border-bottom: 0px solid;
+	font-family: Verdana;
+	width: 150;
+}
+.calbutts
+{
+	font-weight: bold;
+	font-size: 11px;
+	width: auto;
+	cursor: hand;
+	color: #bf485d;
+	border-top-style: none;
+	font-family: Arial;
+	background-color: #6fa8cf;
+}
+.texttitle1
+{
+	font-family: Verdana;
+	font-size: 11;
+	font-weight: bold;
+	color: #6f5140;
+}
+.texttitle2
+{
+	font-family: Verdana;
+	font-size: 11;
+	color: #6f5140;
+}
+.textprinttitle
+{
+	font-family: Verdana;
+	font-size: 17;
+	color: #000000;
+}
+.textprintheadings
+{
+	font-family: Verdana;
+	font-size: 10;
+	color: #000000;
+}
+.textprintreports
+{
+	font-family: Verdana;
+	font-size: 10;
+	color: #000000;
+}
+.txtboxsmall
+{
+	border-right: #FFFFFF 1px solid;
+	border-top: #FFFFFF 1px solid;
+	font-size: 11px;
+	border-left: #FFFFFF 1px solid;
+	width: 79px;
+	border-bottom: #FFFFFF 1px solid;
+	font-family: arial, tahoma, verdana;
+	height: 20px;
+	color: #004088;
+	background-color: white;
+}
+.txtboxbig
+{
+	border-right: #FFFFFF 1px solid;
+	border-top: #FFFFFF 1px solid;
+	font-size: 11px;
+	border-left: #FFFFFF 1px solid;
+	width: 65Px;
+	border-bottom: #FFFFFF 1px solid;
+	font-family: arial, tahoma, verdana;
+	height: 20px;
+	color: #004088;
+	background-color: white;
+}
+.txtboxdays
+{
+	border-right: #FFFFFF 1px solid;
+	border-top: #FFFFFF 1px solid;
+	font-size: 11px;
+	border-left: #FFFFFF 1px solid;
+	width: 30px;
+	border-bottom: #FFFFFF 1px solid;
+	font-family: arial, tahoma, verdana;
+	height: 20px;
+	color: #004088;
+	background-color: white;
+}
+.txtboxReddays
+{
+	border-right: #FFFFFF 1px solid;
+	border-top: #FFFFFF 1px solid;
+	font-size: 11px;
+	border-left: #FFFFFF 1px solid;
+	width: 30px;
+	border-bottom: #FFFFFF 1px solid;
+	font-family: arial, tahoma, verdana;
+	height: 20px;
+	color: white;
+	background-color: REd;
+}
+
+.txtHIDDATE
+{
+	border-right: #FFFFFF 1px solid;
+	border-top: #FFFFFF 1px solid;
+	font-size: 11px;
+	border-left: #FFFFFF 1px solid;
+	width: 56px;
+	border-bottom: #FFFFFF 1px solid;
+	font-family: arial, tahoma, verdana;
+	height: 20px;
+	color: #004088;
+	background-color: white;
+}
+.txtboxhidRmsmall
+{
+	border-right: #FFFFFF 1px solid;
+	border-top: #FFFFFF 1px solid;
+	font-size: 11px;
+	border-left: #FFFFFF 1px solid;
+	width: 27px;
+	border-bottom: #FFFFFF 1px solid;
+	font-family: arial, tahoma, verdana;
+	height: 20px;
+	color: #004088;
+	background-color: white;
+}
+.txtboxequalierhidRmsmall
+{
+	border-right: #FFFFFF 1px solid;
+	border-top: #FFFFFF 1px solid;
+	font-size: 11px;
+	border-left: #FFFFFF 1px solid;
+	width: 14px;
+	border-bottom: #FFFFFF 1px solid;
+	font-family: arial, tahoma, verdana;
+	height: 20px;
+	color: #004088;
+	background-color: white;
+}
+.txtboxhidRmsmallRed
+{
+	border-right: #FFFFFF 1px solid;
+	border-top: #FFFFFF 1px solid;
+	font-size: 11px;
+	border-left: #FFFFFF 1px solid;
+	width: 27px;
+	border-bottom: #FFFFFF 1px solid;
+	font-family: arial, tahoma, verdana;
+	height: 20px;
+	color: red;
+	background-color: white;
+}
+.newcmbbox
+{
+	border-right: #004088 1px solid;
+	border-top: #004088 1px solid;
+	font-size: 11px;
+	border-left: #004088 1px solid;
+	width: 170px;
+	border-bottom: #004088 1px solid;
+	font-family: arial, tahoma, verdana;
+	height: 22px;
+	background-color: white;
+}
+
+.totaltext
+{
+	font-size: 8px;
+	font-style: normal;
+	font-family: 'Small Fonts';
+	font-variant: small-caps;
+	color: #6f5140;
+}
+.bluebutten
+{
+	border: 1px solid #cfd3e7;
+	font-weight: bold;
+	font-size: 9px;
+	vertical-align: top;
+	cursor: hand;
+	color: #ffffff;
+	font-family: Verdana;
+	background-color: #8b0000;
+	text-align: center;
+	margin-bottom: 0px;
+}
+.butten
+{
+	border-right: #004080 1px solid;
+	border-top: #004080 1px solid;
+	font-weight: bold;
+	font-size: 11px;
+	vertical-align: top;
+	border-left: #004080 1px solid;
+	cursor: hand;
+	color: #ffffff;
+	border-bottom: #004080 solid;
+	font-family: Verdana;
+	height: 20px;
+	background-color: #004080;
+	text-align: center;
+}
+.RoomStatusocc
+{
+	font-size: 9px;
+	font-family: 'Small Fonts';
+	color: #004088;
+	font-variant: small-caps;
+}
+.dateTxtBox
+{
+	background-color: white;
+	border-bottom: #004088 0px solid;
+	border-left: #004088 0px solid;
+	border-right: #004088 0px solid;
+	border-top: #004088 0px solid;
+	font-family: verdana;
+	color: #004088;
+	font-size: 11px;
+	height: 17px;
+	width: 75px;
+}
+.textstyle1
+{
+	border-right: #004088 1px solid;
+	border-top: #004088 1px solid;
+	font-size: 11px;
+	border-left: #004088 1px solid;
+	color: #004088;
+	border-bottom: #004088 1px solid;
+	font-family: Verdana;
+}
+.GrdHeader
+{
+	background-color: Black;
+}
+.GrdBackground
+{
+	background-color: #e4e4e4;
+}
+.GrdSelect
+{
+	background-color: #cccccc;
+}
+.GrdFont
+{
+	font-size: 11px;
+	color: #004088;
+	font-family: Verdana;
+}
+.BtnRtSearch
+{
+	background-image: url(                      'Images/btnFind.png' );
+	background-attachment: inherit;
+	background-color: Transparent;
+	background-repeat: no-repeat;
+	border-style: none; /*background-position:4px 4px;*/
+	width: 14px;
+	height: 34px;
+}
+.BtnRemove
+{
+	background-image: url(                            'Images/btnRemove.png' );
+	background-attachment: inherit;
+	background-color: Transparent;
+	background-repeat: no-repeat;
+	border-style: none;
+	background-position: 4px 4px;
+	width: 34px;
+	height: 34px;
+}
+.body
+{
+	background-color:#e4e4e4;
+}
+.bodyHdr
+{
+	background-color:#2d2d2d;
+}
+.divBg
+{
+	background-color:  #fbfcdf;
+}
+
+/*-------------------*/
+

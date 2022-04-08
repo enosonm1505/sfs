@@ -1,0 +1,18 @@
+23/12/2021 15:11:49
+D:\Hosted\FO_Standalone\WinHMSWebNew\LogFile\ADMIN_FoMaster.txt
+The remote server returned an error: (500) Internal Server Error.
+Date :23/12/2021 15:11:49
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:11:54
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:11:55
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:11:55
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:11:55
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:13:24
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:13:25
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:13:25
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:13:25
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:13:25
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:13:25
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:13:25
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:13:26
+The remote server returned an error: (500) Internal Server Error.Date :23/12/2021 15:13:26
+The remote server returned an error: (500) Internal Server Error.

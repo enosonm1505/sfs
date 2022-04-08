@@ -1,0 +1,75 @@
+﻿
+.demo-section {
+    padding: 30px;
+    width: 200px;
+    height: 200px;
+}
+
+#listView {
+    padding: 10px;
+    margin-bottom: -1px;
+    min-width: 200px !important;
+    min-height: 200px !important;
+    max-width: 200px !important;
+    max-height: 200px !important;
+    overflow-y: scroll !important;
+}
+
+.product {
+    float: left;
+    position: relative;
+    width: 65px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-radius: 7px 0px 7px 0px;
+}
+
+    .product img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .product h3 {
+        margin: 0;
+        padding: 3px 5px 0 0;
+        max-width: 96px;
+        overflow: hidden;
+        line-height: 1.1em;
+        font-size: .9em;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: #999;
+    }
+
+    .product p {
+        visibility: hidden;
+    }
+
+    .product:hover p {
+        visibility: visible;
+        position: absolute;
+        width: 65px;
+        height: 50px;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        line-height: 50px;
+        vertical-align: middle;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(0,0,0,0.5);
+        transition: background .2s linear, color .2s linear;
+        -moz-transition: background .2s linear, color .2s linear;
+        -webkit-transition: background .2s linear, color .2s linear;
+        -o-transition: background .2s linear, color .2s linear;
+    }
+
+    .k-listview:after, .product dl:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }

@@ -1,0 +1,1599 @@
+﻿@{
+    ViewBag.Title = "History and Forecast";
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";    
+}
+<script src="../../Scripts/xlExport.js"></script>
+
+<div class="content-wrapper">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <link href="../../Content/Contribute.css" rel="stylesheet" />
+        <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+        
+        <link href="../../Content/xlExportCss.css" rel="stylesheet" />
+        <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+        <link href="~/FO/CSS/sidemenu-custom.css" rel="stylesheet" />
+        @*<div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>
+        </div>*@
+        
+
+        <div class="container-fluid">
+            <div class="row new_hdr">
+                <div class="col-sm-3">
+
+                    <div class="TextWidth" id="divPropbox">
+                    </div>
+                </div>
+                <div class="col-sm-5 text-center">
+                    <strong>
+                        <label style="color: black; font-weight: bold" class="wc_hdr_tlt" id="lblRptCaption"><strong>History and Forecast</strong></label>
+                    </strong>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card-tools text-right">
+                        <div id="divPrint" class="btnXX"></div>
+                        <div id="divExcel" class="btnXX"></div>
+                    </div>
+                </div>
+            </div>
+                
+            <div style="border:solid transparent;" class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 pr-0">
+                    <div class="row">
+                        <div class="col-md-12 pr-0">
+                            <div id="divSegment"></div>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 " style="max-width:345px">
+                    <div class="row">
+                        <div class="col-md-9 pr-0" style="max-width:175px">
+                            <div id="divFrom"></div>
+                        </div>
+                        <div class="col-md-3 pl-0 pr-0">
+                            <div id="divbtnoptions"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-9 pr-0" style="max-width:175px">
+                            <div id="divTo"></div>
+                        </div>
+                        <div class="col-md-3 pl-0  pr-0">
+                            <div id="divbtnDisp"></div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 pr-0">
+                    <div class="row">
+                        <div class="col-md-6" style="padding-left:0px">
+                            <div class="row">
+                                <div class="col-md-12" style="padding-left:0px">
+                                    <div id="divWithHUComp"></div>
+                                </div>
+                                <div class="col-md-12" style="padding-left:0px">
+                                    <div id="divSkipDayUse"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding-left:0px">
+                            <div id="divRealTime"></div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-xl-2 col-md-2 col-sm-6 pr-0">
+                    <div class="row">
+                        <div class="col-md-12" style="padding-left:0px">
+                            <div id="divRealTime"></div>
+                        </div>                            
+                    </div>
+                </div>*@
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="gridRptt" style="width: 100%; "></div>
+                </div>
+            </div>
+        </div>
+        
+        <input type="hidden" id="CURRENCY_FORMAT" />
+        <input type="hidden" id="CURRENCY_DELIMIT" />
+        <input type="hidden" id="CURRENCY_DECIMLIMIT" />
+        <input type="hidden" id="HdnCurrDt" />
+        <input type="hidden" id="HdnCurrMnth" />
+        <input type="hidden" id="HdnAccDt" />
+        <input type="hidden" id="HdnToAccDt" />
+        <input type="hidden" id="HdnAccMnth" />
+        <input type="hidden" id="HdnFrmMnth" />
+        <input type="hidden" id="HdnToMnth" />
+        <input type="hidden" id="HdnYrFrmMnth" />
+        <input type="hidden" id="HdnYrToMnth" />
+        <input type="hidden" id="BASE_COUNTRY_ID" />
+
+
+        <style>
+            .btnXX {
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 1.5;
+            }
+        </style>
+
+        @*Topmenu Style ends*@
+        <style>
+            .Pagefalse {
+                pointer-events: none;
+                opacity: 0.6;
+            }
+                     
+                       
+            .GrpTot1 {
+                color: black;
+                font-weight: Bold;
+                font-family: Arial !important;
+                background-color: #93e4e4 !important;
+            }
+
+            .GrpTot2 {
+                color: black;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GrpTotBtm {
+                background-color: lightgray;
+                color: Brown;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GrpTotGrnd {
+                background-color: blue;
+                color: white;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GndTot {
+                background-color: blue;
+                color: white;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+           
+            .WeekEnd {
+                background-color: red !important;
+                color:white !important;
+                font-weight:bold;
+            }
+
+            .PastDay {
+                background-color: #ffb6c1ba;
+            }
+
+            .MyOptBox .webix_radio_option {
+                height: 21px;
+            }
+
+            .LeftAlign .webix_ss_footer .webix_hcell {
+                text-align: left !important;
+            }
+
+           
+            .multiline {
+                line-height: 16px !important;
+                justify-content: center;
+                align-items: center;
+                content: 'x';
+                display: flex;
+            }
+            .GridDaySettle .webix_ss_footer td, .GridDaySettle .webix_ss_vscroll_footer {
+                font-weight: bold;
+                font-size: 11px !important;
+                font-family: Arial !important;
+               
+            }
+                   
+        </style>
+
+        <script>
+            var vGridTotData = [];
+            $(document).ready(function () {
+                debugger;
+                $("#MenuName").val('FOMNUREPHISTANDFOR');
+                $("#MenuLvl").val('FOMNUQU2');
+                $("#MenuLvl1").val('');
+                var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+                var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+                window.DEF_DT_FORMAT = "1";
+
+                webix.ready(function () {                    
+                    fnLoadSegmentSrchWindow();
+                    loadOptionPopWindow();                    
+                    GridDesign();
+
+                    webix.ui({
+                        view: "button", id: "Print", value: "Print", width: 70, container: "divPrint", label: Print, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnGridPrint();
+                            }
+                        }
+                    });
+
+                    webix.ui({
+                        view: "button", id: "Excel", value: "Excel", width: 70, container: "divExcel", label: excel, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnExcelExport();
+                            }
+                        }
+                    });
+
+
+
+                    webix.ui({
+                        view: "button", id: "btnOptions",css: "webix_primary",  value: "Options", width: 30,label:'<span class="fa fa-filter"></span>', container: "divbtnoptions", tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                btnOptionClick();
+                            }
+                        }
+                    });
+                   
+
+                    webix.ui({
+                        container: "divFrom", view: "datepicker", label: "From ", labelWidth: 40,labelAlign:"right", width:160, name: "FromDt", id: "FromDt", format: "%d/%m/%Y", stringResult: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();
+                                var frmdate = $$("FromDt").getValue();
+                                var todate = $$("ToDt").getValue();
+                                if (frmdate != "" && todate != "") SMFromDateChange();
+                            }
+                        }
+                    });
+
+                    webix.ui({
+                        container: "divTo", view: "datepicker", label: "To ", labelWidth: 40,labelAlign:"right", width:160, name: "ToDt", id: "ToDt", format: "%d/%m/%Y", stringResult: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();
+                                var frmdate = $$("FromDt").getValue();
+                                var todate = $$("ToDt").getValue();
+                                if (frmdate != "" && todate != "") SMToDateChange();
+                            }
+                        }
+                    });
+
+                    webix.ui({
+                        view: "search", label: 'Segment', id: 'SrchSegment', labelWidth: 60, minWidth: 220, maxWidth: 320, readonly: true, container:"divSegment",
+                        placeholder: "<ALL>",
+                        on: {
+                            onSearchIconClick: function () {
+                                debugger;
+                                $$("RptSegmentTypeSrchPopUp").show();
+                            },
+                            onKeyPress: function (code, e) {
+                                debugger;
+                                //if (code == 13 || code == 32) fnBtnPlanSrchClickExpBk();
+                            },
+                            }
+                    }), 
+
+                    webix.ui({ container: "divbtnDisp", view: "button", id: "btnDisplay",css: "webix_primary", icon: "wxi-check", label: "Display", inputWidth: 60, width: 80, click: function () { fnbtnDisplay(); } }),
+                    webix.ui({ container: "divRealTime", view: "checkbox", id: "ChkReal",height:21, labelWidth: 90, label: "Real Time", customCheckbox: false, on:{ onChange:function () { ClearGrid(); }} }),
+                    webix.ui({ container: "divWithHUComp",view: "checkbox",id: "ChkWHCOMP",height:21, labelWidth: 90, label: "with HU/Comp", customCheckbox: false, on:{ onChange:function () { ClearGrid(); }}}),
+                    webix.ui({ container: "divSkipDayUse",view: "checkbox",  id: "ChkSkipDayUse",height:21, labelWidth: 90, label: "Skip DayUse", customCheckbox: false,on:{ onChange:function () { ClearGrid(); }}}),
+                    webix.ui({ view: "text", id: "SegmentId",hidden:true}),
+
+
+                    webix.ui({
+                        container: "divPropbox", view: "richselect", id: "Property",//width: 220,//autowidth:true,
+
+                        on: {
+                            onChange: function (NewVal, OldVal) {
+                                if (NewVal != "") {
+                                    debugger;
+                                    $$("gridRpt").clearAll();
+                                    LoadCompChange(NewVal);
+                                }
+                            }
+                        }
+
+                    });
+                    //debugger;
+
+                    var cmpid= @Html.Raw(Json.Encode(ViewBag.COMP));
+                    //FNLoadAllCompany(cmpid);
+                    LoadProperty(cmpid);
+
+                    var propchk = @Html.Raw(Json.Encode(ViewBag.MLTPROPHISHIND));
+                    if (propchk == "1") $("#divPropbox").show();
+                    else if (propchk == "0") $("#divPropbox").hide();
+
+                    gridResize();
+
+                });
+
+                webix.event(window, "resize", function () {
+                    gridResize();
+                })
+
+            });
+
+            function gridResize(){
+                var vheight = window.innerHeight
+                       || document.documentElement.clientHeight
+                       || document.body.clientHeight;
+                var offset =  $("#gridRptt").offset();
+                $$("gridRpt").define("height", ((vheight - offset.top-30)));
+                $$("gridRpt").adjust();
+            }
+            function LoadProperty(cmpid) {
+                debugger;
+                Request = {
+                    REQTYPE: "GET_PROPERTYLOAD",
+                    COMPID: cmpid,
+                }
+                Prop_Id = cmpid;
+                var rowData = [];
+                var options =[];
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            $$("Property").define("options",rowData);
+                            $$("Property").refresh();
+                            $$("Property").setValue(Prop_Id);
+
+                        }
+                    },
+                });
+            };
+            function LoadDate(cmpid) {
+                debugger;
+
+                Request = {
+                    REQTYPE: "GET_FRMMNTHTOMNTH",
+                    COMPID: cmpid,
+                }
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+
+                    success: function (data) {
+                        debugger;
+                        var data1 = JSON.parse(data);
+                        var vCurrDt = data1[0].CURRDT.toString().trim();
+                        var vAccDt = data1[0].HISFDAY.toString().trim();
+                        var vToAccDt = data1[0].HISTODAY.toString().trim();
+                        
+
+                        $("#HdnCurrDt").val(vCurrDt);
+                        $("#HdnAccDt").val(vToAccDt);
+                        $("#HdnToAccDt").val(vAccDt);
+                        
+                        $$("FromDt").setValue(vAccDt);
+                        $$("ToDt").setValue(vToAccDt);
+
+                    },
+                });
+            };
+            function formatDate1(StrDt) {
+                debugger;
+                var Parts = StrDt.split("/");
+                var Dt = Parts[0];
+                var Mn = Parts[1];
+                var Yr = Parts[2].substring(0, 4);
+                var Str = Yr + "-" + Mn + "-" + Dt;
+                return Str;
+            };
+            function LoadCompChange(CompId) { 
+                
+                $$("txtIndivGrp").setValue("0");
+                $$("txtTotRms").setValue("0");
+                $$("txtRmsSale").setValue("0");
+                $$("txtRmsAvail").setValue("0");
+                $$("txtExcldTent").setValue("1");
+
+                $$("SegmentId").setValue("");
+                $$("SrchSegment").setValue("");
+
+                $$("ChkWHCOMP").setValue("1");
+
+                LoadControl(CompId);
+                LoadDate(CompId);
+                var W10_IND = "0";
+                var CHKPM = "0";
+                var vCmpId = $$("Property").getValue();                
+                fnLoadSegmentGrid();
+                fnLoadResExcl();
+                fnShowColumn();
+                fnbtnDisplay();
+               
+            };
+            function LoadCurrDet(vProperty) {
+                //debugger;
+                window.CURRENCY_FORMAT = "";
+                window.CURRENCY_DELIMIT = "";
+                window.CURRENCY_DECIMLIMIT = "";
+                var rowDatad = [];
+                try {
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/Reports/GetCurrFormatDetails",
+                        data: "CmpId=" + vProperty,
+                        success: function (d) {
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+                                window.CURRENCY_FORMAT = rowDatad.CURRENCY_FORMAT;
+                                window.CURRENCY_DELIMIT = rowDatad.CURRENCY_DELIMIT;
+                                window.CURRENCY_DECIMLIMIT = rowDatad.CURRENCY_DECIMLIMIT;
+                            }
+                        }
+                    });
+
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            function LoadControl(CompId) {
+                debugger;
+                var rowDatad = [];
+                window.CURRENCY_FORMAT = "";
+                window.CURRENCY_DELIMIT = "";
+                window.CURRENCY_DECIMLIMIT = "";
+                window.DEF_DT_FORMAT = "1";
+                window.A14_NM = "";
+                window.B14_NM = "";                
+                try {
+                    Request = {
+                        REQTYPE: "GET_FNGETLOADCONT",
+                        COMPID: CompId,
+                    }
+
+                    var rowData = [];
+                    var options =[];
+                    var dataparam = JSON.stringify(Request);
+
+
+
+                    $.ajax({
+                        async: false,
+                        url: "/Reports/FOAPI_CALL",
+                        type: 'POST',
+                        data: "request=" + dataparam,
+                        success: function (d) {
+                            debugger;
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+                                var BASE_COUNTRY_ID = "";
+
+                                A14_NM, B14_NM
+
+                                debugger;
+
+                                if (rowDatad.RA[0].COUNTRY_ID != null && rowDatad.RA[0].COUNTRY_ID != "") BASE_COUNTRY_ID = rowDatad.RA[0].COUNTRY_ID.toString().trim();
+
+                                window.CURRENCY_FORMAT = rowDatad.RA[0].CURRENCY_FORMAT;
+                                window.CURRENCY_DELIMIT = rowDatad.RA[0].CURRENCY_DELIMIT;
+                                window.CURRENCY_DECIMLIMIT = rowDatad.RA[0].VAL_DECIM_LIMIT;
+                                window.DEF_DT_FORMAT = rowDatad.RA[0].DEF_DT_FORMAT;
+
+                                window.A14_NM = rowDatad.RA3[0].A14_NM;
+                                window.B14_NM = rowDatad.RA3[0].B14_NM;
+                                window.M_TAX = rowDatad.RA[0].M_TAX;
+
+                                $("#BASE_COUNTRY_ID").val(BASE_COUNTRY_ID);
+                                debugger;
+                            }
+                        }
+                    });
+                }
+                catch (e) {
+                    console.log(e.message)
+                }   
+                
+                if(window.DEF_DT_FORMAT == "2"){
+                    $$("FromDt").define("format","%m/%d/%Y");
+                    $$("FromDt").refresh();
+
+                    $$("ToDt").define("format","%m/%d/%Y");
+                    $$("ToDt").refresh();
+                }
+
+            };
+            function GridDesign() {
+                webix.ui({
+                    id: "gridRpt",
+                    container: "gridRptt",
+                    select: 'row',
+                    view: "treetable",
+                    fixedRowHeight: false,
+                    rowLineHeight: 22,
+                    rowHeight : 22,
+                    autoConfig: true,
+                    resizeColumn: true,
+                    resizeRow: true,
+                    footer:true,
+                    position: "flex",
+                    css: "webix_header_border GridDaySettle",
+                    spans:true,
+                    //scroll:"auto",
+                    data: [],
+
+                    columns: [                           
+
+                            { id: "Date", header:  "Date",  css: { 'text-align': 'center ! important' },footer:{text:"Gr.Total",css:"LeftAlign",height:22},fillspace:1.1, minWidth:120, 
+                                template: function (obj) {
+                                    if(obj.Date != null && obj.Date != "" ){
+                                        if (obj.CLR == "GrpTot1" || obj.CLR=="GndTot" ) return obj.Date; 
+                                        var Format = "%d/%m/%Y";
+                                        if(window.DEF_DT_FORMAT == "2") Format = "%m/%d/%Y";
+                                        var myformat = webix.Date.dateToStr(Format);
+                                        return myformat(obj.Date);
+                                    }else return "";
+                                },
+                            },
+                            { id: "Day", header:  "Day", width:40,  css: { 'text-align': 'center ! important' } ,  },
+                            { id: "Total_Occ", header: {text: "Total Occ",css:"multiline"},   width:60, css: { 'text-align': 'right ! important' },
+                                
+                                exportType: "number", 
+                                exportFormat: function (val) {
+                                },
+                                footer:{content:"totalColumn1"},
+                            },
+                            { id: "Arr_Rooms", header: {text: "Arrival Rooms",css:"multiline"}, width:60, css: { 'text-align': 'right ! important' }, 
+                                exportType: "number", 
+                                exportFormat: function (val) {
+                                },
+                                footer:{content:"totalColumn1"},
+                            },
+                            { id: "Comp_room", header: {text:"Compliment Rooms",css:"multiline"}, width:80, css: { 'text-align': 'right ! important' } ,
+                                exportType: "number", 
+                                exportFormat: function (val) {
+                                },
+                                footer:{content:"totalColumn1"},
+                            },
+                            { id: "House_use", header: {text:"House Use",css:"multiline"}, width:60, css: { 'text-align': 'right ! important' },
+                                exportType: "number",   
+                                exportFormat: function (val) {
+                                },
+                                footer:{content:"totalColumn1"},
+                            },
+                            { id: "Indiv_Conf", header: {text:"Indiv Confirm",css:"multiline"} , fillspace:1.1, minWidth:70, css: { 'text-align': 'right ! important' },
+                                exportType: "number",
+                                exportFormat: function (val) {
+                                },
+                                footer:{content:"totalColumn1"},
+                            },
+                            { id: "IndivTen", header: {text: "indiv Tentat",css:"multiline"} ,fillspace:1.1, minWidth:70, css: { 'text-align': 'right ! important' },
+                                exportType: "number",
+                                exportFormat: function (val) {
+                                },
+                                footer:{content:"totalColumn1"},
+                            },
+                            { id: "Grp_Conf", header: {text:"Group Confirm",css:"multiline"} ,  fillspace:1.1, minWidth:80, css: { 'text-align': 'right ! important' },
+                                exportType: "number",  
+                                exportFormat: function (val) {
+                                },
+                                footer:{content:"totalColumn1"},
+                            },
+                            { id: "Group_Tent", header: {text:"Group Tentative",css:"multiline"} ,  fillspace:1.1, minWidth:90, css: { 'text-align': 'right ! important' },
+                                exportType: "number", 
+                                exportFormat: function (val) {
+                                },
+                                footer:{content:"totalColumn1"},
+                            },
+                            { id: "Occup", header: "Occup%",fillspace:1.1, minWidth:70, css: { 'text-align': 'right ! important' },
+                                exportType: "number",
+                                exportFormat:"###0.00" ,                                    
+                                footer:{content:"totalColumn1"},                                       
+                            },
+                            { id: "RoomRev", header: {text:"Room Revenue",css:"multiline"} ,   fillspace:1.5, minWidth:100, css: { 'text-align': 'right ! important' },
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},                            
+                            
+                            },
+                            { id: "Arr", header: "ADR", fillspace:1.1, minWidth:70, css: { 'text-align': 'right ! important' },
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},  
+                            },
+                            { id: "DepRom", header: {text:"Depart Rooms",css:"multiline"} ,   width:70, css: { 'text-align': 'right ! important' } ,footer:{content:"totalColumn1"},
+                                exportType: "number",
+                                exportFormat: function (val) {
+                                },
+                            },
+                            { id: "OppRoom", header: {text: "OOO Rooms",css:"multiline"} ,  width:70,  css: { 'text-align': 'right ! important' },footer:{content:"totalColumn1"},
+                                exportType: "number",
+                                exportFormat: function (val) {
+                                },
+                            },                            
+                            { id: "Pax", header: "Pax", width:40, css: { 'text-align': 'right ! important' },footer:{content:"totalColumn1"},
+                                exportType: "number",
+                                exportFormat: function (val) {
+                                },
+                            },
+                            { id: "IndivRev", header: {text:"Indiv Revenue",css:"multiline"} ,  width: 100, css: { 'text-align': 'right ! important' } ,
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+                            },
+                            { id: "IndivArr", header: {text:"Indiv ADR",css:"multiline"} , width: 90, css: { 'text-align': 'right ! important' } ,
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+                            },
+                            
+                            { id: "GrpRev", header: {text:"Group Revenue",css:"multiline"} ,  width: 100, css: { 'text-align': 'right ! important' },
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+                            },
+                            { id: "GrpArr", header: {text:"Group ADR",css:"multiline"} ,  width: 90, css: { 'text-align': 'right ! important' } ,
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+                            },
+                            { id: "TolRom", header: {text:"Total Rooms",css:"multiline"} , width: 70, css: { 'text-align': 'right ! important' },footer:{content:"totalColumn1"}, },
+                            { id: "RoomForSal", header: {text:"Rooms ForSale",css:"multiline"} , width: 70, css: { 'text-align': 'right ! important' },footer:{content:"totalColumn1"},},
+                            { id: "RoomAval", header: {text:"Rooms Available",css:"multiline"} ,width: 70, css: { 'text-align': 'right ! important' },footer:{content:"totalColumn1"},},                            
+                            { id: "CLR", hidden: true },
+                    ],
+
+
+                    scheme: {                        
+                        $change: function (item) {
+                            //debugger;
+                            if (item.CLR != "" && item.CLR != null) {
+
+                                item.$css = item.CLR;
+                            }
+                            if(item.CLR2 == "WEEKEND"){
+                                $$("gridRpt").addCellCss(item.id, "Date", "WeekEnd");
+                                $$("gridRpt").addCellCss(item.id, "Day", "WeekEnd");
+                            }
+                        },
+                        $export: function (obj) {
+                            //debugger;
+                            var item = webix.copy(obj);
+                            if (item.CLR != "ExcelHead" && item.CLR != "GrpTot1" ) {
+                                fnRetExcelStr(item,"Date","DATE103");                                
+                            }
+                            return item;
+
+                        }
+                    },
+
+                    on: {
+                        onBeforeClose: function () {
+                            return false;
+                        },
+                        onAfterLoad:function(){
+                            
+                        }
+                    },
+                });
+            };
+            function fnRetExcelStr(item,ColId,Type){
+                debugger;
+                var str = item[ColId];
+                if(Type == "AMT"){
+                    if (str != null && str != undefined && str != "") {
+                        var str1 = str.replace(/[,]/g, '');
+                        str1 = parseFloat(str1);
+                        item[ColId] = str1;
+                    }
+                }
+                else if(Type == "DATE103HHMM"){
+                    if (str != null && str != undefined && str != "") {     
+                        myformat = webix.Date.dateToStr( " %H:%i");
+                        if(window.DEF_DT_FORMAT == "2") myformat = webix.Date.dateToStr("%m/%d/%Y %H:%i");
+                        str1 = myformat(str);
+                        str1=str1.replace("-","");
+                        item[ColId] = str1;
+                    }
+                }
+                else if(Type == "DATE103"){
+                    if (str != null && str != undefined && str != "") {
+                        myformat = webix.Date.dateToStr("%d/%m/%Y");
+                        if(window.DEF_DT_FORMAT == "2") myformat = webix.Date.dateToStr("%m/%d/%Y");
+                        str1 = myformat(str);
+                        str1=str1.replace("-","");
+                        item[ColId] = str1;
+                    }
+                }
+
+            };
+
+            function sortByNoOfVisit(R1,R2)
+            {
+                debugger;
+                var a = R1.ixTotVisits;
+                var b = R2.ixTotVisits;
+                var skip = R1.CLR;
+                if(a == null) a = "";
+                if(b == null) b = "";
+                if(skip == null) skip ="";
+                if (skip != "") return 0;
+                else return a > b ? 1 : (a < b ? -1 : 0);
+
+            };              
+
+            function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+                //debugger;
+                if (value == null || value == undefined) return "";
+                if (isNaN(value)) return "";
+
+                if (value.toString() != "") {
+                    if (Currfrmt == "L") {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+                        x = x.toString();
+                        var afterPoint = '';
+                        if (x.indexOf('.') > 0) {
+                            ////afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                            ////afterPoint = CurrDelimit + afterPoint
+                            var vArr = x.split('.');
+                            x = vArr[0].toString().trim();
+                            afterPoint = vArr[1].toString().trim();
+                            afterPoint = CurrDelimit + afterPoint
+                        }
+                        //x = Math.floor(x);
+
+                        x = x.toString();
+                        var lastThree = x.substring(x.length - 3);
+                        var otherNumbers = x.substring(0, x.length - 3);
+                        if (otherNumbers != '' && otherNumbers != '-')
+                            lastThree = ',' + lastThree;
+                        if (afterPoint != "") return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                        else return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+                    }
+                    else {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+
+                        x = x.toString();
+
+                        //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                        //var res = x.replace(/(\d{3})/g, "1,")
+                        var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                        if (res.indexOf('.') > 0) {
+
+                            res = res.replace(".", CurrDelimit)
+                        }
+
+
+                        return res;
+                    }
+                }
+                else {
+                    return value;
+                }
+            };
+            function fnCurrFormat(value) {
+
+                var Currfrmt = window.CURRENCY_FORMAT;
+                var CurrDelimit = window.CURRENCY_DELIMIT;
+                var CurrDecimal = window.CURRENCY_DECIMLIMIT;
+                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+            };           
+            function loadOptionPopWindow() {
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "RptOptionsNew",
+                    head: "Advance Filter",
+                    position: "center",
+                    css: "WebIxStyle",
+                    height: 400,
+                    width: 350,
+                    move: true,
+                    body: {
+                        padding: { top: 20, left: 30, bottom: 20, right: 10 },
+                        rows: [                              
+                                                                
+                                { view: "label", label: "Options", width: 120, css: "SubHeadLbl", height: 20 },
+                                { view: "checkbox", width: 230, id: "chkIndivGrp", labelWidth: 10, labelRight: "Individual and Group", customCheckbox: false,},
+                                { view: "checkbox", width: 230, id: "chkTotRms", labelWidth: 10, labelRight: "Total Rooms", customCheckbox: false,},
+                                { view: "checkbox", width: 230, id: "chkRmsSale", labelWidth: 10, labelRight: "Rooms for Sale", customCheckbox: false,},
+                                { view: "checkbox", width: 230, id: "chkRmsAvail", labelWidth: 10, labelRight: "Rooms Available", customCheckbox: false,},
+                                
+
+                                {height:20},
+                                { view: "label", label: "Filter", width: 120, css: "SubHeadLbl", height: 20 },
+                                { view: "checkbox", width: 230, id: "chkExcldTent", labelWidth: 10, labelRight: "Exclude Tentative", customCheckbox: false,},
+                                                     
+                                { cols: [{}, { view: "button", type: "icon", maxWidth: 80, id: "OkFilter", icon: "wxi-check", label: "OK", inputWidth: 80, width: 80, click: function () { btnOkOptionClick(); } }], },
+
+                                { view: "text", id: "txtIndivGrp", hidden: true, },
+                                { view: "text", id: "txtTotRms", hidden: true, },
+                                { view: "text", id: "txtRmsSale", hidden: true, },
+                                { view: "text", id: "txtRmsAvail", hidden: true, },
+                                { view: "text", id: "txtExcldTent", hidden: true, },                    
+
+                        ]
+                    }
+                });
+
+            };
+            function fnLoadSegmentSrchWindow(){
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "RptSegmentTypeSrchPopUp",
+                    head: "Segment Search",
+                    position: "center",
+                    css: "WebIxStyle",
+                    height: 500,
+                    width: 383,
+                    move: true,
+                    body: {
+                        rows: [
+                           {
+                               view: "datatable",
+                               id: "SegmentTyid",
+                               select: 'row',
+                               //editable: true,
+                               css: "webix_header_border",
+                               scrollX: false,
+                               columns: [
+                                       { id: "NM", header: ['Segment', { content: "textFilter", }], width: 335, css: { 'text-align': 'left ! important' }, },
+                                       { id: "SegChk", editor: "Checkbox", header: [{ content: "masterCheckbox", checked: "on", css: { 'padding': '0px ! important' } }], width: 30, css: "check_box", template: "{common.checkbox()}" },
+                                       { id: "ID", hidden: true },
+                               ],
+                               data: [],
+
+                           },
+
+                           {
+                               margin: 10,
+                               padding: { top: 5, bottom: 5, right: 5 },
+                               cols: [
+                                   {
+                                       view: "button",
+                                       type: "icon",
+                                       icon: "wxi-check",
+                                       label: "Ok",
+                                       inputWidth: 80,
+
+                                       click: function () {
+                                           var vSegNm = "";
+                                           var vSegId = "";
+
+                                           $$("SegmentTyid").eachColumn(function (id, col) {
+                                               var filter = this.getFilter(id);
+                                               if (filter) {
+                                                   if (filter.setValue) filter.setValue("")
+                                                   else filter.value = "";
+                                               }
+                                           });
+                                           $$("SegmentTyid").filterByAll();
+
+
+                                           $$("SegmentTyid").data.each(function (obj) {
+                                               debugger;                                              
+
+
+                                               if (obj.SegChk) {
+                                                   if (vSegNm != "") {
+                                                       vSegNm = vSegNm + "," + obj.NM
+                                                   }
+                                                   else {
+                                                       vSegNm = obj.NM
+                                                   }
+
+                                                   if (vSegId != "") {
+                                                       vSegId = vSegId + ",'" + obj.ID + "'"
+                                                   }
+                                                   else {
+                                                       vSegId = "'" + obj.ID + "'"
+                                                   }
+                                               }
+                                           });
+
+                                           if (vSegId != "") {
+                                               $$("SrchSegment").setValue(vSegNm);
+                                               $$("SegmentId").setValue(vSegId);
+                                               $$("RptSegmentTypeSrchPopUp").hide();
+                                               ClearGrid(); 
+
+                                           }
+
+                                           else {
+                                               webix.alert({ text: "Pelase Select any One. ", type: "alert-warning" });
+                                           }
+
+                                       },
+                                       align: "right"
+                                   }
+                               ]
+                           }],
+                    }
+                });                
+            };              
+            function fnLoadSegmentGrid() {
+                debugger;
+                $$("SegmentTyid").clearAll();
+                var CompId  = $$("Property").getValue();               
+                var rowDatad = "";
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: "/Reports/fnLoadSearchAll",
+                    data: "CmpId=" + CompId + "&TYPETAG=" + "M" + "&SUBTYPE=" + "",
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowDatad = JSON.parse(d);
+
+                            var Sa = rowDatad;
+                            var Rows = [];
+                            set = { NM: "Not Defined", SegChk: true, ID: "0" };
+                            Rows.push(set);
+                            $.each(Sa, function (key, value) {
+                                var set = {};
+                                set = { NM: value.value, SegChk: true, ID: value.id };
+                                Rows.push(set);
+                            });
+                            $$("SegmentTyid").getColumnConfig("SegChk").header[0].checked = true;
+                            $$("SegmentTyid").refreshColumns();
+
+                            $$("SegmentTyid").parse(Rows);
+                            $$("SegmentTyid").refresh();
+
+                        }
+                    }
+                });
+            };
+
+            function btnOkOptionClick() {
+                debugger;
+                if (fnChkSessVal() == false) return;  
+                ClearGrid();
+                $$("txtIndivGrp").setValue($$("chkIndivGrp").getValue());
+                $$("txtTotRms").setValue($$("chkTotRms").getValue());
+                $$("txtRmsSale").setValue($$("chkRmsSale").getValue());
+                $$("txtRmsAvail").setValue($$("chkRmsAvail").getValue());
+                $$("txtExcldTent").setValue($$("chkExcldTent").getValue());
+                
+                fnShowColumn();
+                $$("RptOptionsNew").hide();
+            };
+            function btnOptionClick() {
+                if (fnChkSessVal() == false) return;  
+
+                $$("SegmentTyid").eachColumn(function (id, col) {
+                    var filter = this.getFilter(id);
+                    if (filter) {
+                        if (filter.setValue) filter.setValue("")
+                        else filter.value = "";
+                    }
+                });
+                $$("SegmentTyid").filterByAll();
+
+                $$("chkIndivGrp").setValue($$("txtIndivGrp").getValue());
+                $$("chkTotRms").setValue($$("txtTotRms").getValue());
+                $$("chkRmsSale").setValue($$("txtRmsSale").getValue());
+                $$("chkRmsAvail").setValue($$("txtRmsAvail").getValue());
+                $$("chkExcldTent").setValue($$("txtExcldTent").getValue());
+
+                $$("RptOptionsNew").show();
+            };
+            function fnChkSessVal() {
+                debugger;
+                var bVal = "0";
+                $.ajax({
+                    async: false,
+                    url: "/Reports/fnChkSessionval",
+                    type: 'POST',
+                    success: function (data) {
+                        debugger;
+                        if (data == "1") {
+                            bVal = "1";
+                        }
+                    },
+                    error: function (request, status, error) {
+                        bVal = "0";
+                    }
+                });
+                if (bVal == "1") return true;
+                else {
+                    debugger;
+                    var Host = window.location.host;
+                    var LoadingUrl = "http://" + Host + "/Logout.aspx";
+                    window.location.href = LoadingUrl;
+                }
+
+            };
+            function fnShowColumn() {
+                debugger;
+
+                if ($$("txtIndivGrp").getValue()=="1")
+                {
+                    $$("gridRpt").showColumn("IndivRev");
+                    $$("gridRpt").showColumn("IndivArr");
+                    $$("gridRpt").showColumn("GrpRev");
+                    $$("gridRpt").showColumn("GrpArr");
+                   
+                }
+                else
+                {
+                    $$("gridRpt").hideColumn("IndivRev");
+                    $$("gridRpt").hideColumn("IndivArr");
+                    $$("gridRpt").hideColumn("GrpRev");
+                    $$("gridRpt").hideColumn("GrpArr");                    
+                }
+                if ($$("txtExcldTent").getValue() == "0")
+                {
+                    $$("gridRpt").showColumn("IndivTen");
+                    $$("gridRpt").showColumn("Group_Tent");                    
+                }
+                else
+                {
+                    $$("gridRpt").hideColumn("IndivTen");
+                    $$("gridRpt").hideColumn("Group_Tent");                    
+                }
+
+                if ($$("txtTotRms").getValue() == "1"){
+                    $$("gridRpt").showColumn("TolRom");                    
+                }
+                else{
+                    $$("gridRpt").hideColumn("TolRom");                    
+                }
+
+                if ($$("txtRmsSale").getValue() == "1"){
+                    $$("gridRpt").showColumn("RoomForSal");                    
+                }
+                else{
+                    $$("gridRpt").hideColumn("RoomForSal");                    
+                }
+
+                if ($$("txtRmsAvail").getValue() == "1"){
+                    $$("gridRpt").showColumn("RoomAval");                    
+                }
+                else{
+                    $$("gridRpt").hideColumn("RoomAval");                    
+                }
+                $$("gridRpt").refreshColumns();
+
+            };
+
+            function fnLoadResExcl() {
+                var rowData = [];
+                var vCmpId = $$("Property").getValue();
+                try {
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/Reports/fnLoadResExcl",
+                        data: "CmpId=" + vCmpId + "&COMPUTETARIFF=" + "1",
+                        success: function (d) {
+                            
+                            if (d != "") {
+                                rowData = JSON.parse(d);
+                                if (d == "Failed") {
+                                    alert("Operational failed");
+                                    return;
+                                }
+                            }
+                        },
+
+                    });
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            }
+            
+
+            webix.ui.datafilter.totalColumn = webix.extend({
+                refresh:function(master, node, value){
+                    //debugger;
+                    var vColumnId = value.columnId;        
+                    var result = "0";
+                    var vGrid = vGridTotData;
+                    if (vGrid.length > 0) {
+                        //debugger;
+                        var newData = vGrid.filter(function (el) {
+                            return el.CLR == 'GndTot';
+                        });
+                        if (newData.length > 0) {
+                            result = newData[0][vColumnId];
+                        }
+                    }
+        
+                    node.firstChild.innerHTML = fnCurrFormat(result);                    
+
+                }
+            }, webix.ui.datafilter.summColumn);
+
+
+            webix.ui.datafilter.totalColumn1 = webix.extend({
+                refresh:function(master, node, value){
+                    //debugger;
+                    var vColumnId = value.columnId;        
+                    var result = "0";
+                    var vGrid = vGridTotData;
+                    if (vGrid.length > 0) {
+                        //debugger;
+                        var newData = vGrid.filter(function (el) {
+                            return el.CLR == 'GndTot';
+                        });
+                        if (newData.length > 0) {
+                            result = newData[0][vColumnId];
+                        }
+                    }
+        
+                    node.firstChild.innerHTML = result;                    
+
+                }
+            }, webix.ui.datafilter.summColumn);
+
+        </script>
+
+
+        <script type="text/javascript">
+
+            //$("#pageloaddiv").hide();
+            $(document).on('shown.lte.pushmenu', function () {
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(1);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+
+            }).on('collapsed.lte.pushmenu', function () {
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(2);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+            });
+            function  sidebarFn(val){
+
+                $$("gridRpt").resize();
+            }
+            //function fnExcelExport() {
+            //    debugger;
+            //    var vHeader = $("#lblRptCaption").text();
+            //    var FullData = "";
+
+            //    FullData = $$("gridRpt").serialize();
+            //    var len = FullData.length;
+            //    if (len > 0) {
+            //        webix.toExcel($$("gridRpt"), {
+            //            filename: vHeader,
+            //            styles: true,
+            //            name: vHeader,
+            //            docHeader: vHeader,
+            //            rawValues: true,
+            //        });
+            //    }
+            //    else {
+            //        alert("Records not present in Report");
+            //    }
+
+            //};
+
+            function fnExcelExport() {               
+                
+                var vGrid = "";
+                var CompId = $$("Property").getValue();
+                vGrid = $$("gridRpt");              
+
+                var CompNm = $$("Property").getText();                
+                var values = fnCurrDtTime();
+                var vDate = values[0];
+                var vTm = values[1];                
+                var FromDt = $$("FromDt").getText();
+                var ToDt = $$("ToDt").getText();
+
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+                FullData = vGrid.serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    var vExpoartGrid = webix.copy(vGrid,-1);                                
+                    fnComExcelExport(vExpoartGrid,vHeader,vHeader,true,CompNm,vDate,vTm,FromDt,ToDt,"");
+                    
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+            };
+
+
+            //function fnGridPrint() {
+            //    debugger;
+            //    var vHeader = $("#lblRptCaption").text();
+            //    var FullData = "";
+
+            //    FullData = $$("gridRpt").serialize();
+            //    var len = FullData.length;
+            //    if (len > 0) {
+            //        webix.print($$("gridRpt"), {
+            //            docHeader: { text: vHeader, fontSize: 25 },
+            //            fit: "page",
+            //            scroll: false,
+            //            mode: "landscape"
+            //        });
+            //    }
+            //    else {
+            //        alert("Records not present in Report");
+            //    }
+            //};
+
+            function fnGridPrint() {
+                debugger;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+                var vGrid = "";
+                var CompId = $$("Property").getValue();                         
+                vGrid = $$("gridRpt");                
+
+                var CompNm = $$("Property").getText();                
+                var FromDt = $$("FromDt").getText();
+                var ToDt = $$("ToDt").getText();
+
+                var DocHeader = "<div class='row'><div class='col-4 col-sm-4  text-left' style='font-weight:bold !important'>" + CompNm + "</div>" + "<div class='col-4 col-sm-4  text-center' style='text-align:center !important;font-weight:bold !important'>" + vHeader + "</div></div>" + "<div class='row'>" + "<div class='col-12 col-sm-12 text-center'> From: " + FromDt + "   To: " + ToDt + "</div></div>";
+                                
+                FullData = vGrid.serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                  
+                    webix.print(vGrid, {                        
+                        docHeader: DocHeader,
+                        fit: "page",
+                        scroll: false,
+                        mode: "landscape"
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+            };
+
+            function fnCurrDtTime() {
+                var vDate = "";
+                var vTime = "";
+                var rowData = [];
+                var CompId = $$("Property").getValue();
+                Request = {
+                    REQTYPE: "GET_FNLOADCURRDTTM",
+                    COMPID: CompId,
+                }
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            vDate = rowData.GDate;
+                            vTime = rowData.GTime;
+
+                        }
+                    },
+                });
+
+                return [vDate, vTime];
+
+            };            
+
+            function ClearGrid() {
+                vGridTotData = [];
+                $$("gridRpt").clearAll();                 
+            };
+            function fnbtnDisplay() {
+                debugger;
+                ClearGrid();
+                $("#pageloaddiv").show();
+                var frmdate = "";
+                var todate = "";
+                var frmdate = $$("FromDt").getValue();
+                var todate = $$("ToDt").getValue();
+
+                var myformat = webix.Date.dateToStr("%d/%m/%Y");                
+                frmdate =  myformat(frmdate);                
+                todate =  myformat(todate);
+
+                var STRREALTIME = $$("ChkReal").getValue();
+                var STRSKIPDAYUSE = $$("ChkSkipDayUse").getValue();
+                var STRWITHHUCOMP = $$("ChkWHCOMP").getValue();
+                var GUEST_INFORM_ID = $$("SegmentId").getValue(); 
+                
+
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 500);
+                    $("#pageloaddiv").hide();
+                    return;
+                }
+                if (todate == "") {
+                    webix.message("To Date can't be empty", "warning", 500);
+                    $("#pageloaddiv").hide();
+                    return;
+                }
+
+                
+
+                var bSucc = "1";
+                var comp = $$("Property").getValue();
+                if (comp == "") {
+                    webix.message("Property can't be empty", "warning", 500);
+                    $("#pageloaddiv").hide();
+                    return;
+                }
+                                
+                var Request = {
+                    REQTYPE: "GET_FNHISDISPLAY",
+                    COMPID: comp,
+                    FROM_DT:frmdate,
+                    TO_DT:todate,
+                    STRREALTIME:STRREALTIME,
+                    STRSKIPDAYUSE:STRSKIPDAYUSE,
+                    STRWITHHUCOMP :STRWITHHUCOMP,
+                    GUEST_INFORM_ID:GUEST_INFORM_ID,
+                    C_I:"",
+                    REALTM_IND:"0",
+                }
+                var dataparam = JSON.stringify(Request);
+                $.ajax({
+                    async: true,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + dataparam,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            var rowDatad = JSON.parse(data);
+                            if(rowDatad.MESSAGE == "1"){    
+                                vGridTotData = [];
+                                vGridTotData = rowDatad.DATA;
+                                $$("gridRpt").clearAll();
+                                $$("gridRpt").parse(rowDatad.DATA);                                                       
+                                $$("gridRpt").refresh();
+
+                                $$("gridRpt").filter(function (obj) {
+                                    return !(obj.CLR == "GndTot");
+                                });
+                            }
+                            else{
+                                webix.message("Loading Failed", "warning", 800);
+                                $("#pageloaddiv").hide();
+                            }
+                        }
+                    },
+                    error: function (err) {
+                        $("#pageloaddiv").hide();
+                    },
+                    complete: function () {
+                        debugger;
+                        $("#pageloaddiv").hide();
+                    }
+                });
+            };
+            function formatDate(StrDt) {
+                //debugger;
+                var Parts = StrDt.split(" ");
+                var MN = FnRetMonth(Parts[0]);
+                var YR = Parts[1];
+                var Str = "01" + "/" + MN + "/" + YR;
+                return Str;
+            };
+            function FnRetMonth(StrMnNm) {
+                //debugger;
+                var UStr = StrMnNm.toUpperCase();
+                var str = "";
+
+                switch (UStr) {
+                    case "JAN": str = "01"; break;
+                    case "FEB": str = "02"; break;
+                    case "MAR": str = "03"; break;
+                    case "APR": str = "04"; break;
+                    case "MAY": str = "05"; break;
+                    case "JUN": str = "06"; break;
+                    case "JUL": str = "07"; break;
+                    case "AUG": str = "08"; break;
+                    case "SEP": str = "09"; break;
+                    case "OCT": str = "10"; break;
+                    case "NOV": str = "11"; break;
+                    case "DEC": str = "12"; break;
+                }
+
+                return str;
+            };
+            function FnRetMonth1(intMn) {
+                //debugger;
+
+                var str = "";
+
+                switch (intMn) {
+                    case 1: str = "Jan"; break;
+                    case 2: str = "Feb"; break;
+                    case 3: str = "Mar"; break;
+                    case 4: str = "Apr"; break;
+                    case 5: str = "May"; break;
+                    case 6: str = "Jun"; break;
+                    case 7: str = "Jul"; break;
+                    case 8: str = "Aug"; break;
+                    case 9: str = "Sep"; break;
+                    case 10: str = "Oct"; break;
+                    case 11: str = "Nov"; break;
+                    case 12: str = "Dec"; break;
+                }
+
+                return str;
+            };
+            function ExcelFormat() {
+                debugger;
+                return //"#,##0.00",
+            };
+            function SMToDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getValue();
+                var todate = $$("ToDt").getValue();                
+                var vAccDt = $("#HdnAccDt").val();
+                var sFrmDt = todate;
+
+                var bSucc = "1";
+
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 800);
+                    $("#pageloaddiv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+                if (todate == "") {
+                    webix.message("To Date can't be empty", "warning", 800);
+                    $("#pageloaddiv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }              
+               
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            $("#pageloaddiv").hide();
+                            //var vToDt = formatDate1(sFrmDt);
+                            $$("FromDt").setValue(sFrmDt);
+                            bSucc = "0";
+                        }
+                    }
+                });
+
+
+                return bSucc;
+            };
+            function SMFromDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getValue();
+                var todate = $$("ToDt").getValue();                
+                var vAccDt = $("#HdnAccDt").val();
+                var sFrmDt = frmdate;
+                var bSucc = "1";
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 800);
+                    $("#pageloaddiv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+
+
+                if (todate == "") {
+                    webix.message("To Date can't be empty", "warning", 800);
+                    $("#pageloaddiv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }                                
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            $("#pageloaddiv").hide();
+                            //var vToDt = sFrmDt;
+                            $$("ToDt").setValue(sFrmDt);
+                            bSucc = "0";
+                        }
+                    }
+               });
+                return bSucc;
+
+            };
+
+
+
+
+
+        </script>
+    </section>
+</div>
+

@@ -1,0 +1,40 @@
+﻿.webix_fieldset_label {
+    color: #475466;
+    font-size: 9pt;
+    padding: 0 8px;
+    text-transform: none !important;
+}
+
+legend {
+    display: block;
+    width: auto !important;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+    line-height: inherit;
+    color: inherit;
+    white-space: normal;
+}
+
+.webix_fieldset>fieldset {
+    border: 1px solid #dadee0;
+    margin: 0;
+    padding: 0px 7px !important;
+}
+.webix_view div{
+    
+    padding-top:-1px !important
+}
+
+legend {
+    display: block;
+    width: auto !important;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: -0.5rem !important;
+    font-size: 1.5rem;
+    line-height: inherit;
+    color: inherit;
+    white-space: normal;
+}

@@ -1,0 +1,36 @@
+﻿body {
+}
+.fulwidth{width:100%;float:left;line-height:24px}
+.controlbox{padding: 5px 0px 5px 0px;background-color:#eeeeee;width:100%;float:left; font-family:inherit; font-size:inherit}
+
+.txtbx{width:60px;float:left}
+.valbx{width:300px;float:left}
+
+.txtbx3{width:100px;float:left;text-align:right;padding-right:5px;}
+.valbx3{width:150px;float:left;padding-left:5px; padding-top: 4px;}
+
+.txtbx2{width:250px;float:left;text-align:right;padding-top: 2px;}
+.valbx2{width:215px;float:left;padding-left:5px; padding-top: 4px;}
+
+.valbx4{width:420px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx5{width:550px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx6{width:175px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx7{width:305px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx9{width:260px;float:left;padding-left:5px; padding-top: 4px;}
+
+.valbx0{width:60px;float: left;text-align:right}
+.valbx110{width:110px;float: left;text-align:right}
+.txtbx60{width:60px;float: left;text-align:right;padding-right:5px;}
+
+.lftctrlbx{width:640px;float:left;}
+
+/*Pop Up*/
+.closebtn{float:right;margin-top:-50px;margin-right:-20px}
+.popupMain{background-color: rgba(0, 0, 0, 0.63);display: none; width:100%;position:absolute;left:0;top:0;height:100%;z-index:85}
+.popupTitle{width:100%;float:left;font-size:13px;font-weight: bold;color: White;text-align:center;background-color:#072769;height: 30px;line-height: 30px;border-bottom: 4px solid #FFBE17}
+.popupSrch{font-weight: bold;float:left;height:30px;line-height:30px;color: White;width:100%;background-color:#072769;text-align:center;padding:0px 0px 0px 0px;float:left;text-align:left}
+.popupSrchTxt{float:left;height:20px;line-height:20px;padding-right:5px}
+.divOptMaina{ width: 190px; height:370px; margin:0 auto;border:5px solid #E0DFF0;margin-top: 110px;background-color:#ffffff}
+.divOptInner{width:185px;margin-top:10px;overflow-y:scroll;overflow-x:hidden;float:left;height:300px}
+.divTariffMaina{width: 942px; height:575px; margin:0 auto;border:5px solid #E0DFF0;margin-top: 45px;background-color:#ffffff}
+.divTariffInner{width:940px;height:470px;overflow-y:scroll;overflow-x:hidden;float:left;margin-top:32px}

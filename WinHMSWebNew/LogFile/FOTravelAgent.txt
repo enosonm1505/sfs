@@ -1,0 +1,126 @@
+23/12/2021 14:57:17
+D:\Hosted\FO_Standalone\WinHMSWebNew\/Logfile/FOTravelAgent.txt
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+Date :23/12/2021 14:57:17
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 14:57:17
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 14:57:17
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 14:57:17
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:02:13
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:02:13
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:02:13
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:02:13
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:03:57
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:03:57
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:03:57
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:03:57
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:02
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:02
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:02
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:02
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:33
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:33
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:33
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:33
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:48
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:48
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:48
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:04:48
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:21:07
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:21:07
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:21:07
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:21:07
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:22:16
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:22:16
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:22:16
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:22:16
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:22:42
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:22:42
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:22:42
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:22:42
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:25:04
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:25:04
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:25:04
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:25:04
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:25:11
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:25:11
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:25:11
+There was no endpoint listening at http://192.168.1.24:3009/FoAgentBLock.svc?wsdl that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.Date :23/12/2021 15:25:11
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:11:34
+All Api CallSystem.Net.WebException: Could not find a part of the path 'C:\Windows\SysWOW64\inetsrv\api\CommonWEBAPI\PostRequest'. ---> System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Windows\SysWOW64\inetsrv\api\CommonWEBAPI\PostRequest'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Net.FileWebStream..ctor(FileWebRequest request, String path, FileMode mode, FileAccess access, FileShare sharing)
+   at System.Net.FileWebRequest.GetRequestStreamCallback(Object state)
+   --- End of inner exception stack trace ---
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at FoAnalysisReports.Controllers.TravelAgentBlockController.CALL_ALLAPI(String request, String URL, String ApiControler)Date :27/12/2021 17:11:34
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:11:34
+All Api CallSystem.Net.WebException: Could not find a part of the path 'C:\Windows\SysWOW64\inetsrv\api\CommonWEBAPI\PostRequest'. ---> System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Windows\SysWOW64\inetsrv\api\CommonWEBAPI\PostRequest'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Net.FileWebStream..ctor(FileWebRequest request, String path, FileMode mode, FileAccess access, FileShare sharing)
+   at System.Net.FileWebRequest.GetRequestStreamCallback(Object state)
+   --- End of inner exception stack trace ---
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at FoAnalysisReports.Controllers.TravelAgentBlockController.CALL_ALLAPI(String request, String URL, String ApiControler)Date :27/12/2021 17:11:34
+ConStr : Date :27/12/2021 17:12:56
+ConStr : Date :27/12/2021 17:12:57
+ConStr : Date :27/12/2021 17:12:57
+ConStr : Date :27/12/2021 17:12:57
+ConStr : Date :27/12/2021 17:13:21
+ConStr : Date :27/12/2021 17:13:21
+ConStr : Date :27/12/2021 17:13:21
+ConStr : Date :27/12/2021 17:13:22
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:13:36
+All Api CallSystem.Net.WebException: Could not find a part of the path 'C:\Windows\SysWOW64\inetsrv\api\CommonWEBAPI\PostRequest'. ---> System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Windows\SysWOW64\inetsrv\api\CommonWEBAPI\PostRequest'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Net.FileWebStream..ctor(FileWebRequest request, String path, FileMode mode, FileAccess access, FileShare sharing)
+   at System.Net.FileWebRequest.GetRequestStreamCallback(Object state)
+   --- End of inner exception stack trace ---
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at FoAnalysisReports.Controllers.TravelAgentBlockController.CALL_ALLAPI(String request, String URL, String ApiControler)Date :27/12/2021 17:13:36
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:13:36
+All Api CallSystem.Net.WebException: Could not find a part of the path 'C:\Windows\SysWOW64\inetsrv\api\CommonWEBAPI\PostRequest'. ---> System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Windows\SysWOW64\inetsrv\api\CommonWEBAPI\PostRequest'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.Net.FileWebStream..ctor(FileWebRequest request, String path, FileMode mode, FileAccess access, FileShare sharing)
+   at System.Net.FileWebRequest.GetRequestStreamCallback(Object state)
+   --- End of inner exception stack trace ---
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at FoAnalysisReports.Controllers.TravelAgentBlockController.CALL_ALLAPI(String request, String URL, String ApiControler)Date :27/12/2021 17:13:36
+Object reference not set to an instance of an object.Date :27/12/2021 17:16:44
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:18
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:18
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:19
+ConStr : Date :27/12/2021 17:17:19
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:19
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:19
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:19
+ConStr : Date :27/12/2021 17:17:19
+ConStr : Date :27/12/2021 17:17:19
+ConStr : Date :27/12/2021 17:17:19
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:27
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:27
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:27
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:27
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:27
+The source contains no DataRows.Date :27/12/2021 17:17:34
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:49
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:49
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:49
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:49
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;Date :27/12/2021 17:17:49
+ConStr : Server=192.168.1.129;User Id=sa;Password=infosqlwinsar;Database=royalcontinental;Max pool size=100;Pooling=yes;Connection Timeout=900;

@@ -1,0 +1,26 @@
+﻿/* Roe Hover Background Color */
+.k-grid-content tr:not(.k-grouping-row):hover > td,
+.k-grid > table > tbody > tr:not(.k-grouping-row):hover > td {
+background:#ffb76b;background:-moz-linear-gradient(top, #ffb76b 0%, #ffa73d 100%, #ff7c00 100%, #ff7f04 100%); /* FF3.6+ */
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb76b), color-stop(100%,#ffa73d), color-stop(100%,#ff7c00), color-stop(100%,#ff7f04)); /* Chrome,Safari4+ */
+background:-webkit-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* Chrome10+,Safari5.1+ */
+background:-o-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* Opera 11.10+ */
+background:-ms-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* IE10+ */
+background:linear-gradient(to bottom, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* W3C */
+cursor:pointer}
+.k-grid-content tr:not(.k-grouping-row):active > td,
+.k-grid > table > tbody > tr:not(.k-grouping-row):active > td {background-color:#f35800}
+.k-grid td {color:black;font-size:11px}
+.k-block,.k-inline-block,.k-draghandle{border-style:solid;border-width:1px;-webkit-appearance:none}
+.k-grid .k-state-selected {background-color:#3399FF;color:#FFFFFF}
+.k-grid .k-state-focused {background:#ffb76b;background:-moz-linear-gradient(top, #ffb76b 0%, #ffa73d 100%, #ff7c00 100%, #ff7f04 100%); /* FF3.6+ */
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb76b), color-stop(100%,#ffa73d), color-stop(100%,#ff7c00), color-stop(100%,#ff7f04)); /* Chrome,Safari4+ */
+background:-webkit-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* Chrome10+,Safari5.1+ */
+background:-o-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* Opera 11.10+ */
+background:-ms-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* IE10+ */
+background:linear-gradient(to bottom, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* W3C */
+cursor:pointer} 
+/* Roe Hover Background Color */
+.k-toolbar-resizable {min-height:0px}
+.k-window {background-color:#f1efef;border:4px solid #FFBE17}
+.k-toolbar-resizable {min-height:0px}

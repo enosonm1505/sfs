@@ -1,0 +1,16 @@
+﻿@using Kendo.Mvc.UI
+
+ @(Html.Kendo().DropDownList()
+                            .Name("PROPERTY")
+                       .DataTextField("Text")
+                       .DataValueField("Value")
+                      .SelectedIndex(0)
+                        .Events(e => e.Change("Propdropchange"))
+                            .HtmlAttributes(new { Style = "width:230px", id = "PROPERTY" })
+                       .DataSource(d => d.
+                           //Read(r => r.Action("DefaultProperty", "SalesAndMarket")
+                                    Read(r => r.Action("SpReal_DefaultProperty", "SalesAndMarket")
+          )
+          )
+
+)

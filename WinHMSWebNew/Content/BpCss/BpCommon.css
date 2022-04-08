@@ -1,0 +1,193 @@
+﻿input[type="text"] {
+     width: inherit; 
+     height: inherit; 
+}
+
+ .custom .webix_cell {
+        background-color: #fff; /*do not set as !important*/
+        margin-bottom: 5px;
+        margin-left: 3px;
+        margin-top: 5px;
+        margin-right: 3px;
+
+        /*border-top: 1px solid #000;
+        border-left: 1px solid #000;*/
+        border: none !important;
+        /*border-right: 1px solid red !important;*/
+        border-radius: 3px;
+        height: 34px !important; /*height must be 2px less than rowHeight*/
+        line-height: 32px !important; /*line-height must be equal height*/
+        font-size:12px !important;
+        text-align:center;
+    }
+    .webix_dtable .webix_ss_body .webix_column > div, .webix_dtable .webix_ss_body .webix_table_cell {
+        border-left-color: #000 !important;
+        border-right-color: #000 !important;
+    }
+    .webix_column > div, .webix_table_cell {
+        border-bottom: 1px solid #000 !important;
+        border-right: 1px solid #000 !important;
+        padding: 0 9pt;
+    }
+
+    .my_style .webix_column > div:nth-child(2n) {
+        background-color: #fff !important;
+    }
+
+    .my_style .webix_column > div:nth-child(2n) {
+        background-color: #fff !important;
+    }
+
+
+    .BgColorD1 {
+        color: #000;
+        border-color: #FFFF00;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#f9f903, #ffff00 60%, #cece04) !important;
+        background-repeat: no-repeat;
+    }
+    .BgColorD2 {
+        color: #000;
+        border-color: #CD9D94;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#CD9D94, #CD9D94 60%, #CD9D94) !important;
+        background-repeat: no-repeat;
+    }
+
+    .BgColorV1 {
+        color: #000;
+        border-color: #80FF80;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#5ce55c, #21e421 60%, #21ac21) !important;
+        background-repeat: no-repeat;
+    }
+
+    .BgColorV2 {
+        color: #000;
+        border-color: #C0FFFF;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#C0FFFF, #C0FFFF 60%, #C0FFFF) !important;
+        background-repeat: no-repeat;
+    }
+
+    .BgColorO1 {
+        color: #000;
+        border-color: #FF0000;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#f12424, #fc0707 60%, #ed0c0c) !important;
+        background-repeat: no-repeat;
+       
+    }
+      .BgColorO2 {
+        color: #000;
+        border-color: #80FF80;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#80FF80, #80FF80 60%, #80FF80) !important;
+        background-repeat: no-repeat;
+    }
+      .BgColorOU1 {
+        color: #000;
+        border-color: #FF0000;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#f12424, #fc0707 60%, #ed0c0c) !important;
+        background-repeat: no-repeat;
+        text-decoration:underline;
+       
+    }
+      .BgColorOU2 {
+        color: #000;
+        border-color: #80FF80;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#80FF80, #80FF80 60%, #80FF80) !important;
+        background-repeat: no-repeat;
+        text-decoration:underline;
+    }
+
+.webix_dtable .webix_ss_header td.webix_last_row {
+    border-bottom: 1px solid #fff !important;
+}
+
+.webix_dd_drag_column, .webix_ss_header, .webix_ss_header td, .webix_ss_vscroll_header {
+    background: #4facfe !important;
+    /*color:#000 !important;*/
+}
+
+.webix_column > div:nth-child(2n) {
+    background-color: #fff !important;
+}
+
+.Titlebg {
+    background-color: #67ddf8;
+    color: blue;
+}
+.k-tabstrip-items .k-item, .k-tabstrip-items .k-link {
+    background-color: #C0EAF7 !important;
+    color: black !important;
+}
+
+.k-grid tbody .k-button, .k-ie8 .k-grid tbody button.k-button {
+    width: 30px !important;
+    height: 12px !important;
+}
+
+.k-tabstrip-items .k-state-active {
+    font-weight: bold;
+}
+
+.VacantColor {
+    font-weight: bolder;
+    background-color: #adfba7;
+    text-align: center;
+    font-size: 11px !important;
+}
+
+.k-grid-content tr:not(.k-grouping-row):hover > td,
+.k-grid > table > tbody > tr:not(.k-grouping-row):hover > td {
+    background: none !important;
+    cursor: pointer;
+}
+
+.k-grid table tr:hover {
+    background: none !important;
+    cursor: pointer;
+}
+.webix_el_colorpicker input, .webix_el_combo input, .webix_el_datepicker input, .webix_el_search input, .webix_el_text input {
+    -webkit-appearance: none;
+    background: #fff;
+    border: 1px solid #ccd7e6;
+    border-radius: 0;
+    color: #475466;
+    font-family: Roboto,sans-serif;
+    font-size: 9pt;
+    height: 100% !important;
+    padding: 0 9pt;
+}
+
+
+ .BgColorOD1 {
+        color: #d9ff00 !important;
+        border-color: #FF0000;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#f12424, #fc0707 60%, #ed0c0c) !important;
+        background-repeat: no-repeat;
+    }
+
+ .custom{
+    width:16px;
+    height:16px;
+    margin-top:3px;
+}
+.checked{
+    background:green;
+}
+.notchecked{
+    background:orange;
+}
+
+.ForeRedColor {
+    color: #d9ff00 !important;
+}
+
+.RedColor {
+    color:red !important;
+}

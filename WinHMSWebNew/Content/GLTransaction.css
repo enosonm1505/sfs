@@ -1,0 +1,53 @@
+﻿.k-grid > table > tbody > tr:not(.k-grouping-row):hover > td {
+background:#ffb76b;background:-moz-linear-gradient(top, #ffb76b 0%, #ffa73d 100%, #ff7c00 100%, #ff7f04 100%); /* FF3.6+ */
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb76b), color-stop(100%,#ffa73d), color-stop(100%,#ff7c00), color-stop(100%,#ff7f04)); /* Chrome,Safari4+ */
+background:-webkit-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* Chrome10+,Safari5.1+ */
+background:-o-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* Opera 11.10+ */
+background:-ms-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* IE10+ */
+background:linear-gradient(to bottom, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* W3C */
+cursor:pointer}
+.k-grid-content tr:not(.k-grouping-row):active > td,
+.k-grid > table > tbody > tr:not(.k-grouping-row):active > td {background-color:#f35800}
+.k-grid td {color:black;font-size:11px}
+.k-block,.k-inline-block,.k-draghandle{border-style:solid;border-width:1px;-webkit-appearance:none}
+.k-grid .k-state-selected {background-color:#3399FF;color:#FFFFFF}
+.k-grid .k-state-focused {background:#ffb76b;background:-moz-linear-gradient(top, #ffb76b 0%, #ffa73d 100%, #ff7c00 100%, #ff7f04 100%); /* FF3.6+ */
+background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb76b), color-stop(100%,#ffa73d), color-stop(100%,#ff7c00), color-stop(100%,#ff7f04)); /* Chrome,Safari4+ */
+background:-webkit-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* Chrome10+,Safari5.1+ */
+background:-o-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* Opera 11.10+ */
+background:-ms-linear-gradient(top, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* IE10+ */
+background:linear-gradient(to bottom, #ffb76b 0%,#ffa73d 100%,#ff7c00 100%,#ff7f04 100%); /* W3C */
+cursor:pointer} 
+/* Roe Hover Background Color */
+.k-toolbar-resizable {min-height:0px}
+.k-window {background-color:#f1efef;border:4px solid #FFBE17}
+.k-toolbar-resizable {min-height:0px}
+.divDbl{margin-left:5px;font-size:10px;color:maroon}
+.divTop{margin-left:20px;margin-top:0px}
+.mrg-10{margin-left:0px;margin-top:-10px}
+.mrg-15{margin-top:-15px}
+.wid30{width:30px;float:left}
+.wid40{width:40px;float:left}
+.wid50{width:50px;float:left}
+.wid90{width:90px;float:left}
+.wid105{width:105px;float:left}
+.wid160{width:160px;float:left}
+.wid180{width:180px;float:left}
+.wid130{width:130px;float:left}
+.wid200{width:200px;float:left}
+.ddlTrnTy{width:150px;height:25px}
+.ddlDiv{width:120px;height:25px}
+.divSortOn{float:left;margin-top:-5px;position:static;width:280px}
+.legSortOn{font-size:11px;font-style:italic}
+.searchicon{width:25px;height:20px;cursor:pointer}
+.displaybt{color:black;width:65px;height:22px;margin-left:40px;margin-top:0px}
+.douclikcmd{width:100%;float:left}
+.douclikcmd-2{width:50%;float:left}
+.zommmicon{width: 12px;height:12px;}
+.createcmd{width:45%;float:right;margin-top:-15px}
+.createcls{width:25%;float:right}
+.narrcls{width:20%;float:right}
+.propetyNm{width:220px;height:25px;z-index:1}
+.excelBt{width:60px;height:22px;margin-left:40px;margin-top:0px}
+.printBT{width:60px;height:22px;margin-left:5px;margin-top:0px}
+.pdfBt{color:black;width:60px;height:22px;margin-left:5px;margin-top:0px}

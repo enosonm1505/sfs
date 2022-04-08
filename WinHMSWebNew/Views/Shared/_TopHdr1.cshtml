@@ -1,0 +1,41 @@
+﻿
+@Html.Partial("~/Views/Shared/_MenuHdr.aspx")
+
+<div class="TopHdr">  
+    <div class="TopHdrMod">
+        <div class="logcnt">
+            <img src="../../Images/winhmslogo.png" style="">
+        </div>
+        <div class="TextWidth" style="margin-left:20px; width:250px; float:left; top:10px; text-align:left;" id="divPropbox">
+        </div>
+        <div id="Divtit">
+        <label style="color: black; font-weight: bold; font-size:13px; margin-bottom:0px; margin-right: 300px;" id="Divtitle">
+            <i class="fa @ViewBag.Icon fa-lg"></i>   @ViewBag.Title</label>
+            </div>
+        <div id="Divtit1" style="display:none;">
+        <label style="color: black; font-weight: bold; font-size:13px; margin-bottom:0px; margin-right: 300px;" id="Divtitle1">
+            <i class="fa @ViewBag.Icon fa-lg"></i> Quote Approval  </label>
+        </div>
+    </div>
+    <div class="HdrBtnBx">
+       <button type="button" class="btn btn-custom" data-button="Refresh" title="Refresh" id="REFRESH"><i class='glyphicon glyphicon-refresh'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="New" title="Add New" id="NEW"><i class='fa fa fa-plus'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Amend" title="Amend" id="OPEN"><i class='fa fa-search'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="View" title="View" id="VIEW"><i class='glyphicon glyphicon-eye-open'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Save" title="Save" id="SAVE"><i class='fa fa-save'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="Delete" title="Delete" id="DELETE"><i class='	glyphicon glyphicon-trash'></i> </button>
+        @*<a id="hlkDB1" href="../" style="float: right; padding-right:5px;">
+            <img src="~/Images/Exit.jpg"  width="15" alt="Home" id="imgexit"></a>*@
+
+         </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        debugger;
+        $("#imgexit").hide()
+        $("#DELETE").hide()
+        $("#Divtit1").hide();
+       
+    });
+ </script>

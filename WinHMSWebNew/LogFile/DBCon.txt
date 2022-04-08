@@ -1,0 +1,5 @@
+12/27/2021 5:16:52 PM
+D:\Hosted\FO_Standalone\WinHMSWebNew\\LogFile\DBCon.txt
+The ConnectionString property has not been initialized.
+Date :12/27/2021 5:16:52 PM
+The ConnectionString property has not been initialized.

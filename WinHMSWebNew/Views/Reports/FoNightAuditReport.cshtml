@@ -1,0 +1,2498 @@
+﻿@{
+    ViewBag.Title = "Night Audit Report";   
+    //Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+    if (ViewBag.VMD == "MST") { Layout = "~/Views/Shared/Layout/Mst_FoReportLayout.cshtml"; }
+    else { Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml"; }
+}
+<script src="../../Scripts/xlExport.js"></script>
+<div class="content-wrapper">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <link href="../../Content/Contribute.css" rel="stylesheet" />
+        <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+        <link href="~/FO/CSS/sidemenu-custom.css" rel="stylesheet" />
+        <link href="../../Content/xlExportCss.css" rel="stylesheet" />
+        <div class="container-fluid">
+
+            <div class="row new_hdr" id="divHeader">
+                <div class="col-sm-3">
+
+                    <div class="TextWidth" id="divPropbox">
+                    </div>
+                </div>
+                <div class="col-sm-5 text-center">
+
+                    <label class="wc_hdr_tlt" id="lblRptCaption">Night Audit Report </label>
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="card-tools text-right">
+                        <div id="divPrint" class="btnXX"></div>
+                        <div id="divExcel" class="btnXX"></div>
+                        <div id="divMail" class="btnXX"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border:solid transparent;" class="row">
+                <div class="col-xl-3 col-md-3 col-lg-3 col-xs-11">
+                    <div class="row" style="height:22px">
+                        <div class="col-sm-12 ">
+                            <div id="divchkPeriod"> </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-2 col-md-3 col-lg-2 col-xs-11" style="padding-right:0px !important;max-width:180px">
+                    <div class="row">
+                        <div class="col-sm-12 ">                            
+                            <div id="divFromDt"> </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div class="col-xl-2 col-md-3 col-lg-3 col-xs-11" style="padding-right:0px !important">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="divAsOn"> </div>
+                            <div id="divToDt"> </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-2 col-md-2 col-lg-2 col-xs-11">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div id="divbtnDisp"></div>
+                        </div>
+                        <div class="col-sm-3" id="divOptBtn">
+                            <button type="button" class="btn btn-sm wc_csticonbtn25" id="btnoptions" title="Options" onclick="btnFilterClick()"><i class="fas fa-filter"></i></button>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="divLblNote" style="width: 100%;"></div>                                         
+                </div>
+                <div class="col-xl-3 col-md-3 col-lg-3 col-xs-11">
+                    <div id="divFor"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="divGrid" style="width: 100%;"></div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <input type="hidden" id="HdnCurrMnth" />
+        <input type="hidden" id="HdnAccDt" />
+        <input type="hidden" id="HdnToAccDt" />
+        <input type="hidden" id="HdnAccMnth" />
+        <input type="hidden" id="HdnFrmMnth" />
+        <input type="hidden" id="HdnToMnth" />
+        <input type="hidden" id="HdnYrFrmMnth" />
+        <input type="hidden" id="HdnYrToMnth" />
+
+
+        <style>
+            .lblNote .webix_template {
+                background: transparent !important;
+                color: red !important;
+                font-size: 10px !important";
+            }
+                        
+             .btn-custom1 {
+                color: #000;
+                background-color: #ffffff;
+                /* border-color: #cccccc; */
+                background: transparent;
+                padding: 0px 8px;
+                font-size: 18px;
+                color: #0798af;
+                height: 25px !important;
+                border: none !important;
+            }
+
+            .btnXX {
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 1.5;
+            }
+
+            .btn-custom {
+                color: #000;
+                background-color: #ffffff;
+                /* border-color: #cccccc; */
+                background: transparent;
+                padding: 2px 4px;
+                font-size: 18px;
+                color: #0798af;
+                white-space: nowrap;
+            }
+
+                .btn-custom:hover {
+                    color: white !important;
+                    background-color: rgb(40, 132, 179);
+                    border-color: #cccccc;
+                    /* padding: 3px 7px; */
+                }
+
+                .btn-custom > i {
+                    padding-left: 5px;
+                }
+
+            .btn-custom1 {
+                color: #000;
+                background-color: #ffffff;
+                /* border-color: #cccccc; */
+                background: transparent;
+                padding: 0px 8px;
+                font-size: 18px;
+                color: #0798af;
+                height: 25px !important;
+                border: none !important;
+            }
+
+            .GrpTot1 {
+                color: black;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }                      
+
+            .GrpTotBAckCol {
+                background-color: #eaeaea !important;
+                color: #16888e !important;
+                font-weight: Bold !important;
+                font-family: Arial !important;
+            }
+            .MyDb .webix_cell.webix_dtable_colrow {
+                background-color: #3b99b5 !important;
+                color: white !important;
+            }
+            .GrpHead {
+                color: black;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+        </style>
+
+        @*Topmenu Style ends*@
+        <style>
+            .Pagefalse {
+                pointer-events: none;
+                opacity: 0.6;
+            }
+
+            .btn-filter .webix_button {
+                border: none !important;
+                background: none !important;
+            }
+
+            .btn-option .webix_icon_btn {
+                font-weight: normal !important;
+            }
+            .TrnDetGrid .ColAlignCenter {
+                text-align: center !important;
+            }
+        </style>
+
+        <script>
+
+    //debugger;
+    var body = document.body,
+    html = document.documentElement;
+    var NghtAudTotCrDr = ""; 
+
+    function fnExcelExport() {
+        //debugger;
+        //webix.env.cdn = "http://localhost:60000/Reports";
+        var vGrid = "";        
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2") CompId = fnGetDefaultComp(CompId); 
+        
+        vGrid = $$("gridMain");
+
+        var CompNm = $$("Property").getText();
+        var AsOn =  $$("AsOnDt").getText();
+        var values = fnCurrDtTime();
+        var vDate = values[0];
+        var vTm = values[1];
+        var chkPeriod = $$("chkPeriod").getValue();
+        var FromDt = $$("FromDt").getText();
+        var ToDt = $$("ToDt").getText();
+
+        var vHeader = $("#lblRptCaption").text();
+        var FullData = "";
+        FullData = vGrid.serialize();
+        var len = FullData.length;
+        if (len > 0) {
+            var vExpoartGrid = webix.copy($$("gridMain"),-1);            
+            if(chkPeriod == "0") fnComExcelExport(vExpoartGrid,vHeader,vHeader,true,CompNm,vDate,vTm,"","",AsOn);
+            else fnComExcelExport(vExpoartGrid,vHeader,vHeader,true,CompNm,vDate,vTm,FromDt,ToDt,"");
+            //webix.toExcel(vGrid, {
+            //    filename: vHeader,
+            //    styles: true,
+            //    spans: true,
+            //    name: vHeader,
+            //    docHeader: "<div class='row'><div class='col-4 col-sm-4  text-left' style='font-weight:bold !important'>" + CompNm + "</div>" + "<div class='col-4 col-sm-4  text-center' style='text-align:center !important;font-weight:bold !important'>" + vHeader + "</div></div>" + "<div class='row'>" + "<div class='col-12 col-sm-12 text-center'> AsOn : " + AsOn + "</div></div>",
+            //    rawValues: true,
+                
+            //});
+        }
+        else {
+            alert("Records not present in Report");
+        }
+
+    };
+    function fnGridPrint() {
+        debugger;
+        var vHeader = $("#lblRptCaption").text();
+        var FullData = "";
+        var vGrid = "";
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2") CompId = fnGetDefaultComp(CompId); 
+        
+        vGrid = $$("gridMain");    
+
+        var CompNm = $$("Property").getText();
+        var AsOn =  $$("AsOnDt").getText();
+        //var values = fnCurrDtTime();
+        //var vDate = values[0];
+        //var vTm = values[1];
+        var chkPeriod = $$("chkPeriod").getValue();
+        var FromDt = $$("FromDt").getText();
+        var ToDt = $$("ToDt").getText();
+
+        var DocHeader = "<div class='row'><div class='col-4 col-sm-4  text-left' style='font-weight:bold !important'>" + CompNm + "</div>" + "<div class='col-4 col-sm-4  text-center' style='text-align:center !important;font-weight:bold !important'>" + vHeader + "</div></div>" + "<div class='row'>" + "<div class='col-12 col-sm-12 text-center'> AsOn : " + AsOn + "</div></div>";
+        
+        if(chkPeriod == "1"){
+            DocHeader = "<div class='row'><div class='col-4 col-sm-4  text-left' style='font-weight:bold !important'>" + CompNm + "</div>" + "<div class='col-4 col-sm-4  text-center' style='text-align:center !important;font-weight:bold !important'>" + vHeader + "</div></div>" + "<div class='row'>" + "<div class='col-12 col-sm-12 text-center'> From: " + FromDt + "   To: " + ToDt + "</div></div>";
+        }
+
+        FullData = vGrid.serialize();
+        var len = FullData.length;
+        if (len > 0) {
+            //var vExpoartGrid = webix.copy($$("gridMain"),-1);            
+            //fnComPrintGrid(vExpoartGrid,vHeader,vHeader,true,CompNm,vDate,vTm,"","",AsOn);
+
+            webix.print(vGrid, {
+                //docHeader: vHeader, //{ text: vHeader, fontSize: 25 },
+
+                docHeader: DocHeader,
+                fit: "page",
+                scroll: false,
+                mode: "landscape"
+            });
+        }
+        else {
+            alert("Records not present in Report");
+        }
+
+    };    
+
+    function fnCurrDtTime() {
+        var vDate = "";
+        var vTime = "";
+        var rowData = [];
+        var CompId = fnRetComboVal($$("Property"),"ORGID");   
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2") CompId = fnGetDefaultComp(CompId);
+        
+        
+        Request = {
+            REQTYPE: "GET_FNLOADCURRDTTM",
+            COMPID: CompId,
+        }
+        var DataVal = JSON.stringify(Request);
+        $.ajax({
+            async: false,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + DataVal,
+            success: function (d) {
+                debugger;
+                if (d != "") {
+                    rowData = JSON.parse(d);
+                    vDate = rowData.GDate;
+                    vTime = rowData.GTime;
+
+                }
+            },
+        });
+
+        return [vDate, vTime];
+
+    };
+
+    $(document).ready(function () {
+        //$("#pageloaddiv").hide();
+
+        var VMD = @Html.Raw(Json.Encode(ViewBag.VMD));
+        if(VMD=="MST")
+        {
+            $("#MenuName").val('MTMNUNANANAGAUDRPT');
+            $("#MenuLvl").val('MTMNUNIGHTAUDIT');
+            $("#MenuLvl1").val('');
+        }
+        else
+        {
+            $("#MenuName").val('FOMNUNANAREP');
+            $("#MenuLvl").val('FOMNUNA');
+            $("#MenuLvl1").val('');
+        }
+        
+
+        var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+        var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+        var Mail = "<span  class=' wc_fnt18 far fa-1x fa-envelope'></span>";
+
+
+        webix.ready(function () {
+            //debugger;
+            
+            webix.ui({
+                view: "button", id: "btnPrint", value: "Print", width: 30, container: "divPrint", label: Print, tooltip: true,
+                on: {
+                    onItemClick: function () {
+                        fnGridPrint();
+                    }
+                }
+            });
+
+            webix.ui({
+                view: "button", id: "btnExcel", value: "Excel", width: 30, container: "divExcel", label: excel, tooltip: true,
+                on: {
+                    onItemClick: function () {
+                        fnExcelExport();
+
+                    }
+                }
+            });
+
+            webix.ui({
+                view: "button", id: "btnMail", value: "Mail", width: 30, container: "divMail", label: Mail, tooltip: true,
+                on: {
+                    onItemClick: function () {
+                        fnSendMail();
+
+                    }
+                }
+            });
+
+            webix.ui({
+                id: "gridComp",
+                view: "datatable",
+                hidden: true,
+                data: [],
+                columns: [
+                    { id: "id", header: 'COMPANY_ID', width: 300, css: { 'text-align': 'left ! important', }, },
+                    { id: "value", header: 'COMPANY_NM', width: 100, css: { 'text-align': 'right ! important', } },
+                    { id: "TYPE", header: 'TYPE', width: 100, css: { 'text-align': 'right ! important', } },
+                    { id: "USER_ID", header: ['USER_ID',], width: 100, css: { 'text-align': 'right ! important', } },
+                    { id: "SEQ_NO", header: { text: "SEQ_NO", }, width: 100, css: { 'text-align': 'right ! important', } },
+                    { id: "DEPART_ID", header: { text: "DEPART_ID", }, width: 100, css: { 'text-align': 'right ! important', } },
+                    { id: "ACTIVE_ID", header: { text: "ACTIVE_ID", }, width: 100, css: { 'text-align': 'right ! important', } },
+                ],
+                data: [],
+                on: {
+                    onBeforeClose: function () {
+                        return false;
+                    },
+                }
+            });           
+
+                       
+            webix.ui({container: "divPropbox",view: "richselect", id: "Property",on: {onChange: function (newVal,OldVal) {fnPropChange("1");}}});
+            webix.ui({container: "divLblNote",view: "template", id: "lblNote",borderless: true,autoheight: true,hidden:true, template: "Double click Revenues for Transactions Details./Double click GL Bal BF / CF to view Guest Balances.",css:"lblNote"});
+            webix.ui({container: "divLblNote",view: "label", id: "lblNote1",borderless: true,autoheight: true,hidden:true, label: "Double click GL Bal BF / CF to view Guest Balances.",css:"lblNote"});            
+            webix.ui({
+                container: "divAsOn", view: "datepicker", name: "AsOnDt", id: "AsOnDt", format: "%d/%m/%Y", stringResult: true, label: "AsOn", labelWidth: 40,
+                on: {
+                    onChange: function () {                        
+                        SMAsOnChange();
+                    }
+                }
+            });
+            
+            webix.ui({ container: "divFor", view: "richselect",label:"For the",labelwidth:80, id: "ddlFor",value:"1",hidden:true,
+                options:[{id:"1", value:"Day"}, {id:"2",value:"Month"},{id:"3",value:"Year"}],on: {
+                    onChange: function () {
+                        //debugger;
+                        $$("gridMain").clearAll();
+
+                    }
+                }
+            });
+
+            webix.ui({
+                container: "divFromDt", view: "datepicker", name: "FromDt", id: "FromDt", format: "%d/%m/%Y", stringResult: true, label: "From", labelWidth: 40,
+                on: {
+                    onChange: function () {
+                        //debugger;
+                        SMFromDateChange();
+
+                    }
+                }
+            });
+            webix.ui({ container: "divbtnDisp", css: "webix_primary", view: "button", id: "btnDisplay",  label: "Display", inputWidth: 60, width: 60, click: function () { fnLoadGrid(); } }),
+            webix.ui({
+                container: "divToDt", view: "datepicker", name: "ToDt", id: "ToDt", format: "%d/%m/%Y", stringResult: true, label: "To", labelWidth: 40,
+                on: {
+                    onChange: function () {
+                        SMToDateChange();
+                    }
+                }
+            });
+            webix.ui({ container: "divchkPeriod", view: "checkbox", id: "chkPeriod",inputWidth:120, labelWidth: 100, label: "Specific Period", customCheckbox: false, click: function () { fnchkPeriod("1"); }, }),
+            loadAdvFilterWindow();
+            fnNAPopWindowLoad();
+            fnNAPopGBWindowLoad();
+            FNLoadAllCompany();
+            fnNAGuestLedgerPopWindowLoad();
+            LoadProperty();
+            //debugger;
+            var propchk = @Html.Raw(Json.Encode(ViewBag.MLTPROPHISHIND));
+            if (propchk == "1") $("#divPropbox").show();
+            else if (propchk == "0") $("#divPropbox").hide();
+            gridResize();
+
+        });
+
+        webix.event(window, "resize", function () {
+            gridResize();
+        })
+
+    });
+
+    function gridResize(){
+        //debugger;
+        var vheight = window.innerHeight
+               || document.documentElement.clientHeight
+               || document.body.clientHeight;
+        var offset =  $("#divGrid").offset();
+
+        if($$("gridMain").isVisible() == true){
+            $$("gridMain").define("height", ((vheight - offset.top-50)));
+            $$("gridMain").adjust();
+        }
+
+       
+
+    }
+    function FNLoadAllCompany() {
+        //debugger;
+        Request = {
+            REQTYPE: "GET_FNLOADALLCOMPANY",
+            COMPID: @Html.Raw(Json.Encode(ViewBag.COMP)),
+        }
+        var rowData = [];
+        var options = [];
+
+        var DataVal = JSON.stringify(Request);
+        $.ajax({
+            async: false,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + DataVal,
+            success: function (d) {
+                //debugger;
+                if (d != "") {
+                    rowData = JSON.parse(d);
+
+                    $$("gridComp").parse(rowData);
+                }
+            },
+        });
+    };
+
+
+    function LoadProperty() {
+        //debugger;
+        var Prop_Id = @Html.Raw(Json.Encode(ViewBag.COMP));
+        Request = {
+            REQTYPE: "GET_FNMULPROPERTY",
+            COMPID: Prop_Id,
+        }
+
+        var rowData = [];
+        var options = [];
+
+        var DataVal = JSON.stringify(Request);
+        $.ajax({
+            async: false,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + DataVal,
+            success: function (d) {
+                //debugger;
+                if (d != "") {
+                    rowData = JSON.parse(d);
+                    $$("Property").define("options", rowData);
+                    $$("Property").refresh();
+                    $$("Property").setValue(Prop_Id);
+
+                    $$("gridComp").parse(rowData);
+                }
+            },
+        });
+    };
+
+    function GridDesign() {
+        if($$("gridMain") != null) $$("gridMain").destructor();
+        webix.ui({
+            id: "gridMain",
+            container: "divGrid",
+            select: 'row',
+            view: "datatable",
+            fixedRowHeight: false,
+            resizeColumn:true,
+            rowLineHeight: 23,
+            autoConfig: true,
+            editable: true,
+            spans: true,            
+            position: "flex",
+            css: "webix_header_border ",
+            data: [],
+            columns: [
+                { id: "RevNm", header: 'Particulars', minWidth: 150,fillspace:0.2, css: { 'text-align': 'left ! important', }, },
+                { id: "TAmt", header: [{text:"Today",colspan:3,css: { 'text-align': 'center' } }, 'Amount'], minWidth: 100,fillspace:0.1, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00", },
+                { id: "TDisc", header: [null,'Allowance'], minWidth: 100,fillspace:0.1, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00", },
+                { id: "TNett", header: [null,'Nett'], minWidth: 100,fillspace:0.1, css: { 'text-align': 'right ! important', } ,exportType: "number",exportFormat: "#,##0.00",},
+                { id: "MAmt", header: [{text:"Month",colspan:3,css: { 'text-align': 'center' } }, 'Amount'], minWidth: 100,fillspace:0.1, css: { 'text-align': 'right ! important', } ,exportType: "number",exportFormat: "#,##0.00",},
+                { id: "MDisc", header: [null, "Allowance"], minWidth: 100,fillspace:0.1, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00", },
+                { id: "MNett", header: [null, "Nett"], minWidth: 100,fillspace:0.1, css: { 'text-align': 'right ! important', } ,exportType: "number",exportFormat: "#,##0.00",},
+                { id: "YAmt", header: [{text:"Year",colspan:3,css: { 'text-align': 'center' } }, 'Amount'], minWidth: 100,fillspace:0.1, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00", },
+                { id: "YDisc", header: [null, "Allowance"], minWidth: 100,fillspace:0.1, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00", },
+                { id: "YNett", header: [null,"Nett"], minWidth: 100,fillspace:0.1, css: { 'text-align': 'right ! important', } ,exportType: "number",exportFormat: "#,##0.00",},
+                { id: "CLR", hidden:true },
+                { id: "HIDD", hidden:true },
+
+            ],
+            data: [],
+            scheme: {
+                $init: function (item) {
+                    if (item.CLR != "" && item.CLR != null) {
+                        var Columns = $$('gridMain').config.columns;
+                        var ColCnt = Columns.length;
+                        if (item.CLR == "GrpHead") {
+                            //debugger;
+                            $$("gridMain").addSpan(item.id, "RevNm", ColCnt, 1, null, "GrpHead");
+                            $$("gridMain").refresh();
+                        }
+                        else item.$css = item.CLR;
+                    }
+                },
+                $export: function (obj) {
+                    //debugger;                
+                    var item = webix.copy(obj);
+                                               
+                    if (item.CLR != "ExcelHead") {                        
+                        $.each(obj, function (key, value) {
+                            //debugger;
+                            ColId = key;
+                            if(ColId != "RevNm" && ColId != "HIDD" && ColId != "CLR" && ColId != "id"){
+                                var vBal = value; 
+                                if (vBal != null && vBal != undefined) {
+                                    var vBal1 =  vBal.replace(/[,]/g, '');                                  
+                                    vBal1 = parseFloat(vBal1);                                
+                                    item[ColId] = vBal1;
+                                }   
+                            }
+                        })                            
+                    }
+                    return item;
+                }
+            },
+
+            on: {
+                onBeforeClose: function () {
+                    return false;
+                },
+               
+                'onItemDblClick': function (id) {
+                    //debugger;
+                    var getval = this.getItem(id.row);                            
+                    var TarRow = $$("gridMain").getSelectedItem(false);
+                    var TarId = TarRow.HIDD;
+                    var CLR = TarRow.CLR == null?"":$.trim(TarRow.CLR);
+                    var vType = "";
+                    if(TarId == "GBC"){
+                        var C_DT = $$("AsOnDt").getText();                        
+                        fnLoadNAGBPop(C_DT);
+                    } 
+                    else if(TarId == "GBB"){
+                        var C_DT = fnDateAdd($$("AsOnDt").getText(),-1,"D");                        
+                        fnLoadNAGBPop(C_DT);
+                    } 
+                    else if(window.G11_Ind == "1" && $$("chkPeriod").getValue() == "0"){
+                        var RevNm = TarRow.RevNm == null?"":$.trim(TarRow.RevNm);
+                        if(CLR == ""){
+                            if(id.column == "MAmt" || id.column == "MDisc" || id.column == "MNett"){
+                                vType = "M";                           
+                            }
+                            else if(id.column == "YAmt" || id.column == "YDisc" || id.column == "YNett"){
+                                vType = "Y";            
+                            }
+                            else{                                                        
+                                vType = "D";            
+                            }
+                            var C_DT = $$("AsOnDt").getText();                            
+                            fnLoadNAPop(C_DT,vType,RevNm);
+
+                        }
+                    }
+                }                
+            }
+        });
+        fnShowHideCol();
+        gridResize();
+
+    };
+    function fnGetFirstDateOfMonth(InputDate) {              
+        //debugger;
+        var Parts = StrDt.split("/");
+        var Dt = Parts[0];
+        var Mn = Parts[1];
+        var Yr = Parts[2];
+        var Str = "01" + "/" + Mn + "/" + Yr;
+        return Str;
+        
+    };
+    function GridDesign1() {
+        if($$("gridMain") != null) $$("gridMain").destructor();
+        webix.ui({
+            id: "gridMain",
+            container: "divGrid",
+            select: 'row',
+            view: "datatable",
+            fixedRowHeight: false,
+            resizeColumn:true,
+            rowLineHeight: 23,
+            autoConfig: true,
+            editable: true,
+            spans: true,            
+            position: "flex",
+            css: "webix_header_border ",
+            columns: [
+                { id: "PARTICULARS", header: 'Particulars', width: 250, css: { 'text-align': 'left ! important', }, },
+                { id: "TODAY", header: 'Day', width: 100, css: { 'text-align': 'right ! important', } ,exportType: "number",exportFormat: "#,##0.00",},
+                { id: "MTD", header: 'MTD', width: 100, css: { 'text-align': 'right ! important', } ,exportType: "number",exportFormat: "#,##0.00",},
+                { id: "YTD", header: ['YTD',], width: 100, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00", },
+                { id: "LYDAY", header: { text: "LY.Day", }, width: 100, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00", },
+                { id: "LYMTD", header: { text: "LY.MTD", }, width: 100, css: { 'text-align': 'right ! important', } ,exportType: "number",exportFormat: "#,##0.00",},
+                { id: "LYYTD", header: { text: "LY.YTD", }, width: 100, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00", },
+                { id: "CLR", hidden:true },
+            ],
+            data: [],
+            scheme: {
+                $init: function (item) {
+                    if (item.CLR != "" && item.CLR != null) {
+                        var Columns = $$('gridMain').config.columns;
+                        var ColCnt = Columns.length;
+                        if (item.CLR == "GrpHead") {
+                            //debugger;
+                            $$("gridMain").addSpan(item.id, "PARTICULARS", ColCnt, 1, null, "GrpHead");
+                            $$("gridMain").refresh();
+                        }
+                        else item.$css = item.CLR;
+                    }
+                },
+                $export: function (obj) {
+                    //debugger;                
+                    var item = webix.copy(obj);
+                                               
+                    if (item.CLR != "ExcelHead") {                        
+                        $.each(obj, function (key, value) {
+                            //debugger;
+                            ColId = key;
+                            if(ColId != "PARTICULARS" && ColId != "HIDD" && ColId != "CLR" && ColId != "id"){
+                                var vBal = value; 
+                                if (vBal != null && vBal != undefined) {
+                                    var vBal1 =  vBal.replace(/[,]/g, '');                                  
+                                    vBal1 = parseFloat(vBal1);                                
+                                    item[ColId] = vBal1;
+                                } 
+                            }
+                        })                            
+                    }
+                    return item;
+                }
+            },            
+            on: {
+                onBeforeClose: function () {
+                    return false;
+                },
+            }
+        });
+        gridResize();
+    };
+    function GridDesign2() {
+        //debugger;
+        if($$("gridMain") != null) $$("gridMain").destructor();
+        webix.ui({
+            id: "gridMain",
+            container: "divGrid",
+            select: 'row',
+            view: "datatable",
+            fixedRowHeight: false,
+            resizeColumn:true,
+            rowLineHeight: 23,
+            autoConfig: true,
+            editable: true,
+            spans: true,            
+            position: "flex",
+            css: "webix_header_border ",
+            columns: [
+                { id: "PARTICULARS", header: 'Particulars', width: 250, css: { 'text-align': 'left ! important', }, },
+                               
+            ],
+            data: [],
+            scheme: {
+                $init: function (item) {
+                    if (item.CLR != "" && item.CLR != null) {
+                        var Columns = $$('gridMain').config.columns;
+                        var ColCnt = Columns.length;
+                        if (item.CLR == "GrpHead") {
+                            //debugger;
+                            $$("gridMain").addSpan(item.id, "PARTICULARS", ColCnt, 1, null, "GrpHead");
+                            $$("gridMain").refresh();
+                        }
+                        else item.$css = item.CLR;
+                    }
+                },
+                $export: function (obj) {
+                    //debugger;                
+                    var item = webix.copy(obj);
+                                               
+                    if (item.CLR != "ExcelHead") {                        
+                        $.each(obj, function (key, value) {
+                            //debugger;
+                            ColId = key;
+                            if(ColId != "PARTICULARS" && ColId != "HIDD" && ColId != "CLR" && ColId != "id"){
+                                var vBal = value; 
+                                if (vBal != null && vBal != undefined) {
+                                    var vBal1 =  vBal.replace(/[,]/g, '');                                  
+                                    vBal1 = parseFloat(vBal1);                                
+                                    item[ColId] = vBal1;
+                                }    
+                            }
+                        })                            
+                    }
+                    return item;
+                }
+            },            
+            on: {
+                onBeforeClose: function () {
+                    return false;
+                },
+            }
+        });
+
+        var CompId = fnRetComboVal($$("Property"),"ORGID");            
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2"){
+            var vSplit= CompId.split(",");
+            CompId = fnGetDefaultComp(CompId);                 
+            ReqNm = "GET_FNMANAGERRPTMULTICOMPANY";                                   
+            var ColVal = [];
+            var vColumn = $$("gridMain").config.columns;
+            
+            vSplit.forEach(function (entry) {
+                Hdr = $.trim(entry);
+                dtComp = $$("gridComp").serialize();
+                var CmpData = dtComp.filter(function (el) {
+                    return el.id.toString().trim().toUpperCase() == $.trim(entry);
+                });
+                if (CmpData.length > 0) Hdr = CmpData[0].SHRT_NM;
+                var set = {
+                    id: $.trim(entry), header: { text: Hdr, }, width: 150, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00",
+                    //adjust:"data"
+                };
+                vColumn.push(set);
+            });
+
+            var set = {
+                id: "TOT", header: { text: "Total",}, width: 150, css: { 'text-align': 'right ! important', },exportType: "number",exportFormat: "#,##0.00",
+                //adjust:"data"
+            };
+            vColumn.push(set);
+
+            var set = {
+                id: "CLR", hidden: true
+            };
+            vColumn.push(set);
+            $$("gridMain").refreshColumns();
+            $$("gridMain").refresh();
+            $$("gridMain").show();            
+        }
+        gridResize();
+    };
+    function fnPropChange(vLoad){
+        debugger;
+        window.BASE_CURRENCY = "";
+        window.CURR_DT = "";
+        window.CURRENCY_FORMAT = "";
+        window.CURRENCY_DELIMIT = "";
+        window.CURRENCY_DECIMLIMIT = "";
+        window.CPN_MODE_RES="";
+        window.CatAppl = "";
+        window.H14_Ind = "";
+        window.G11_Ind = "";
+        window.U11_Ind = "";
+        window.PROPCHANGE="1";
+        var bMulti = "0";
+
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2"){
+            CompId = fnGetDefaultComp(CompId); 
+            bMulti="1";
+        }           
+        $$("btnMail").show();
+        $("#divAsOn").show();            
+        $("#divToDt").hide();
+        $("#divFromDt").hide();
+        $$("AsOnDt").setValue('');
+        $$("ddlFor").hide();
+        $("#divOptBtn").show();
+        var vSplit=[];
+
+        $$("txtLast").setValue('0');
+        $$("txtYearly").setValue('1');
+        $$("txtNetRev").setValue('0'); 
+        
+        LoadInds(CompId);
+        
+        debugger;
+        fnLoadRoomTy(CompId);   
+        $$("chkPeriod").show();
+        $$("btnMail").show();
+        $$("chkPeriod").setValue("0");
+        $$("AsOnDt").setValue('');
+        $$("FromDt").setValue('');
+        $$("ToDt").setValue('');
+        if(bMulti == "0"){
+            GridDesign();            
+        } 
+        else{
+            GridDesign2(); 
+            $$("ddlFor").show();
+            $$("ddlFor").setValue('1');
+            $$("lblNote").hide();
+            $$("lblNote1").hide();
+            $("#divOptBtn").hide();
+            $$("btnMail").hide();            
+        }
+        LoadDate(CompId);                          
+        fnLoadGrid();                
+        debugger;        
+                
+    };
+    function LoadDate(cmpid) {
+        debugger;
+
+        Request = {
+            REQTYPE: "GET_FRMMNTHTOMNTH",
+            COMPID: cmpid,
+        }
+
+        var DataVal = JSON.stringify(Request);
+
+        $.ajax({
+            async: false,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + DataVal,
+
+            success: function (data) {
+                debugger;
+                var data1 = JSON.parse(data);
+                var vCurrDt = data1[0].CURRDT.toString().trim();
+                var vAccDt = data1[0].ACC_DT2.toString().trim();
+                var vToAccDt = data1[0].TO_ACC_DT2.toString().trim();
+                var vAccMnth = data1[0].ACC_MNTH.toString().trim();
+                var vFromMnth = data1[0].FRMMNTH.toString().trim();
+                var vToMnth = data1[0].TOMNTH.toString().trim();
+
+                $("#HdnCurrDt").val(vCurrDt);
+                $("#HdnAccDt").val(vAccDt);
+                $("#HdnAccMnth").val(vAccMnth);
+                $("#HdnFrmMnth").val(vFromMnth);
+                $("#HdnToMnth").val(vToMnth);
+
+                var vFromDt = formatDate(vAccDt);
+                var vToDt = formatDate(vAccDt);
+                $$("AsOnDt").setValue(vFromDt);
+                $$("FromDt").setValue(vFromDt);
+                $$("ToDt").setValue(vFromDt);
+
+            },
+        });
+    };
+
+    var LoadInds = function (CompId) {
+        debugger;
+        //var  JSON.parse(request);
+
+        window.BASE_CURRENCY = "";
+        window.CURR_DT = "";
+
+        window.CURRENCY_FORMAT = "";
+        window.CURRENCY_DELIMIT = "";
+        window.CURRENCY_DECIMLIMIT = "";
+        window.CPN_MODE_RES = "";
+
+        window.CatAppl = "";
+        window.H14_Ind = "";
+        window.G11_Ind = "";
+        window.U11_Ind = "";
+
+        Request = {
+            REQTYPE: "GET_FNGETLOADCONTALL",
+            COMPID: CompId,
+        }
+
+        var rowData = [];
+        var options = [];
+        var dataparam = JSON.stringify(Request);
+
+        $.ajax({
+            async: false,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + dataparam,
+            success: function (d) {
+                debugger;
+                var Detemp = JSON.parse(d);
+                window.BASE_CURRENCY = Detemp.RA[0].BASE_CURRENCY_ID == null?"": $.trim(Detemp.RA[0].BASE_CURRENCY_ID);
+                window.CURR_DT = Detemp.RA[0].CURDT1 == null?"": Detemp.RA[0].CURDT1;
+
+                window.CURRENCY_FORMAT = Detemp.RA[0].CURRENCY_FORMAT == null || $.trim(Detemp.RA[0].CURRENCY_FORMAT) == "" ?"L":Detemp.RA[0].CURRENCY_FORMAT;
+                window.CURRENCY_DELIMIT = Detemp.RA[0].CURRENCY_DELIMIT == null || Detemp.RA[0].CURRENCY_DELIMIT == "" ?".":Detemp.RA[0].CURRENCY_DELIMIT;
+                window.CURRENCY_DECIMLIMIT = Detemp.RA[0].VAL_DECIM_LIMIT == null || Detemp.RA[0].VAL_DECIM_LIMIT == "" ?"2":Detemp.RA[0].VAL_DECIM_LIMIT;
+                window.CPN_MODE_RES = Detemp.RA[0].CPN_MODE_RES == null?"":Detemp.RA[0].CPN_MODE_RES;
+
+                window.H14_Ind = Detemp.RA3[0].H14_IND == null || $.trim(Detemp.RA3[0].H14_IND) == "" ? "0" : Detemp.RA3[0].H14_IND ;
+                window.CatAppl = Detemp.RA3[0].J14_IND == null || $.trim(Detemp.RA3[0].J14_IND) == "" ? "0" : Detemp.RA3[0].J14_IND ;
+                window.G11_Ind = Detemp.RA3[0].G11_IND == null || $.trim(Detemp.RA3[0].G11_IND) == "" ? "0" : Detemp.RA3[0].G11_IND ;
+                window.U11_Ind = Detemp.RA3[0].U11_IND == null || $.trim(Detemp.RA3[0].U11_IND) == "" ? "0" : Detemp.RA3[0].U11_IND ;
+                window.H14_Ind = Detemp.RA3[0].H14_IND == null || $.trim(Detemp.RA3[0].H14_IND) == "" ? "0" : Detemp.RA3[0].H14_IND ;
+
+
+            },
+            error: function (request, status, error) {
+                console.log("Error Failrue");
+            }
+        });
+
+        $$("lblNote").hide();
+        $$("lblNote1").hide();
+
+        if(window.G11_Ind == "1") $$("lblNote").show();
+        else $$("lblNote1").show();
+
+    };
+    function fnchkPeriod(vLoad) {                
+        vLoad = vLoad || "0";
+        var bMulti="0";        
+        fnShowHideCol();
+        
+    };
+
+            
+    function fnShowHideCol(){
+        $$("gridMain").clearAll();
+        if ($$("chkPeriod").getValue() == "1") {
+            $("#divAsOn").hide();  
+            $$("btnMail").hide();
+            $("#divToDt").show();
+            $("#divFromDt").show();
+            $$("gridMain").hideColumn("TAmt")
+            $$("gridMain").hideColumn("TDisc");
+            $$("gridMain").hideColumn("TNett");
+            $$("gridMain").hideColumn("YAmt")
+            $$("gridMain").hideColumn("YDisc");
+            $$("gridMain").hideColumn("YNett");           
+            $$("gridMain").getColumnConfig("MAmt").header[0].text = "Period";            
+            
+        }
+        else {
+            debugger;            
+            $("#divAsOn").show(); 
+            $$("btnMail").show();
+            $("#divToDt").hide();
+            $("#divFromDt").hide();
+            $$("gridMain").showColumn("TAmt")
+            $$("gridMain").showColumn("TDisc");
+            $$("gridMain").showColumn("TNett");
+            if($$("txtYearly").getValue()=="1"){
+                $$("gridMain").showColumn("YAmt")
+                $$("gridMain").showColumn("YDisc");
+                $$("gridMain").showColumn("YNett"); 
+            }
+            else{
+                $$("gridMain").hideColumn("YAmt")
+                $$("gridMain").hideColumn("YDisc");
+                $$("gridMain").hideColumn("YNett");  
+            }
+            $$("gridMain").getColumnConfig("MAmt").header[0].text = "Month";
+            
+
+        }
+        debugger; 
+        $$("gridMain").refreshColumns();
+        gridResize();
+
+    };
+
+    function fnChkEmlSettAvl() {
+        debugger;
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2"){
+            CompId = fnGetDefaultComp(CompId);             
+        }    
+        var bRet = false;
+        var Request = {
+            REQTYPE: "GET_FNCHKEMLSETTAVAIL",
+            COMPID: CompId,           
+
+        }
+        var rowData = "";
+        requestData = JSON.stringify(Request);
+        requestData = encodeURIComponent(requestData);
+        $.ajax({
+            async: false,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + requestData,
+            success: function (data) {
+                debugger;
+                if (data != "") {
+                    rowData = JSON.parse(data);
+                    if(rowData == "1") bRet = true;
+                }
+            },
+            error: function (request, status, error) {
+                console.log("Error Failrue");
+            }
+        });
+
+        return bRet;
+
+    };
+
+    function fnSendMail(){
+        if (fnChkSessVal() == false) return; 
+        if(fnChkEmlSettAvl() == false){    
+            webix.message("Mail Settings not defined","warning");
+            return;
+        }
+        var ChkPeriod = $$("chkPeriod").getValue();        
+        //$$("gridMain").clearAll();
+        $("#pageloaddiv").show();                
+        var Ason = "";
+        var FromDt = "";
+        var ToDt = "";  
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2"){
+            CompId = fnGetDefaultComp(CompId);             
+        }    
+        var COMPNM = $$("Property").getText();
+
+        if(ChkPeriod == "1"){
+            FromDt = $$("FromDt").getText();
+            ToDt = $$("ToDt").getText();
+        }
+        else Ason = $$("AsOnDt").getText();        
+
+        if (ChkPeriod == "1") {
+            if (FromDt == "" || ToDt == "") return;
+        }
+        else {
+            if (Ason == "") return;
+        }        
+        
+        var vNetRev = $$("txtNetRev").getValue();                    
+            
+        Request = {            
+            COMPID: CompId,
+            COMPNM:COMPNM,
+            ASON: Ason,
+            FROMDT: FromDt,
+            TODT: ToDt,            
+            CHKPERIOD: ChkPeriod,            
+            CHKNETREV:vNetRev,
+            CHKSUMMARY:"0",
+            BASECURID:window.BASE_CURRENCY,
+            CURRENCYID:window.BASE_CURRENCY,
+            CURRENCYDECLEN:window.CURRENCY_DECIMLIMIT,
+            CURRENCYFORMAT:window.CURRENCY_FORMAT,
+            H14_IND:window.H14_Ind,
+            }
+   
+        var rowData = [];
+        requestData = JSON.stringify(Request);
+        requestData = encodeURIComponent(requestData);
+        $.ajax({
+            async: true,
+            url: "/Reports/fnNARptEmailSend",
+            type: 'POST',
+            data: "request=" + requestData,
+            success: function (d) {
+                debugger;
+                if (d != "") {                            
+                    Ret = d;
+                    if (d == "1") {                                
+                        webix.alert("Mail Send Successfully");
+                    }
+                    else if (d == "2") {
+                        webix.alert("Excel Export Error");
+                    }
+                    else if (d == "3") {
+                        webix.alert("Error on Sending Mail");
+                    }
+                    else {
+                        webix.alert("No Record found");
+                    }
+                }
+                else {
+                    webix.alert("No Record found");
+                }                
+            },
+            complete: function () {
+                $("#pageloaddiv").hide();
+            },
+            error: function (request, status, error) {
+                console.log("Error Failure");
+                $("#pageloaddiv").hide();
+            }
+        });
+    }
+
+    function fnLoadGrid() {
+        //debugger;
+        if (fnChkSessVal() == false) return;
+        var ChkLast = $$("txtLast").getValue();
+        var ChkPeriod = $$("chkPeriod").getValue();
+        if(ChkLast == "1"){
+            fnLoadGrid1();
+            return;
+        }
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2"){
+            CompId = fnGetDefaultComp(CompId);        
+            fnLoadGrid2(CompId);
+            return;
+        }
+        $$("gridMain").clearAll();
+        $("#pageloaddiv").show();               
+        var Ason = "";
+        var FromDt = "";
+        var ToDt = "";      
+
+        if(ChkPeriod == "1"){
+            FromDt = $$("FromDt").getText();
+            ToDt = $$("ToDt").getText();
+        }
+        else Ason = $$("AsOnDt").getText();        
+
+        if (ChkPeriod == "1") {
+            if (FromDt == "" || ToDt == "") return;
+        }
+        else {
+            if (Ason == "") return;
+        }        
+        var vNetRev = $$("txtNetRev").getValue();
+                     
+        Request = {
+            REQTYPE: "GET_FNNIGHTAUDITRPRT",
+            COMPID: CompId,
+            ASONDT: Ason,
+            FROMDT: FromDt,
+            TODT: ToDt,            
+            CHKPERIOD: ChkPeriod,            
+            CHKNETREV:vNetRev,
+            CHKSUMMARY:"0",
+            BASECURID:window.BASE_CURRENCY,
+            CURRENCYID:window.BASE_CURRENCY,
+            H14_IND:window.H14_Ind,
+        }
+        var rowData = [];
+        requestData = JSON.stringify(Request);
+        requestData = encodeURIComponent(requestData);
+        $.ajax({
+            async: true,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + requestData,
+            success: function (data) {
+                debugger;
+                if (data != "") {
+                    $$("gridMain").clearAll();
+                    rowData = JSON.parse(data);
+                    var NAFRPT = rowData.NAFRPT;
+                    $$("gridMain").parse(NAFRPT);
+                }
+                else $("#pageloaddiv").hide();
+            },
+            complete: function () {
+                $("#pageloaddiv").hide();
+            },
+            error: function (request, status, error) {
+                console.log("Error Failure");
+                $("#pageloaddiv").hide();
+            }
+        });
+    };
+    function fnLoadGrid1() {
+        debugger;
+        if (fnChkSessVal() == false) return;
+        var ChkLast = $$("txtLast").getValue();
+        var ChkPeriod = $$("chkPeriod").getValue();
+        $$("gridMain").clearAll();
+        $("#pageloaddiv").show();
+        
+        
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2") CompId = fnGetDefaultComp(CompId); 
+
+        var Ason = "";
+        var FromDt = "";
+        var ToDt = "";      
+
+        if(ChkPeriod == "1"){
+            FromDt = $$("FromDt").getText();
+            ToDt = $$("ToDt").getText();
+        }
+        else Ason = $$("AsOnDt").getText();        
+
+        if (ChkPeriod == "1") {
+            if (FromDt == "" || ToDt == "") return;
+        }
+        else {
+            if (Ason == "") return;
+        }  
+                
+        var CatId = $$("txtRmCat").getValue();
+        var vNetRev = $$("txtNetRev").getValue();
+        var ReqNm = "";
+        var bMulti = "0";
+        var MULCOMPANY = "";
+        var vSplit = [];
+        var chkCat ="0";
+        if(CatId == "<-ALL->" ) CatId = "";
+        if(CatId != "" ){
+            chkCat ="1";
+        }       
+
+        Request = {
+            REQTYPE: "GET_FNNALASTYEARCOMPARISON",
+            COMPID: CompId,
+            ASFROM: Ason,                        
+            CHKNETREV:vNetRev, 
+            
+        }
+        var rowData = [];
+        requestData = JSON.stringify(Request);
+        requestData = encodeURIComponent(requestData);
+        $.ajax({
+            async: true,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + requestData,
+            success: function (data) {
+                debugger;
+                if (data != "") {
+                    $$("gridMain").clearAll();
+                    rowData = JSON.parse(data);                    
+                    $$("gridMain").parse(rowData);
+                }
+                else $("#pageloaddiv").hide();
+            },
+            complete: function () {
+                $("#pageloaddiv").hide();
+            },
+            error: function (request, status, error) {
+                console.log("Error Failure");
+                $("#pageloaddiv").hide();
+            }
+        });
+    };
+
+    function fnLoadGrid2(CompId) {
+        debugger;
+        if (fnChkSessVal() == false) return;
+        var ChkLast = $$("txtLast").getValue();
+        var ChkPeriod = $$("chkPeriod").getValue();
+        $$("gridMain").clearAll();
+        $("#pageloaddiv").show();
+                
+        var Ason = "";
+        var FromDt = "";
+        var ToDt = "";      
+
+        if(ChkPeriod == "1"){
+            FromDt = $$("FromDt").getText();
+            ToDt = $$("ToDt").getText();
+        }
+        else Ason = $$("AsOnDt").getText();        
+
+        if (ChkPeriod == "1") {
+            if (FromDt == "" || ToDt == "") return;
+        }
+        else {
+            if (Ason == "") return;
+        } 
+        
+        var vFor = $$("ddlFor").getValue()
+        
+        var vNetRev = $$("txtNetRev").getValue();                                              
+        var MULCOMPANY = fnRetComboVal($$("Property"),"ORGID");
+
+        Request = {
+            REQTYPE: "GET_FNNIGHTAUDITGROUPRPRT",
+            COMPID: CompId,
+            ASONDT: Ason, 
+            FROMDT:FromDt,
+            TODT : ToDt,            
+            CHKPERIOD: ChkPeriod,                        
+            CHKNETREV:vNetRev,
+            CHKSUMMARY:"0",   
+            MULCOMPANY:MULCOMPANY,
+            FOR:vFor,
+            BASECURID:window.BASE_CURRENCY,
+            CURRENCYID:window.BASE_CURRENCY,
+            H14_IND:window.H14_Ind,
+        }
+        var rowData = [];
+        requestData = JSON.stringify(Request);
+        requestData = encodeURIComponent(requestData);
+        $.ajax({
+            async: true,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + requestData,
+            success: function (data) {
+                debugger;
+                if (data != "") {
+                    $$("gridMain").clearAll();
+                    rowData = JSON.parse(data);                    
+                    $$("gridMain").parse(rowData);
+                }
+                else $("#pageloaddiv").hide();
+            },
+            complete: function () {
+                $("#pageloaddiv").hide();
+            },
+            error: function (request, status, error) {
+                console.log("Error Failure");
+                $("#pageloaddiv").hide();
+            }
+        });
+    };
+
+    function formatDate(StrDt) {
+        debugger;
+        var Parts = StrDt.split("/");
+        var Dt = Parts[0];
+        var Mn = Parts[1];
+        var Yr = Parts[2];
+        var Str = Yr + "-" + Mn + "-" + Dt;
+        return Str;
+    };
+    function formatDate1(StrDt) {
+        debugger;
+        var Parts = StrDt.split("-");
+        var Yr = Parts[0];
+        var Mn = Parts[1];
+        var Dt = Parts[2];
+        var Str = Dt + "/" + Mn + "/" + Yr;
+        return Str;
+    };
+    function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+        //debugger;
+
+        if (value == null) return "";
+
+        if (value.toString() != "") {
+
+
+            if (Currfrmt == "L") {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+                var afterPoint = '';
+                //if (x.indexOf('.') > 0) {
+                //    afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                //    afterPoint = CurrDelimit + afterPoint
+                //}
+                //x = Math.floor(x);
+                var vArr = x.split('.');
+                x = vArr[0].toString().trim();
+                afterPoint = vArr[1].toString().trim();
+                afterPoint = CurrDelimit + afterPoint
+
+                x = x.toString();
+                var lastThree = x.substring(x.length - 3);
+                var otherNumbers = x.substring(0, x.length - 3);
+                if (otherNumbers != '' && otherNumbers != '-')
+                    lastThree = ',' + lastThree;
+                return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+            }
+            else {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+
+                //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                //var res = x.replace(/(\d{3})/g, "1,")
+                var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                if (res.indexOf('.') > 0) {
+
+                    res = res.replace(".", CurrDelimit)
+                }
+
+
+                return res;
+            }
+        }
+        else {
+            return value;
+        }
+    };
+    function fnCurrFormat(value) {
+
+        var Currfrmt = window.CURRENCY_FORMAT;
+        var CurrDelimit = window.CURRENCY_DELIMIT;
+        var CurrDecimal = window.CURRENCY_DECIMLIMIT;
+        return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+    };
+    function fnLoadRoomTy(CompId) {
+        var dataparam = {};
+        var rowData = [];
+        var options = [];
+        Request = {
+            REQTYPE: "GET_FNCATEGORYLOAD",
+            COMPID: CompId,            
+            CHKPM : "0"
+        }
+        var DataVal = JSON.stringify(Request);
+        $.ajax({
+            async: false,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + DataVal,
+            success: function (d) {
+                //debugger;
+                if (d != "") {
+                    rowData = JSON.parse(d);
+                    options = rowData;
+                    options.splice(0, 0, { value: "<-ALL->", id: "<-ALL->" });
+                    $$("ddlRmCat").define("options", options);
+                    $$("ddlRmCat").setValue("<-ALL->")
+                }
+            },
+        });
+    };
+    function loadAdvFilterWindow() {
+        webix.ui({
+            view: "window",
+            close: true,
+            modal: true,
+            id: "RptAdvFilter",
+            head: "Options",
+            position: "center",
+            css: "WebIxStyle",
+            height: 450,
+            width: 350,
+            move: true,
+            body: {
+                padding: { top: 20, left: 10, bottom: 20, right: 10 },
+                width: 400,
+                rows: [                    
+                    { width: 180, labelWidth: 140, view: "checkbox", id: "chkLast", label: "Last Year comparison", customCheckbox: false,click: function () {fnchkLastClick(); } },
+
+                    { view: "richselect", width: 400, labelWidth: 140, id: "ddlRmCat", label: "Category", on: { onChange: function (newVal, OldVal) { } },hidden:true },
+
+                    { width: 180, labelWidth: 140, view: "checkbox", id: "chkYearly", label: "Yearly", customCheckbox: false,click: function () {  } },
+
+                    { width: 180, labelWidth: 140, view: "checkbox", id: "chkNetRev", label: "Net Revenue", customCheckbox: false,click: function () {  } },                    
+
+                    { padding: { top: 10, left: 0, bottom: 0, right: 0, }, cols: [{}, { view: "button",css:"webix_primary",  maxWidth: 80, id: "OkFilter",  label: "OK", inputWidth: 80, width: 80, click: function () { btnOkFilterClick(); } }], },
+
+                    { view: "text", id: "txtRmCat", hidden: true, },
+                    { view: "text", id: "txtYearly", hidden: true, },
+                    { view: "text", id: "txtNetRev", hidden: true, },
+                    { view: "text", id: "txtLast", hidden: true, },
+                ]
+            }
+        });
+    };                
+    function btnFilterClick() {
+        debugger;
+        if (fnChkSessVal() == false) return;        
+
+        if ($$("txtRmCat").getValue() == "") $$("ddlRmCat").setValue("<-ALL->");
+        else $$("ddlRmCat").setValue($$("txtRmCat").getValue());
+
+        $$("chkLast").setValue($$("txtLast").getValue());    
+        $$("chkYearly").setValue($$("txtYearly").getValue());
+        $$("chkNetRev").setValue($$("txtNetRev").getValue());   
+
+        $$("RptAdvFilter").show();
+    };
+    function btnOkFilterClick() {
+        debugger;
+        if (fnChkSessVal() == false) return;
+
+        if ($$("ddlRmCat").getValue() == "<-ALL->") $$("txtRmCat").setValue("");
+        else $$("txtRmCat").setValue($$("ddlRmCat").getValue());
+
+        $$("txtYearly").setValue($$("chkYearly").getValue());
+        $$("txtNetRev").setValue($$("chkNetRev").getValue());       
+        $$("txtLast").setValue($$("chkLast").getValue());       
+
+        $$("RptAdvFilter").hide();
+        debugger;
+        if($$("txtLast").getValue() == "1"){
+            $$("chkPeriod").setValue('0');
+            $$("chkPeriod").hide();
+            fnShowHideCol();
+            $$("lblNote").hide();
+            $$("lblNote1").hide();            
+            GridDesign1();
+        }
+        else {
+            $$("chkPeriod").show();
+            if(window.G11_Ind == "1") $$("lblNote").show();
+            else $$("lblNote1").show();
+            GridDesign();
+            fnShowHideCol();
+        }
+
+        fnLoadGrid();
+
+    };
+    function fnChkSessVal() {
+        debugger;
+        var bVal = "0";
+        $.ajax({
+            async: false,
+            url: "/Reports/fnChkSessionval",
+            type: 'POST',
+            success: function (data) {
+                debugger;
+                if (data == "1") {
+                    bVal = "1";
+                }
+            },
+            error: function (request, status, error) {
+                bVal = "0";
+            }
+        });
+        if (bVal == "1") return true;
+        else {
+            debugger;
+            var Host = window.location.host;
+            var LoadingUrl = "http://" + Host + "/Login.aspx";
+            window.location.href = LoadingUrl;
+        }
+    };
+    function fnNAPopGBWindowLoad() { 
+        var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+        var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+        webix.ui({
+            view: "window",
+            move: true,
+            position: "center",
+            head: "Guest Ledger Balance",
+            id: 'NAGstLedgerPop',
+            modal: true,
+            width: 680,
+            close: true,
+            body: {
+                rows: [
+
+                    {
+                        cols:[
+                             { view: "text", width: 230, labelWidth: 120, id: "txtGBOnDay", label: "Balance as on Date", readonly: true },
+                             {},
+                             {
+                                 
+                                 css:{"text-align": "right; !important"},
+                                 cols:[
+                                     {
+                                         view: "button", id: "PopGBPrint", value: "Print", minWidth: 30,maxWidth: 30,  label: Print, tooltip: true,
+                                         on: {
+                                             onItemClick: function () {
+                                                 fnGridPrintPop($$("NAGstLedgerGrid"),"Guest Ledger Balance");
+                                             }
+                                         }
+                                     },
+
+                                     {
+                                         view: "button", id: "PopGBExcel", value: "Excel", minWidth: 30,maxWidth: 30,  label: excel, tooltip: true,
+                                         on: {
+                                             onItemClick: function () {
+                                                 fnExcelExportPop($$("NAGstLedgerGrid"),"Guest Ledger Balance");
+                                             }
+                                         }
+                                     }
+
+                                 ]
+                             }
+                        ]
+                    },
+                    {view: "template",height:15, id: "lblNoteGLPop",borderless: true,autoheight: true,template: "Double Click Row to view Guest Ledger Details",css:"lblNote"},
+
+                    {
+                        id: "NAGstLedgerGrid",
+                        select: 'row',
+                        view: "datatable",
+                        css: "webix_header_border ",
+                        footer:true,                        
+                        columns: [
+                                { id: "ROOM_NO", header: 'Room No.', width: 80, css: { 'text-align': 'center ! important' } },
+                                { id: "GUEST_NM", header: 'Guest', width: 300,fillspace:true, css: { 'text-align': 'left ! important' },  },
+                                { id: "PARTY_NM", header: 'Company', width: 200, css: { 'text-align': 'left ! important' }, footer:"Total"},
+                                {
+                                    id: "AMT", header: 'Amount', width: 100, css: { 'text-align': 'right ! important' },
+                                    format: function (value) {
+                                        return fnCurrFormat(value);
+                                    },
+                                    exportType: "number",
+                                    exportFormat: "#,##0.00",
+                                    footer:{content:"summColumn"},
+                                },
+                                
+                                { id: "ARRIVAL_DT", header: 'ARRIVAL_DT', hidden: true },
+                                { id: "REG_NO", header: 'REG_NO',hidden:true },                                
+                        ],
+                        scroll: true,
+                        height: 450,
+                        data: [],
+                        on: {
+                            
+                        },
+                        scheme: {
+                            $init: function (item) {
+                                                            
+                            },
+                        },
+
+                        on: {
+                            onBeforeClose: function () {
+                                return false;
+                            },
+               
+                            'onItemDblClick': function (id) {
+                                debugger;
+                                var getval = this.getItem(id.row);                            
+                                var TarRow = $$("NAGstLedgerGrid").getSelectedItem(false);                                
+                                var C_DT = $$("txtGBOnDay").getValue();  
+                                var RoomNo = TarRow.ROOM_NO; 
+                                var RegNo = TarRow.REG_NO; 
+                                fnOpenGlPop(RegNo,RoomNo,C_DT);
+                                
+                            }                
+                        }
+                    
+                    },
+                    
+                ]
+            }
+        });    
+    };
+    function fnNAPopWindowLoad() {  
+        var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+        var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+        webix.ui({
+            view: "window",
+            move: true,
+            position: "center",
+            head: "N.A. Transaction Details",
+            id: 'NATrnDetPop',
+            modal: true,
+            width: 850,
+            close: true,
+            body: {
+                rows: [
+                    {
+                        cols:[
+                             {
+                                 width: 850,
+                                 css:{"text-align": "right; !important"},
+                                 cols:[
+                                     {
+                                         view: "button", id: "PopDetPrint", value: "Print", minWidth: 30,maxWidth: 30, label: Print, tooltip: true,
+                                         on: {
+                                             onItemClick: function () {
+                                                 fnGridPrintPop($$("NATrnDetGrid"),"N.A Transaction Details");
+                                             }
+                                         }
+                                     },
+
+                                     {
+                                         view: "button", id: "PopDetExcel", value: "Excel",minWidth: 30,maxWidth: 30,  label: excel, tooltip: true,
+                                         on: {
+                                             onItemClick: function () {
+                                                 fnExcelExportPop($$("NATrnDetGrid"),"N.A Transaction Details");
+                                             }
+                                         }
+                                     }
+
+                                 ]
+                             }
+                        ]
+                    },
+                    {                              
+                        id: "NATrnDetGrid",
+                        select: 'row',
+                        view: "datatable",  
+                        css: "webix_header_border TrnDetGrid",
+                        footer:true,
+                        columns: [
+                                { id: "DATE", header: 'Date', width: 85, css: { 'text-align': 'center ! important' } },
+                                { id: "OUTLET", header: 'Outlet', width: 150, css: { 'text-align': 'left ! important' } },
+                                { id: "BILLNO", header: 'Bill No.', width: 80, css: { 'text-align': 'center ! important' },  },
+                                { id: "REVNM", header: 'Revenue', width: 150,fillspace:0.5, css: { 'text-align': 'left ! important' }, },
+                                { id: "NARR", header: 'Narration', width: 150, fillspace:0.5,css: { 'text-align': 'left ! important' }, footer:"Total"},
+                                {
+                                    id: "AMOUNT", header: 'Amount', width: 100, css: { 'text-align': 'right ! important' },
+                                    format: function (value) {
+                                        return fnCurrFormat(value);
+                                    },
+                                    exportType: "number",
+                                    exportFormat: "#,##0.00",
+                                    footer:{content:"totalColumn1"},
+                                },
+                                { id: "DRCR", header: 'Dr/Cr', width: 80, css: { 'text-align': 'center ! important' },footer:[{content:"CrDrColumn",css: "ColAlignCenter" }]},
+                                
+                                { id: "ARRIVAL_DT", header: 'ARRIVAL_DT', hidden: true },
+                                { id: "REG_NO", header: 'REG_NO',hidden:true },                                
+                        ],
+                        scroll: true,
+                        height: 450,
+                        data: [],
+                        on: {
+                            
+                        },
+                        scheme: {
+                            $init: function (item) {
+                                                            
+                            },
+                        },
+                    
+                    },
+                    
+                ]
+            }
+        });    
+    };
+    function fnLoadNAGBPop(C_DT) {
+        $$("NAGstLedgerGrid").clearAll();
+        $$("NAGstLedgerPop").show();
+        CompId = $$("Property").getValue();
+        $$("txtGBOnDay").setValue(C_DT);
+        $("#pageloaddiv").show();
+        var dataparam = {};
+        var rowData = [];
+        var options = [];
+        Request = {
+            REQTYPE: "GET_FNLOADNAGBPOPLOAD",
+            COMPID: CompId,            
+            C_DT : C_DT
+        }
+        var DataVal = JSON.stringify(Request);
+        $.ajax({
+            async: false,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + DataVal,
+            success: function (d) {
+                //debugger;
+                if (d != "") {
+                    rowData = JSON.parse(d);
+                    if(rowData.length>0){
+                        $$("NAGstLedgerGrid").parse(rowData);
+                    }
+                   
+                }
+            },
+            error:function(){
+                $("#pageloaddiv").hide();
+            },
+            complete:function(){
+                $("#pageloaddiv").hide();
+            }
+        });
+        
+    };
+    function fnLoadNAPop(C_DT,TYPE,RevNm) {
+        $$("NATrnDetGrid").clearAll();
+        $$("NATrnDetPop").show();
+        CompId = $$("Property").getValue();
+        $("#pageloaddiv").show();
+        var dataparam = {};
+        var rowData = [];
+        var options = [];
+        Request = {
+            REQTYPE: "GET_FNLOADNAPOPLOAD",
+            COMPID: CompId,            
+            C_DT : C_DT,
+            TYPE:TYPE,
+            REV_NM : RevNm,
+        }
+        var DataVal = JSON.stringify(Request);
+        $.ajax({
+            async: true,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + DataVal,
+            success: function (d) {
+                //debugger;
+                if (d != "") {
+                    rowData = JSON.parse(d);
+                    if(rowData.length>0){
+                        $$("NATrnDetGrid").parse(rowData);
+                        
+                    }
+                   
+                }
+            },
+            error:function(){
+                $("#pageloaddiv").hide();
+            },
+            complete:function(){
+                $("#pageloaddiv").hide();
+            }
+        });
+        
+    };
+    function fnDateAdd(vDate, vCount, vType) {
+        debugger;
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2") CompId = fnGetDefaultComp(CompId); 
+        var Request = {
+            REQTYPE: "GET_FNRETDATEADD",
+            COMPID: CompId,
+            DATE: vDate,
+            DAYS: vCount,
+            FORMAT: vType
+
+        }
+        var rowData = "";
+        requestData = JSON.stringify(Request);
+        requestData = encodeURIComponent(requestData);
+        $.ajax({
+            async: false,
+            url: "/FOMaster/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + requestData,
+            success: function (data) {
+                debugger;
+                if (data != "") {
+                    rowData = JSON.parse(data);
+                }
+            },
+            error: function (request, status, error) {
+                console.log("Error Failrue");
+            }
+        });
+
+        return rowData
+
+    };
+
+
+    function fnNAGuestLedgerPopWindowLoad() {  
+        var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+        var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+        webix.ui({
+            view: "window",
+            move: true,
+            position: "center",
+            head: "Guest Ledger",
+            id: 'NAGuestLedgerPop',
+            modal: true,
+            width: 650,
+            close: true,
+            body: {
+                rows: [
+                    {
+                        cols:[
+                            { view: "text", width: 130, labelWidth: 40, id: "txtGLRmNo", label: "Room", readonly: true },
+                            { view: "text", width: 240, labelWidth: 40, id: "txtGLGstNm", label: "Guest", readonly: true },
+                            { view: "datepicker", width: 160, labelWidth: 40, id: "GlUpToDt", label: "Upto",stringResult: true, readonly: true,  format: "%d/%m/%Y", },
+                            { view: "text",  id: "txtResStatus", hidden:true},
+                            
+                             {                           
+                                 css:{"text-align": "right; !important"},
+                                 cols:[
+                                     {
+                                         view: "button", id: "PopGLPrint", value: "Print", minWidth: 30,maxWidth: 30, label: Print, tooltip: true,
+                                         on: {
+                                             onItemClick: function () {
+                                                 fnGridPrintPop($$("NAGLGrid"),"Guest Ledger");
+                                             }
+                                         }
+                                     },
+
+                                     {
+                                         view: "button", id: "PopGLExcel", value: "Excel",minWidth: 30,maxWidth: 30,  label: excel, tooltip: true,
+                                         on: {
+                                             onItemClick: function () {
+                                                 fnExcelExportPop($$("NAGLGrid"),"Guest Ledger");
+                                             }
+                                         }
+                                     }
+
+                                 ]
+                             }
+                        ]
+                    },
+                    {                              
+                        id: "NAGLGrid",
+                        select: 'row',
+                        view: "treetable",   
+                        footer:true,
+                        css:"webix_header_border MyDb",
+                        columns: [
+                                { id: "BILLDT", header: 'Date', width: 100, css: { 'text-align': 'center ! important' } },
+                                { id: "BILLNO", header: 'Bill No.', width: 80, css: { 'text-align': 'center ! important' },  hidden:true},
+                                { id: "DESCRIPTION", header: 'Description', width: 150,fillspace:true, css: { 'text-align': 'left ! important' },footer:[{text: "Transaction Total"},{text:"Closing Balance"}] },                                
+                                { id: "ROOMNO", header: 'From Room No',  css: { 'text-align': 'left ! important' },hidden:true },                                
+                                {
+                                    id: "AMOUNT", header: 'Amount', width: 120, css: { 'text-align': 'right ! important' },
+                                    format: function (value) {
+                                        return fnCurrFormat(value);
+                                    },
+                                    exportType: "number",
+                                    exportFormat: "#,##0.00",
+                                    footer:[{content:"totalColumn"},{content:"totalColumn"}],
+                                },
+                                { id: "REFTRNTYID", header: 'REFTRNTYID', width: 150, css: { 'text-align': 'left ! important' }, hidden:true},
+                                { id: "REFBILLNO", header: 'Dr/Cr', width: 80, css: { 'text-align': 'center ! important' }, hidden:true},
+                                { id: "GRP", hidden:true},
+                                                      
+                        ],
+                        scrollY:true,
+                        scrollX:false,
+                        height: 450,
+                        data: [],
+                        on: {
+                            
+                        },
+                        scheme: {
+                            $init: function (item) {
+                                                            
+                            },
+                        },
+                    
+                    },
+                    
+                ]
+            }
+        });    
+    };
+    function fnOpenGlPop(REGNO,ROOMNO,ARRDT){  
+        debugger;
+        $$("txtResStatus").setValue('0');
+        $$("txtGLGstNm").setValue('');
+        var vToDt = formatDate(ARRDT);
+        $$("GlUpToDt").setValue(new Date(vToDt));
+        $$("txtGLRmNo").setValue(ROOMNO);  
+        $$("NAGuestLedgerPop").show();
+        fnLoadResGstDet(REGNO);
+        var vStatus = $$("txtResStatus").getValue();
+        fnLoadNAGLPop(ARRDT,REGNO,vStatus);
+    }
+    function fnLoadResGstDet(REGNO){
+        CompId = $$("Property").getValue();
+        $("#pageloaddiv").show();
+        var dataparam = {};
+        var rowData = [];
+        var options = [];
+        Request = {
+            REQTYPE: "GET_FNLOADRESGSTDET",
+            COMPID: CompId,            
+            REG_NO : REGNO,            
+        }
+        var DataVal = JSON.stringify(Request);
+        $.ajax({
+            async: false,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + DataVal,
+            success: function (d) {
+                //debugger;
+                if (d != "") {
+                    rowData = JSON.parse(d);
+                    $$("txtGLGstNm").setValue(rowData.GstFullNm);
+                    $$("txtResStatus").setValue(rowData.Status);                    
+                }
+            },
+            error:function(){
+                $("#pageloaddiv").hide();
+            },
+            complete:function(){
+                $("#pageloaddiv").hide();
+            }
+        });
+
+    };
+    function fnLoadNAGLPop(C_DT,REGNO,STATUS) {
+        $$("NAGLGrid").clearAll();
+        $$("NAGuestLedgerPop").show();
+        CompId = $$("Property").getValue();
+        $("#pageloaddiv").show();
+        var dataparam = {};
+        var rowData = [];
+        var options = [];
+        Request = {
+            REQTYPE: "GET_FNLOADNAGLEDGERPOP",
+            COMPID: CompId,            
+            C_DT : C_DT,
+            REG_NO:REGNO,
+            STATUS : STATUS,
+        }
+        var DataVal = JSON.stringify(Request);
+        $.ajax({
+            async: true,
+            url: "/Reports/FOAPI_CALL",
+            type: 'POST',
+            data: "request=" + DataVal,
+            success: function (d) {
+                //debugger;
+                if (d != "") {
+                    rowData = JSON.parse(d);
+                    if(rowData.length>0){
+                        $$("NAGLGrid").parse(rowData);
+
+                        $$("NAGLGrid").group({
+                            by: "BILLDT",
+                            row: function(obj){
+                                var str = "";
+                                if(obj.BILLDT != null && obj.BILLDT != ""){                                    
+                                    str =  obj.BILLDT; 
+                                }
+                                return "Bill Date : " + str;
+                            },
+                            missing:"Other",
+                            
+                            map: {                                
+                                //CLR :["RowHide","string"],
+                                
+                            },  
+                            
+                            footer: {                                
+                                AMOUNT: ["AMOUNT", "sum"],                                 
+                                DESCRIPTION: ["Day's Total", "string"],  
+                                GRP: ["1", "string"],  
+                                $css:["GrpTot1","string"]
+                            }
+                        });
+                        $$("NAGLGrid").openAll(); 
+                        
+                        
+                    }
+                   
+                }
+            },
+            error:function(){
+                $("#pageloaddiv").hide();
+            },
+            complete:function(){
+                $("#pageloaddiv").hide();
+            }
+        });
+        
+    };
+    function fnExcelExportPop(vGrid,vHead) {
+        debugger;        
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2") CompId = fnGetDefaultComp(CompId); 
+        var vHeader = vHead;
+        var FullData = "";
+        FullData = vGrid.serialize();
+        var len = FullData.length;
+        if (len > 0) {
+            webix.toExcel(vGrid, {
+                filename: vHeader,
+                styles: true,
+                spans: true,
+                name: vHeader,
+                docHeader: vHeader,
+                rawValues: true,
+            });
+        }
+        else {
+            alert("Records not present in Report");
+        }
+
+    };
+    function fnGridPrintPop(vGrid,vHead) {
+        debugger;
+        var vHeader = vHead;
+        var FullData = "";        
+        var CompId = fnRetComboVal($$("Property"),"ORGID");        
+        var CompTy = fnRetComboVal($$("Property"),"TYPE"); 
+        if(CompTy == "2") CompId = fnGetDefaultComp(CompId); 
+        var DocHeader = "<div class='row'><div class='col-12 col-sm-12  text-center' style='text-align:center !important;font-weight:bold !important'>" + vHeader + "</div></div>";
+        
+        FullData = vGrid.serialize();
+        var len = FullData.length;
+        if (len > 0) {
+            webix.print(vGrid, {
+                docHeader: DocHeader,
+                fit: "page",
+                scroll: false,
+                mode: "landscape"
+            });
+        }
+        else {
+            alert("Records not present in Report");
+        }
+
+    };
+
+    function fnchkLastClick() {
+        debugger;
+        if ($$("chkLast").getValue() == "1") {
+            $$("chkYearly").setValue("0");            
+            $$("chkYearly").hide();            
+        }
+        else {
+            $$("chkYearly").show();            
+        }
+    }   
+
+    webix.ui.datafilter.totalColumn = webix.extend({
+        refresh:function(master, node, value){
+            debugger;
+            var result = 0;
+            master.data.each(function(obj){
+                //debugger;
+                if (obj.GRP != "1" ){                    
+                    if (!isNaN(obj[value.columnId])) result = parseFloat(result) + parseFloat(obj[value.columnId]);                    
+                }
+            });
+            debugger;
+            node.firstChild.innerHTML = fnCurrFormat(result);
+        }
+    }, webix.ui.datafilter.summColumn);
+
+    webix.ui.datafilter.totalColumn1 = webix.extend({
+        refresh:function(master, node, value){
+            debugger;
+            var result = 0;
+            master.data.each(function(obj){
+                //debugger;
+                if(obj[value.columnId] != null && obj[value.columnId] != ""){
+                    if (obj.DRCR.toUpperCase() != "DR" ){                    
+                        if (!isNaN(obj[value.columnId])) result = parseFloat(result) - parseFloat(obj[value.columnId]);                    
+                    }
+                    else if (!isNaN(obj[value.columnId])) result = parseFloat(result) + parseFloat(obj[value.columnId]);  
+                }
+            });
+            debugger;
+
+            if(result <0){
+                node.firstChild.innerHTML = fnCurrFormat(result * -1);
+                //master.getFooterNode("DRCR").innerText = "Cr";
+                NghtAudTotCrDr = "Cr";
+            }
+            else{
+                node.firstChild.innerHTML = fnCurrFormat(result);
+                //master.getFooterNode("DRCR").innerHTML = "Dr";
+                NghtAudTotCrDr = "Dr";
+            }
+        }
+    }, webix.ui.datafilter.summColumn);
+
+            
+    webix.ui.datafilter.CrDrColumn = webix.extend({
+        refresh: function (master, node, value) {
+            debugger;
+            var result = "";
+            var count = 0;           
+            
+            node.firstChild.innerHTML = NghtAudTotCrDr ;
+            
+        }
+    }, webix.ui.datafilter.summColumn);
+
+
+    function fnRetComboVal(Obj,FldId){
+        if(Obj.getValue() == "") return "";
+        var RetVal = "";
+        var Data =  Obj.getList().serialize();
+        if(Data.length>0){
+            var newData = Data.filter(function (el) {
+                return el.id == Obj.getValue();
+            });
+            if (newData.length > 0) RetVal = newData[0][FldId].toString().trim();
+            
+        }
+
+        return RetVal;
+    };
+    function fnGetDefaultComp(CompId){
+        if(CompId.indexOf(",")>=0){
+            var vSplit= CompId.split(",");
+            var newData = vSplit.filter(function(el) {
+                return el.toString().trim().toUpperCase() == "WS";
+            });
+            if(newData.length>0) CompId=newData[0].toString().trim();
+            else CompId=vSplit[0].toString().trim();            
+        } 
+        return CompId;
+    };
+
+        </script>
+        <script type="text/javascript">
+
+            $(document).on('shown.lte.pushmenu', function () {
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(1);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+
+            }).on('collapsed.lte.pushmenu', function () {
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(2);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+            });
+            function  sidebarFn(val){
+                
+                
+                $$("gridMain").resize();
+            }
+            
+            function SMToDateChange(e) {
+                debugger;
+                $$("gridMain").clearAll();
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+                var sFrmDt = $$("ToDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                var bSucc = "1";
+
+                if (frmdate == "") {                    
+                    bSucc = "0";
+                    return false;
+                }
+
+
+                if (todate == "") {                    
+                    bSucc = "0";
+                    return false;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;                            
+                            var vToDt = formatDate(sFrmDt);
+                            $$("FromDt").setValue(new Date(vToDt));
+                            bSucc = "0";
+
+                        }
+                    }
+                });
+
+                if(bSucc=="0") return false;
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  todate  + "&T=" +  vAccDt,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;                            
+                            var vFromDt = formatDate(vAccDt);
+                            $$("ToDt").setValue(new Date(vFromDt));
+                            bSucc = "0";
+                        }
+                    }
+                });
+
+                if(bSucc=="0") return false;
+
+            };
+
+
+            function SMFromDateChange(e) {
+                debugger;
+                $$("gridMain").clearAll();
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+                var sFrmDt = $$("FromDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                var bSucc = "1";
+
+                if (frmdate == "") {
+                    //webix.message("From Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return false;
+                }
+
+
+                if (todate == "") {
+                    //webix.message("To Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return false;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("ToMthDate").setValue(FrmMnth);
+                            var vToDt = formatDate(sFrmDt);
+                            $$("ToDt").setValue(new Date(vToDt));
+                            bSucc = "0";
+                        }
+                    }
+                });
+                if(bSucc=="0") return false;
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate  + "&T=" +  vAccDt,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("FromDt").setValue(vAccDt);
+                            var vFromDt = formatDate(vAccDt);
+                            $$("FromDt").setValue(new Date(vFromDt));
+
+
+                            bSucc = "0";
+                        }
+                    }
+                });
+
+                if(bSucc=="0") return false;
+
+
+            };
+
+
+            function SMAsOnChange(e) {
+                debugger;
+                $$("gridMain").clearAll();
+                var frmdate = $$("AsOnDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                var bSucc = "1";
+
+                if (frmdate == "") {
+                    //webix.message("From Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return false;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate  + "&T=" +  vAccDt,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("FromDt").setValue(vAccDt);
+                            var vFromDt = formatDate(vAccDt);
+                            $$("AsOnDt").setValue(new Date(vFromDt));
+                            bSucc = "0";
+                        }
+                    }
+                });
+
+                if(bSucc=="0") return false;
+
+
+            };
+
+        </script>
+    </section>
+</div>
+

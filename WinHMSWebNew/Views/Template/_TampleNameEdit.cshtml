@@ -1,0 +1,84 @@
+﻿@(Html.Kendo().Window()
+    .Name("TemplateNameEditpop")
+    .Title(" <i class='fa fa-document fa-lg'></i>  Template Creation")
+    .Visible(false)
+    .Content(@<text>
+    
+      
+    <div class="FullwidthDIV" >
+        <div class="box-body">
+
+            <div style="width: 100%; float:left;">
+                <div style="width:120px; float:left; margin-top: 5px;"> Template Type</div>
+                <div style="width:280px; float:left;">
+                    @(Html.Kendo().DropDownList()
+                                                              .Name("TemplateTypePop")
+                                                              .DataTextField("Text")
+                                                              .DataValueField("Value")
+                                                              .HtmlAttributes(new { Style = "width:250px;" })
+                                                              .DataSource(source => { source.Read(read => { read.Action("TemplateTypeLoad", "Template"); }); })
+                    )
+                </div>
+               
+            </div>
+            <div style="width: 100%; float:left; margin-top:10px;">
+               
+                <div style="width:120px; float:left; margin-top: 5px;"> Template Name</div>
+                <div style="width:280px; float:left;">
+                    <input type="text"style="width: 250px;" id="TemplateName" />
+                </div>
+                <div style="width:100px; float:left; margin-top: 5px;"><input type="checkbox" checked="checked" id="TemplateActive"/>  Active</div>
+
+            </div>
+            
+            <div style="width: 100%; float:left; margin-top:10px;">
+               
+                <div style="width:120px; float:left; margin-top: 5px;"> Seq No</div>
+                <div style="width:260px; float:left;">
+                    <input type="text"style="width: 100px;" id="TempSeqNo" />
+                </div>
+            </div>
+            
+            <div style="width: 100%; float:left; margin-top:10px;">
+               
+                <div style="width:120px; float:left; margin-top: 5px;"> Default</div>
+                <div style="width:260px; float:left;">
+                    <input type="checkbox" checked="checked" id="DefaultTemplate"/> 
+                </div>
+            </div>
+
+            
+            <div style="width: 100%; float:left; margin-top:20px;">
+                <div style="width:70px; float: right"><button id="CloseTemplate" title="Close Template"><i class="fa fa-times "></i> Close </button>  </div>
+                <div style="width:70px; float: right"><button id="SaveTemplate" title="Save Template"><i class="fa fa-save "></i> Save </button> </div>
+
+
+            </div>
+        </div>
+</div>
+
+        
+
+<script type="text/javascript">
+ 
+  
+    $("#SaveTemplate").click(function (e) {
+        $("#TemplateNameEditpop").data("kendoWindow").close();
+    });
+
+    $("#CloseTemplate").click(function (e) {
+        $("#TemplateNameEditpop").data("kendoWindow").close();
+    });
+    </script>    
+
+    </text>)
+           .Visible(false)
+    .Modal(true)
+    .Draggable(false)
+    .Width(550)
+    .Height(250)
+)
+
+
+
+

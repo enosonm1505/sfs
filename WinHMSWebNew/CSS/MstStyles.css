@@ -1,0 +1,509 @@
+﻿
+.popup_window 
+{
+    background-color:white;
+    background:none;
+    border-width:1px;
+    border-style:groove;
+    border-color:black;
+    padding-top:0px;
+    padding-left:0px;
+    width:300px;
+    height:350px;
+    margin-left:25%;
+    margin-top:15%;
+    top:0px;
+    bottom:0px;
+    position:absolute;
+    
+}
+.scroll_div 
+{
+    width:300px;
+    height:320px;
+    overflow:auto;
+    scrollbar-arrow-color:ActiveBorder;
+}
+.container 
+{
+    background-color:white;
+}
+
+.div_close 
+{
+    top:0px;
+    padding:2px 3px;
+    cursor:pointer;
+    position:relative;
+    float:right;
+    display:block;
+    background:#898585;
+}
+#GridPopup 
+{
+    width:280px;
+}
+
+.panel {
+   width:50%;
+   height:65%;
+   border-width:2px;
+   margin-top:2px;
+   margin-left:5%;
+   border:medium;
+border-width:1px;
+border-color:black;border-style:groove;
+padding:6px 6px 6px 6px;
+}
+.gridsmall {
+    background-color: #E8E8E8;
+    color: black;font-family:  Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    margin-top:2px;
+	border-width: 1px;
+    width:17%;
+}
+.divleft {
+margin-left:2px;
+margin-top:4px;
+width:25%;
+position:absolute;
+float:left;
+height:55%;
+/*border:medium;
+border-width:1px;
+border-color:black;
+border-style:groove;
+padding:6px 6px 6px 6px;*/
+}
+
+.divright {
+margin-right:2px;
+margin-top:4px;
+margin-left:32%;
+position:absolute;
+float:right;
+height:55%;
+width:17%;
+overflow:auto;
+scrollbar-arrow-color:darkgrey;
+
+
+}
+
+.divbtom {
+margin-top:0px;
+padding-top:2px;
+margin-left: 5%;
+height: 75px;
+width: 56%;
+text-align:center;
+border:medium;
+border-width:1px;
+border-color:black;
+border-style:groove;
+}
+
+
+.div_left {
+
+margin-left:5%;
+margin-top:2px;
+width:50%;
+position:absolute;
+float:left;
+height:50%;
+
+}
+
+.div_right {
+    margin-right:2px;
+margin-top:4px;
+margin-left:11%;
+position:absolute;
+float:right;
+height:75%;
+width:32%;
+border-style:groove;
+text-align:center;
+}
+
+
+.droplist {
+    margin-top:2%;
+width:50%;
+}
+
+
+.div_grid{
+   margin-top:5%;
+width:100%;
+
+}
+
+
+.div_btns {
+
+margin-top:70%;
+text-align:center;
+}
+.button {
+
+    height:30px;
+    width:60px;
+}
+ .hide {
+            visibility: hidden;
+            display: none;
+        }
+
+  .position {
+            position: absolute;
+            margin-left: 25%;
+            width: 60%;
+            margin-top: 1px;
+        }
+.chkDiv {
+    height: auto;
+    float: right;
+    width: 40%;
+}
+
+
+
+#VoucherDtBe .wid50p{width:50%;float:left}
+
+
+
+
+
+
+/*.fieldset {
+    top:5px;
+    border:solid 1px;
+    position :absolute;
+    display:inline;
+    padding:0px 10px 10px 10px;
+    width:40%;
+    margin-top:5%;
+}*/
+
+.fieldset, legend {
+font-size:12px;
+font-weight:bold;
+padding: 4px 8px 2px 8px;
+margin:20px 0px 10px 0px;
+position:relative;
+top:-10px;
+border-color: black;
+}
+.txtbx{width:60px;float:left}
+.txtbx3{width:100px;float:left;text-align:right;padding-right:5px;}
+.valbx{width:300px;float:left}
+.txtbx2{width:250px;float:left;text-align:right;padding-top: 2px;}
+.valbx2{width:215px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx3{width:150px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx4{width:420px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx5{width:550px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx6{width:175px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx7{width:305px;float:left;padding-left:5px; padding-top: 4px;}
+.valbx9{width:260px;float:left;padding-left:5px; padding-top: 4px;}
+.lftctrlbx{width:640px;float:left;}
+#divTabcontrol4 .txtbx2{width:290px;}
+#divTabcontrol2 fieldset{width:390px;}
+/*#divTabcontrol5 .txtbx2{width:290px;}*/
+
+#divTabcontrol2 input[type="text"]{width:295px;}
+#divTabcontrol1 input[type="text"]{width:100%;}
+#divTabcontrol6 fieldset{width:450px; text-align:right;}
+
+
+
+.grid_size {
+    width: 3%;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+
+
+.align_right {
+
+    text-align: right;
+}
+
+
+
+.padding25 {
+    margin-right:34px;
+}
+
+
+
+.fieldset1, legend {
+font-size:12px;
+font-weight:bold;
+position:relative;
+top:-10px;
+border-color: black;
+}
+
+#divflVoucherDt fieldset1{
+    padding: 0px 5px 7px 7px;
+    margin: 0px 0px 0px 0px;
+}
+#divflVoucherNo fieldset1{
+    padding: 0px 19px 7px 7px;
+    margin: 0px 0px 0px 0px;
+}
+
+#divflVoucherNo fieldset1,legend {
+    padding: 3px 19px 7px 7px;
+    margin: 0px 0px 0px 0px;
+    
+}
+
+
+
+.treeMask {
+    width: 40%;
+    height: 90%;
+    left: 0;
+    top: 25%;
+    z-index: 5;
+    position: absolute;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.37);
+    /*-0.63*/
+}
+
+
+/* 23.12.19 Editted by Sathish */
+
+.wdh-10{
+    width:10%;
+    float:left;
+}
+.wdh-40{
+    width:40%;
+    float:left;
+}
+.wdh-50{
+    width:50%;
+    float:left;
+}
+.wdh-100p{
+    width:150px;
+    float:left;
+}
+.wdh-300p{
+    width:300px;
+    float:left;
+}
+.wdh-350p{
+    width:350px;
+    float:left;
+}
+.full_tab{
+    float: left;
+    background-color: #fff;
+    padding: 7px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+.tab_content{
+    padding:1%;
+    float:left;
+}
+.field_legend{
+    padding:5px !important;
+    top:0 !important;
+}
+.cst_grid{
+    text-align:center;
+    width: 60%;
+    background-color: #fff;
+    padding: 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius:5px;
+}
+.cst_divleft{
+    background-color:#fff;
+    padding:5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius:5px;
+    height:auto !important;
+}
+.cst_divright{
+    background-color:#fff;
+    padding:5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius:5px;
+    margin-left:31.5% !important;
+    margin:0;
+}
+.mst_box{
+    background-color:#fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius:5px;
+}
+.mst_header{
+    padding:1%;
+    border-bottom:1px solid #ccc;
+    width:98%;
+    float:left;
+    background-color:#f8fafb;
+    border-radius:5px;
+}
+.mst_content{
+    padding:1%;
+    border-bottom:1px solid #ccc;
+    float:left;
+}
+.mst_footer{
+    padding:1%;
+    width:100%;
+    float:left;
+}
+.tab_wdh300p {
+    width:300px !important;
+    float:left;
+}
+@media only screen and (min-device-width : 320px)  and (max-device-width : 768px){
+    .empty_space{
+        display:none;
+    }
+}
+@media only screen and (min-device-width : 641px)  and (max-device-width : 768px){
+    .tab_wdh50{
+        width:50% !important;
+        float:left;
+    }
+    .tab_wdh200p{
+        width:200px !important;
+        float:left;
+    }
+    .tab_content{
+        height:500px;
+        overflow-y:scroll;
+    }
+}
+@media only screen and (min-device-width : 320px)  and (max-device-width : 640px){
+    .wdh-50{
+        width:100% !important;
+        float:left;
+    }
+    .tab_wdh200p{
+        width:200px !important;
+        float:left;
+    }
+    .tab_content{
+        height:500px;
+        overflow-y:scroll;
+    }
+    .tab_wdh300p {
+        width:300px !important;
+        float:left;
+    }
+    
+}
+/* 23.12.19 Editted by Sathish */
+
+
+/* 06.01.2020 Editted by Sathish */
+
+.wdh_80{
+    width:80%;
+    float:left;
+}
+.wdh_20{
+    width:20%;
+    float:left;
+}
+.wdh_15{
+    width:15%;
+    float:left;
+}
+.login_msg{
+    width:63%;
+    float:left;
+}
+@media only screen and (min-device-width : 769px) and (max-device-width : 1024px) {
+    .tab_90{
+        width:90% !important;
+        float:left;
+    }
+    .tab_5{
+        width:5% !important;
+        float:left;
+    }
+    .login_msg{
+        width:75% !important;
+    }
+}
+@media only screen and (min-device-width : 641px) and (max-device-width : 768px) {
+    .tab_90{
+        width:90% !important;
+        float:left;
+    }
+    .tab_5{
+        width:5% !important;
+        float:left;
+    }
+    .login_msg{
+        width:75% !important;
+    }
+}
+
+/* 06.01.2020 Editted by Sathish */
+
+
+
+.inner_content{
+    width:100%;
+    float:left;
+}
+.btnButton {
+    margin-bottom: 0 !important;
+}
+
+
+.FYSpanel
+{
+    width: 56%;
+    height: 376px !important;
+    border-width: 2px;
+    margin-top: 2px;
+    margin-left: 5%;
+    border: medium;
+    border-width: 1px;
+    border-color: black;
+    border-style: groove;
+    padding: 6px 6px 6px 6px;
+
+}
+.FYSdivright {
+    margin-right: 2px;
+    margin-top: 4px;
+    margin-left: 26%;
+    position: absolute;
+    float: right;
+    height: 360px!important;
+    width: 17%;
+    overflow: auto;
+}
+.FYSdivleft
+{
+    margin-left: 2px;
+    margin-top: 4px;
+    width: 25%;
+    position: absolute;
+    float: left;
+    height:360px!important;
+}
+
+
+
+
+

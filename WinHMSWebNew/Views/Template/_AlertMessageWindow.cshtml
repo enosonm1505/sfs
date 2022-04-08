@@ -1,0 +1,38 @@
+﻿@(Html.Kendo().Window()
+    .Name("Alert")
+    .Title(" <i class='fa fa-exclamation-triangle fa-lg'></i>  Alert")
+    .Visible(false)
+    .Content(@<text>
+      <div>
+    <div class="FullwidthDIV" style="z-index:20">
+        <div style="width:50px; margin-left:10px; float:left">
+            <img src="../../Images/AlertImage.png" style="width:32px; height:32px;" id="alertimg" />
+            <img src="../../Images/SaveImage.png" style="width:32px; height:32px;" id="saveimg" />
+        </div>
+        <div><p style="text-align:left; margin-top:12px;"><label id="alertMeg"></label></p>  </div><br />
+    </div>
+    <div style="text-align:right;  margin-top:0px; margin-right:10px;">
+        <button type="button" class="btn btn-default btn-popup" id="okkk" title="Close"><i class='fa fa-check-circle fa-lg'></i> Ok </button>
+      
+    </div>
+</div>
+<script type="text/javascript">
+         $("#okkk").click(function () {
+             var window = $("#Alert");
+             var kWnd = window.data("kendoWindow");
+             kWnd.center().close();
+         });
+</script>    
+
+
+    </text>)
+            .Visible(false)
+    .Modal(true)
+    .Draggable(false)
+    .Width(420)
+    .Height(125)
+)
+
+
+
+

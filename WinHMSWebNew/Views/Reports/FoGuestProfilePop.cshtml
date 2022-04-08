@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Guest Profile Check";
+    //Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+    //if (ViewBag.VMD == "2") { Layout = "~/Views/Shared/Layout/Fo_ReportLayoutSM.cshtml"; }
+    //else { Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml"; }
+
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <link href="../../Content/Contribute.css" rel="stylesheet" />
+        <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />        
+        <script src="~/FO/javascript/FoGuestProfPop.js"></script>
+        <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+        <link href="~/Content/sidemenu-custom.css" rel="stylesheet" />
+        <link href="~/FO/CSS/GuestProfPop.css" rel="stylesheet" />
+        <div id="divPage">
+            <div class="container-fluid">
+
+                <div style="margin-top: 40px !important;" class="row new_hdr">
+                    <div class="col-sm-3">
+
+                        <div class="TextWidth" style="margin-left: 10px;margin-top:5px;" id="divPropbox">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-center">
+                        <label class="wc_hdr_tlt" id="lblRptCaption">Guest Profile Check </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card-tools text-right">
+                            <button type="button" class="btn btn-custom" id="btnPrint" title="Print" onclick="fnGridPrint()"><i class='fas fa-print'></i></button>
+                            <button type="button" class="btn btn-custom" id="btnExcel" title="Excel Export" onclick="fnExcelExport()"><i class="far fa-file-excel"></i></button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-xl-3 col-md-4 ">
+                    <div class="row">
+                        <label class="col-sm-3 col-md-3 col-xl-3 control-label " style=" float:left"> Room No </label>
+                        <div class="col-xl-9 col-md-9 col-sm-9 " style=" float:left">
+                            <div id="divRooms"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+
+                webix.ready(function () {
+                    debugger;
+
+
+                    fnGuestProfWindowDesign();
+
+                    webix.ui({
+                        container: "divRooms", view: "search", readonly: true, id: "txtRoom", on: { onChange: function (newVal, OldVal) { } },
+                        on: {
+                            onSearchIconClick: function () {
+                                debugger;
+
+                                //$$("RoomNoSrch").show();
+                                $$("GuestProfilePop").show();
+                                var cmpid= @Html.Raw(Json.Encode(ViewBag.COMP));
+                                var ConnStr= @Html.Raw(Json.Encode(ViewBag.CONSTR));
+                                var UserId= @Html.Raw(Json.Encode(ViewBag.USRID));
+                                var apiUrl = "/Reports/FOGSTPROF_API_CALL";
+                                //fnRoomSrchLoad(cmpid,UserId,ConnStr,"ST3BV","03/11/2020","12:00","04/11/2020","15:00","R",apiUrl);
+                                
+                                fnLoadGuestProf(cmpid,UserId,ConnStr,"FoGuestProfilePop",apiUrl,'5646','5646');
+                                //fnLoadGuestProf(cmpid,UserId,ConnStr,"FoGuestProfilePop",apiUrl,'17','17');
+
+                            }
+                        }
+                    });
+                });
+            });
+
+
+        </script>
+        <style>
+            .box {
+                float: left;
+                height: 13px;
+                width: 13px;
+                border: 1px solid black;
+                clear: both;
+                float: left;
+                margin-top: 5px;
+            }
+        </style>
+    </section>
+</div>

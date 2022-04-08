@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OTA_HotelInvCountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" schemaLocation="http://www.opentravel.org/2013A/OTA_HotelInvCountNotifRQ.xsd" EchoToken="20210506164927" TimeStamp="2021-05-06T16:49:27.000+05:30" Target="Production" Version="1.0">
+  <POS>
+    <Source>
+      <RequestorID ID="101" ID_Context="Axisrooms" MessagePassword="76B69D4CF893D5D4D014E5F9E712E082" />
+    </Source>
+  </POS>
+  <Inventories HotelCode="138132">
+    <Inventory>
+      <StatusApplicationControl InvTypeCode="209898" Start="2021-05-05" End="2021-05-05" />
+      <InvCounts>
+        <InvCount Count="16" />
+      </InvCounts>
+    </Inventory>
+  </Inventories>
+</OTA_HotelInvCountNotifRQ>

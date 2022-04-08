@@ -1,0 +1,319 @@
+fullwidth.body {
+}
+
+.fullwidth {
+    width: 100%;
+    float: left;
+}
+
+
+.flwidth {
+    width: 100%;
+    float: left;
+    line-height: 30px;
+}
+
+.propbox {
+    float: left;
+    color: #fff;
+    margin-left: 25px;
+}
+
+.btnbox {
+    float: right;
+    width: 74%;
+}
+
+.pagerStyle {
+    font-size: 10px;
+    text-align: center;
+}
+
+.divPrtyNm {
+    width: 400px;
+    height: 450px;
+}
+
+.divPOReq {
+    width: 699px;
+    height: 474px;
+}
+
+.divPO {
+    width: 400px;
+    height: 470px;
+    border: solid 1px;
+}
+
+
+divDlvrySrch {
+    width: 238px;
+    height: 328px;
+}
+
+.divcorrAddr {
+    width: 701px;
+    height: 302px;
+}
+
+.divDefLctn {
+    width: 250px;
+    height: 296px;
+}
+
+.divItmShpFrm {
+    width: 701px;
+    height: 302px;
+}
+
+
+
+.pordbox1 {
+    padding: 1px 0px 2px 3px;
+    width: 28%;
+    float: left;
+}
+
+
+.pordbox2 {
+    padding: 1px 0px 2px 3px;
+    width: 24%;
+    float: left;
+}
+
+
+.pordbox3 {
+    padding: 1px 0px 2px 3px;
+    width: 25%;
+    float: left;
+}
+
+.pordbox4 {
+    padding: 1px 0px 2px 3px;
+    width: 21%;
+    float: left;
+}
+
+.pordbox5 {
+    padding: 1px 0px 2px 3px;
+    width: 28%;
+    float: left;
+}
+
+.portxt50 {
+    width: 70px;
+    line-height: 23px;
+    float: left;
+    padding: 1px 0px 2px 3px;
+}
+
+.portxt40 {
+    width: 42px;
+    line-height: 23px;
+    float: left;
+    padding: 1px 0px 2px 3px;
+}
+
+.portxt70 {
+    width: 50px;
+    line-height: 23px;
+    float: left;
+    padding: 1px 0px 2px 3px;
+}
+
+.porva270 {
+    width: 235px;
+    line-height: 23px;
+    float: left;
+    padding-left: 5px;
+    padding: 1px 0px 2px 3px;
+}
+
+.porva193 {
+    width: 194px;
+    line-height: 23px;
+    float: left;
+    padding-left: 5px;
+    padding: 1px 0px 2px 3px;
+}
+
+.porva100 {
+    width: 100px;
+    line-height: 23px;
+    float: left;
+    padding-left: 5px;
+    padding: 1px 0px 2px 3px;
+}
+
+.porval50 {
+    width: 200px;
+    line-height: 23px;
+    float: left;
+    padding-left: 5px;
+    padding: 1px 0px 2px 3px;
+}
+
+.porval075 {
+    width: 75px;
+    line-height: 23px;
+    float: left;
+    padding-left: 5px;
+    padding: 1px 0px 2px 3px;
+}
+
+.porval160 {
+    width: 160px;
+    line-height: 23px;
+    float: left;
+    padding-left: 5px;
+    padding: 1px 0px 2px 3px;
+}
+
+.porva0150 {
+    width: 150px;
+    line-height: 23px;
+    float: left;
+    padding-left: 5px;
+    padding: 1px 0px 2px 3px;
+}
+
+
+.porva153 {
+    width: 153px;
+    line-height: 23px;
+    float: left;
+    padding-left: 5px;
+    padding: 1px 0px 2px 3px;
+}
+
+.porva200 {
+    width: 200px;
+    line-height: 23px;
+    float: left;
+    padding: 1px 0px 2px 3px;
+}
+
+
+
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #e1e1e1;
+    border-bottom: solid #5CD5F9;
+    line-height: px;
+}
+
+    .navbar li {
+        float: left;
+    }
+
+        .navbar li a, .navitem {
+            display: block;
+            padding: 8px 20px;
+        }
+
+            .navbar li a:hover {
+                border-radius: 15px 15px 0px 0px;
+                color: #fff;
+                background-color: #5CD5F9;
+                padding: 8px 20px;
+            }
+
+            .navbar li a:active, a:focus {
+                border-radius: 15px 15px 0px 0px;
+                color: #fff;
+                background-color: #5CD5F9;
+                padding: 8px 20px;
+            }
+
+    .navbar .dropdown-hover, .navbar .dropdown-click {
+        position: static;
+    }
+
+        .navbar .dropdown-hover:hover, .navbar .dropdown-hover:first-child, .navbar .dropdown-click:hover {
+            background-color: #ccc;
+            color: #000;
+        }
+
+    .navbar a, .topnav a, .sidenav a, .dropdown-content a, .accordion-content a, .dropnav a {
+        text-decoration: none!important;
+    }
+
+    .navbar .opennav.right {
+        float: right!important;
+    }
+
+.topnav {
+    padding: 8px 8px;
+}
+
+.container {
+    width: 100%;
+    height: 180px;
+    background-color: #fff;
+}
+
+.pobx1 {
+    width: auto;
+}
+
+.tvlft {
+    border-right: none;
+    text-align: center;
+    float: left;
+    width: 75px;
+    display: block;
+}
+
+
+.tvrit {
+    border-left: 10px;
+    text-align: right;
+    border: solid 1px #e1e1e1;
+    float: left;
+    width: 106px;
+    display: block;
+}
+
+
+.tabletxtbrd {
+    display: none;
+}
+
+.dvGSTCategory {
+    width: 410px;
+    height: 302px;
+    border: solid 1px;
+    z-index: 10 !important;
+}
+
+.dvState {
+    width: 280px;
+    height: 354px;
+    border: solid 1px;
+}
+
+.dvGstBulkUpdate {
+    width: 400px;
+    height: 210px;
+    border: solid 1px;
+}
+
+.divCentralStk {
+    width: 380px;
+    height: 354px;
+    border: solid 1px;
+}
+
+.lftbx {
+    width: 55%;
+    float: left;
+}
+
+.rhtbx {
+    width: 39%;
+    float: right;
+}

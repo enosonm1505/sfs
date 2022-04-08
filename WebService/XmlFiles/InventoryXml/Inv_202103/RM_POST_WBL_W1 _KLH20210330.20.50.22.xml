@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OTA_HotelInvCountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" schemaLocation="http://www.opentravel.org/2013A/OTA_HotelInvCountNotifRQ.xsd" EchoToken="20210330205022" TimeStamp="2021-03-30T20:50:22.000+05:30" Target="Production" Version="1.0">
+  <POS>
+    <Source>
+      <RequestorID ID="KLH" ID_Context="" MessagePassword="1ffcbe6f171b620b6cbd260914304a4077c1670f" />
+    </Source>
+  </POS>
+  <Inventories HotelCode="KLH">
+    <Inventory>
+      <StatusApplicationControl InvTypeCode="CAB" Start="2021-04-01" End="2021-04-01" />
+      <InvCounts>
+        <InvCount Count="0" />
+      </InvCounts>
+    </Inventory>
+  </Inventories>
+</OTA_HotelInvCountNotifRQ>

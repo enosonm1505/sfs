@@ -1,0 +1,8 @@
+12/23/2021 3:36:02 PM
+D:\Hosted\FO_Standalone\WebAPI\/FoResLogfile/FOReservation.txt
+RequestMethodReservationSearchNew
+Date :12/23/2021 3:36:02 PM
+Object reference not set to an instance of an object.Date :12/23/2021 3:36:03 PM
+Object reference not set to an instance of an object.Date :12/23/2021 3:36:03 PM
+Object reference not set to an instance of an object.Date :12/27/2021 5:12:50 PM
+RequestMethodRES_AutoChargeLoad

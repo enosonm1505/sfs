@@ -1,0 +1,35 @@
+﻿
+<div class="modal fade" id="OptPopup" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" style="overflow:hidden !important; padding:120px;">
+    <div class="modal-dialog">
+        <div class="modal-content" style="margin-left: -24px;  margin-right: -24px;">
+            <div class="modal-header success">
+                <button id="btnpopclose" type="button" class="close" data-dissmiss="modal" aria-hidden="true">x</button>
+                <h4 class="modal-title" id="lblmodallabel"><i class="fa fa-exclamation-triangle"></i>  Messages</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div style="width: 9%; float: left;">
+                        <img id="Img" style="display: none; height: 42px; float: left;" />
+                    </div>
+                    <div style="width:80%; float:left">
+
+                        <div id="lblopttxt" style="font-weight:bold;">
+                            @*<label></label>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $("#OptPopup").on('shown.bs.modal', function () {
+        debugger;
+        $("#OptPopup").fadeOut(5000, function () {
+            $("#OptPopup").modal('hide');
+        })
+    });
+
+</script>
+

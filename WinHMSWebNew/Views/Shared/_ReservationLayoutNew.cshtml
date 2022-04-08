@@ -1,0 +1,2093 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WINCLOUDPMS</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet"/>
+    <link href="~/Content/kendo/web/kendo.bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/Content/kendo/web/kendo.common.min.css" rel="stylesheet"/>
+    <script src="~/Scripts/kendo/2015.3.930/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/bootstrap.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.aspnetmvc.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.timezones.min.js"></script>
+    <script src="~/Scripts/kendo/2015.3.930/jszip.min.js"></script>
+    <script src="~/dist/js/demo.js"></script>
+    <link href="~/Content/ReservationStyle.css" rel="stylesheet"/>
+    <link href="~/bower_components/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="~/bower_components/ionicons.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="~/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/dist/css/skins/_all-skins.min.css">
+    <link href="~/fonts/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini fixed sidebar-mini-expand-feature sidebar-collapse">
+
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="../../FO/RoomChart" class="logo ">
+
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="../../dist/img/cropped-logo.png" width="50" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="../../dist/img/cropped-logo.png" width="120" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="navbar-custom-menu pull-left">
+                    <ul class="nav navbar-nav">
+                        <!-- <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i>
+                                <span class="label label-success">4</span>
+                            </a>
+
+                        </li>
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i>
+                                <span class="label label-success">4</span>
+                            </a>
+
+                        </li>
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i>
+                                <span class="label label-success">4</span>
+                            </a>
+
+                        </li>
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i>
+                                <span class="label label-success">4</span>
+                            </a>
+
+                        </li>
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i>
+                                <span class="label label-success">4</span>
+                            </a>
+
+                        </li> -->
+                        <li class="dropdown user user-menu">
+                            <a href="#">
+                                <img src="../../dist/img/fo1.png" class="user-image" alt="User Image">
+                                <span class="hidden-md hidden-xs">Front Office</span>
+                            </a>
+
+                        </li>
+                        @*<li class="dropdown user user-menu">
+                                <a href="#">
+                                    <img src="../../dist/img/gl1.png" class="user-image" alt="User Image">
+                                    <span class="hidden-md hidden-xs">Accounts</span>
+                                </a>
+
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <a href="#">
+                                    <img src="../../dist/img/hk1.png" class="user-image" alt="User Image">
+                                    <span class="hidden-md hidden-xs">House Keeping</span>
+                                </a>
+
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <a href="#">
+                                    <img src="../../dist/img/pos1.png" class="user-image" alt="User Image">
+                                    <span class="hidden-md hidden-xs">POS</span>
+                                </a>
+
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <a href="#">
+                                    <img src="../../dist/img/mt1.png" class="user-image" alt="User Image">
+                                    <span class="hidden-md hidden-xs">Material</span>
+                                </a>
+
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <a href="#">
+                                    <img src="../../dist/img/purchase1.png" class="user-image" alt="User Image">
+                                    <span class="hidden-md hidden-xs ">Purchase</span>
+                                </a>
+
+                            </li>*@
+                    </ul>
+
+                </div>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <!--  <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i>
+                                <span class="label label-success">4</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 4 messages</li>
+                                <li>
+
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    Support Team
+                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    AdminLTE Design Team
+                                                    <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    Developers
+                                                    <small><i class="fa fa-clock-o"></i> Today</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    Sales Department
+                                                    <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <h4>
+                                                    Reviewers
+                                                    <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">See All Messages</a></li>
+                            </ul>
+                        </li>-->
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell"></i>
+                                <span class="label label-warning">10</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 10 notifications</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                                                page and may cause design problems
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-red"></i> 5 new members joined
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-user text-red"></i> You changed your username
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">View all</a></li>
+                            </ul>
+                        </li>
+                        <li id="FlashScreen" class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-external-link-alt"></i>
+                                @*<span class="label label-warning">10</span>*@
+                            </a>
+
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+                        <!--<li class="dropdown tasks-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flag"></i>
+                                <span class="label label-danger">9</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 9 tasks</li>
+                                <li>
+
+                                    <a href="#">
+                                        <h3>
+                                            Design some buttons
+                                            <small class="pull-right">20%</small>
+                                        </h3>
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">20% Complete</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <h3>
+                                            Create a nice theme
+                                            <small class="pull-right">40%</small>
+                                        </h3>
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
+                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">40% Complete</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <h3>
+                                            Some task I need to do
+                                            <small class="pull-right">60%</small>
+                                        </h3>
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
+                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <h3>
+                                            Make beautiful transitions
+                                            <small class="pull-right">80%</small>
+                                        </h3>
+                                        <div class="progress xs">
+                                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
+                                                 aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <span class="sr-only">80% Complete</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="footer">
+                            <a href="#">View all tasks</a>
+                        </li>
+                        </ul>
+                        </li>-->
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs">Alexander Pierce</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        Alexander Pierce - FOM
+                                        <small>Member since Nov. 2012</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">Followers</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">Sales</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">Friends</a>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div id="Profile" class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div id="SignOut" class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-cogs"></i></a>
+                        </li>
+
+                        <li id="homeroomchart">
+                            <a href="#"><i class="fa fa-home"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel hidden-lg hidden-md">
+                    <br>
+                    <br>
+                </div>
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="../../dist/img/oh.jpg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>OUTBACK HOTEL</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+                <!-- search form -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">MAIN NAVIGATION</li>
+
+
+                    <li class="treeview active">
+                        <a href="#">
+                            <i class="fa fa-building"></i> <span>Rooms</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li id="Reservation" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Reservation
+
+                                </a>
+
+                            </li>
+                            <li id="ResCheckIn" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Reservation Check-in
+
+                                </a>
+
+                            </li>
+                            <li id="ResWalkInCheckIn" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Walk-in Check-in
+
+                                </a>
+
+                            </li>
+                            <li id="Advances" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Advances
+
+                                </a>
+
+                            </li>
+                            <li id="Refunds" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Refunds
+
+                                </a>
+
+                            </li>
+                            <li id="PrintRegCard" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Print Registration Card
+
+                                </a>
+
+                            </li>
+                            <li id="PrintResConfirmation" class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Print Reservation Confirmation
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i> <span>Guest</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Information
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="GuestSearch" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Search
+                                        </a>
+                                    </li>
+                                    <li id="InHouseGuestInfo" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> In-house Guest Info
+                                        </a>
+                                    </li>
+                                    <li id="GuestInteraction" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Interaction
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Room
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="LinkDeLink" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Link & De-link Room
+
+                                        </a>
+
+                                    </li>
+                                    <li id="AmendGuestStay" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Amend Guest Stay
+
+                                        </a>
+
+                                    </li>
+
+                                    <li id="ChangeRoom" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Change Room
+
+                                        </a>
+
+                                    </li>
+                                    <li id="ClearDirtyRoom" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Clear Dirty Room Status
+                                           
+                                        </a>
+
+                                    </li>
+                                    <li id="HousKeepingInspection" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Housekeeping Inspection
+                                           
+                                        </a>
+
+                                    </li>
+                                    <li id="BlockRoom" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Block Rooms
+                                           
+                                        </a>
+
+                                    </li>
+                                    <li id="InstateCheckOut" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Re-instate Checkout
+                                           
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-receipt"></i> <span>Billing</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Tariff Posting
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="PostTariffSingle" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Post Tariff - Single
+                                        </a>
+
+                                    </li>
+                                    <li id="PostTariffAll" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> PostTariff - All
+                                        </a>
+
+                                    </li>
+                                    <li id="postPlanSingle" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Post plan - Single
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Bills
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="BillAdvance" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Advances
+
+                                        </a>
+
+                                    </li>
+                                    <li id="GuestCharges" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Charges
+
+                                        </a>
+
+                                    </li>
+
+                                    <li id="paidOut" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Paid-out
+
+                                        </a>
+
+                                    </li>
+                                    <li id="MiscellaneousSales" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Miscellaneous Sales
+
+                                        </a>
+
+                                    </li>
+                                    <li id="Refunds" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Refunds
+
+                                        </a>
+
+                                    </li>
+                                    <li id="CheckOut" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Check-out
+
+                                        </a>
+
+                                    </li>
+                                    <li id="BillSettlement" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Bill Settlement & Cancellation
+
+                                        </a>
+
+                                    </li>
+                                    <li id="RePrintBill" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Re-Print Guest Bill
+
+                                        </a>
+
+                                    </li>
+
+                                    <li id="BillReSettlement" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Bill Re-Settlement
+
+                                        </a>
+
+                                    </li>
+
+                                    <li id="GuestChrgTransfer" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Charge Transfer
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Foreign Exchange
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="ForeignExchange" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Foreign Exchange
+                                        </a>
+
+                                    </li>
+                                    <li id="ForeginExcReprint" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Foreign Exchange Re-print
+                                        </a>
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-star-and-crescent"></i> <span>Night Audit</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Before
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="NgtAudChkList" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Night Audit Check list
+                                        </a>
+
+                                    </li>
+                                    <li id="NgtAudit" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Night Audit
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> After
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="NgtAuditRpt" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Night Audit Report
+
+                                        </a>
+
+                                    </li>
+                                    <li id="flashRpt" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Flash Report
+
+                                        </a>
+
+                                    </li>
+
+                                    <li id="MagrRpt" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Manager Report
+
+                                        </a>
+
+                                    </li>
+                                    <li id="OccAnalysis" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Occupany Analysis
+
+                                        </a>
+
+                                    </li>
+                                    <li id="CollectSummary" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Collection Summary
+
+                                        </a>
+
+                                    </li>
+                                    <li id="FlashBudgetRpt" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Flash Budget report
+
+                                        </a>
+
+                                    </li>
+                                    <li id="NAAcPost" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> NA to Accounts Posting
+
+                                        </a>
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Notifications
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li class="treeview">
+                                        <a id="InHouseBirthday" href="#">
+                                            <i class="fa fa-angle-right"></i> In-House Birthday List
+                                        </a>
+
+                                    </li>
+                                    <li id="BirthdayAnnversaryList" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Birthday & Anniversary List
+                                        </a>
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-bed"></i> <span>Room Position Reports</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Rooms
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="MnthRoomPos" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Monthwise Room Position
+                                        </a>
+
+                                    </li>
+                                    <li id="RoomStatus" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Room Status
+                                        </a>
+
+                                    </li>
+                                    <li id="RoomChart" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Room Chart
+                                        </a>
+
+                                    </li>
+                                    <li id="VacantRoom" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Vacant Rooms
+                                        </a>
+
+                                    </li>
+                                    <li id="LnkRoom" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Linked Rooms
+                                        </a>
+
+                                    </li>
+                                    <li id="BlockRoom" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Blocked Rooms
+                                        </a>
+
+                                    </li>
+                                    <li id="ResList" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Reservation List
+                                        </a>
+
+                                    </li>
+                                    <li id="BlockRoomList" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Blocked Room List
+                                        </a>
+
+                                    </li>
+                                    <li id="TariffSicList" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Tariff Discount list
+                                        </a>
+
+                                    </li>
+                                    <li id="ResLog" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Reservation log
+                                        </a>
+
+                                    </li>
+                                    <li id="ExpectArrival" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Expected Arrival
+                                        </a>
+
+                                    </li>
+                                    <li id="ExpectArrivalList" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Expected Arrival List
+                                        </a>
+
+                                    </li>
+                                    <li id="ExpectDeparture" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Expected Departure
+                                        </a>
+
+                                    </li>
+                                    <li id="PickupDropLst" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Pickup Drop List
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> <span>Guests</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="CurrentGuestLed" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Current Guest Ledger
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="CheckedOutGstLed" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Checked Out Guest Ledger
+                                        </a>
+
+                                    </li>
+
+                                    <li id="GstShiftRoom" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Shift Rooms
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="HighBalanceRpt" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> High Balance Report
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="GstInHouse" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest In House
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fas fa-chart-pie"></i> <span>Room Analytics</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Rooms
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="RateCatProduct" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Rate Category Productivity
+
+                                        </a>
+
+                                    </li>
+                                    <li id="BusinessOnBook" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Business on Books
+
+                                        </a>
+
+                                    </li>
+                                    <li id="DayuseGus" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Day Use Guests
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-file-invoice-dollar"></i> <span>Cash Reports</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Settlement
+
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="GuestSettlement" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Settlement
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="SalesdayBook" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Sales Day Book
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="FoDaySettle" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> FO Day Settlement
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="ReservationAdvances" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Reservation Advances
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="ResAdvanceRefund" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Reservation Advance Refunds
+
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="Allowances" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Allowances
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Folio
+
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="GuestFolio" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Folio
+                                        </a>
+
+                                    </li>
+                                    <li id="TabSheet" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Tab Sheet
+                                        </a>
+
+                                    </li>
+                                    <li id="FoEntriesRevenue" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> FO Entries - by Revenue
+                                        </a>
+
+                                    </li>
+                                    <li id="FoEntriesUserID" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> FO Entries - by User ID
+
+                                        </a>
+
+                                    </li>
+                                    <li id="OccupancyStatics" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Occupany Statistics
+                                        </a>
+
+                                    </li>
+                                    <li id="CustomRoomTariff" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Current Room Tariff
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+
+
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Bills
+
+
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="PendingBills" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Pending Bills
+
+                                        </a>
+
+                                    </li>
+                                    <li id="VoidedBills" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Voided bills
+
+                                        </a>
+
+                                    </li>
+                                    <li id="CompanyBillPrint" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Company Bill Print
+
+                                        </a>
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-address-book"></i> <span>Guest Reports</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Audits
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="TagClearRoomAudit" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Tag/Clear Room Audit
+                                        </a>
+
+                                    </li>
+                                    <li id="AmendGuestStayAudit" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Amend Guest Stay Audit
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="CashierTransactionAudit" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Cashier Transaction Audit
+
+                                        </a>
+
+                                    </li>
+                                    <li id="ForeignExReAudit" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Foreign Exchange reprint Audit
+
+                                        </a>
+
+                                    </li>
+                                    <li id="ReserAmendmentAudit" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Reservation Amendment Audit
+
+
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="GuestAmendAudit" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Amendment Audit
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="FoBillResSettleAudit" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> FO Bill Resettlement Audit
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Registers
+
+
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="GuestOnMealPlan" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guests on Meal Plan
+                                        </a>
+
+                                    </li>
+                                    <li id="ArrivalReg" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Arrival Register
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="DepartureRegister" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Departure Register
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="TaxReport" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Tax Report
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+
+
+
+
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="far fa-chart-bar"></i>
+                            <span>
+                                Analytics
+                            </span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Guests
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="GuestProfile" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Profile
+                                        </a>
+
+                                    </li>
+                                    <li id="GuestFeedBack" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Guest Feedback
+                                        </a>
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> Segments
+
+
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li id="ContributionAnaly" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Contribution Analysis
+                                        </a>
+
+                                    </li>
+                                    <li id="BillsReceivable" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Bills Receivable
+
+
+                                        </a>
+
+                                    </li>
+                                    <li id="MiscellaneousSalesAna" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Miscellaneous Sales Analysis
+
+                                        </a>
+
+                                    </li>
+                                    <li id="OccupancyForecast" class="treeview">
+                                        <a href="#">
+                                            <i class="fa fa-angle-right"></i> Occupancy Forecast
+                                        </a>
+
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <div class="content-wrapper">
+
+            @RenderBody()
+
+            @RenderSection("scripts", required: false)
+
+
+            <script>
+                $(document).ready(function (e) {
+                    $("#pageloaddiv").hide();
+                });
+
+                $("#FlashScreen").click(function () {
+                    window.location.href = '../../wincloud.html?FO/FoToolsFlash.aspx';
+                });
+                $("#homeroomchart").click(function () {
+                    window.location.href = "../../FO/RoomChart";
+                });
+
+                $("#Profile").click(function () {
+
+                });
+                $("#SignOut").click(function () {
+                    window.location.href = '/Login.aspx';
+                });
+
+
+                $("#Reservation").click(function () {
+                    window.location.href = "../../FO/Reservation";
+                });
+                $("#ResCheckIn").click(function () {
+                    window.location.href = '../../wincloud.html?FO/FoCheckInNew.aspx';
+                });
+                $("#ResWalkInCheckIn").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/Reservation.aspx?Mode=WCN';
+                });
+
+                $("#Advances").click(function () {
+                    window.location.href = '../../wincloud.html?FO/TrnReservationAdvance.aspx';
+                });
+                $("#Refunds").click(function () {
+                    window.location.href = '../../wincloud.html?FO/TrnReservationAdvanceRefund.aspx';
+                });
+                $("#PrintRegCard").click(function () {
+                    window.location.href = '../../wincloud.html?FO/FoRegCardPrint.aspx';
+                });
+                $("#PrintResConfirmation").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRevPrintReservation.aspx';
+                });
+
+                $("#GuestSearch").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoGuestSearch.aspx';
+                });
+                $("#GuestInteraction").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FOGstInfoAmend.aspx';
+                });
+                $("#InHouseGuestInfo").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoGstCompReqMsg.aspx?MODID=FO';
+                });
+                $("#LinkDeLink").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoMstFDLinkRm.aspx';
+                });
+                $("#AmendGuestStay").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoAmdGuestStay.aspx';
+                });
+                $("#ChangeRoom").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/TrnChangeGuestRoom.aspx';
+                });
+                $("#ClearDirtyRoom").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/ClearDirtyRm.aspx?MODID=FO';
+                });
+                $("#HousKeepingInspection").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/TagRmDirty.aspx?MODID=FO';
+                });
+                $("#BlockRoom").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FORoomBlocking.aspx?MODID=FO';
+                });
+                $("#InstateCheckOut").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FOReInstChkout.aspx';
+                });
+                $("#PostTariffSingle").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoPostTariffSingle.aspx';
+                });
+
+                $("#PostTariffAll").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoPostTariffAll.aspx';
+                });
+
+                $("#postPlanSingle").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoPostPlanSingle.aspx';
+                });
+
+
+                $("#BillAdvance").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/TrnCashierAdvance.aspx';
+                });
+
+                $("#GuestCharges").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoGuestCharges.aspx?MODID=FO';
+                });
+
+                $("#paidOut").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoPaidOut.aspx';
+                });
+
+                $("#MiscellaneousSales").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoMiscSales.aspx?MODID=FO';
+                });
+
+                $("#Refunds").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRefunds.aspx';
+                });
+
+                $("#CheckOut").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoCheckOut.aspx';
+                });
+
+                $("#BillSettlement").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoBillSettleCancel.aspx';
+                });
+
+                $("#RePrintBill").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoGuestBill.aspx';
+                });
+
+                $("#BillReSettlement").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoBillReSettle.aspx';
+                });
+
+                $("#GuestChrgTransfer").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FOGstChrgeTransfer.aspx';
+                });
+                $("#ForeignExchange").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/TrnForeignExchange.aspx';
+                });
+                $("#ForeginExcReprint").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoFExchReprint.aspx';
+                });
+
+
+                $("#NgtAudChkList").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoNitAuditChecklist.aspx';
+                });
+                $("#NgtAudit").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FONightAudit.aspx';
+                });
+                $("#NgtAuditRpt").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoPOSNightAuditRprt.aspx';
+                });
+                $("#flashRpt").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoPOSNightAuditFlashReport.aspx';
+                });
+                $("#MagrRpt").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoPOSManagerReport.aspx';
+                });
+                $("#OccAnalysis").click(function () {
+                    window.location.href = '../../wincloud.html?FO/FoNutAudOccpcyAnalysis.aspx';
+                });
+                $("#CollectSummary").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoCollectionSummaryRprt.aspx';
+                });
+
+                $("#FlashBudgetRpt").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoNdAdFlashBudgetRp.aspx';
+                });
+
+
+                $("#NAAcPost").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/PostNAGL.aspx';
+                });
+                $("#InHouseBirthday").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRptInHsBridaylist.aspx';
+                });
+                $("#BirthdayAnnversaryList").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoNidAudBirthDayAnniversy.aspx';
+                });
+
+
+                $("#MnthRoomPos").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1MWiseRmPos.aspx';
+                });
+                $("#RoomStatus").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1RoomSts.aspx?MODID=FO';
+                });
+                $("#RoomChart").click(function () {
+                    window.location.href = '../../FO/RoomChart';
+                });
+
+
+                $("#VacantRoom").click(function () {
+
+                    window.location.href = '../../wincloud.html?Fo/FoQ1VacantRoom.aspx';
+                });
+                $("#LnkRoom").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FORptLinkedRmsRpt.aspx';
+                });
+                $("#BlockRoom").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FORoomBlocking.aspx';
+                });
+                $("#ResList").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FO/FoQ1ReservationList.aspx';
+                });
+                $("#BlockRoomList").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1BlkRoomList.aspx';
+                });
+                $("#TariffSicList").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1TariffDisCntList.aspx';
+                });
+                $("#ResLog").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1ReservationLog.aspx';
+                });
+                $("#ExpectArrival").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1ExArrival.aspx';
+                });
+                $("#ExpectArrivalList").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1ExArrivalList.aspx';
+                });
+                $("#ExpectDeparture").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1ExDepart.aspx?MODID=FO';
+                });
+
+
+                $("#PickupDropLst").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FOPickupandDrop.aspx';
+                });
+                $("#CurrentGuestLed").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1CurGstLedger.aspx';
+                });
+                $("#CheckedOutGstLed").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1ChkoutGstLedger.aspx';
+                });
+                $("#GstShiftRoom").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1GuestShiftRm.aspx';
+                });
+                $("#HighBalanceRpt").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ1HighBalReport.aspx';
+                });
+                $("#GstInHouse").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ2GuestInHouse.aspx?MODID=FO';
+                });
+                $("#CForm").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoR1CForm.aspx';
+                });
+                $("#RateCatProduct").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ2RateCategory.aspx';
+                });
+                $("#BusinessOnBook").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ2BusinessBook.aspx';
+                });
+
+                $("#DayuseGus").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ2GstDayUseGst.aspx';
+                });
+                
+                $("#GuestSettlement").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoR1GstSettlement.aspx';
+                });
+                $("#SalesdayBook").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoSalesDayReport.aspx';
+                });
+                $("#FoDaySettle").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/DaySettlementRpt.aspx';
+                });
+                $("#ReservationAdvances").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoReservationAdvanceRpt.aspx';
+                });
+                $("#ResAdvanceRefund").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoReservationAdvanceRefundRpt.aspx';
+                });
+                $("#Allowances").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoR1AllowanceList.aspx';
+                });
+
+                $("#GuestFolio").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoQ2GstDayUseGst.aspx';
+                });
+                $("#TabSheet").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRep1TaxSheet.aspx';
+                });
+                $("#FoEntriesRevenue").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoEntriesPostedRpt.aspx?url=RW';
+                });
+                $("#FoEntriesUserID").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoEntriesPostedRpt.aspx?url=UW';
+                });
+                $("#OccupancyStatics").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoOccupancyStatisticRpt.aspx';
+                });
+                $("#CustomRoomTariff").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRoomTariffCurrentRpt.aspx';
+                });
+
+
+                $("#PendingBills").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoR1GuestPendingBills.aspx';
+                });
+
+                $("#VoidedBills").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoR1GstVoidBills.aspx';
+                });
+
+                $("#CompanyBillPrint").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FOR1CompanyBill.aspx';
+                });
+
+                $("#TagClearRoomAudit").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/HKTagClrRmAudit.aspx';
+                });
+
+                $("#AmendGuestStayAudit").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRepAmendedGuestStayAud.aspx';
+                });
+
+                $("#CashierTransactionAudit").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRptCashierTransAudt.aspx';
+                });
+                $("#ForeignExReAudit").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRep2ForeiExchaReprint.aspx';
+                });
+                $("#ReserAmendmentAudit").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoReservAmendmentAudit.aspx';
+                });
+
+                $("#GuestAmendAudit").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoGuestAmendAudit.aspx';
+                });
+
+                $("#FoBillResSettleAudit").click(function () {
+
+                    window.location.href = '../../wincloud.html?FoR2BillResetAudit.aspx';
+                });
+
+
+                $("#GuestOnMealPlan").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRep2GustOnMealPlan.aspx';
+                });
+                $("#ArrivalReg").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRep2ArrivalReg.aspx';
+                });
+                $("#DepartureRegister").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoRep2DepartureReg.aspx';
+                });
+                $("#TaxReport").click(function () {
+
+                    window.location.href = '../../wincloud.html?Reports/FOTaxReport';
+                });
+                $("#OccpanyStatics").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoGuestProfile.aspx';
+                });
+                $("#CurrentRoomTariff").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoAnalyGuestComplain.aspx';
+                });
+
+                //
+                //
+
+                $("#GuestProfile").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoGuestProfile.aspx';
+                });
+                $("#GuestFeedBack").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoAnalyGuestComplain.aspx';
+                });
+                $("#ContributionAnaly").click(function () {
+
+                    window.location.href = '../../wincloud.html?TravelAgentBlock/FOContribution';
+                });
+                $("#BillsReceivable").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoBillsReceivable.aspx';
+                });
+                $("#MiscellaneousSalesAna").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FoAnaMiscellSalesAnly.aspx';
+                });
+                $("#OccupancyForecast").click(function () {
+
+                    window.location.href = '../../wincloud.html?FO/FOAoccpForecast.aspx';
+                });
+
+                function Embeddingpage(source) {
+                    $("#pageloaddiv").show();
+                    var Embedd = document.getElementById('EmbedingScreen');
+                    var clone = Embedd.cloneNode(true);
+                    clone.setAttribute('src', source);
+                    Embedd.parentNode.replaceChild(clone, Embedd);
+                    setTimeout(function () {
+                        $("#pageloaddiv").hide();
+                    },
+                        5000
+                    )
+                }
+            </script>
+        </div>
+        <!-- /.content-wrapper -->
+        @*<footer class="main-footer">
+            <div class="pull-right hidden-xs">
+            </div>
+            <span style="font-style: italic">Powered by</span> <img src="../../dist/img/cloud-logo.png" width="120" />
+        </footer>*@
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane" id="control-sidebar-home-tab">
+                    <h3 class="control-sidebar-heading">Recent Activity</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                    <p>Will be 23 on April 24th</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-user bg-yellow"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                                    <p>New phone +1(800)555-1234</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                                    <p>nora@example.com</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                    <p>Execution time 5 seconds</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Custom Template Design
+                                    <span class="label label-danger pull-right">70%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Update Resume
+                                    <span class="label label-success pull-right">95%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Laravel Integration
+                                    <span class="label label-warning pull-right">50%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Back End Framework
+                                    <span class="label label-primary pull-right">68%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+                    <form method="post">
+                        <h3 class="control-sidebar-heading">General Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Allow mail redirect
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Other sets of options are available
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+                        
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Expose author name in posts
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Allow the user to show his name in blog posts
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Show me as online
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Turn off notifications
+                                <input type="checkbox" class="pull-right">
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Delete chat history
+                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+        immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+
+    </div>
+    <script src="../../bower_components/jquery.slimscroll.min.js"></script>    
+    <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="../../dist/js/adminlte.min.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,229 @@
+﻿ .custom .webix_cell {
+        background-color: #fff; /*do not set as !important*/
+        margin-bottom: 5px;
+        margin-left: 3px;
+        margin-top: 5px;
+        margin-right: 3px;
+
+        /*border-top: 1px solid #000;
+        border-left: 1px solid #000;*/
+        border: none !important;
+        /*border-right: 1px solid red !important;*/
+        border-radius: 3px;
+        height: 32px !important; /*height must be 2px less than rowHeight*/
+        line-height: 32px !important; /*line-height must be equal height*/
+        font-size:12px !important;
+        text-align:center;
+    }
+    .webix_dtable .webix_ss_body .webix_column > div, .webix_dtable .webix_ss_body .webix_table_cell {
+        border-left-color: #000 !important;
+        border-right-color: #000 !important;
+    }
+    .webix_column > div, .webix_table_cell {
+        border-bottom: 1px solid #000 !important;
+        border-right: 1px solid #000 !important;
+        padding: 0 9pt;
+    }
+
+    .my_style .webix_column > div:nth-child(2n) {
+        background-color: #fff !important;
+    }
+
+    .my_style .webix_column > div:nth-child(2n) {
+        background-color: #fff !important;
+    }
+
+
+    .BgColorD1 {
+        color: #000;
+        border-color: #FFFF00;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#FFFF00, #FFFF00 60%, #FFFF00);
+        background-repeat: no-repeat;
+    }
+    .BgColorD2 {
+        color: #000;
+        border-color: #CD9D94;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#CD9D94, #CD9D94 60%, #CD9D94);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorV1 {
+        color: #000;
+        border-color: #80FF80;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#80FF80, #80FF80 60%, #80FF80);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorV2 {
+        color: #000;
+        border-color: #C0FFFF;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#C0FFFF, #C0FFFF 60%, #C0FFFF);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorO1 {
+        color: #000;
+        border-color: #FF0000;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#FF0000, #FF0000 60%, #FF0000);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorO2 {
+        color: #000;
+        border-color: #80FF80;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#80FF80, #80FF80 60%, #80FF80);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorBM1 {
+        color: #000;
+        border-color: #95F0F2;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#95F0F2, #95F0F2 60%, #95F0F2);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorBM2 {
+        color: #000;
+        border-color: #FDCDFE;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#FDCDFE, #FDCDFE 60%, #FDCDFE);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorB1 {
+        color: #000;
+        border-color: #FF8000;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#FF8000, #FF8000 60%, #FF8000);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorB2 {
+        color: #000;
+        border-color: #F9583C;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#F9583C, #F9583C 60%, #F9583C);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorM1 {
+        color: #000;
+        border-color: #008000;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#008000, #008000 60%, #008000);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorM2 {
+        color: #000;
+        border-color: #D9DB95;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#D9DB95, #D9DB95 60%, #D9DB95);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorBG1 {
+        color: #000;
+        border-color: #C776ED;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#C776ED, #C776ED 60%, #C776ED);
+        background-repeat: no-repeat;
+    }
+
+    .BgColorBG2 {
+        color: #000;
+        border-color: #FFFFC0;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#FFFFC0, #FFFFC0 60%, #FFFFC0);
+        background-repeat: no-repeat;
+    }
+    
+
+        .YellowRows {
+            background-color: #295d75;
+            color: #fff;
+            text-align: center;
+            font-family: Arial !important;
+            line-height: 30px !important;
+            height:30px !important;
+        }
+
+        .YellowRows1 {
+            background-color: #67ddf8;
+            color: #000;
+            text-align: center;
+            font-family: Arial !important;
+        }
+
+        .HolyDaybg {
+            background-color: red !important;
+            color: White;
+            font-family: Arial !important;
+        }
+        .Emptybg {
+            background-color: #fff !important;
+            line-height:30px !important;
+        }
+
+        .webix_dtable .webix_ss_header td.webix_last_row{
+                border-bottom: 1px solid #fff ! important;
+        }
+
+        .webix_dd_drag_column, .webix_ss_header, .webix_ss_header td, .webix_ss_vscroll_header {
+            background:#fff !important;
+        }
+
+        .webix_column > div:nth-child(2n) {
+            background-color: #fff !important;
+        }
+
+        .Titlebg{
+            background-color: #67ddf8;
+            color:blue;
+        }
+        .k-tabstrip-items .k-item, .k-tabstrip-items .k-link {
+            background-color: #C0EAF7 !important;
+            color: black !important;
+        }
+
+        .k-grid tbody .k-button, .k-ie8 .k-grid tbody button.k-button {
+            width: 30px !important;
+            height: 12px !important;
+        }
+
+        .k-tabstrip-items .k-state-active {
+            font-weight: bold;
+        }
+
+        .VacantColor {
+            font-weight: bolder;
+            background-color: #adfba7;
+            text-align: center;
+            font-size: 11px !important;
+        }
+
+        .k-grid-content tr:not(.k-grouping-row):hover > td,
+        .k-grid > table > tbody > tr:not(.k-grouping-row):hover > td {
+            background: none !important;
+            cursor: pointer;
+        }
+
+        .k-grid table tr:hover {
+            background: none !important;
+            cursor: pointer;
+        }
+
+        /*.webix_el_label .webix_el_box, .webix_inp_label, .webix_inp_top_label, legend.webix_forminput_label {
+            color: maroon !important;
+            text-align: left;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: Arial !important;
+        }*/

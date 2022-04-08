@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/Scripts/PayRoll/bootstrap.min.js"></script>
+    <script src="~/Scripts/PayRoll/Views/PageControl.js"></script>
+    <title>@ViewBag.Title - Pay Roll Management</title>
+ 
+    <style>
+        .navbar-inverse {
+            background-color: #28c5e6;
+            border-color: #dcd4d4;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //    debugger;
+            window.CurrThemes = "";
+            $("#loading").css("display", "block");
+            setTimeout(function () {
+                ChangeTheme("defthmes");
+            }, 1000);
+
+            $(function () {
+                $('[data-toggle="popover"]').popover({
+                    container: 'body',
+                    html: true,
+                    content: function () {
+                        debugger;
+                        //var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+                        var clone = '<div class="row"> <div class="col-lg-2 col-md-2 col-md-offset-1 col-lg-offset-1"> <div class="themecst" id="bluethmes" style="border:1px solid #28c5e6; background:#28c5e6; padding: 8px; border-radius: 2px; cursor: pointer;"/> </div>' +
+                            '<div class="col-lg-2 col-md-2"> <div  class="themecst" id="defthmes" style="border:1px solid #2884b3; background:#2884b3; padding: 8px; border-radius: 2px; cursor: pointer;"/> </div></div>' +
+                            '<div class="row" style="margin-top: 10px;"><div class="col-lg-2 col-md-2 col-md-offset-1 col-lg-offset-1"> <div  class="themecst" id="greenthmes" style="border:1px solid #4CAF50; background:#4CAF50; padding: 8px; border-radius: 2px; cursor: pointer;"/> </div>' +
+                            '<div class="col-lg-2 col-md-2 "> <div  class="themecst" id="merthmes" style="border:1px solid  rgba(144, 8, 8, 0.55);  background: rgba(144, 8, 8, 0.55); padding: 8px; border-radius: 2px; cursor: pointer;"/> </div></div>';
+                        return clone;
+                    }
+                });
+            });
+
+            $(document).on('click', '.themecst', function (e) {
+                debugger;
+                var elemt = e.currentTarget.id;
+                $('[data-toggle="popover"]').popover('hide');
+                $("#loading").css("display", "block");
+                
+                setTimeout(function () {
+                    //ChangeTheme(elemt);
+                    PageTheme(elemt);
+                }, 5000);               
+                //$("#wait").css("display", "block");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Application name", "Index", "PayRoll", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="popover" title="Themes" data-placement="bottom" data-content="" class="text-center">
+                        <img src="~/Images/theme_select.png" style="height:18px; width:18px" />
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "PayRoll", null)"><img src="~/Images/dashboard.png" width="18" height="18" alt="Home"></a>
+                    @*<a href="./Index"><img src="~/Images/dashboard.png" width="18" height="18" alt="Home"></a>*@
+                </li>              
+            </ul>
+        </div>
+   </div>  
+    @Html.Partial("_Loading")
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "_from": "@xbs/pivot@7.0.1",
+  "_id": "@xbs/pivot@7.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-LZJncvSjA8OJVKufCBGoJP6AMjihB/syG8Ji/cSCHxCeSSY4rk71llIz86yu7gfJnDt5WK49qeaj/DJqFo1Jqg==",
+  "_location": "/@xbs/pivot",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@xbs/pivot@7.0.1",
+    "name": "@xbs/pivot",
+    "escapedName": "@xbs%2fpivot",
+    "scope": "@xbs",
+    "rawSpec": "7.0.1",
+    "saveSpec": null,
+    "fetchSpec": "7.0.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://npm.webix.com/@xbs%2fpivot/-/pivot-7.0.1.tgz",
+  "_shasum": "2dadaf9599b1d2c10696f32104cab4028b88b7e9",
+  "_spec": "@xbs/pivot@7.0.1",
+  "_where": "C:\\Users\\Winsar-Presales",
+  "author": {
+    "name": "XB Software"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Webix UI",
+  "keywords": [
+    "webix",
+    "ui",
+    "widgets"
+  ],
+  "license": "SEE LICENSE IN license.text",
+  "main": "pivot.js",
+  "name": "@xbs/pivot",
+  "publishConfig": {
+    "registry": "https://npm.webix.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "types/pivot.d.ts",
+  "version": "7.0.1"
+}

@@ -1,0 +1,2723 @@
+﻿@{
+    ViewBag.Title = "Day Settlement";
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+}
+
+<script src="../../Scripts/xlExport.js"></script>
+<div class="content-wrapper">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <link href="../../Content/Contribute.css" rel="stylesheet" />
+        <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+
+        <link href="../../Content/xlExportCss.css" rel="stylesheet" />
+
+        <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+        <link href="~/FO/CSS/sidemenu-custom.css" rel="stylesheet" />
+        <div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>
+        </div>
+        <div id="divPage">
+
+            <div class="container-fluid">
+                <div class="row new_hdr">
+                    <div class="col-sm-3">
+
+                        <div class="TextWidth" id="divPropbox">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-center">
+                        <strong>
+                            <label style="color: black; font-weight: bold" class="wc_hdr_tlt" id="lblRptCaption"><strong>Day Settlement</strong></label>
+                        </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card-tools text-right">
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class="btnXX"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="border:solid transparent;" class="row" >
+                    <div class="col-xl-4 col-md-3 col-sm-2 pr-0" >
+                        <div class="row" style="height:22px">
+                            <div class="col-md-12">
+                                <div id="divChkFO"></div>
+                                <div id="divChkSettleType"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="height:22px">
+                            <div class="col-md-12">
+                                <div id="divChkMiscSale"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-2 col-md-2 col-sm-3 p-0" style="max-width:160px">
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <div id="divFrom"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-2 col-md-2 col-sm-3 p-0" style="max-width:160px; " id="divToDt">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="divTo"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-2 col-md-2 col-sm-3 pl-0">
+                        
+                        <div class="row" style="margin-left:0px">
+                            <div class="col-md-3 pl-0" style="max-width:35px;">
+                                <div id="divbtnFilters"></div>
+                            </div>
+                            <div class="col-md-6  pr-0" style="max-width:70px;">
+                                <div id="divbtnDisp"></div>
+                            </div>
+                            <div class="col-md-3  pr-0" style="max-width:70px;">
+                                <div id="divbtnBack"></div>
+                            </div>                           
+
+                        </div>
+                        @*<div class="row">
+                <div class="col-md-12">
+                    <div id="divbtnoptions"></div>
+                </div>
+            </div>*@
+                    </div>                   
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="gridRptt" style="width: 100%;"></div>
+                        <div id="gridSRptt" style="width: 100%;"></div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <input type="hidden" id="HdnCurrDt" />
+        <input type="hidden" id="HdnCurrMnth" />
+        <input type="hidden" id="HdnAccDt" />
+        <input type="hidden" id="HdnToAccDt" />
+        <input type="hidden" id="HdnAccMnth" />
+        <input type="hidden" id="HdnFrmMnth" />
+        <input type="hidden" id="HdnToMnth" />
+        <input type="hidden" id="HdnYrFrmMnth" />
+        <input type="hidden" id="HdnYrToMnth" />        
+
+        <style>
+            .btnXX {
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 1.5;
+            }
+        </style>
+
+        @*Topmenu Style ends*@
+        <style>
+            .Pagefalse {
+                pointer-events: none;
+                opacity: 0.6;
+            }
+
+            /*.webix_cell.webix_dtable_colrow {
+                height: 0px !important;
+                line-height:0px !important;
+                display:none;
+            }*/
+
+             .RowHide {
+                display: none !important;
+                height: 0px !important;
+            }
+
+            .btn-filter .webix_button {
+                border: none !important;
+                background: none !important;
+            }
+
+            .btn-option .webix_icon_btn {
+                font-weight: normal !important;
+            }
+
+            .multiline {
+                line-height: 22px !important;
+                position: relative;
+            }
+
+            .GrpTot1 {
+                color: black;
+                font-weight: Bold;
+                font-family: Arial !important;                
+            }
+
+            .GrpTot2 {
+                color: black;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GrpTotBtm {
+                background-color: lightgray;
+                color: Brown;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GrpTotGrnd {
+                background-color: blue;
+                color: white;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GndTot {
+                background-color: blue;
+                color: white;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .HideRow {
+                display: none !important;
+            }
+
+            .WeekEnd {
+                background-color: red !important;
+            }
+
+            .PastDay {
+                background-color: #ffb6c1ba;
+            }
+
+            .MyOptBox .webix_radio_option {
+                height: 21px;
+            }
+
+            .GrdSettle .webix_ss_footer td, .GrdContribution .webix_ss_vscroll_footer {
+                font-weight: bold;
+                font-size: 11px !important;
+                font-family: Arial !important;
+            }
+
+            .GrdSettle .LeftAlign {
+                text-align: left !important;
+            }
+
+            .webix_cell.webix_dtable_colrow {
+                background-color: #3b99b5 !important;
+                color: white !important;
+            }
+
+            .multiline {
+                line-height: 16px !important;
+                justify-content: center;
+                align-items: center;
+                content: 'x';
+                display: flex;
+            }
+
+            .SecHeader {
+                margin-bottom: 1px !important;
+                font-weight: bold !important;
+                text-align: center;
+                border-right-width: 0px !important;
+                border-left-width: 0px !important;
+                border-top-width: 0px !important;
+            }
+
+            .LayBorder {
+                border-top-width: 1px !important;
+                border-left-width: 1px !important;
+                border-bottom-width: 2px !important;
+                border-right-width: 1px !important;
+                margin-top: -1px !important;
+            }
+
+            .LayBorder1 {
+                border-top-width: 1px !important;
+                border-left-width: 1px !important;
+                border-bottom-width: 2px !important;
+                border-right-width: 1px !important;
+                margin-top: -1px !important;
+            }
+
+            .GrpHead1 {
+                font-family: Arial !important;                
+                background-color: #3b99b5 !important;
+                color: white !important;
+            }
+            .GrdSettle .GrpHead1 {
+                font-size: 14px !important;
+                text-align: left !important;
+                border-left-color: transparent !important;
+                border-right-color: transparent !important;
+            }
+
+            .GrdSettle .webix_ss_body .webix_column > .GrpHead1 {
+                border-left-color: transparent !important;
+                border-right-color: transparent !important;
+            }
+                                 
+
+            /*.GrdSettle .webix_column > div, .GrdSettle .webix_table_cell {
+                padding: 0pt 5pt;
+            }*/
+
+                        
+            
+        </style>
+
+        <script>
+            var vGridTotData = [];
+            var vFooterGrp={};
+            $(document).ready(function () {
+                debugger;
+                if (fnChkSessVal() == false) return;      
+                $("#MenuName").val('FOMNUREP2GUSTINVREG');
+                $("#MenuLvl").val('FOMNUREP2');
+                $("#MenuLvl1").val('');
+                var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+                var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+                window.DEF_DT_FORMAT = "1";
+                window.UserSrchData = [];
+                window.Settle_Mode =[];
+
+                webix.ready(function () {
+                    //fnUserSelWindowLoad();
+                    
+                    fnLoadFilterWindow();
+                    GridDesign();
+                    GridDesign1();
+
+                    webix.ui({
+                        view: "button", id: "Print", value: "Print", width: 70, container: "divPrint", label: Print, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnGridPrint();
+                            }
+                        }
+                    });
+
+                    webix.ui({
+                        view: "button", id: "Excel", value: "Excel", width: 70, container: "divExcel", label: excel, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnExcelExport();
+                            }
+                        }
+                    });
+
+
+
+                    webix.ui({
+                        view: "button", id: "btnFilters",css: "webix_primary",  value: "Filter", width: 30,label:'<span class="fa fa-filter"></span>', container: "divbtnFilters", tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                btnFilterClick();
+                            }
+                        }
+                    }); 
+
+                    //webix.ui({
+                    //    view: "button", id: "btnOptions",css: "webix_primary",  value: "Options", width: 30,label:'<span class="fa fa-list"></span>', container: "divbtnoptions", tooltip: true,popup:"RmAssOptionsNew",
+                    //    on: {
+                    //        onItemClick: function () {
+                    //            btnRmAssOptionClick();
+                    //        }
+                    //    }
+                    //});
+
+                    
+
+
+                    webix.ui({
+                        container: "divFrom", view: "datepicker", label: "AsOn ", labelWidth: 40,labelAlign:"right", width:160, name: "FromDt", id: "FromDt", format: "%d/%m/%Y", stringResult: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();
+                                var frmdate = $$("FromDt").getValue();
+                                var todate = $$("ToDt").getValue();
+                                if(SMFromDateChange() == "1") fnHeader();
+                            }
+                        }
+                    });
+
+                    webix.ui({
+                        container: "divTo", view: "datepicker", label: "To ", labelWidth: 40,labelAlign:"right", width:160, name: "ToDt", id: "ToDt", format: "%d/%m/%Y", stringResult: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();
+                                var frmdate = $$("FromDt").getValue();
+                                var todate = $$("ToDt").getValue();
+                                
+                                if(SMToDateChange() == "1") fnHeader();
+                                
+                            }
+                        }
+                    });
+                    
+
+                    webix.ui({ container: "divChkFO", view: "checkbox", id: "chkFO",labelWidth: 3,  labelRight: "FO",  width: 150,  customCheckbox: false,
+                        on:{
+                            onChange: function (NewVal,OldVal) 
+                            {
+                                ClearGrid();
+                                if(NewVal == "0"){
+                                    if($$("chkMiscSale").getValue() == "0") $$("chkMiscSale").setValue('1');
+                                }
+                                
+                            }
+                        }
+                    }),
+
+                    webix.ui({ container: "divChkMiscSale", view: "checkbox", id: "chkMiscSale",labelWidth: 3,  labelRight: "Misc Sale",  width: 150,  customCheckbox: false,
+                        on:{
+                            onChange: function (NewVal,OldVal) 
+                            {
+                                ClearGrid();
+                                if(NewVal == "0"){
+                                    if($$("chkFO").getValue() == "0") $$("chkFO").setValue('1');
+                                }
+                            }
+                        }
+                    }),   
+
+                    webix.ui({ container: "divChkSettleType", view: "checkbox", id: "chkSettleType",labelWidth: 3,  labelRight: "Settle Type Report",  width: 150,  customCheckbox: false,
+                        on:{
+                            onChange: function () 
+                            {
+                                //LoadRmAssGrid();
+                                fnClickSettleType();
+                            }
+                        }
+                    }),                    
+
+                    webix.ui({ container: "divbtnDisp", view: "button", id: "btnDisplay",css: "webix_primary", icon: "wxi-check", label: "Display", inputWidth: 60, width: 70, click: function () { fnbtnDisplay(); } }),                    
+                    webix.ui({ container: "divbtnBack", view: "button", id: "btnBack", css: "webix_primary", label: '<span class="fa fa-arrow-circle-left"></span>Back',  width: 70, inputWidth: 65, click: function () { $$("chkSettleType").setValue("0"); },  }),
+
+                    webix.ui({
+                        container: "divPropbox", view: "richselect", id: "Property",//width: 220,//autowidth:true,
+
+                        on: {
+                            onChange: function (NewVal, OldVal) {
+                                if (NewVal != "") {
+                                    debugger;
+                                    $$("gridRpt").clearAll();
+                                    LoadCompChange(NewVal);
+                                }
+                            }
+                        }
+
+                    });
+
+                   
+                    //debugger;
+
+                    var cmpid= @Html.Raw(Json.Encode(ViewBag.COMP));
+                    //FNLoadAllCompany(cmpid);
+                    LoadProperty(cmpid);
+
+                    var propchk = @Html.Raw(Json.Encode(ViewBag.MLTPROPHISHIND));
+                    if (propchk == "1") $("#divPropbox").show();
+                    else if (propchk == "0") $("#divPropbox").hide();
+
+                    gridResize();
+
+                });
+
+                webix.event(window, "resize", function () {
+                    gridResize();
+                })
+
+            });
+
+            function gridResize(){
+                var vheight = window.innerHeight
+                       || document.documentElement.clientHeight
+                       || document.body.clientHeight;
+                var offset =  $("#gridRptt").offset();
+                $$("gridRpt").define("height", ((vheight - offset.top-20)));
+                $$("gridRpt").adjust();
+
+                var offset =  $("#gridSRptt").offset();
+                $$("gridSRpt").define("height", ((vheight - offset.top-20)));
+                $$("gridSRpt").adjust();
+
+            }
+            function LoadProperty(cmpid) {
+                debugger;
+                Request = {
+                    REQTYPE: "GET_PROPERTYLOAD",
+                    COMPID: cmpid,
+                }
+                Prop_Id = cmpid;
+                var rowData = [];
+                var options =[];
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            $$("Property").define("options",rowData);
+                            $$("Property").refresh();
+                            $$("Property").setValue(Prop_Id);
+
+                        }
+                    },
+                });
+            };
+            function LoadDate(cmpid) {
+                debugger;
+
+                Request = {
+                    REQTYPE: "GET_FRMMNTHTOMNTH",
+                    COMPID: cmpid,
+                }
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+
+                    success: function (data) {
+                        debugger;
+                        var data1 = JSON.parse(data);
+                        var vCurrDt = data1[0].CURRDT.toString().trim();
+                        var vAccDt = data1[0].HISFDAY.toString().trim();
+                        var vToAccDt = data1[0].HISTODAY.toString().trim();
+
+
+                        
+                        $("#HdnAccDt").val(vToAccDt);
+                        $("#HdnToAccDt").val(vAccDt);
+                        $("#HdnCurrDt").val(vCurrDt);
+                        var vFromDt = formatDate1(vCurrDt);
+                        var vToDt = formatDate1(vCurrDt);
+                        $$("FromDt").blockEvent();
+                        $$("ToDt").blockEvent();
+                        $$("FromDt").setValue(vToDt);
+                        $$("ToDt").setValue(vFromDt);
+                        $$("FromDt").unblockEvent();
+                        $$("ToDt").unblockEvent();
+
+                    },
+                });
+            };
+            function formatDate1(StrDt) {
+                debugger;
+                var Parts = StrDt.split("/");
+                var Dt = Parts[0];
+                var Mn = Parts[1];
+                var Yr = Parts[2].substring(0, 4);
+                var Str = Yr + "-" + Mn + "-" + Dt;
+                return Str;
+            };
+            function LoadCompChange(CompId) {
+                
+                
+                LoadControl(CompId);
+                LoadDate(CompId);
+                fnClickSettleType();
+                var W10_IND = "0";
+                var CHKPM = "0";
+                var vCmpId = $$("Property").getValue();
+                window.UserSrchData = fnLoadUserData();
+                window.Settle_Mode = fnLoadSettleMode();               
+                
+                //fnShowColumn();
+                //fnbtnDisplay();
+
+            };
+            function LoadCurrDet(vProperty) {
+                //debugger;
+                window.CURRENCY_FORMAT = "";
+                window.CURRENCY_DELIMIT = "";
+                window.CURRENCY_DECIMLIMIT = "";
+                var rowDatad = [];
+                try {
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/Reports/GetCurrFormatDetails",
+                        data: "CmpId=" + vProperty,
+                        success: function (d) {
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+                                window.CURRENCY_FORMAT = rowDatad.CURRENCY_FORMAT;
+                                window.CURRENCY_DELIMIT = rowDatad.CURRENCY_DELIMIT;
+                                window.CURRENCY_DECIMLIMIT = rowDatad.CURRENCY_DECIMLIMIT;
+                            }
+                        }
+                    });
+
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            function LoadControl(CompId) {
+                debugger;                
+                var rowDatad = [];
+                window.CURRENCY_FORMAT = "L";
+                window.CURRENCY_DELIMIT = "2";
+                window.CURRENCY_DECIMLIMIT = ".";
+                window.DEF_DT_FORMAT = "1";
+                window.A14_NM = "";
+                window.B14_NM = "";
+                window.GUEST_PAIDOUT_PRINT_IND = "0";
+                window.REFUND_IND = "0";
+                window.PM_IND = "0";
+                window.I16_IND = "0";
+                window.FACL_APPL = "0";
+                window.BNQ_APPL = "0";
+                window.POS_APPL = "0";  
+                window.RoomCaption = "Room";
+                try {
+                    Request = {
+                        REQTYPE: "GET_FNGETLOADCONT",
+                        COMPID: CompId,
+                    }
+
+                    var rowData = [];
+                    var options =[];
+                    var dataparam = JSON.stringify(Request);
+
+
+
+                    $.ajax({
+                        async: false,
+                        url: "/Reports/FOAPI_CALL",
+                        type: 'POST',
+                        data: "request=" + dataparam,
+                        success: function (d) {
+                            debugger;
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+                                var BASE_COUNTRY_ID = "";
+                                debugger;
+
+                                if (rowDatad.RA[0].COUNTRY_ID != null && rowDatad.RA[0].COUNTRY_ID != "") BASE_COUNTRY_ID = rowDatad.RA[0].COUNTRY_ID.toString().trim();
+
+                                window.CURRENCY_FORMAT = rowDatad.RA[0].CURRENCY_FORMAT;
+                                window.CURRENCY_DELIMIT = rowDatad.RA[0].CURRENCY_DELIMIT;
+                                window.CURRENCY_DECIMLIMIT = rowDatad.RA[0].VAL_DECIM_LIMIT;
+                                window.DEF_DT_FORMAT = rowDatad.RA[0].DEF_DT_FORMAT;
+
+                                window.A14_NM = rowDatad.RA3[0].A14_NM;
+                                window.B14_NM = rowDatad.RA3[0].B14_NM;
+                                window.M_TAX = rowDatad.RA[0].M_TAX;
+                                if(rowDatad.RA2[0].GUEST_PAIDOUT_PRINT_IND != null && rowDatad.RA2[0].GUEST_PAIDOUT_PRINT_IND.toString().trim() != "") window.GUEST_PAIDOUT_PRINT_IND = rowDatad.RA2[0].GUEST_PAIDOUT_PRINT_IND;
+                                if(rowDatad.RA2[0].H12_IND != null && rowDatad.RA2[0].H12_IND.toString().trim() != "") window.REFUND_IND = rowDatad.RA2[0].H12_IND;
+                                if(rowDatad.RA2[0].NA_FACL_POST_IND != null && rowDatad.RA2[0].NA_FACL_POST_IND.toString().trim() != "") window.FACL_APPL = rowDatad.RA2[0].NA_FACL_POST_IND;
+                                if(rowDatad.RA2[0].NA_BNQ_POST_IND != null && rowDatad.RA2[0].NA_BNQ_POST_IND.toString().trim() != "") window.BNQ_APPL = rowDatad.RA2[0].NA_BNQ_POST_IND;
+                                if(rowDatad.RA2[0].NA_POS_POST_IND != null && rowDatad.RA2[0].NA_POS_POST_IND.toString().trim() != "") window.POS_APPL = rowDatad.RA2[0].NA_POS_POST_IND;                                
+
+                                if(rowDatad.RA2[0].O8_ID != null && rowDatad.RA2[0].O8_ID.toString().trim() != "") window.RoomCaption = rowDatad.RA2[0].O8_ID;   
+
+                                if (rowDatad.RA3[0].PM_IND != null && rowDatad.RA3[0].PM_IND != "") window.PM_IND = rowDatad.RA3[0].PM_IND.toString().trim() ;
+                                if (rowDatad.RA3[0].I16_IND != null && rowDatad.RA3[0].I16_IND != "") window.I16_IND = rowDatad.RA3[0].I16_IND.toString().trim() ;
+                                
+
+                                
+
+                                $("#BASE_COUNTRY_ID").val(BASE_COUNTRY_ID);
+                                debugger;
+                            }
+                        }
+                    });
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+
+                if(window.DEF_DT_FORMAT == "2"){
+                    $$("FromDt").define("format","%m/%d/%Y");
+                    $$("FromDt").refresh();
+
+                    $$("ToDt").define("format","%m/%d/%Y");
+                    $$("ToDt").refresh();
+                }
+                if(window.BNQ_APPL == "1") $$("chkBqRec").show();
+                else  $$("chkBqRec").hide();
+
+                if(window.POS_APPL == "1") $$("chkPosRec").show();
+                else  $$("chkPosRec").hide();
+
+            };
+            function GridDesign() {
+                webix.ui({
+                    id: "gridRpt",
+                    container: "gridRptt",
+                    select: 'row',
+                    view: "treetable",
+                    fixedRowHeight: false,                    
+                    rowLineHeight:23,
+                    rowHeight:23,  
+                    autoConfig: true,
+                    resizeColumn: true,
+                    resizeRow: true,
+                    footer:true,
+                    //position: "flex",
+                    css: "webix_header_border GrdSettle",
+                    spans:true,
+                    data: [],
+                    columns: [                           
+                            { id: "BILL_NO",  header: {text: "Bill No",css:"multiline"},  width:85,  css: { 'text-align': 'center ! important' } ,  },
+                            { id: "ROOM_NO", header: {text: "Room No",css:"multiline"},   width:60, css: { 'text-align': 'center ! important' }},
+                            { id: "SREG_NO", header: {text: "Reg No",css:"multiline"}, width:60, css: { 'text-align': 'right ! important' }, },
+                            { id: "SGUEST_DET", header: {text:"GuestName/Details",css:"multiline"},fillspace:2, minWidth:250, css: { 'text-align': 'left ! important' } ,footer: {text: "Grand Total",css: "LeftAlign", height: 24 },},
+                            { id: "SBILL_TYPE", header: {text:"Bill Type",css:"multiline"},fillspace:1.2,hidden:true,  minWidth:80, css: { 'text-align': 'right ! important' },},                            
+                            
+                            { id: "SBILL_AMT", header: {text:"Bill Amt",css:"multiline"} ,   fillspace:1.1, minWidth:100, css: { 'text-align': 'right ! important' },
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+
+                            },
+                            { id: "STOTAL_AMT", header: "Total Amt", fillspace:1.1, minWidth:100, css: { 'text-align': 'right ! important' },
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+                            },
+                           
+                            { id: "CLR", hidden: true },
+                              
+                    ],
+
+
+                    scheme: {
+                        $change: function (item) {
+                            //debugger;
+                            if (item["CLR"] != "" && item["CLR"] != null) {
+
+                                item.$css = item["CLR"];
+                            }                            
+                        },                        
+                    },
+
+                    on: {
+                        onBeforeClose: function () {
+                            return false;
+                        },                        
+                                                
+                    },
+                });
+
+                
+
+            };
+            function GridDesign1(){
+                webix.ui({
+                    id: "gridSRpt",
+                    container: "gridSRptt",
+                    select: 'row',
+                    view: "treetable",
+                    fixedRowHeight: false,
+                    rowLineHeight:23,
+                    rowHeight:23,  
+                    autoConfig: true,
+                    resizeColumn: true,
+                    resizeRow: true,
+                    footer:true,
+                    position: "flex",
+                    css: "webix_header_border GrdSettle",
+                    spans:true,
+                    data: [],
+                    columns: [                           
+                            { id: "SET_TO",  header: {text: "Settle To",css:"multiline"},  width:180,  css: { 'text-align': 'left ! important' } ,  },
+                            { id: "SET_TYPE", header: {text: "Type",css:"multiline"},   width:80, css: { 'text-align': 'center ! important' }},
+                            { id: "SET_DATE", header: {text: "Date",css:"multiline"}, width:75, css: { 'text-align': 'right ! important' },
+                                format: function(val){                                    
+                                    if (window.DEF_DT_FORMAT == "2") {
+                                        if(val) return fnDateConvertCommonFo(val,"103","101");
+                                        else return val;
+                                    }
+                                    else return val;
+                                }
+                            },
+                            { id: "SET_TM", header: {text:"Time",css:"multiline"},width:45, css: { 'text-align': 'left ! important' } ,},
+                            { id: "OUTLET", header: {text:"Outlet",css:"multiline"},fillspace:1.2,  minWidth:80, css: { 'text-align': 'left ! important' },footer: {text: "Grand Total",css: "LeftAlign", height: 24 },},                            
+                            { id: "BILL_NO", header: {text:"Bill No",css:"multiline"}, width:70, css: { 'text-align': 'center ! important' },},                            
+                            { id: "ROOM_NO", header: {text:"Room No",css:"multiline"}, width:70, css: { 'text-align': 'center ! important' },},                            
+                            { id: "GUEST_NM", header: {text:"Guest Name",css:"multiline"}, minWidth:170,fillspace:1.2, css: { 'text-align': 'left ! important' },},                            
+                            
+                            { id: "SET_AMT", header: {text:"Settle Amt",css:"multiline"} ,fillspace:1.1, minWidth:100, css: { 'text-align': 'right ! important' },
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+
+                            },
+                            { id: "TIPS", header: {text:"Tips",css:"multiline"} ,width:90, css: { 'text-align': 'right ! important' },hidden:true,
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+
+                            },
+                            { id: "FORN_CUR", header: {text:"Forign Currency",css:"multiline"}, width:80, css: { 'text-align': 'center ! important' },hidden:true},                            
+                            { id: "FORN_AMT", header: "Forign Amt", fillspace:1.1, minWidth:100, css: { 'text-align': 'right ! important' },hidden:true,
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+                            },
+                            { id: "TOTAL_AMT", header: "Total Amt", fillspace:1.1, minWidth:100, css: { 'text-align': 'right ! important' },hidden:true,
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                exportType: "number",
+                                exportFormat: "#,##0.00",
+                                footer:{content:"totalColumn"},
+                            },
+                            { id: "NARR", header: {text:"Remarks",css:"multiline"},width:200, css: { 'text-align': 'left ! important' },},                            
+                            { id: "USER", header: {text:"User",css:"multiline"},fillspace:1.2,  minWidth:100, css: { 'text-align': 'left ! important' },},                            
+                           
+                            { id: "CLR", hidden: true },
+                              
+                    ],
+
+
+                    scheme: {
+                        $change: function (item) {
+                            //debugger;
+                            var Columns = $$('gridSRpt').config.columns;
+                            var ColCnt = Columns.length;
+                            //if (item.CLR == "GrpHead1") {
+                            //    //debugger;
+                            //    $$("gridSRpt").addSpan(item.id, "SET_TO", ColCnt, 1, null, "GrpHead1");
+                            //    $$("gridSRpt").refresh();
+                            //}
+                            //else 
+                            if (item["CLR"] != "" && item["CLR"] != null) {
+                                item.$css = item["CLR"];
+                            }                            
+                        },                        
+                    },
+
+                    on: { 
+                        onBeforeClose: function () {
+                            return false;
+                        },
+                        onAfterLoad:function(){
+                            webix.delay(function(){
+                                this.adjustRowHeight("NARR", true); 
+                                this.render();
+                            }, this);
+                        },
+                        onresize:function(){ 
+                            debugger;
+                            this.adjustRowHeight("NARR", true); 
+                        }
+                        
+                    },
+                });
+            };
+            function fnRetExcelStr(item,ColId,Type){
+                debugger;
+                var str = item[ColId];
+                if(Type == "AMT"){
+                    if (str != null && str != undefined && str != "") {
+                        var str1 = str.replace(/[,]/g, '');
+                        str1 = parseFloat(str1);
+                        item[ColId] = str1;
+                    }
+                }
+                else if(Type == "DATE103HHMM"){
+                    if (str != null && str != undefined && str != "") {
+                        myformat = webix.Date.dateToStr( " %H:%i");
+                        if(window.DEF_DT_FORMAT == "2") myformat = webix.Date.dateToStr("%m/%d/%Y %H:%i");
+                        str1 = myformat(str);
+                        str1=str1.replace("-","");
+                        item[ColId] = str1;
+                    }
+                }
+                else if(Type == "DATE103"){
+                    if (str != null && str != undefined && str != "") {
+                        myformat = webix.Date.dateToStr("%d/%m/%Y");
+                        if(window.DEF_DT_FORMAT == "2") myformat = webix.Date.dateToStr("%m/%d/%Y");
+                        str1 = myformat(str);
+                        str1=str1.replace("-","");
+                        item[ColId] = str1;
+                    }
+                }
+
+            };
+            function fnRmAssLoadProperty(cmpid) {
+                debugger;
+                Request = {
+                    REQTYPE: "GET_PROPERTYLOAD",
+                    COMPID: cmpid,
+                }
+                Prop_Id = cmpid;
+                var rowData = [];
+                var options = [];
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            $$("Property").define("options", rowData);
+                            $$("Property").refresh();
+                            $$("Property").setValue(Prop_Id);
+
+                        }
+                    },
+                });
+            };
+            function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+                //debugger;
+                if (value == null || value == undefined) return "";
+                if (isNaN(value)) return "";
+
+                if (value.toString() != "") {
+                    if (Currfrmt == "L") {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+                        x = x.toString();
+                        var afterPoint = '';
+                        if (x.indexOf('.') > 0) {
+                            ////afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                            ////afterPoint = CurrDelimit + afterPoint
+                            var vArr = x.split('.');
+                            x = vArr[0].toString().trim();
+                            afterPoint = vArr[1].toString().trim();
+                            afterPoint = CurrDelimit + afterPoint
+                        }
+                        //x = Math.floor(x);
+
+                        x = x.toString();
+                        var lastThree = x.substring(x.length - 3);
+                        var otherNumbers = x.substring(0, x.length - 3);
+                        if (otherNumbers != '' && otherNumbers != '-')
+                            lastThree = ',' + lastThree;
+                        if (afterPoint != "") return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                        else return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+                    }
+                    else {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+
+                        x = x.toString();
+
+                        //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                        //var res = x.replace(/(\d{3})/g, "1,")
+                        var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                        if (res.indexOf('.') > 0) {
+
+                            res = res.replace(".", CurrDelimit)
+                        }
+
+
+                        return res;
+                    }
+                }
+                else {
+                    return value;
+                }
+            };
+            function fnCurrFormat(value) {
+
+                var Currfrmt = window.CURRENCY_FORMAT;
+                var CurrDelimit = window.CURRENCY_DELIMIT;
+                var CurrDecimal = window.CURRENCY_DECIMLIMIT;
+                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+            };
+            function fnClickSettleType(){
+                $$("hdnSettleType").setValue('');                
+                $$("hdnSettleId").setValue('');                
+                $$("hdnUser").setValue('');     
+                $$("hdnUserId").setValue('');                
+                
+                $$("hdnchkZeroAmtBill").setValue('0');                
+                $$("hdnchkMiscColl").setValue('0');     
+                $$("hdnchkEnhDet").setValue('1');     
+                $$("hdnchkBqRec").setValue('0');     
+                $$("hdnchkPosRec").setValue('0');     
+                $$("hdnchkTips").setValue('1');     
+                $$("hdnchkResNo").setValue('0');
+                $$("chkEnhDet").show();
+
+                
+                $$("hdnchkTypeTot").setValue('0');     
+                $$("hdnchkFornAmt").setValue('0');     
+                $$("hdnchkGstName").setValue('0');  
+
+                $$("btnBack").hide();
+                
+                $$("chkTypeTot").hide();   
+                $$("chkFornAmt").hide();
+                $$("chkGstName").hide();
+                $$("chkResNo").show();
+                $$("chkTypeTot").setValue('0');   
+                $$("chkFornAmt").setValue('0');
+                $$("chkGstName").setValue('0'); 
+                $$("chkResNo").setValue('0');
+                $$("hdnchkBTpBNoWs").setValue('1');                
+                $$("hdnchkBTpBTmWs").setValue('0');               
+                $$("hdnchkUserWs").setValue('0');   
+                //$("#divSettleTypeChange").hide();
+                $$("chkFO").setValue('0');   
+                $$("chkMiscSale").setValue('0');
+                $$("chkFO").hide();   
+                $$("chkMiscSale").hide();
+                $("#divToDt").hide();
+                $$("gridSRpt").clearAll();
+                $$("gridRpt").clearAll();
+                $$("SrchSettleType").hide();
+                $$("SrchSettleType").setValue('');
+                $$("chkZeroAmtBill").show();
+                $$("chkZeroAmtBill").setValue('0');
+                $$("GroupLayout").show();
+
+                if(window.BNQ_APPL == "1") $$("chkBqRec").show();
+                else $$("chkBqRec").hide();
+                if(window.POS_APPL == "1") $$("chkPosRec").show();
+                else $$("chkPosRec").hide();
+
+                if($$("chkSettleType").getValue() == "1"){
+                    $$("btnBack").show();
+                    $("#divToDt").show();
+                    $$("FromDt").define("label","From");
+                    $$("FromDt").refresh();
+                    $("#gridSRptt").show();
+                    $("#gridRptt").hide();
+                    $("#lblRptCaption").text("Settle Type Report");
+                    $$("chkFO").show();   
+                    $$("chkMiscSale").show();
+                    $$("chkFO").blockEvent();
+                    $$("chkMiscSale").blockEvent();
+                    $$("chkFO").setValue("1");
+                    $$("chkMiscSale").setValue("1");
+                    $$("chkFO").unblockEvent();
+                    $$("chkMiscSale").unblockEvent();
+                    $$("chkSettleType").hide(); 
+                    $$("SrchSettleType").show();
+                    $$("chkTypeTot").show();   
+                    $$("chkFornAmt").show();
+                    $$("chkGstName").show();
+                    $$("chkResNo").hide();
+                    $$("GroupLayout").hide();
+                    $$("chkZeroAmtBill").hide();
+                    $$("chkEnhDet").hide();
+                    var vFromDt = formatDate1($("#HdnCurrDt").val());
+                    var vToDt = formatDate1($("#HdnCurrDt").val());
+                    $$("FromDt").setValue(vToDt);
+                    $$("ToDt").setValue(vFromDt); 
+                    $$("lblHide").show();
+                    $$("lblHide1").show();
+                    gridResize();
+
+                }
+                else{
+                    $("#divToDt").hide();
+                    $$("chkSettleType").show(); 
+                    $$("FromDt").define("label","AsOn");
+                    $$("FromDt").refresh();
+                    $("#gridRptt").show();
+                    $("#gridSRptt").hide();                                       
+                    $("#lblRptCaption").text("Day Settlement");
+                    var vFromDt = formatDate1($("#HdnCurrDt").val());
+                    var vToDt = formatDate1($("#HdnCurrDt").val());
+                    $$("FromDt").setValue(vToDt);
+                    $$("ToDt").setValue(vFromDt); 
+                    $$("chkBTpBNoWs").setValue('1');
+                    $$("lblHide").hide();
+                    $$("lblHide1").hide();
+                    fnHeader();
+                    gridResize();
+                }
+                fnShowColumn();
+            };            
+            function fnLoadFilterWindow(){
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "AdvFilter",
+                    head: "Advance Filter",
+                    position: "center",
+                    css: "WebIxStyle",
+                    height: 500,
+                    width: 630,                    
+                    body: {
+                        padding:{right:3,left:3,bottom:0}, 
+                        view:"form",
+                        id:"frmFilter",
+                        elements: [
+                            {
+                                width: 630,
+                                css:"LayBorder", 
+                                cols:[
+                                    {
+                                        view: "layout",
+                                        //css:"LayBorder",  
+                                        width:372,
+                                        rows:[
+
+                                                { view: "template", template: "Filters",css:" SecHeader",height:25,width:370}, 
+                                                {
+                                                    padding: { top: 0, left: 10, bottom: 0, right: 10 },                                           
+                                                    rows: [                   
+                                                        //{ view: "richselect", width: 350, labelWidth: 110, id: "SrchSettleType", label: "Settle Type", on: { onChange: function (newVal, OldVal) { } }, },                                                                                                     
+                                                        { view: "search", width: 350, labelWidth: 90, id: "SrchSettleType", label: "Settle Type",placeholder:"ALL",readonly:true, 
+                                                            on: {
+                                                                onSearchIconClick: function () {
+                                                                    debugger;
+                                                                    fnSettleTypeSelWindowLoad($$("txtSettleId").getValue());                                
+                                                                }
+                                                            }
+                                                        }, 
+                                                        
+                                                        { view: "search", width: 350, labelWidth: 90, id: "SrchCompany", label: "Company",placeholder:"ALL",readonly:true, 
+                                                            on: {
+                                                                onSearchIconClick: function () {
+                                                                    debugger;
+                                                                    if($$("txtSettleId").getValue() =="3") fnBtnCompSrchClick();                               
+                                                                    else if($$("txtSettleId").getValue() =="2") fnBtnCreditCardSrchClick();                               
+                                                                }
+                                                            }
+                                                        },  
+
+                                                        { view: "search", width: 350, labelWidth: 90, id: "SrchUser", label: "Users", placeholder:"ALL",readonly:true,
+                                                            on: {
+                                                                onSearchIconClick: function () {
+                                                                    debugger;
+                                                                    fnUserSelWindowLoad($$("txtUserId").getValue());                                
+                                                                }
+                                                            }
+                                                        },                        
+                                                        { view: "checkbox", id: "chkZeroAmtBill", labelWidth: 150, label: "Zero Amount Bill", customCheckbox: false, },
+                                                        { view: "checkbox", id: "chkMiscColl", labelWidth: 150, label: "Misc Payment Collection", customCheckbox: false, },
+                                                        { view: "checkbox", id: "chkEnhDet", labelWidth: 150, label: "Enhashment Details", customCheckbox: false, },
+                                                        { view: "checkbox", id: "chkBqRec", labelWidth: 150, label: "Banquet Receipt", customCheckbox: false, },
+                                                        { view: "checkbox", id: "chkPosRec", labelWidth: 150, label: "Pos Receipt", customCheckbox: false, },
+                                                        
+                                                        
+                                                    ]
+                                                },                                        
+                                        ]
+                                    },
+                                    {
+                                        rows:[
+                                            {
+                                                view: "layout",
+                                                css:"LayBorder",                                        
+                                                rows:[
+                                                
+                                                        { view: "template", template: "Options",css:" SecHeader",height:25,width:257}, 
+                                                
+                                                        {
+                                                            padding: { top: 10, left: 10, bottom: 20, right: 10 },
+                                                            rows:[   
+                                                                { view: "checkbox", id: "chkTips", labelWidth: 5, labelRight: "Tips", customCheckbox: false, },
+                                                                { view: "checkbox", id: "chkResNo", labelWidth: 5, labelRight: "Reservation No", customCheckbox: false, },
+                                                                { view: "checkbox", id: "chkTypeTot", labelWidth: 5, labelRight: "Type Total", customCheckbox: false, },
+                                                                { view: "checkbox", id: "chkFornAmt", labelWidth: 5, labelRight: "Forign Amount", customCheckbox: false, },
+                                                                { view: "checkbox", id: "chkGstName", labelWidth: 5, labelRight: "Guest Name", customCheckbox: false, },
+                                                                { view: "label", id: "lblHide", label: "", },
+                                                                { view: "label", id: "lblHide1", label: "", },
+                                                            ]
+                                                        },                                               
+                                                
+                                                ]
+                                            },
+                                            {
+                                                view: "layout",
+                                                css:"LayBorder",
+                                                id:"GroupLayout",
+                                                rows:[
+
+                                                        { view: "template", template: "Group By",css:" SecHeader",height:25,width:250}, 
+                                                        {
+                                                            padding: { top: 10, left: 10, bottom: 20, right: 10 },
+                                                            rows:[   
+                                                                { view: "checkbox", id: "chkBTpBNoWs", labelWidth: 5, labelRight: "Bill Type,Bill No", customCheckbox: false,
+                                                                    on: {
+                                                                        onChange: function (id) {
+                                                                            if(this.getValue() == "1"){
+                                                                                $$("chkBTpBTmWs").setValue('0');
+                                                                                $$("chkUserWs").setValue('0');
+                                                                            }                                                             
+                                                                        }
+                                                                    }
+                                                                },
+                                                                { view: "checkbox", id: "chkBTpBTmWs", labelWidth: 5, labelRight: "Bill Type, Time", customCheckbox: false, 
+                                                                    on: {
+                                                                        onChange: function (id) {
+                                                                            if(this.getValue() == "1"){
+                                                                                $$("chkBTpBNoWs").setValue('0');
+                                                                                $$("chkUserWs").setValue('0');
+                                                                            }  
+                                                                        }
+                                                                    }
+                                                                },
+                                                                { view: "checkbox", id: "chkUserWs", labelWidth: 5, labelRight: "User", customCheckbox: false,
+                                                                    on: {
+                                                                        onItemClick: function (id) {
+                                                                            if(this.getValue() == "1"){
+                                                                                $$("chkBTpBNoWs").setValue('0');
+                                                                                $$("chkBTpBTmWs").setValue('0');
+                                                                            }  
+                                                                        }
+                                                                    }
+                                                                },                                                                                                       
+                                                        
+                                                            ]
+                                                        },
+                                                        {}
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                view: "layout",
+                                css:"LayBorder1",     
+                                padding:{top:5,bottom:5,right:10},
+                                rows:[
+                                   {
+                                       cols: [{}, { view: "button", type: "icon", id: "OkFilter", icon: "wxi-check", label: "OK", inputWidth: 80, width: 80, click: function () {btnOkFilterClick(); } }], 
+                                   }
+                                ]
+                        
+                            },
+
+                            { view: "text", name: "hdnSettleType", id: "hdnSettleType", hidden:true, },
+                            { view: "text", name: "txtSettleId",id: "txtSettleId", hidden:true,},                           
+                            { view: "text", name: "hdnSettleId",id: "hdnSettleId", hidden:true },                           
+                            { view: "text", name: "hdnUser",id: "hdnUser", hidden:true },                           
+                            { view: "text", name: "txtUserId",id: "txtUserId", hidden:true },                           
+                            { view: "text", name: "hdnUserId",id: "hdnUserId", hidden:true },                           
+                            { view: "text", name: "hdnchkZeroAmtBill",id: "hdnchkZeroAmtBill", hidden:true ,value:'0'},
+                            { view: "text", name: "hdnchkMiscColl",id: "hdnchkMiscColl", hidden:true,value:'0' },
+                            { view: "text", name: "hdnchkEnhDet",id: "hdnchkEnhDet", hidden:true,value:'0' },
+                            { view: "text", name: "hdnchkBqRec",id: "hdnchkBqRec", hidden:true,value:'0' },
+                            { view: "text", name: "hdnchkPosRec",id: "hdnchkPosRec", hidden:true,value:'0' },
+                            { view: "text", name: "hdnchkTips", id: "hdnchkTips", hidden:true,value:'0' },
+                            { view: "text", name: "hdnchkResNo", id: "hdnchkResNo",hidden:true,value:'0'},
+
+                            { view: "text", name: "hdnchkBTpBNoWs",id: "hdnchkBTpBNoWs", hidden:true,value:'0' },
+                            { view: "text", name: "hdnchkBTpBTmWs", id: "hdnchkBTpBTmWs", hidden:true,value:'0' },
+                            { view: "text", name: "hdnchkUserWs", id: "hdnchkUserWs",hidden:true,value:'0'},
+
+                            { view: "text", name: "hdnchkTypeTot",id: "hdnchkTypeTot", hidden:true,value:'0' },
+                            { view: "text", name: "hdnchkFornAmt", id: "hdnchkFornAmt", hidden:true,value:'0' },
+                            { view: "text", name: "hdnchkGstName", id: "hdnchkGstName",hidden:true,value:'0'},
+
+                            { view: "text", name: "hdnCompanyId", id: "hdnCompanyId", hidden:true, },
+                            { view: "text", name: "hdnCompanyNm", id: "hdnCompanyNm", hidden:true, },
+                            { view: "text", name: "txtCompanyId",id: "txtCompanyId", hidden:true,},    
+                            
+
+                        ]
+                    }
+                });
+            };
+            function btnFilterClick() {
+                debugger;   
+                if (fnChkSessVal() == false) return;
+                $$("SrchSettleType").setValue($$("hdnSettleType").getValue());                
+                $$("txtSettleId").setValue($$("hdnSettleId").getValue());                
+                $$("SrchUser").setValue($$("hdnUser").getValue());                
+                $$("txtUserId").setValue($$("hdnUserId").getValue());                
+                $$("chkZeroAmtBill").setValue($$("hdnchkZeroAmtBill").getValue());                
+                $$("chkMiscColl").setValue($$("hdnchkMiscColl").getValue());     
+                $$("chkEnhDet").setValue($$("hdnchkEnhDet").getValue());     
+                $$("chkBqRec").setValue($$("hdnchkBqRec").getValue());     
+                $$("chkPosRec").setValue($$("hdnchkPosRec").getValue());     
+                $$("chkTips").setValue($$("hdnchkTips").getValue());     
+                $$("chkResNo").setValue($$("hdnchkResNo").getValue());  
+                
+                $$("chkTypeTot").setValue($$("hdnchkTypeTot").getValue());     
+                $$("chkFornAmt").setValue($$("hdnchkFornAmt").getValue());     
+                $$("chkGstName").setValue($$("hdnchkGstName").getValue());  
+
+                if($$("txtSettleId").getValue() == "3"){
+                    $$("SrchCompany").show();
+                    $$("SrchCompany").define("label","Company");
+                    $$("SrchCompany").refresh();
+                    $$("SrchCompany").setValue($$("hdnCompanyNm").getValue());
+                    $$("txtCompanyId").setValue($$("hdnCompanyId").getValue());
+                }
+                else if($$("txtSettleId").getValue() == "2"){
+                    $$("SrchCompany").show();
+                    $$("SrchCompany").define("label","Credit Card");
+                    $$("SrchCompany").refresh();
+                    $$("SrchCompany").setValue($$("hdnCompanyNm").getValue());
+                    $$("txtCompanyId").setValue($$("hdnCompanyId").getValue());
+                }
+                else{
+                    $$("SrchCompany").hide();                    
+                    $$("SrchCompany").setValue('');
+                    $$("txtCompanyId").setValue('');
+                }
+                
+                $$("chkBTpBNoWs").blockEvent();
+                $$("chkBTpBNoWs").setValue($$("hdnchkBTpBNoWs").getValue());     
+                $$("chkBTpBNoWs").unblockEvent();
+                $$("chkBTpBTmWs").blockEvent();
+                $$("chkBTpBTmWs").setValue($$("hdnchkBTpBTmWs").getValue());     
+                $$("chkBTpBTmWs").unblockEvent();
+                $$("chkUserWs").blockEvent();
+                $$("chkUserWs").setValue($$("hdnchkUserWs").getValue());    
+                $$("chkUserWs").unblockEvent();               
+        
+                $$("AdvFilter").show();
+            };
+            function btnOkFilterClick() {
+                debugger;
+                $$("hdnSettleType").setValue($$("SrchSettleType").getValue()); 
+                $$("hdnSettleId").setValue($$("txtSettleId").getValue()); 
+                $$("hdnUser").setValue($$("SrchUser").getValue());   
+                $$("hdnUserId").setValue($$("txtUserId").getValue());
+                $$("hdnchkZeroAmtBill").setValue($$("chkZeroAmtBill").getValue());                
+                $$("hdnchkMiscColl").setValue($$("chkMiscColl").getValue());     
+                $$("hdnchkEnhDet").setValue($$("chkEnhDet").getValue());     
+                $$("hdnchkBqRec").setValue($$("chkBqRec").getValue());     
+                $$("hdnchkPosRec").setValue($$("chkPosRec").getValue());     
+                $$("hdnchkTips").setValue($$("chkTips").getValue());     
+                $$("hdnchkResNo").setValue($$("chkResNo").getValue());                
+                
+                $$("hdnchkBTpBNoWs").setValue($$("chkBTpBNoWs").getValue());                
+                $$("hdnchkBTpBTmWs").setValue($$("chkBTpBTmWs").getValue());               
+                $$("hdnchkUserWs").setValue($$("chkUserWs").getValue());   
+
+                $$("hdnchkTypeTot").setValue($$("chkTypeTot").getValue());     
+                $$("hdnchkFornAmt").setValue($$("chkFornAmt").getValue());     
+                $$("hdnchkGstName").setValue($$("chkGstName").getValue()); 
+                
+                $$("hdnCompanyNm").setValue($$("SrchCompany").getValue());
+                $$("hdnCompanyId").setValue($$("txtCompanyId").getValue());
+
+                $$("AdvFilter").hide();
+                ClearGrid();
+                if($$("chkSettleType").getValue() == "0") fnHeader();
+                fnShowColumn();
+                                
+            };
+            
+            function fnUserSelWindowLoad(SelectedId) {
+                if (fnChkSessVal() == false) return;
+                if ($$("UserSelPop") != null) $$("UserSelPop").destructor();
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "UserSelPop",
+                    head: " User Selection",
+                    position: "center",
+                    css: "WebIxStyle",
+                    height: 550,
+                    maxWidth: 400,
+                    minWidth: 320,
+                    move: true,
+                    body: {
+                        view: "form",
+                        id: "frmUserSel",
+                        padding: { top: 0, bottom: 0, left: 1, right: 1 },
+                        elements: [
+                            {
+                                view: "datatable",
+                                id: "gridUserSel",
+                                select: 'row',
+                                css: "webix_header_border",
+                                columns: [
+                                        { id: "id", header: ["User Id", { content: "textFilter", }], width: 100, css: { 'text-align': 'center ! important' }, hidden: true },
+                                        { id: "value", header: ["User", { content: "textFilter", }], fillspace: true, css: { 'text-align': 'left ! important' }, fillspace: true },
+                                        { id: "CHK", header: ["Select", { content: "masterCheckbox", css: { 'padding': '0px ! important', } }], editor: 'check', template: "{common.checkbox()}", width: 60, css: { 'text-align': 'center ! important', 'height': '20px', 'width': '20px' } },                            
+                                ],
+                                data: webix.copy(window.UserSrchData),
+                                on: {
+                                    'onKeyPress': function (code, e) {
+                                        //debugger;
+                                        var selRow = this.getSelectedId();
+                                        if (selRow != undefined && selRow != null) {
+                                            var rowid = selRow.id;
+                                            var charCode = e.which || e.keyCode;
+                                            if (charCode == '13') {
+                                                var valid = this.getSelectedId(true);
+                                                var id = { row: valid[0].row };
+                                                this.callEvent("onItemClick", [id]);
+                                            }
+                                            if (e.ctrlKey == false && e.altKey == false && e.shiftKey == false && charCode == 32) {
+                                                var vChk = selRow.CHK;
+                                                if (vChk == "1") selRow.CHK = "0";
+                                                else selRow.CHK = "1";
+                                                this.updateItem(rowid, selRow)
+                                            }
+                                        }
+                                    },
+                                    'onBeforeFilter': function () {
+                                        this.select(this.getFirstId());
+                                        webix.UIManager.setFocus(this);
+                                        this.refresh();
+                                    },
+                                    'onAfterFilter': function () {
+                                        //debugger;
+                                        this.select(this.getFirstId());
+                                        webix.UIManager.setFocus(this);
+                                        this.refresh();
+                                    }
+                                },
+                                scheme: {
+                                    $init: function (item) {
+                                        ///debugger;
+                                        if (item.CLR != "" && item.CLR != null) {
+                                            item.$css = item.CLR;
+                                        }
+                                    },
+                                },
+                                ready: function () {
+                                   // this.parse(window.UserSrchData);
+                                    var str = [];
+                                    var ids = SelectedId;
+                                    if (ids != null && ids != undefined && ids != "") {
+                                        ids = ids.replace(/'/g, '');
+                                        str = ids.split(',');
+                                    }
+                                    if (str.length > 0) {
+                                        this.data.each(function (obj) {
+                                            debugger;
+                                            if (str.length > 0) {
+                                                var newData = str.filter(function (el) {
+                                                    debugger;
+                                                    return el == obj.id;
+                                                });
+                                                if (newData.length > 0) obj.CHK = "1";
+                                                else obj.CHK = "0";
+                                            }
+                                            else obj.CHK = "0";
+                                            this.updateItem(obj.id, obj)
+                                        })
+                                        this.refresh();
+                                    }
+                                }
+                            },
+                            {
+                                margin: 10,
+                                padding: { top: 5, bottom: 5, right: 5 },
+                                cols: [
+                                    {},
+                                    {
+                                        view: "button", type: "icon", icon: "wxi-check", label: "Ok", inputWidth: 80, click: function () {
+                                            UserSelRet();
+                                        },
+                                        align: "right"
+                                    },
+                                ]
+                            }
+                        ],
+                    }
+                }).show();
+
+            };
+            function UserSelRet() {
+                //debugger;
+                var UserId = "";
+                var UserNm = "";
+                $$("gridUserSel").eachColumn(function (id, col) {
+                    var filter = this.getFilter(id);
+                    if (filter) {
+                        if (filter.setValue) filter.setValue("")
+                        else filter.value = "";
+                    }
+                });
+                $$("gridUserSel").filterByAll();
+                var vGrid = $$("gridUserSel").serialize();
+                var newData = vGrid.filter(function (el) {
+                    //debugger;
+                    return el.CHK == "1";
+                });
+                if (newData.length > 0) {
+                    $.each(newData, function (key, obj) {
+                        //debugger;
+                        if (UserId != "") {
+                            UserId = UserId + ",'" + obj.id + "'";
+                        }
+                        else {
+                            UserId = "'" + obj.id + "'";
+                        }
+
+                        if (UserNm != "") {
+                            UserNm = UserNm + "," + obj.value;
+                        }
+                        else {
+                            UserNm = obj.value;
+                        }
+                    });
+                }              
+
+                $$("txtUserId").setValue(UserId);
+                $$("SrchUser").setValue(UserNm);
+        
+                $$("UserSelPop").hide();
+        
+        
+        
+            };
+            function fnLoadUserData(){
+                debugger;
+                var cmpid = $$("Property").getValue();
+                Request = {
+                    REQTYPE: "GET_FNLOADUSERSSRCH",
+                    COMPID: cmpid,
+                }
+                
+                var rowData = [];
+                
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);                          
+
+                        }
+                    },
+                });
+
+                return rowData;
+
+            };
+
+            function fnSettleTypeSelWindowLoad(SelectedId) {
+                if (fnChkSessVal() == false) return;
+                debugger;                
+                if ($$("SettleTypePop") != null) $$("SettleTypePop").destructor();                
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "SettleTypePop",
+                    head: " Settlement Type Selection",
+                    position: "center",
+                    css: "WebIxStyle",
+                    height: 550,
+                    maxWidth: 400,
+                    minWidth: 320,
+                    move: true,
+                    body: {
+                        view: "form",
+                        id: "frmSettleType",
+                        padding: { top: 0, bottom: 0, left: 1, right: 1 },
+                        elements: [
+                            {
+                                view: "datatable",
+                                id: "gridSettleTypeSel",
+                                select: 'row',
+                                css: "webix_header_border",
+                                columns: [
+                                        { id: "id", header: ["Settle Mode Id", { content: "textFilter", }], width: 100, css: { 'text-align': 'center ! important' }, hidden: true },
+                                        { id: "value", header: ["Settlement Type", { content: "textFilter", }], fillspace: true, css: { 'text-align': 'left ! important' }, fillspace: true },
+                                        { id: "CHK", header: ["Select", { content: "masterCheckbox", css: { 'padding': '0px ! important', } }], editor: 'check', template: "{common.checkbox()}", width: 60, css: { 'text-align': 'center ! important', 'height': '20px', 'width': '20px' } },                            
+                                ],
+                                data: webix.copy(window.Settle_Mode),
+                                on: {
+                                    'onKeyPress': function (code, e) {
+                                        //debugger;
+                                        var selRow = this.getSelectedId();
+                                        if (selRow != undefined && selRow != null) {
+                                            var rowid = selRow.id;
+                                            var charCode = e.which || e.keyCode;
+                                            if (charCode == '13') {
+                                                var valid = this.getSelectedId(true);
+                                                var id = { row: valid[0].row };
+                                                this.callEvent("onItemClick", [id]);
+                                            }
+                                            if (e.ctrlKey == false && e.altKey == false && e.shiftKey == false && charCode == 32) {
+                                                var vChk = selRow.CHK;
+                                                if (vChk == "1") selRow.CHK = "0";
+                                                else selRow.CHK = "1";
+                                                this.updateItem(rowid, selRow)
+                                            }
+                                        }
+                                    },
+                                    'onBeforeFilter': function () {
+                                        this.select(this.getFirstId());
+                                        webix.UIManager.setFocus(this);
+                                        this.refresh();
+                                    },
+                                    'onAfterFilter': function () {
+                                        //debugger;
+                                        this.select(this.getFirstId());
+                                        webix.UIManager.setFocus(this);
+                                        this.refresh();
+                                    }
+                                },
+                                scheme: {
+                                    $init: function (item) {
+                                        ///debugger;
+                                        if (item.CLR != "" && item.CLR != null) {
+                                            item.$css = item.CLR;
+                                        }
+                                    },
+                                },
+                                ready: function () {
+                                    debugger;                                                                        
+                                    var str = [];
+                                    var ids = SelectedId;
+                                    if (ids != null && ids != undefined && ids != "") {
+                                        ids = ids.replace(/'/g, '');
+                                        str = ids.split(',');
+                                    }
+                                    if (str.length > 0) {
+                                        this.data.each(function (obj) {
+                                            debugger;
+                                            if (str.length > 0) {
+                                                var newData = str.filter(function (el) {
+                                                    debugger;
+                                                    return el == obj.id;
+                                                });
+                                                if (newData.length > 0) obj.CHK = "1";
+                                                else obj.CHK = "0";
+                                            }
+                                            else obj.CHK = "0";
+                                            this.updateItem(obj.id, obj)
+                                        })
+                                        this.refresh();
+                                    }
+                                }
+                            },
+                            {
+                                margin: 10,
+                                padding: { top: 5, bottom: 5, right: 5 },
+                                cols: [
+                                    {},
+                                    {
+                                        view: "button", type: "icon", icon: "wxi-check", label: "Ok", inputWidth: 80, click: function () {
+                                            fnSettleTypeSelRet();
+                                        },
+                                        align: "right"
+                                    },
+                                ]
+                            }
+                        ],
+                    }
+                }).show();
+
+            };
+            function fnSettleTypeSelRet() {
+                //debugger;
+                var SettleId = "";
+                var SettleNm = "";
+                $$("gridSettleTypeSel").eachColumn(function (id, col) {
+                    var filter = this.getFilter(id);
+                    if (filter) {
+                        if (filter.setValue) filter.setValue("")
+                        else filter.value = "";
+                    }
+                });
+                $$("gridSettleTypeSel").filterByAll();
+                var vGrid = $$("gridSettleTypeSel").serialize();
+                var newData = vGrid.filter(function (el) {
+                    //debugger;
+                    return el.CHK == "1";
+                });
+                if (newData.length > 0) {
+                    $.each(newData, function (key, obj) {
+                        //debugger;
+                        if (SettleId != "") {
+                            SettleId = SettleId + "','" + obj.id;
+                        }
+                        else {
+                            SettleId = obj.id;
+                        }
+
+                        if (SettleNm != "") {
+                            SettleNm = SettleNm + "," + obj.value;
+                        }
+                        else {
+                            SettleNm = obj.value;
+                        }
+                    });
+                }      
+                
+                if($$("txtSettleId").getValue() != SettleId){                    
+                    $$("SrchCompany").setValue('');
+                    $$("txtCompanyId").setValue('');
+                }
+
+                $$("txtSettleId").setValue(SettleId);
+                $$("SrchSettleType").setValue(SettleNm);         
+                $$("SettleTypePop").hide();
+                
+
+                debugger;
+                if(SettleId== "3"){
+                    $$("SrchCompany").show();
+                    $$("SrchCompany").define("label","Company");
+                    $$("SrchCompany").refresh();
+                }
+                else if(SettleId == "2"){
+                    $$("SrchCompany").show();
+                    $$("SrchCompany").define("label","Credit Card");
+                    $$("SrchCompany").refresh();
+                }
+                else{
+                    $$("SrchCompany").hide();
+                    $$("SrchCompany").setValue('');
+                    $$("txtCompanyId").setValue('');
+                }
+        
+            };
+            function fnLoadSettleMode(){
+                debugger;
+                var cmpid = $$("Property").getValue();
+                Request = {
+                    REQTYPE: "GET_FNLOADSETTLETYPE",
+                    COMPID: cmpid,
+                }
+                
+                var rowData = [];                
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);                          
+
+                        }
+                    },
+                });
+
+                return rowData;
+
+            };           
+            function fnChkSessVal() {
+                debugger;
+                var bVal = "0";
+                $.ajax({
+                    async: false,
+                    url: "/Reports/fnChkSessionval",
+                    type: 'POST',
+                    success: function (data) {
+                        debugger;
+                        if (data == "1") {
+                            bVal = "1";
+                        }
+                    },
+                    error: function (request, status, error) {
+                        bVal = "0";
+                    }
+                });
+                if (bVal == "1") return true;
+                else {
+                    debugger;
+                    var Host = window.location.host;
+                    var LoadingUrl = "http://" + Host + "/Logout.aspx";
+                    window.location.href = LoadingUrl;
+                }
+
+            };
+            function fnShowColumn() {
+                debugger;
+
+                if($$("chkSettleType").getValue() == "1"){
+
+                    if ($$("hdnchkTips").getValue()=="1")
+                    {
+                        $$("gridSRpt").showColumn("TIPS");
+                        $$("gridSRpt").showColumn("TOTAL_AMT");                        
+
+                    }
+                    else
+                    {
+                        $$("gridSRpt").hideColumn("TIPS");
+                        $$("gridSRpt").hideColumn("TOTAL_AMT");                        
+                    }
+
+                    if ($$("hdnchkFornAmt").getValue()=="1")
+                    {
+                        $$("gridSRpt").showColumn("FORN_CUR");
+                        $$("gridSRpt").showColumn("FORN_AMT");
+                    }
+                    else
+                    {
+                        $$("gridSRpt").hideColumn("FORN_CUR");
+                        $$("gridSRpt").hideColumn("FORN_AMT");                        
+                    }
+
+                    if ($$("hdnchkGstName").getValue()=="1")
+                    {
+                        $$("gridSRpt").showColumn("GUEST_NM");                        
+                    }
+                    else
+                    {
+                        $$("gridSRpt").hideColumn("GUEST_NM");                                                
+                    }
+
+                    $$("gridSRpt").refreshColumns();
+                }
+                else{
+                    if ($$("hdnchkTips").getValue()=="1")
+                    {
+                        $$("gridRpt").showColumn("STIPS");
+                        $$("gridRpt").showColumn("STOTAL_AMT");                        
+
+                    }
+                    else
+                    {
+                        $$("gridRpt").hideColumn("STIPS");
+                        $$("gridRpt").hideColumn("STOTAL_AMT");                        
+                    }
+
+                    if ($$("hdnchkResNo").getValue()=="1")
+                    {
+                        $$("gridRpt").showColumn("RES_NO");
+                    }
+                    else
+                    {
+                        $$("gridRpt").hideColumn("RES_NO");                        
+                    }                   
+
+                    $$("gridRpt").refreshColumns();
+
+                }                
+
+            };
+            function fnHeader() {
+                debugger;
+                if (fnChkSessVal() == false) return;
+                var vCmpId  = $$("Property").getValue();
+                var frmdate = $$("FromDt").getValue();
+                if(frmdate ==null || frmdate == "") return;
+
+                var myformat = webix.Date.dateToStr("%d/%m/%Y");
+                frmdate =  myformat(frmdate);
+
+                $$("gridRpt").destructor();
+                GridDesign();   
+                vFooterGrp={};
+                var REFUND_IND = window.REFUND_IND;
+                var vColumn = $$("gridRpt").config.columns;
+                debugger;
+                Request = {
+                    REQTYPE: "GET_FNSETTLEHEADER",
+                    COMPID:vCmpId,   
+                    SCFROMDT:frmdate
+                }
+                var rowData = [];
+                requestData = JSON.stringify(Request);
+                requestData=encodeURIComponent(requestData);
+                var vHide=false;
+                try {
+                    $.ajax({
+                        async: false,
+                        url: "/Reports/FOAPI_CALL",
+                        type: 'POST',
+                        data: "request=" + requestData,
+                        success: function (d) {
+                            debugger;
+                            rowData = JSON.parse(d);
+                            var dtGrp=rowData;
+                            var set={};
+                            var vWidth = 90;
+                            if(dtGrp.length>0)
+                            {
+                                
+                                $.each(dtGrp, function (key, value) {
+                                    //debugger;
+                                    
+                                    var vId=value.REVENUE_ID.toString().trim();
+                                    var Hdr = value.SETL_MODE_NM.toString();
+                                    var vCss = "";                                   
+                                    vCss="multiline";                                    
+                                    set = {
+                                        id: vId, header: [{text: Hdr,css:vCss}], width: vWidth, css: { 'text-align': 'right ! important' },
+                                        exportType: "number",exportFormat: "#,##0.00",footer:{content:"totalColumn"},
+                                        format: function (value) {
+                                            return fnCurrFormat(value);
+                                        },
+                                    };
+
+                                    vColumn.push(set);                                   
+                                    
+                                    vFooterGrp[vId] = [vId,"sum"];
+
+                                });                                
+                            }
+                            debugger;
+
+                            vFooterGrp["SGUEST_DET"] = ["Total","string"];
+                            vFooterGrp["SBILL_AMT"] = ["SBILL_AMT","sum"];
+                            vFooterGrp["STOTAL_AMT"] = ["STOTAL_AMT","sum"];                           
+
+                            var set = {
+                                id: "STIPS", header: [{text: "Tips",}], width: vWidth, css: { 'text-align': 'right ! important' },
+                                exportType: "number", hidden:vHide,exportFormat: "#,##0.00",footer:{content:"totalColumn"},
+                                hidden:$$("hdnchkTips").getValue()=="1"?false:true,
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },                                
+                            };
+                            vColumn.push(set);                          
+                            vFooterGrp["STIPS"] = ["STIPS","sum"];
+
+                            var set = {
+                                id: "SPAIDOUT", header: [{text: "Paidout",}], width: vWidth, css: { 'text-align': 'right ! important' },
+                                exportType: "number",exportFormat: "#,##0.00",footer:{content:"totalColumn"},
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                hidden:window.GUEST_PAIDOUT_PRINT_IND == "1"?false:true,
+                            };
+                            vColumn.push(set);
+                            vFooterGrp["SPAIDOUT"] = ["SPAIDOUT","sum"];
+
+                            var set = {
+                                id: "SREFUND", header: [{text: "Refund",}], width: vWidth, css: { 'text-align': 'right ! important' },
+                                exportType: "number",exportFormat: "#,##0.00",footer:{content:"totalColumn"},
+                                format: function (value) {
+                                    return fnCurrFormat(value);
+                                },
+                                hidden:REFUND_IND =="1"?false:true,
+                            };
+                            vColumn.push(set);
+
+                            vHide=false;
+                            //if(chkUser==0) vHide=true;
+                            var set = {
+                                id: "USER", header: [{text: "User",}], width: vWidth, css: { 'text-align': 'left ! important' },                                
+                                hidden:vHide
+                            };
+                            vColumn.push(set);
+
+                            vHide=false;                            
+                            var set = {
+                                id: "STIME", header: [{text: "Time",}], width: 50, css: { 'text-align': 'left ! important' },
+                                hidden:vHide
+                            };
+                            vColumn.push(set);
+
+                            vHide=false;                            
+                            var set = {
+                                id: "SUPDATEBY", header: [{text: "Amend By",css:"multiline"}], width: 50, css: { 'text-align': 'left ! important' },
+                                hidden:vHide
+                            };
+                            vColumn.push(set);
+                            
+                            vHide=false;
+                            var set = {
+                                id: "SNARR", header: [{text: "Remarks",}],  width: 300, css: { 'text-align': 'left ! important' },
+                                hidden:vHide,
+                            };
+                            vColumn.push(set);
+
+                            vHide=false;
+                            var set = {
+                                id: "RES_NO", header: [{text: "Reserve No",}],  width: 85, css: { 'text-align': 'left ! important' },
+                                hidden:$$("hdnchkResNo").getValue()=="1"?false:true,
+                            };                           
+                            vColumn.push(set);
+
+                            
+                            vHide=true;
+                            var set = {
+                                id: "CLR", header: [{text: "Hidden",}], hidden:vHide
+                            };
+                            vColumn.push(set);
+
+                            vFooterGrp["CLR"] = ["GrpTot1", "string"];
+                            vFooterGrp["$css"] = ["GrpTot1", "string"];
+
+
+                            $$("gridRpt").refreshColumns();
+                        }
+
+                    });
+                    gridResize();
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            webix.ui.datafilter.totalColumn = webix.extend({
+                refresh: function (master, node, value) {
+                    //debugger;
+                    var result = 0;
+                    master.data.each(function (obj) {
+                        //debugger;                        
+                        if (obj["CLR"] != "GrpTot1") {
+                            if (!isNaN(obj[value.columnId]) && obj[value.columnId] != null && obj[value.columnId] != "") result = parseFloat(result) + parseFloat(obj[value.columnId]);
+                        }
+                    });
+                    //debugger;
+                    node.firstChild.innerHTML = fnCurrFormat(result);
+                }
+            }, webix.ui.datafilter.summColumn);             
+            function fnDateConvertCommonFo(StrDt, InputType, RetType) {
+                //InputType dd/mm/yyyy - "103", mm/dd/yyyy - "101", dd-mm-yyyy - "105", mm-dd-yyyy - "110", yyyy/mm/dd - "111",yyyy-mm-dd - "21".
+                //RetType dd/mm/yyyy - "103", mm/dd/yyyy - "101", dd-mm-yyyy - "105",mm-dd-yyyy - "110", yyyy/mm/dd - "111",yyyy-mm-dd - "21",yyyymmdd - "112"
+                if(StrDt == null || StrDt == undefined || StrDt == "") return "";
+                var Str = ""
+                try{                
+                    var Parts = ""; var Dt = ""; var Mn = ""; var Yr = "";
+                    
+                    StrDt = StrDt || "";
+                    InputType = InputType || "";
+                    if (StrDt == "") return "";
+                    if (InputType == "") InputType = "1";    
+                    if (InputType == "103") {
+                        Parts = StrDt.split("/");
+                        Dt = Parts[0];
+                        Mn = Parts[1];
+                        Yr = Parts[2];
+                    }
+                    else if (InputType == "101") {
+                        Parts = StrDt.split("/");
+                        Mn = Parts[0];
+                        Dt = Parts[1];
+                        Yr = Parts[2];
+                    }
+                    else if (InputType == "105") {
+                        Parts = StrDt.split("-");
+                        Dt = Parts[0];
+                        Mn = Parts[1];
+                        Yr = Parts[2];
+                    }
+                    else if (InputType == "110") {
+                        Parts = StrDt.split("-");
+                        Mn = Parts[0];
+                        Dt = Parts[1];
+                        Yr = Parts[2];
+                    }
+                    else if (InputType == "111") {
+                        Parts = StrDt.split("/");
+                        Yr = Parts[0];
+                        Mn = Parts[1];
+                        Dt = Parts[2];
+                    }
+                    else if (InputType == "21") {
+                        Parts = StrDt.split("-");
+                        Yr = Parts[0];
+                        Mn = Parts[1];
+                        Dt = Parts[2];
+                    }
+                    if (RetType == "103") Str = Dt.toString().trim() + "/" + Mn.toString().trim() + "/" + Yr.toString().trim();
+                    else if (RetType == "101") Str = Mn.toString().trim() + "/" + Dt.toString().trim() + "/" + Yr.toString().trim();
+                    else if (RetType == "105") Str = Dt.toString().trim() + "-" + Mn.toString().trim() + "-" + Yr.toString().trim();
+                    else if (RetType == "110") Str = Mn.toString().trim() + "-" + Dt.toString().trim() + "-" + Yr.toString().trim();
+                    else if (RetType == "111") Str = Yr.toString().trim() + "/" + Mn.toString().trim() + "/" + Dt.toString().trim();
+                    else if (RetType == "21") Str = Yr.toString().trim() + "-" + Mn.toString().trim() + "-" + Dt.toString().trim();
+                    else if (RetType == "112") Str = Yr.toString().trim() + Mn.toString().trim() + Dt.toString().trim();
+                    
+                }
+                catch (e) {
+                    debugger;
+                    console.log(e.message);
+                }
+                return Str;
+            };
+            var CompSrchRet = function (RowId,PARTY_TYPE) {
+                debugger;                
+                var vId = "";
+                var vNm = "";                               
+                $$("gridCompSrch").eachColumn(function (id, col) {
+                    var filter = this.getFilter(id);
+                    if (filter) {
+                        if (filter.setValue) filter.setValue("")
+                        else filter.value = "";
+                    }
+                });
+                $$("gridCompSrch").filterByAll();
+                var vGrid = $$("gridCompSrch").serialize();
+                var newData = vGrid.filter(function (el) {                    
+                    return el.CHK == "1";
+                });
+                if (newData.length > 0) {
+                    $.each(newData, function (key, obj) {
+                        //debugger;
+                        if (vId != "") {
+                            vId = vId + ",'" + obj.ixCompId + "'";
+                        }
+                        else {
+                            vId = "'" + obj.ixCompId + "'";
+                        }
+                        if (vNm != "") {
+                            vNm = vNm + "," + obj.ixCompNm;
+                        }
+                        else {
+                            vNm = obj.ixCompNm;
+                        }
+                    });
+                }                                         
+                $$("SrchCompany").setValue(vNm)
+                $$("txtCompanyId").setValue(vId);  
+                $$("CompSrchPop").hide();
+
+            };
+            var fnBtnCreditCardSrchClick = function () {
+                if (fnChkSessVal() == false) return;                
+                CompSrchWindowLoad("Credit Card Search", "CREDITCARD", "0",$$("txtCompanyId").getValue());                                
+            };
+            var fnBtnCompSrchClick = function () {
+                if (fnChkSessVal() == false) return;                                
+                CompSrchWindowLoad("Company Search", "PARTY", "0",$$("txtCompanyId").getValue());                
+            };
+            var CompSrchLoadData = function (PARTY_TYPE, UnApproveInd) {
+                debugger;                
+                $$("gridCompSrch").clearAll();
+                $$("gridCompSrch").eachColumn(function (id, col) {
+                    var filter = this.getFilter(id);
+                    if (filter) {
+                        if (filter.setValue) filter.setValue("");
+                        else filter.value = "";
+                    }
+                });
+                CompId = $$("Property").getValue();
+                Request = {
+                    REQTYPE: "FNLOADCOMPSRCHDATA",
+                    COMPID: CompId,
+                    PARTY_TYPE: PARTY_TYPE,
+                    UnApproveInd: UnApproveInd,
+                }
+                var rowData = [];
+                requestData = JSON.stringify(Request);
+                requestData = encodeURIComponent(requestData);
+                $.ajax({
+                    async: false,
+                    url: "/TravelAgentBlock/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + requestData,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            rowData = JSON.parse(data);
+                            if (rowData.length > 0) {
+                                $$("gridCompSrch").parse(rowData);
+                                $$("gridCompSrch").refresh();
+                                if ($$("gridCompSrch").count()) {
+                                    $$("gridCompSrch").select($$("gridCompSrch").getFirstId());
+                                }
+                                webix.UIManager.setFocus($$("gridCompSrch"));
+                            }
+                        }
+                    },
+                    error: function (request, status, error) {
+                        console.log("Error Failrue");
+                    }
+                });
+                return rowData;
+            };
+            var CompSrchWindowLoad = function (HEADER, PARTY_TYPE, UnApproveInd,SelectedId) {
+                debugger;
+                if (fnChkSessVal() == false) return;
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "CompSrchPop",
+                    head: HEADER,
+                    position: "center",
+                    css: "WebIxStyle",
+                    height: 500,
+                    width: 380,
+                    move: true,
+                    on:{
+                        onShow:function(){
+                            CompSrchLoadData(PARTY_TYPE, UnApproveInd);
+                        }
+                    },
+                    body: {
+                        rows: [
+                            {
+                                view: "datatable",
+                                id: "gridCompSrch",
+                                select: 'row',
+                                css: "webix_header_border",
+                                columns: [
+                                        { id: "ixCompId", header: [{ content: "textFilter", }], width: 70, css: { 'text-align': 'center ! important' }, },
+                                        { id: "ixCompNm", header: [{ content: "textFilter", }], fillspace: true, css: { 'text-align': 'left ! important' }, },
+                                        { id: "CHK", header: ["Select", { content: "masterCheckbox", css: { 'padding': '0px ! important', } }], editor: 'check', template: "{common.checkbox()}", width: 60, css: { 'text-align': 'center ! important', 'height': '20px', 'width': '20px' } },                            
+                                        { id: "ixPId", hidden: true },
+                                        { id: "ixDepend", hidden: true },
+                                        { id: "ixDpSrno", hidden: true },
+                                ],
+                                data: [],
+                                on: {
+                                    'onKeyPress': function (code, e) {
+                                        //debugger;
+                                        var selRow = this.getSelectedId();
+                                        if (selRow != undefined && selRow != null) {
+                                            var rowid = selRow.id;
+                                            var charCode = e.which || e.keyCode;
+                                            if (charCode == '13') {
+                                                var valid = this.getSelectedId(true);
+                                                var id = { row: valid[0].row };
+                                                this.callEvent("onItemClick", [id]);
+                                            }
+                                            if (e.ctrlKey == false && e.altKey == false && e.shiftKey == false && charCode == 32) {
+                                                var vChk = selRow.CHK;
+                                                if (vChk == "1") selRow.CHK = "0";
+                                                else selRow.CHK = "1";
+                                                this.updateItem(rowid, selRow)
+                                            }
+                                        }
+                                    },
+                                    'onBeforeFilter': function () {
+                                        this.select(this.getFirstId());
+                                        webix.UIManager.setFocus(this);
+                                        this.refresh();
+                                    },
+                                    'onAfterFilter': function () {
+                                        //debugger;
+                                        this.select(this.getFirstId());
+                                        webix.UIManager.setFocus(this);
+                                        this.refresh();
+                                    }
+                                },
+                                scheme: {
+                                    $init: function (item) {
+                                        debugger;
+                                        if (item.CLR != "" && item.CLR != null) {
+                                            item.$css = item.CLR;
+                                        }
+                                    },
+                                },
+                                ready: function () {                                    
+                                    var str = [];
+                                    var ids = SelectedId;
+                                    if (ids != null && ids != undefined && ids != "") {
+                                        ids = ids.replace(/'/g, '');
+                                        str = ids.split(',');
+                                    }
+                                    if (str.length > 0) {
+                                        this.data.each(function (obj) {
+                                            debugger;
+                                            if (str.length > 0) {
+                                                var newData = str.filter(function (el) {
+                                                    debugger;
+                                                    return el == obj.ixCompId;
+                                                });
+                                                if (newData.length > 0) obj.CHK = "1";
+                                                else obj.CHK = "0";
+                                            }
+                                            else obj.CHK = "0";
+                                            this.updateItem(obj.id, obj)
+                                        })
+                                        this.refresh();
+                                    }
+                                }
+                            },
+                            {
+                                margin: 10,
+                                padding: { top: 5, bottom: 5, right: 5 },
+                                cols: [
+                                    {},
+                                    {
+                                        view: "button", type: "icon", icon: "wxi-check", label: "Ok", inputWidth: 80, click: function () {
+                                            CompSrchRet();
+                                        },
+                                        align: "right"
+                                    },
+                                ]
+                            }
+                        ],
+                    }
+                }).show();
+            };
+        </script>
+        <script type="text/javascript">
+
+            $("#LoadDIv").hide();
+            $(document).on('shown.lte.pushmenu', function () {
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(1);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+
+            }).on('collapsed.lte.pushmenu', function () {
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(2);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+            });
+            function  sidebarFn(val){
+
+                gridResize();
+            }
+            
+
+            function fnExcelExport() {
+                if (fnChkSessVal() == false) return;
+                var vGrid = "";
+                var CompId = $$("Property").getValue();
+                if($$("chkSettleType").getValue() == "1"){
+                    vGrid = $$("gridSRpt");
+                }
+                else vGrid = $$("gridRpt");                
+
+                var CompNm = $$("Property").getText();
+                var values = fnCurrDtTime();
+                var vDate = values[0];
+                var vTm = values[1];
+                var FromDt = $$("FromDt").getText();
+                var ToDt = $$("ToDt").getText();
+
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+                FullData = vGrid.serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    var vExpoartGrid = webix.copy(vGrid,-1);
+                    fnComExcelExport(vExpoartGrid,vHeader,vHeader,true,CompNm,vDate,vTm,FromDt,ToDt,"");
+
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+            };
+            function fnGridPrint() {
+                debugger;
+                if (fnChkSessVal() == false) return;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+                var vGrid = "";
+                var CompId = $$("Property").getValue();
+                if($$("chkSettleType").getValue() == "1"){
+                    vGrid = $$("gridSRpt");
+                }
+                else vGrid = $$("gridRpt");  
+                //vGrid = $$("gridRpt");
+
+                var CompNm = $$("Property").getText();
+                var FromDt = $$("FromDt").getText();
+                var ToDt = $$("ToDt").getText();
+
+                var DocHeader = "<div class='row'><div class='col-4 col-sm-4  text-left' style='font-weight:bold !important'>" + CompNm + "</div>" + "<div class='col-4 col-sm-4  text-center' style='text-align:center !important;font-weight:bold !important'>" + vHeader + "</div></div>" + "<div class='row'>" + "<div class='col-12 col-sm-12 text-center'> From: " + FromDt + "   To: " + ToDt + "</div></div>";
+
+                FullData = vGrid.serialize();
+                var len = FullData.length;
+                if (len > 0) {
+
+                    webix.print(vGrid, {
+                        docHeader: DocHeader,
+                        fit: "page",
+                        scroll: false,
+                        mode: "landscape"
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+            };
+            function fnCurrDtTime() {
+                var vDate = "";
+                var vTime = "";
+                var rowData = [];
+                var CompId = $$("Property").getValue();
+                Request = {
+                    REQTYPE: "GET_FNLOADCURRDTTM",
+                    COMPID: CompId,
+                }
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            vDate = rowData.GDate;
+                            vTime = rowData.GTime;
+
+                        }
+                    },
+                });
+
+                return [vDate, vTime];
+
+            };
+            function ClearGrid() {
+                vGridTotData = [];
+                $$("gridRpt").clearAll();
+                $$("gridSRpt").clearAll();
+            };
+
+            function fnLoadSetTypeRpt(){
+                if (fnChkSessVal() == false) return;
+                ClearGrid();
+                $("#LoadDIv").show();
+                var frmdate = "";
+                var todate = "";
+                var frmdate = $$("FromDt").getValue();                
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                } 
+                var myformat = webix.Date.dateToStr("%d/%m/%Y");
+                frmdate =  myformat(frmdate);
+
+                var todate = $$("ToDt").getValue();                          
+                if (todate == "") {
+                    webix.message("To Date can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }                
+                var myformat = webix.Date.dateToStr("%d/%m/%Y");
+                todate =  myformat(todate);                     
+                
+                var comp = $$("Property").getValue();
+                if (comp == "") {
+                    webix.message("Property can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }
+
+                var strOptUser = $$("hdnchkUserWs").getValue();;                
+                var StrUId = $$("hdnUserId").getValue();                
+                var strChkBq = $$("hdnchkBqRec").getValue();
+                var strChkFac = "0";
+                var strChkPosRec = $$("hdnchkPosRec").getValue();
+                var strChkMisc = $$("hdnchkMiscColl").getValue();
+                var StrSTyId = $$("hdnSettleId").getValue();  
+                var STRFO = $$("chkFO").getValue();  
+                var STRMISC = $$("chkMiscSale").getValue(); 
+                var STRTYPETOL = $$("hdnchkTypeTot").getValue(); 
+                var COMPCREDIT= $$("hdnCompanyId").getValue();
+                
+                var Request = {
+                    REQTYPE: "GET_FNSETTLEMENTTYDISPLY",
+                    COMPID: comp,
+                    SCFROMDT:frmdate, 
+                    SCTODT:todate,
+                    STROPTUSER:strOptUser,                    
+                    STRUID :StrUId,                    
+                    STRCHKBQ:strChkBq,
+                    STRCHKFAC:strChkFac,
+                    STRCHKPOSREC:strChkPosRec,
+                    STRCHKMISC:strChkMisc,
+                    STRSETTLTY:StrSTyId,
+                    STRMISC:STRMISC,
+                    STRFO:STRFO,
+                    COMPCREDIT:COMPCREDIT,
+                    STRTYPETOL:STRTYPETOL,
+                }
+                var dataparam = JSON.stringify(Request);
+                $.ajax({
+                    async: true,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + dataparam,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            var rowDatad = JSON.parse(data);                            
+                            vGridTotData = [];
+                            vGridTotData = rowDatad;
+                            $$("gridSRpt").clearAll();
+                            $$("gridSRpt").parse(rowDatad);
+                            $$("gridSRpt").refresh();                                                         
+                            //$$("gridSRpt").adjustRowHeight("NARR",true);
+                            //$$("gridSRpt").refresh();
+                        }
+                    },
+                    error: function (err) {
+                        $("#LoadDIv").hide();
+                    },
+                    complete: function () {
+                        debugger;
+                        $("#LoadDIv").hide();
+                    }
+                });                
+            }
+
+            function fnbtnDisplay() {
+                debugger;
+                if (fnChkSessVal() == false) return;
+                if($$("chkSettleType").getValue() == "1")fnLoadSetTypeRpt();
+                ClearGrid();
+                $("#LoadDIv").show();
+                var frmdate = "";
+                var todate = "";
+                var frmdate = $$("FromDt").getValue();                
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }    
+                var myformat = webix.Date.dateToStr("%d/%m/%Y");
+                frmdate =  myformat(frmdate);
+                
+               
+                var bSucc = "1";
+                var comp = $$("Property").getValue();
+                if (comp == "") {
+                    webix.message("Property can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }
+
+                var strOptUser = $$("hdnchkUserWs").getValue();
+                var strOptBTpBNoWs = $$("hdnchkBTpBNoWs").getValue();
+                var strOptBTpBTmWs = $$("hdnchkBTpBTmWs").getValue();                
+                var StrUId = $$("hdnUserId").getValue();
+                var strchkZeroAmtBill = $$("hdnchkZeroAmtBill").getValue();
+                var PM_IND = window.PM_IND;
+                var I16_IND = window.I16_IND;;
+                var strBColFlag = window.GUEST_PAIDOUT_PRINT_IND;                    
+                var REFUND_IND = window.REFUND_IND;
+                var strChkBq = $$("hdnchkBqRec").getValue();
+                var strChkFac = "0";
+                var strChkPosRec = $$("hdnchkPosRec").getValue();
+                var strChkMisc = $$("hdnchkMiscColl").getValue();
+                var ChkCEx = $$("hdnchkEnhDet").getValue(); 
+                var vMap ="";
+
+                if(strOptUser == "1") {
+                    vMap={BILL_NO:["USER"]};
+                }
+                else vMap={BILL_NO:["SBILL_TYPE"]};
+
+                var Request = {
+                    REQTYPE: "GET_PRCLOADDAYSETTLE",
+                    COMPID: comp,
+                    SCFROMDT:frmdate,                    
+                    REFUND_IND:REFUND_IND,
+                    I16_IND:I16_IND,
+                    PM_IND:PM_IND,
+                    STROPTUSER:strOptUser,                    
+                    STRUID :StrUId,
+                    STRCHKZEROAMTBILL:strchkZeroAmtBill,
+                    STRBCOLFLAG:strBColFlag,  
+                    ChkCEx:ChkCEx,
+                    STRCHKBQ:strChkBq,
+                    STRCHKFAC:strChkFac,
+                    STRCHKPOSREC:strChkPosRec,
+                    STRCHKMISC:strChkMisc,
+                    STROPTBTPBNOWS:strOptBTpBNoWs,
+                    STROPTBTPBTMWS:strOptBTpBTmWs,
+                }
+                var dataparam = JSON.stringify(Request);
+                $.ajax({
+                    async: true,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + dataparam,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            var rowDatad = JSON.parse(data);                            
+                            vGridTotData = [];
+                            vGridTotData = rowDatad;
+                            $$("gridRpt").clearAll();
+                            $$("gridRpt").parse(rowDatad);
+                            $$("gridRpt").refresh();
+
+                            $$("gridRpt").group({
+                                by: function(obj){
+                                    //debugger;
+                                    if(strOptUser == "1") return  obj["USER"];
+                                    else return "Bill Type: " + obj["SBILL_TYPE"];
+                                },
+                                row: function(obj) {   
+                                    //debugger;
+                                    if(strOptUser == "1") return obj.BILL_NO;  
+                                    else return  obj.BILL_NO;  
+                                },
+                                missing: "Other",
+
+                                map: {
+                                    BILL_NO:[function(obj){ 
+                                        if(strOptUser == "1") return "User: " + obj.USER;  
+                                        else return "Bill Type: "  + obj.SBILL_TYPE;  
+                                    }],
+                                },
+
+                                footer: vFooterGrp,
+                            });                             
+                            $$("gridRpt").openAll();                              
+                            $$("gridRpt").adjustRowHeight("SNARR",true);
+                            $$("gridRpt").refresh();
+
+                        }
+                    },
+                    error: function (err) {
+                        $("#LoadDIv").hide();
+                    },
+                    complete: function () {
+                        debugger;
+                        $("#LoadDIv").hide();
+                    }
+                });
+            };
+            function formatDate(StrDt) {
+                //debugger;
+                var Parts = StrDt.split(" ");
+                var MN = FnRetMonth(Parts[0]);
+                var YR = Parts[1];
+                var Str = "01" + "/" + MN + "/" + YR;
+                return Str;
+            };
+            
+
+            function SMToDateChange() {
+                debugger;  
+                if(!($("#divToDt").is(":visible"))) return;
+                ClearGrid();
+                var frmdate = $$("FromDt").getValue();
+                var todate = $$("ToDt").getValue();
+                var sFrmDt = todate;    
+                var bSucc = "1";
+                if (frmdate == "") {
+                    bSucc = "0";
+                    return false;
+                }
+                if (todate == "") {
+                    bSucc = "0";
+                    return false;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            var vToDt = TrcformatDate(sFrmDt);
+                            $$("FromDate").setValue(new Date(vToDt));
+                            bSucc = "0";
+
+                        }
+                    }
+                });
+                return bSucc;                
+
+            };
+            
+            function SMFromDateChange(e) {
+                debugger;
+                ClearGrid();
+                var frmdate = $$("FromDt").getValue();
+                var todate = $$("ToDt").getValue();
+                
+                var sFrmDt = frmdate;
+                var bSucc = "1";
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+
+                
+                if($("#divToDt").is(":visible")){
+                    if (todate == "") {
+                        webix.message("To Date can't be empty", "warning", 800);
+                        $("#LoadDIv").hide();
+                        bSucc = "0";
+                        return bSucc;
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Reports/FTDateValidation",
+                        cache: false,
+                        async: false,
+                        charset: 'utf-8',
+                        data: "F=" + frmdate + "&T=" + todate,
+                        success: function (data) {
+                            if (data.d != "") {
+                                debugger;
+                                $("#LoadDIv").hide();
+                                //var vToDt = sFrmDt;
+                                $$("ToDt").setValue(sFrmDt);
+                                bSucc = "0";
+                            }
+                        }
+                    });
+                }
+                return bSucc;
+
+            };
+
+
+
+
+
+        </script>
+    </section>
+</div>

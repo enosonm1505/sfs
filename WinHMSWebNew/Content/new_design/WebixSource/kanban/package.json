@@ -1,0 +1,49 @@
+{
+  "_from": "@xbs/kanban@7.0.1",
+  "_id": "@xbs/kanban@7.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-n1AUs3Y4RjMtwOYbfltyo8qpM0jqADJAvlmhAFIlxEaKWfN8REeEHsPcksr+kaoPMXUidn7SrgsHk2PTdlzsRA==",
+  "_location": "/@xbs/kanban",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@xbs/kanban@7.0.1",
+    "name": "@xbs/kanban",
+    "escapedName": "@xbs%2fkanban",
+    "scope": "@xbs",
+    "rawSpec": "7.0.1",
+    "saveSpec": null,
+    "fetchSpec": "7.0.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://npm.webix.com/@xbs%2fkanban/-/kanban-7.0.1.tgz",
+  "_shasum": "bb1124aa2791f749330e84f79544b1faaf71a76f",
+  "_spec": "@xbs/kanban@7.0.1",
+  "_where": "C:\\Users\\Winsar-Presales",
+  "author": {
+    "name": "XB Software"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Webix UI",
+  "keywords": [
+    "webix",
+    "ui",
+    "widgets"
+  ],
+  "license": "SEE LICENSE IN license.text",
+  "main": "kanban.js",
+  "name": "@xbs/kanban",
+  "publishConfig": {
+    "registry": "https://npm.webix.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "types/kanban.d.ts",
+  "version": "7.0.1"
+}

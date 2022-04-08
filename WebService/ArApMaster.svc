@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ARAPService.ArApMaster" CodeBehind="ArApMaster.svc.cs" %>

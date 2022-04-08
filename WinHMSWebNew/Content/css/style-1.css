@@ -1,0 +1,330 @@
+.style-1
+{
+	
+}
+.List {
+ 	BORDER-RIGHT: #004088 1px solid;
+    BORDER-TOP: #004088 1px solid;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #004088 1px solid;
+    COLOR: #004088;
+    BORDER-BOTTOM: #004088 1px solid;
+    FONT-FAMILY: verdana,arial,sans-serif
+}
+
+.top-link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+.layer-link
+{
+    FONT-SIZE: 12px;
+    COLOR: #003399;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+/*a:hover {font-family: Verdana; color: #8b0000; text-decoration: none;}*/
+/*a:hover {font-family: Verdana; color: #8b0000; text-decoration: none; background: none}*/
+
+ 
+.BOTTOM-LINE
+{
+    BORDER-RIGHT: black 0px solid;
+    BORDER-TOP: black 0px solid;
+    BORDER-LEFT: black 0px solid;
+    BORDER-BOTTOM: #666666 1px solid
+}
+.heading-1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 15px;
+    COLOR: #990000;
+    FONT-FAMILY: Verdana
+}
+.layer-link-1
+{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+.cursor
+{
+    CURSOR: nw-resize
+}
+.border
+{
+    BORDER-RIGHT: #000000 2px double;
+    BORDER-TOP: #000000 2px double;
+    BORDER-LEFT: #000000 2px double;
+    BORDER-BOTTOM: #000000 2px double
+}
+.TITLES
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #ffff00;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+.small-font
+{
+    FONT-SIZE: 9px;
+    FONT-FAMILY: Verdana
+}
+.cursor-1
+{
+    CURSOR: hand
+}
+.layeer-title
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+.layer-link-2
+{
+    FONT-SIZE: 11px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+.back
+{
+    BACKGROUND-POSITION: left top;
+    BACKGROUND-ATTACHMENT: fixed;
+    BACKGROUND-IMAGE: url(background.gif);
+    BACKGROUND-REPEAT: no-repeat
+}
+.right
+{
+    BORDER-RIGHT: #004080 2px solid;
+    BORDER-TOP: black 0px solid;
+    BORDER-LEFT: black 0px solid;
+    BORDER-BOTTOM: #004080 2px solid
+}
+.right-border
+{
+    BORDER-RIGHT: #ffffff 2px solid;
+    BORDER-TOP: black 0px solid;
+    BORDER-LEFT: black 0px solid;
+    BORDER-BOTTOM: black 0px solid
+}
+.bottom
+{
+    BORDER-RIGHT: black 0px solid;
+    BORDER-TOP: black 0px solid;
+    BORDER-LEFT: black 0px solid;
+    BORDER-BOTTOM: #ffffff 1px solid
+}
+.logincontent
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14px;
+    COLOR: #000033;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana;
+    TEXT-DECORATION: none
+}
+.GrdHdrFreezing
+{
+	position:relative;
+	top:inherit;
+	padding:0px;
+	margin:0px;
+	z-index:10;
+}
+.textstyle
+{
+    FONT-SIZE: 10px;
+    COLOR: #004088;
+    FONT-FAMILY: Verdana
+}
+.textstyle3
+{
+    FONT-SIZE: 11px;
+    COLOR: #000000;
+    FONT-FAMILY: Verdana
+}
+
+.textstyle1cancl
+{
+    BORDER-RIGHT: #dee3e0 1px solid;
+    BORDER-TOP: #dee3e0 1px solid;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #dee3e0 1px solid;
+    COLOR: #dee3e0;
+    BORDER-BOTTOM: #dee3e0 1px solid;
+    BACKGROUND-COLOR:Red;
+
+    FONT-FAMILY: Verdana
+}
+.nEWtextstyle1
+{
+    BORDER-RIGHT: #004088 1px solid;
+    BORDER-TOP: #004088 1px solid;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #004088 1px solid;
+    COLOR: #004088;
+    BORDER-BOTTOM: #004088 1px solid;
+    FONT-FAMILY: Courier New
+}
+.forbutton
+{
+    BORDER-RIGHT: black 1px solid;
+    BORDER-TOP: black 1px solid;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: black 1px solid;
+    BORDER-BOTTOM: black 1px solid;
+    FONT-FAMILY: Verdana;
+    width: 200
+}
+.forbutton1
+{
+    BORDER-RIGHT: black 1px solid;
+    BORDER-TOP: black 1px solid;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: black 1px solid;
+    COLOR: white;
+    BORDER-BOTTOM: black 1px solid;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #004080;
+    width: 200
+}
+.forsearchbutton
+{
+    BORDER-RIGHT: 0px solid;
+    BORDER-TOP: 0px solid;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: 0px solid;
+    BORDER-BOTTOM: 0px solid;
+    FONT-FAMILY: Verdana;
+    width: 150
+}
+.calbutts
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    WIDTH: auto;
+    CURSOR: hand;
+    COLOR: #bf485d;
+    BORDER-TOP-STYLE: none;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #6fa8cf
+}
+.texttitle1 { font-family:Verdana; font-size:11; font-weight: bold; color:#6f5140;}
+.texttitle2 { font-family:Verdana; font-size:11; color:#6f5140;}
+.textprinttitle { font-family:Verdana; font-size:17; color:#000000;}
+.textprintheadings { font-family:Verdana; font-size:10; color:#000000;}
+.textprintreports { font-family:Verdana; font-size:10; color:#000000;}
+.txtboxsmall {
+
+	BORDER-RIGHT: #FFFFFF 1px solid;BORDER-TOP: #FFFFFF 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #FFFFFF 1px solid; WIDTH:79px; BORDER-BOTTOM: #FFFFFF 1px solid; FONT-FAMILY: arial, tahoma, verdana; HEIGHT: 20px;color:#004088; BACKGROUND-COLOR: white
+}
+.txtboxbig{
+
+	BORDER-RIGHT: #FFFFFF 1px solid;BORDER-TOP: #FFFFFF 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #FFFFFF 1px solid; WIDTH: 65Px; BORDER-BOTTOM: #FFFFFF 1px solid; FONT-FAMILY: arial, tahoma, verdana; HEIGHT: 20px;color:#004088; BACKGROUND-COLOR: white
+}
+.txtboxdays{
+
+	BORDER-RIGHT: #FFFFFF 1px solid;BORDER-TOP: #FFFFFF 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #FFFFFF 1px solid; WIDTH: 30px; BORDER-BOTTOM: #FFFFFF 1px solid; FONT-FAMILY: arial, tahoma, verdana; HEIGHT: 20px;color:#004088; BACKGROUND-COLOR: white
+}
+.txtboxReddays{
+
+	BORDER-RIGHT: #FFFFFF 1px solid;BORDER-TOP: #FFFFFF 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #FFFFFF 1px solid; WIDTH: 30px; BORDER-BOTTOM: #FFFFFF 1px solid; FONT-FAMILY: arial, tahoma, verdana; HEIGHT: 20px;color:white; BACKGROUND-COLOR: REd
+}
+
+.txtHIDDATE{
+
+	BORDER-RIGHT: #FFFFFF 1px solid;BORDER-TOP: #FFFFFF 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #FFFFFF 1px solid; WIDTH: 56px; BORDER-BOTTOM: #FFFFFF 1px solid; FONT-FAMILY: arial, tahoma, verdana; HEIGHT: 20px;color:#004088; BACKGROUND-COLOR: white
+}
+.txtboxhidRmsmall {
+
+	BORDER-RIGHT: #FFFFFF 1px solid;BORDER-TOP: #FFFFFF 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #FFFFFF 1px solid; WIDTH:27px; BORDER-BOTTOM: #FFFFFF 1px solid; FONT-FAMILY: arial, tahoma, verdana; HEIGHT: 20px;color:#004088; BACKGROUND-COLOR: white
+}
+.txtboxequalierhidRmsmall {
+
+	BORDER-RIGHT: #FFFFFF 1px solid;BORDER-TOP: #FFFFFF 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #FFFFFF 1px solid; WIDTH:14px; BORDER-BOTTOM: #FFFFFF 1px solid; FONT-FAMILY: arial, tahoma, verdana; HEIGHT: 20px;color:#004088; BACKGROUND-COLOR: white
+}
+.txtboxhidRmsmallRed {
+
+	BORDER-RIGHT: #FFFFFF 1px solid;BORDER-TOP: #FFFFFF 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #FFFFFF 1px solid; WIDTH:27px; BORDER-BOTTOM: #FFFFFF 1px solid; FONT-FAMILY: arial, tahoma, verdana; HEIGHT: 20px;color:red; BACKGROUND-COLOR: white
+}
+.newcmbbox {
+	BORDER-RIGHT: #004088  1px solid; BORDER-TOP: #004088  1px solid; FONT-SIZE: 11px; BORDER-LEFT: #004088  1px solid; WIDTH: 170px; BORDER-BOTTOM: #004088  1px solid; FONT-FAMILY: arial, tahoma, verdana; HEIGHT: 22px; BACKGROUND-COLOR: white
+}
+
+.totaltext{
+
+  FONT-SIZE: 8px;
+    FONT-STYLE: normal;
+    FONT-FAMILY: 'Small Fonts';
+    FONT-VARIANT: small-caps;
+color:#6f5140;
+}
+.bluebutten
+{
+    border: 1px solid #cfd3e7;
+	FONT-WEIGHT: bold;
+    	FONT-SIZE: 9px;
+    	VERTICAL-ALIGN: top;
+    	CURSOR: hand;
+    	COLOR: #ffffff;
+    	FONT-FAMILY: Verdana;
+    	BACKGROUND-COLOR: #8b0000;
+    	TEXT-ALIGN: center;
+	margin-bottom: 0px;
+}
+.butten
+{
+    BORDER-RIGHT: #004080 1px solid;
+    BORDER-TOP: #004080 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    VERTICAL-ALIGN: top;
+    BORDER-LEFT: #004080 1px solid;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #004080 solid;
+    FONT-FAMILY: Verdana;
+    HEIGHT: 20px;
+    BACKGROUND-COLOR: #004080;
+    TEXT-ALIGN: center
+}
+.RoomStatusocc
+{
+ FONT-SIZE: 9px;
+ FONT-FAMILY: 'Small Fonts';
+ COLOR: #004088;
+ FONT-VARIANT: small-caps
+
+}
+.dateTxtBox
+{
+    BACKGROUND-COLOR: white;
+    BORDER-BOTTOM: #004088 0px solid;
+    BORDER-LEFT: #004088 0px solid;
+    BORDER-RIGHT: #004088 0px solid;
+    BORDER-TOP: #004088 0px solid;
+    FONT-FAMILY: verdana;
+	COLOR: #004088;
+    FONT-SIZE: 11px;
+    HEIGHT: 17px;
+    WIDTH: 75px;
+}
+.textstyle1
+{
+    BORDER-RIGHT: #004088 1px solid;
+    BORDER-TOP: #004088 1px solid;
+    FONT-SIZE: 11px;
+    BORDER-LEFT: #004088 1px solid;
+    COLOR: #004088;
+    BORDER-BOTTOM: #004088 1px solid;
+    FONT-FAMILY: Verdana
+}

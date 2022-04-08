@@ -1,0 +1,253 @@
+﻿<div class="modal fade" id="RateType" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" aria-hidden="true">
+    <div class="modal-dialog" style="padding-top:100px; margin-left:20%;">
+        <div class="modal-content" style="width:120%">
+            <div class="modal-header success">
+                <button id="closeratetype" type="button" class="close" data-dissmiss="modal" aria-hidden="true">x</button>
+                <h5 class="modal-title" id="lblmodallabel"><i ></i>  Rate Type </h5>
+            </div>
+            <div class="modal-body" style="padding: 10px 10px 0px 10px;">
+                                <div class="row" style="margin: 0px 0px 5px 0px;">
+                                    <div class="col-lg-4 col-md-4 col-sm-4  filter-txt" style="padding:0px;">
+                                        <input type="text" id="rateTypefilter" class="form-control modal-control filtertxt" placeholder="Search Rate Type" data-parentgrid="promptGrdRateType" data-filter="RATE_TY_NM" style="width:100% !important;">
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-5">
+                                        <label class="col-lg-3  col-sm-3 col-md-3  control-label" style="text-align: right; margin-top:5px;"> Currency </label>
+                                        <div id="ddlcurrency" for="modal" style="width:60% !important"></div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3" style="float:right;">
+                                        <label id="lblratetype" class="col-lg-12 col-md-12 col-sm-12 control-label" style="text-align: center;  background: #f5f4f0; color: red; font-size: 12px; font-weight: bold; padding: 1px; margin-top: 5px;"> </label></div>
+                                    </div>
+                                    <div id="promptGrdRateType" style="width:100%; height:500px;"></div>
+                            </div>
+                      
+            <div class="modal-footer">
+                <div class="col-lg-8 col-sm-8  col-md-8" style="padding:0px; text-align: left;">
+                    <h6 style="color: red; margin:5px"> <i class="fa fa-exclamation-circle"></i>  Note : Plan Amount id defined will supercede the default Plan amnt.</h6>
+                </div>
+                <button id="btnratecanc" type="button" class="btn btn-default btn-popup" title="Close"><i class='fa fa-times-circle fa-lg'></i> Close </button>
+                @*<button id="btnratesubmit" type="button" class="btn btn-default btn-popup" title="Submit"><i class='fa fa-check-circle fa-lg'></i> Submit </button>*@
+            </div>
+            </div>
+            
+        </div>
+    </div>
+
+<input type="hidden" id="RATE_LOADID" />
+
+<script type="text/javascript">
+    $("#closeratetype").click(function (e) {
+        $("#RateType").modal('hide');
+    });
+
+    $("#btnratecanc").click(function (e) {
+        $("#RateType").modal('hide');
+    });
+    
+
+    $(window).load(function () {
+        RateType_Init();
+        var $ratetype = $("#searchratetype");
+        var $currecny =  $("#ddlcurrency").data("kendoDropDownList");
+        var RowSelect, _grid;
+        $("#RateType").on('shown.bs.modal', function (e) {           
+            $ratetype.val("");
+            _grid = $("#GrdReservation").data("kendoGrid");
+            RowSelect = _grid.dataItem(_grid.select());
+            $currecny.bind("change", OnChangeCurrency);
+
+            if ($("#TariffChange")[0].checked == true) {
+               var  RM_TYNM = $("#ddlupgrade").data("kendoDropDownList").text();
+               $("#lblratetype").text(RM_TYNM);
+                
+            } else {
+                $("#lblratetype").text(RowSelect.RES_TYNM);
+            }
+           
+            $currecny.value(pgindic.BASE_CURRENCY_ID);
+
+            pgindic.BASE_CURRENCY_ID = RowSelect.CURRENCY;
+            $("#ddlcurrency").data("kendoDropDownList").value(RowSelect.CURRENCY);
+            $("#ddlCurrencyDrop").data("kendoDropDownList").value(RowSelect.CURRENCY);
+            LoadRateType(RowSelect);
+        });
+        $ratetype.on('keyup', function (e) {
+            var $thisval = $(this).val();
+            var _gridData = $("#promptGrdRateType").data("kendoGrid");
+            $filter = KendoRowFilter("promptGrdRateType", 'RATE_TY_NM', $thisval);
+            _gridData.dataSource.filter($filter);
+        });
+    });
+    
+    var OnChangeCurrency = function () {
+        debugger     
+        _grid = $("#GrdReservation").data("kendoGrid");
+        RowSelect = _grid.dataItem(_grid.select());
+        var dropdowlist = $("#ddlcurrency").data("kendoDropDownList");
+        pgindic.BASE_CURRENCY_ID = this.value();
+        $("#ddlCurrencyDrop").data("kendoDropDownList").value(this.value());
+        RowSelect.CURRENCY = this.value();
+        _grid.refresh();
+        var no =$("#ReservationRowHidden").val();
+        var roww = $("#GrdReservation").data("kendoGrid").table.find('tr:eq(' + no + ')');
+        $("#GrdReservation").data("kendoGrid").select(roww);
+        LoadRateType(RowSelect);
+    }
+
+    var KendoRowFilter = function (grid, _Fields, _Value) {
+        $filter = new Array();
+        $filter.push({ field: _Fields, operator: "contains", value: _Value });
+        return $filter;
+    }
+
+    var LoadRateType = function (_Selectedgrid) {
+        var RM_TY = "";
+        if ($("#TariffChange")[0].checked == true) {
+             RM_TY = $("#ddlupgrade").data("kendoDropDownList").value();
+        } else {
+            RM_TY = _Selectedgrid.RES_TYPE;
+        }
+        console.log(pgindic);
+        var Grid_Data;
+        var obj = {};
+        var dataparam = JSON.parse(Request);
+        dataparam["COMPID"] = Prop_Id;
+        dataparam["REQTYPE"] = "RATE_TYPE";
+        dataparam["CURRENCY_ID"] = pgindic.BASE_CURRENCY_ID;
+        dataparam["ROOM_TYPE"] = RM_TY;
+        var ARRV_DT = kendo.toString(kendo.parseDate(_Selectedgrid.ARRV), 'dd/MM/yyyy');
+        dataparam["TO_DT"] = ARRV_DT;
+        dataparam["RATE_TY_ID"] = "";
+        dataparam["PARTY_ID"] = $("#comp_id").val();
+        dataparam["RATE_LOADID"] = $("#RATE_LOADID").val();
+        obj.request = dataparam;
+        var DataVal =JSON.stringify(dataparam);
+        $.ajax({
+            url: "/FO/API_CALL",
+            type: 'POST',
+            datatype: 'json',
+            data: "request=" + DataVal,
+            success: function (data) {
+                Grid_Data = JSON.parse(data);
+                var $grid = $("#promptGrdRateType").data("kendoGrid");
+                $grid.dataSource.data(Grid_Data.RATE_TARIFF);
+                $grid.dataSource.filter([]);
+                $grid.refresh();
+            },
+            error: function (request, status, error) {
+                console.log("Error Failrue");
+            }
+        });
+        return Grid_Data;
+    }
+
+    var RateType_Init = function () {
+        var datsource = new kendo.data.DataSource({
+            data: [],
+            batch: true,
+            schema: {
+                model: {
+                    fields: {
+                        RATE_TY_ID: { type: "string" },
+                        TAR_SINGLE: { type: "number" },
+                        TAR_DOUBLE: { type: "number" },
+                        TAR_TRIPLE: { type: "number" },
+                        TAR_QUADR: { type: "number" },
+                        TAR_QUIN: { type: "number" },
+                        TAR_HEX: { type: "number" },
+                        EXTRA_ADULT: { type: "date" },
+                        EXTRA_CHILD: { type: "number" },
+                        EXTRA_CHILD2: { type: "number" },
+                        EXTRA_CHILD3: { type: "number" },
+                        PLAN_ID: { type: "string" },
+                        PLAN_NM: { type: "string" },
+                        PLAN_AMT: { type: "number" },
+                        RATE_TY_NM: { type: "string" },
+                        TAR_FIVE: { type: "number" },
+                        B_IND: { type: "string" },
+                        RATE_CAT: { type: "string" },
+                        E_IND: { type: "string" },
+                        PK_ID: { type: "string" },
+                        RAT_S: { type: "string" },
+                    }
+                }
+            }
+        });
+        $("#promptGrdRateType").kendoGrid({
+            dataSource: datsource,
+            selectable: "row",
+            scrollable: true,
+            navigatable: true,
+            height: 300,
+            resizable: true,
+            columns: [
+                { field: "RATE_TY_NM", title: "Rate Type", width: "300px" },
+                { field: "TAR_SINGLE", title: "Adult1", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "TAR_DOUBLE", title: "Adult2", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "TAR_TRIPLE", title: "Adult3", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "TAR_QUADR", title: "Adult4", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "TAR_QUIN", title: "Adult5", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "TAR_HEX", title: "Adult6", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "EXTRA_ADULT", title: "ExtAdult", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "EXTRA_CHILD", title: "ExtChild", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "EXTRA_CHILD2", title: "ExtChild2", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "EXTRA_CHILD3", title: "ExtChild3", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "PLAN_NM", title: "Plan", width: "120px" },
+                { field: "PLAN_AMT", title: "AdltPlan", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                { field: "TAR_FIVE", title: "ChildPlan", width: "80px", format: "{0:0.00}", attributes: { style: "text-align:right" } },
+                 { field: "PK_ID", title: "PK_ID", width: "200px", hidden: true },
+            ],
+            editable: false,
+            dataBound: RateTypeBound
+        });
+
+        if (pgindic.R11_IND == 1) {
+            $("#promptGrdRateType th[data-field= TAR_SINGLE]").html("Adult1");
+            $("#promptGrdRateType th[data-field= TAR_DOUBLE]").html("Adult2");
+            $("#promptGrdRateType th[data-field= TAR_TRIPLE]").html("Adult3");
+            $("#promptGrdRateType th[data-field= TAR_QUADR]").html("Adult4");
+            $("#promptGrdRateType th[data-field= TAR_QUIN]").html("Adult5");
+            $("#promptGrdRateType th[data-field= TAR_HEX]").html("Adult6");
+        }
+        
+        var $grid = $("#promptGrdRateType").data("kendoGrid");
+        if (pgindic.D21_IND == 1) {
+            $grid.showColumn("TAR_QUIN");
+            $grid.showColumn("TAR_HEX");
+        }
+        else {
+            $grid.hideColumn("TAR_HEX");
+            $grid.hideColumn("TAR_QUIN");
+        }
+        if (pgindic.C3_IND == 2) {
+            $grid.showColumn("EXTRA_CHILD2"); $grid.hideColumn("EXTRA_CHILD3");
+        }
+        else if (pgindic.C3_IND == 3) {
+            $grid.showColumn("EXTRA_CHILD2"); $grid.showColumn("EXTRA_CHILD3");
+        }
+        else {
+            $grid.hideColumn("EXTRA_CHILD2"); $grid.hideColumn("EXTRA_CHILD3");
+        }
+    };
+    
+    var RateTypeBound = function () {
+        var _grid = $("#promptGrdRateType").data("kendoGrid");
+        var datasource = _grid.dataSource.data();
+        $.each(datasource, function (i, row) {
+            var status = $.trim(row.PK_ID);
+            var cellcolor = _grid.table.find("tr[data-uid=" + row.uid + "]");
+            if (status != "") {
+                $(cellcolor).addClass("RedBLock");
+            }
+        });
+    };
+   
+</script>
+
+<style>
+     .RedBLock {
+        color: red !important;
+    }
+    .BlueInac {
+        color: blue;
+    }
+</style>

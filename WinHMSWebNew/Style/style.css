@@ -1,0 +1,111 @@
+﻿.heading
+{
+	font-family:Verdana;
+	font-size:x-small;	
+	font-weight:bold;
+	color:Blue;		
+}
+.title
+{
+	font-family:Verdana;
+	font-size:small;	
+	font-weight:bold;
+	color:Purple;	
+	vertical-align:top;		
+}
+.textBox
+{
+	font-family: Verdana;
+	font-size: small;
+	font-weight: normal;
+}
+.Label
+{
+	font-family: Verdana;
+	font-size: small;
+	font-weight: normal;
+	
+}
+.tr
+{
+	background-color: #7E517E;
+	font-weight: bold;
+	font-family: Verdana;
+	font-size: small;
+	height: 20px;
+	margin: 0px 0px 0px 0px;
+	vertical-align: top;
+	color: White;
+}
+.tr1
+{
+	background-color: #7E517E;
+	font-weight: bold;
+	font-family: Verdana;
+	font-size: small;
+	height:5px; 
+	margin: 0px 0px 0px 0px;
+    color: White;
+}
+.gridview
+{
+	font-family:Verdana;
+	font-size:x-small;	
+	font-style:normal;	
+	color:White;
+	border-color:Black;
+	vertical-align:top;
+	padding-left:4px;
+}
+.GridHeaderFreezing
+{
+	position:relative;
+	top:inherit;
+	padding:0px;
+	margin:0px;
+	z-index:10;
+}
+.label
+{
+	font-family:Verdana;
+	font-size:x-small;	
+	
+}
+.textbox
+{
+	font-family:Verdana;
+	font-size:x-small;
+	border-color:Black;	
+	background-color:White;		
+}
+.textboxalign
+{
+	/*direction:rtl;*/
+}
+.gtextbox
+{
+	font-family:Verdana;
+	font-size:small;
+	border-color:Black;	
+	background-color:#fffff6;	
+}
+
+.GridStyle2
+{
+	border-style: Solid;
+	font-family: Verdana;
+	font-size: x-small;
+	font-weight: normal;
+	color: #333333;
+	border: solid 1px #EEEEEE;
+	background-color: #FFF;
+	overflow: scroll;
+}
+
+.dropdown
+{
+	font-family:Verdana;
+	font-size:x-small;
+	border-color:Black;	
+	background-color:White;
+}

@@ -1,0 +1,325 @@
+﻿.skin-yellow .main-header .navbar {
+    background-color: #dadee0 ! important;
+}
+.skin-yellow .main-header .logo {
+    background-color:  #505b05 ! important;
+}
+.skin-yellow .main-header li.user-header{
+     background-color: #dadee0 ! important;
+}
+.skin-yellow .main-header .navbar .sidebar-toggle:hover {
+    background-color:  #505b05 ! important;
+}
+
+.btn {
+    border-radius: 5px ! important;
+    -webkit-box-shadow: none ! important;
+    box-shadow: none ! important;
+    border: 1px solid #dadee0 ! important;
+    margin-bottom:5px! important;
+    width: 35px! important;
+}
+.btn-box-tool {
+    padding: 2px ! important;
+    font-size: 14px ! important;
+    background: transparent ! important;
+    color: #dadee0 ! important;
+}
+.box.box-warning {
+    border-top-color: #dadee0 ! important;
+}
+.webix_el_colorpicker input, .webix_el_combo input, .webix_el_datepicker input, .webix_el_search input, .webix_el_text input{
+        border: 1px solid #dadee0 ! important;
+        font-size: 14px ! important;
+        border-radius:3px ! important;
+}
+.RoomChartDb .webix_dd_drag_column,.RoomChartDb .webix_ss_header, .RoomChartDb .webix_ss_header td,.RoomChartDb .webix_ss_vscroll_header {
+    background: #dadee0 ! important;
+}
+
+ .webix_dtable div.webix_ss_vscroll_header {
+    border-bottom-color: #dadee0 ! important;
+}
+    
+    .modal-footer {
+    height: 35px !important;
+    padding: 3px !important;
+     border-top-color: #dadee0 !important;
+}
+    .modal-header {
+    border-bottom-color: #dadee0 !important;
+    height: 35px !important;
+    padding: 10px !important;
+}
+   .ChkStyle .webix_inp_label{
+        width:0px ! important;
+    }
+   .webix_checkbox_1 .webix_custom_checkbox {
+    color:  #dadee0 !important;
+}
+    
+.webix_dtable {
+    border-radius:5px ! important
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 700px!important;
+        margin: 50px auto!important;
+       
+    }
+}
+@media (min-width: 576px) {
+    .PopupWidth .modal-dialog {
+        max-width: 1000px!important;
+        margin: 50px auto!important;
+         width:1000px  !important;
+    }
+}
+.webix_el_radio .webix_radio_1 .webix_custom_radio {
+    color: #dadee0 ! important;
+}
+.webix_fieldset > fieldset {
+    border: 1px solid #dadee0! important;
+}
+.webix_el_checkbox input {
+    border-color: #dadee0! important;
+}
+.webix_custom_checkbox {
+    color: #dadee0! important;
+}
+
+.webix_inp_static, .webix_el_colorpicker input, .webix_el_combo .webix_inp_static, .webix_el_combo input, .webix_el_datepicker .webix_inp_static, .webix_el_datepicker input, .webix_el_richselect .webix_inp_static, .webix_el_richselect input, .webix_el_search .webix_inp_static, .webix_el_search input {
+    border-color: #dadee0! important;
+}
+.webix_input_icon {
+    color: #dadee0 !important;
+}
+.webix_inp_counter_next {
+    color: #dadee0 !important;
+}
+.webix_inp_counter_prev {
+     color: #dadee0 !important;
+}
+.webix_el_counter .webix_inp_counter_value {
+    border-color:  #dadee0 !important;
+}
+.webix_el_counter .webix_inp_counter_next, .webix_el_counter .webix_inp_counter_prev {
+    border: .5px solid #dadee0 !important;
+}
+.webix_dd_drag_column, .webix_ss_header, .webix_ss_header td, .webix_ss_vscroll_header {
+    color: white !important;
+}
+.webix_fieldset > fieldset {
+    border: 1px solid #dadee0 !important;
+    border-radius: 3px;
+}
+.RoomCharDb .webix_hcell {
+    text-align:center ! important;
+}
+
+.webix_el_textarea textarea{
+     border: 1px solid #dadee0 !important;
+}
+.modal-content {
+    border-radius:5px !important;
+}
+.webix_ss_footer .webix_hcell {
+    text-align:right ! important;
+}
+ .RoomChartDb.webix_dtable .RoomChartDb.webix_ss_footer tr:nth-child(2) td {
+    border-top: 1px solid #dadee0! important;
+}
+.RoomChartDb .webix_dtable div.webix_ss_vscroll_footer {
+    border-top-color: #dadee0! important;
+}
+.webix_tree_open,.webix_tree_close{
+    color:#6aa084 ! important;
+}
+.RoomChartDb .webix_cell .RoomChartDb.webix_dtable_colrow{
+    background-color:#6aa084! important;
+    color:red ! important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #ffffff! important;
+    background-color: #dadee0! important;
+    border-color: #dadee0 #dadee0 #dadee0! important;
+}
+.nav-tabs {
+    border-bottom: 1px solid #dadee0! important;
+}
+ .webix_view .webix_dt_editor input, .webix_view .webix_dt_editor select {
+    border-color: #dadee0! important;
+    border-radius: 2px;
+}
+  .webix_dtable .webix_select_mark>div.webix_row_select {
+    box-shadow: inset 2px 0 #dadee0! important;
+}
+ .tab-head {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-bottom: 3px solid #dadee0 !important;
+}
+ .btn:disabled {
+    opacity: 0.30!important;
+}
+ .webix_cal_body .webix_cal_today .webix_cal_day_inner {
+    box-shadow: inset 0 0 0 1px #dadee0 !important;
+}
+ .webix_cal_body .webix_cal_event {
+    color: #dadee0 !important;
+}
+ .webix_cal_body .webix_cal_select .webix_cal_day_inner, .webix_cal_body .webix_cal_today.webix_cal_select .webix_cal_day_inner {
+    background-color:  #dadee0 !important;
+}
+ .webix_list .webix_list_item.webix_selected {
+    border-bottom: 1px solid  #dadee0 !important;
+}
+.webix_list_item.webix_selected {
+    box-shadow: inset 2px 0 #dadee0 !important;
+}
+.webix_list_item.webix_selected {
+    background:  #dadee0 !important;
+    color: #fff!important;
+}
+/*a {
+    color:  #dadee0 !important;
+}*/
+
+.close {
+    height: 45px !important;
+    line-height: 0px !important;
+}
+
+.ClickBtn{
+     background-color: #dadee0 !important;
+        color: #fff! important;
+}
+.UnClickBtn{
+     background-color: #fff !important;
+        color:  #dadee0! important;
+}
+.RoomChartDb .webix_dtable{
+    border-width:1px 1px !important ;
+}
+.webix_window{
+    border-radius:5px !important;
+}
+.webix_win_head{
+    background-color: #dadee0! important;
+}
+
+
+.hrowHead5 {
+    background-color: #d9ecf5 !important;
+    border-bottom: 1px solid #d9ecf5 !important;
+    border-left: 1px solid #d9ecf5 !important;
+    border-right: 1px solid #c3eaf5 !important;
+    text-align: center !important;
+    font-size: 11px !important;
+    color: black !important;
+}
+
+.hrowHead1 {
+    background-color: #cff7d7 !important;
+    border-bottom: 1px solid #cff7d7 !important;
+    border-left: 1px solid #cff7d7 !important;
+    border-right: 1px solid #c3eaf5 !important;
+    text-align: center !important;
+    font-size: 11px !important;
+    color: black !important;
+}
+
+.hrowHead2{
+    background-color:#d9ecf5! important;
+    border-bottom:1px solid #c3eaf5! important;
+    border-left:1px solid #c3eaf5! important;
+    border-right:1px solid #c3eaf5! important;
+    text-align: center ! important; 
+    font-size: 11px !important;
+    color: black !important;
+}
+
+.hrowHead3 {
+    background-color: #cff7d7 !important;
+    border-bottom: 1px solid #cff7d7 !important;
+    border-left: 1px solid #cff7d7 !important;
+    border-right: 1px solid #cff7d7 !important;
+    text-align: center !important;
+    font-size: 11px !important;
+    color: black !important;
+}
+
+.hrowHead4 {
+    background-color: #ebf5fa !important;
+    border-bottom: 1px solid #ebf5fa !important;
+    border-left: 1px solid #ebf5fa !important;
+    border-right: 1px solid #c3eaf5 !important;
+    text-align: center !important;
+    color: red !important;
+    font-size: 11px !important;
+}
+
+.hrow1{
+    background-color:crimson! important;
+    color: white !important;
+    font-size: 11px !important;
+	border-radius:5px!important;
+}
+.hrow2{
+    background-color:#15c6ac! important;
+    color: white !important;
+    font-size: 11px !important;
+	border-radius:5px!important;
+}
+.hrow3{
+    background-color:blueviolet! important;
+    color: white !important;
+    font-size: 11px !important;
+	border-radius:5px!important;
+}
+.hrow4{
+    background-color:#e19a18! important;
+    color: white !important;
+    font-size: 11px !important;
+	border-radius:5px!important;
+}
+
+.hrowT{
+    background-color:blueviolet! important;
+    color: hotpink !important;
+    font-size: 11px !important;
+	border-radius:5px!important;
+    /*color : #ff0066!important;*/
+    
+}
+
+.hrowBRight{
+    background-color: white ! important;
+    border-left: 1px solid #bee5f7! important;
+    border-bottom: 1px solid #bee5f7! important;
+}
+
+.hrowBBottom{
+    background-color: white ! important;
+    border-bottom: 1px solid #bee5f7! important;
+}
+
+.RoomChartDb .webix_column > div:nth-child(2n) {
+     background-color: transparent !important; 
+}
+
+
+.RoomChartDb .webix_ss_body .webix_column > div,.RoomChartDb  .webix_ss_body .webix_table_cell {
+    border-left-color: transparent!important;
+    border-right-color: transparent !important;
+}
+
+  .RoomChartDb .webix_column > div,.RoomChartDb .webix_table_cell  {
+    border-bottom: 1px solid #bee5f7 !important;
+    border-right: 1px solid #bee5f7 !important;
+    padding: 0 4pt;
+}
+
+ 

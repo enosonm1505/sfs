@@ -1,0 +1,7 @@
+12/27/2021 5:13:01 PM
+D:\Hosted\FO_Standalone\WebAPI\\LogFile\FoComApi.txt
+UnassignedArraivalList System.NullReferenceException: Object reference not set to an instance of an object.
+   at FrontOffice_API.Controllers.FoCommonController.UnassignedArraivalList(Hashtable Dt)
+Date :12/27/2021 5:13:01 PM
+UnassignedArraivalList System.NullReferenceException: Object reference not set to an instance of an object.
+   at FrontOffice_API.Controllers.FoCommonController.UnassignedArraivalList(Hashtable Dt)

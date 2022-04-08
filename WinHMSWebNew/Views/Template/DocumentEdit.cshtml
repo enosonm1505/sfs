@@ -1,0 +1,643 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINHMS-Document Editor</title>
+    
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="@Url.Content("~/Content/kendo/2015.3.930/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.3.930/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.3.930/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.3.930/kendo.rtl.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/2015.3.930/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.3.930/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.3.930/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.3.930/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="~/bower_components/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/bower_components/ionicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/dist/css/skins/_all-skins.min.css">  
+
+</head>
+<body class="skin-Purple sidebar-mini skin-purple-light"> 
+     
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="index2.html" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>D</b>T</span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>Document Template</span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav"></ul>
+                    </div>
+                </nav>
+            </header>
+         
+            <div  id="MainWrapper" class="content-wrapper" style="margin-left: 0 !important">
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <h3 class="box-title">
+                                        Document Editor
+                                        <small>Advanced and full of features</small>
+                                    </h3>
+                                </div>
+                                <!-- Small boxes (Stat box) -->
+                                <div class="row" style="margin-right:0px !important; margin-left:0px !important;">
+                                    <div class="col-lg-3 col-xs-6">
+                                        <!-- small box -->
+                                        <div id="WSMBx" style="height: 80px; width:200px" class="small-box bg-aqua">
+                                            <div class="inner">
+                                                <h4 style="font-size: 22px">Win-Sales</h4>
+                                            </div>
+                                            <div class="icon" style="font-size: 65px">
+                                                <i class="fa fa-dollar (alias)"></i>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <!-- ./col -->
+                                    @*<div class="col-lg-3 col-xs-6">
+                                        <!-- small box -->
+                                        <div id="FoBx" class="small-box bg-green">
+                                            <div class="inner">
+                                                <h4>Front Office</sup></h4>
+                                                <p>Reports</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa fa-building"></i>
+                                            </div>
+                                            <a href="#" class="small-box-footer">
+                                                More info <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-lg-3 col-xs-6">
+                                        <!-- small box -->
+                                        <div id="PosBx" class="small-box bg-yellow">
+                                            <div class="inner">
+                                                <h4>POS</h4>
+                                                <p>Reports</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa fa-spoon"></i>
+                                            </div>
+                                            <a href="#" class="small-box-footer">
+                                                More info <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- ./col -->
+                                    <div class="col-lg-3 col-xs-6">
+                                        <!-- small box -->
+                                        <div  id="BnBx" class="small-box bg-red">
+                                            <div class="inner">
+                                                <h4>Banquet</h4>
+                                                <p>Reports</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="fa fa-birthday-cake"></i>
+                                            </div>
+                                            <a href="#" class="small-box-footer">
+                                                More info <i class="fa fa-arrow-circle-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>*@
+                                    <!-- ./col -->
+                                </div>
+                                <!-- /.row -->
+                              
+                                <div class="row" style="height: 350px;">
+                                    <div class="col-md-12">
+                                        <div class="box" >
+                                            <div class="box-header">
+                                                <h3 class="box-title">Win-Sales- Print Form - Template</h3>
+                                            </div>
+                                            <div class="box-body">
+                                              
+                                                <div style="width: 100%; float:left;">
+                                                    <div style="width:100px; float:left; margin-top: 5px;"> Template Type</div>
+                                                    <div style="width:280px; float:left;">
+                                                        @(Html.Kendo().DropDownList()
+                                                              .Name("TemplateType")
+                                                              .DataTextField("Text")
+                                                              .DataValueField("Value")
+                                                              .HtmlAttributes(new { Style = "width:250px;" })
+                                                              .DataSource(source => { source.Read(read => { read.Action("TemplateTypeLoad", "Template"); }); })
+                                                              )
+                                                    </div>
+                                                    <div style="width:120px; float:left; margin-top: 5px;"> For</div>
+                                                    <div style="width:280px; float:left;">
+                                                        @(Html.Kendo().DropDownList()
+                                                              .Name("DocumentFor")
+                                                              .DataTextField("Text")
+                                                              .DataValueField("Value")
+                                                              .HtmlAttributes(new { Style = "width:250px;" })
+                                                              .DataSource(source => { source.Read(read => { read.Action("DocumentForLoad", "Template"); }); })
+                                                              )
+                                                    </div>
+                                                </div>
+                                                <div style="width: 100%; float:left; margin-top:10px;">
+                                                    <div style="width:100px; float:left; margin-top: 5px;"> Property</div>
+                                                    <div style="width:280px; float:left;">
+                                                        @(Html.Kendo().DropDownList()
+                                                              .Name("Property")
+                                                              .DataTextField("Text")
+                                                              .DataValueField("Value")
+                                                              .HtmlAttributes(new { Style = "width:250px;" })
+                                                              .DataSource(source => { source.Read(read => { read.Action("PropertyNM", "Template"); }); })
+                                                              )
+                                                    </div>
+                                                    <div style="width:120px; float:left; margin-top: 5px;"> Template Name</div>
+                                                    <div style="width:260px; float:left;">
+                                                        @(Html.Kendo().DropDownList()
+                                                              .Name("Document")
+                                                              .DataTextField("Text")
+                                                              .DataValueField("Value")
+                                                              .HtmlAttributes(new { Style = "width:250px;" })
+                                                              .DataSource(source => { source.Read(read => { read.Action("TemplateNameLoad", "Template"); }); })
+                                                              )
+                                                    </div>
+                                                    
+                                                    <div style="width:32px; float:left;"><button id="NewTemp" title="New Template"> <i class="fa fa-plus "></i></button></div>
+                                                    <div style="width:32px; float:left;"> <button id="EditTemp" title="Edit Template"> <i class="fa fa-pencil "></i></button></div>
+                                                    <div style="width:50px; float:left;"><button id="CopyTemp" title="Copy Template"> <i class="fa fa-copy "></i></button></div>
+                                                </div>
+                                             
+                                                <div style="width: 70%; float:left; margin-top:20px;">
+                                                    <div  style="width:140px; float: right"><button id="EditDocument" title="Edit Document"><i class="fa fa-pencil "></i> Edit Document</button>  </div>
+                                                    </div>
+                                            </div>
+                                            <!-- /.box-body -->
+                                        </div>
+
+                                     
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- /.col-->
+                    </div>
+                    <!-- ./row -->
+                </section>
+                <!-- /.content -->
+            </div>
+            
+            <div  id="EditWrapper"  class="content-wrapper"  style="display: none; margin-left:0 !important">
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div style="height:575px !important;" id="WinSalesBox">
+                                <div class="box box-info" style="height:575px !important;">
+                                    <div class="box-header">
+                                        <h4 class="box-title"  style="font-size:14px !important; font-weight:bold; color:maroon">Data Source List</h4>
+                                    </div>
+                                    <div style="width:auto; height: 480px !important; overflow-y:scroll" id="treeview"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="height:575px !important" class="col-md-9">
+                            <div class="box box-info">
+                                <div class="box-header">
+                                    <div style="width: 400px; float:left">
+                                        <h3 class="box-title" >
+                                            <i class="fa fa-pencil "></i> Print Form Template -<span style="color:green" > Desiner</span> - <span style="color:crimson" id="BoxTitle">Quote Creation </span>
+                                        </h3>
+                                    </div>
+                                    
+                                    <div  style="width:150px; float: right"><button id="SaveDocument" title="Save"><i class="fa fa-save "> </i>  Save </button>  </div>
+                                    <div  style="width:80px; float: right"><button id="BackDocument" title="Save"><i class="fa fa-arrow-left"> </i>  Back </button>  </div>
+
+
+
+                                <!-- /.box-header -->
+                                <div id="editorWrapper" style="margin-top:20px;" class="box-body pad">
+
+                                    @(Html.Kendo().Editor()
+      .Name("editor")
+      .HtmlAttributes(new { style = "width:100%;height:510px" })
+      .Tools(tools => tools
+          .Clear()
+          .Bold().Italic().Underline().Strikethrough()
+          .JustifyLeft().JustifyCenter().JustifyRight().JustifyFull()
+          .InsertUnorderedList().InsertOrderedList()
+          .Outdent().Indent()
+          .CreateLink().Unlink()
+          .InsertImage()
+          .InsertFile()
+          .SubScript()
+          .SuperScript()
+          .TableEditing()
+          .ViewHtml()
+          .Formatting()
+          .CleanFormatting()
+          .FontName()
+          .FontSize()
+          .FontColor().BackColor()
+          .Print()
+          .Pdf()
+      )
+ .ImageBrowser(imageBrowser => imageBrowser
+    .Image("~/Content/Images/{0}")
+    .Read("Read", "ImageBrowser")
+    .Create("Create", "ImageBrowser")
+    .Destroy("Destroy", "ImageBrowser")
+    .Upload("Upload", "ImageBrowser")
+    .Thumbnail("Thumbnail", "ImageBrowser"))
+         .FileBrowser(fileBrowser => fileBrowser
+     .File("~/Content/Images/{0}")
+     .Read("Read", "FileBrowser")
+     .Create("Create", "FileBrowser")
+     .Destroy("Destroy", "FileBrowser")
+     .Upload("Upload", "FileBrowser")
+  )
+      .Value(@<text>
+            <div class="maindiv" id="editContent">
+
+            </div>
+        </text>))
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.col-->
+                    </div>
+                    <!-- ./row -->
+                </section>
+                <!-- /.content -->
+            </div>
+  
+       
+        <!-- ./wrapper -->
+<script src="~/bower_components/jquery.slimscroll.min.js"></script>
+<script src="~/bower_components/bootstrap.min.js"></script>
+<script src="~/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="~/dist/js/adminlte.min.js"></script>
+
+<input type="hidden" id="MODULE_ID" />
+<input type="hidden" id="AlertMessageHdn" />
+<input type="hidden" id="alertType" />   
+@Html.Partial("~/Views/Template/_AlertMessageWindow.cshtml")
+@Html.Partial("~/Views/Template/_MessageWindowSave.cshtml")
+@Html.Partial("~/Views/Template/_SaveTemplate.cshtml")
+@Html.Partial("~/Views/Template/_TampleNameEdit.cshtml")
+<script>
+    $(function () {
+        //$("#treeview").kendoTreeView({
+        //    dataSource: {
+        //        data: [ 
+        //          {
+        //              text: "Quote Creation", value: null, spriteCssClass: "fa fa-folder-open", expanded: true, items: [
+        //              { text: "DateTime", value: "{DATE_TIME}", spriteCssClass: "fa fa-database" },
+        //              { text: "GuestName", value: "{GUEST_NAME}", spriteCssClass: "fa fa-database" },
+        //              { text: "Quote No", value: "{ADDRESS}", spriteCssClass: "fa fa-database" },
+        //              { text: "No of Rooms", value: "{ROOMS}", spriteCssClass: "fa fa-database" },
+        //              { text: "Room Type", value: "{ROOM_TYPE}", spriteCssClass: "fa fa-database" },
+        //              { text: "Company", value: "{COMPANY}", spriteCssClass: "fa fa-database" },
+        //              { text: "Rate Code", value: "{RATE_CODE}", spriteCssClass: "fa fa-database" },
+        //              { text: "Adult", value: "{ADULT}", spriteCssClass: "fa fa-database" },
+        //              { text: "Child", value: "{CHILD}", spriteCssClass: "fa fa-database" },
+        //              { text: "Disc Per", value: "{DISC_PER}", spriteCssClass: "fa fa-database" },
+        //              { text: "Disc Amt", value: "{DISC_AMT}", spriteCssClass: "fa fa-database" },
+        //              { text: "Product Amount", value: "{PRODUCT_AMT}", spriteCssClass: "fa fa-database" },
+        //              { text: "Tariff Amount", value: "{TARIFF_AMT}", spriteCssClass: "fa fa-database" },
+        //              { text: "Guest Address", value: "{GUEST_ADDRESS}", spriteCssClass: "fa fa-database" },
+        //              { text: "Room No", value: "{ROOM_NO}", spriteCssClass: "fa fa-database" },
+        //              ]
+        //          }
+        //        ]
+        //    },                 
+        //    dataTextField: "Text",
+        //    dataValueField: "Id",
+        // //   dragAndDrop: true,
+        //  //  dragstart: onDragStart,
+        //  //  drag: onDrag,
+        //  //  drop: onDrop
+        //});
+
+
+        $("#treeview").kendoTreeView({
+            dataSource: [],     
+            dataTextField: "text",
+            dataValueField: "value",
+            dragAndDrop: true,
+            dragstart: onDragStart,
+            drag: onDrag,
+            drop: onDrop
+        });
+        var body = $(document.body);
+        var editorWrapper = $("#editorWrapper");
+        function onDragStart(e) {
+            if (!e.sender.dataItem(e.sourceNode).value) {
+                e.preventDefault();
+            } else {
+                kendo.ui.progress(editorWrapper, true);
+            }
+        }
+        function onDrag(e) {
+            if ($(e.dropTarget).closest(editorWrapper)[0]) {
+                e.setStatusClass("k-add");
+            } else {
+                e.setStatusClass("k-denied");
+            }
+        }
+        function onDrop(e) {
+            if ($(e.dropTarget).closest(editorWrapper)[0]) {
+                e.preventDefault();
+                var textval = e.sender.dataItem(e.sourceNode).value.toString();                   
+                $("#editor").data("kendoEditor").exec("inserthtml", { value: textval });
+            }
+            kendo.ui.progress(editorWrapper, false);
+        }
+    });
+    $(document).ready(function ()
+    {  
+        $("#WinSalesBox").show();
+        $("#FrontofficeBox").hide();
+        $("#PosBox").hide();
+        $("#BanquetBox").hide();
+        $("#MODULE_ID").val("WSM");
+           
+        var COMPID = @Html.Raw(Json.Encode(ViewBag.COMPID));
+        $("#Property").data("kendoDropDownList").value(COMPID);
+
+        $("#MainWrapper").show();
+        $("#EditWrapper").hide();
+        $("#SaveDoc").addClass("disablecls");
+        $("#SaveAsDoc").addClass("disablecls");
+    });
+    
+    $("#WSMBx").click(function(e) {
+        $("#MODULE_ID").val("WSM");
+    });
+    $("#FoBx").click(function(e) {
+        $("#MODULE_ID").val("FO");
+    });
+    $("#PosBx").click(function(e) {
+        $("#MODULE_ID").val("PO");
+    });
+    $("#BnBx").click(function(e) {
+        $("#MODULE_ID").val("BQ");
+    });
+
+
+    $("#NewTemp").click(function(e) {
+
+        var window = $("#TemplateNameEditpop");
+        var kWnd = window.data("kendoWindow");
+        kWnd.setOptions({
+            title: "<i class='fa fa-document fa-lg'></i>  Template Creation - New",
+        })
+        kWnd.center().open();
+    });
+    $("#EditTemp").click(function(e) {
+        var window = $("#TemplateNameEditpop");
+        var kWnd = window.data("kendoWindow");
+        kWnd.setOptions({
+            title: "<i class='fa fa-document fa-lg'></i>  Template Creation - Open",
+        })
+        kWnd.center().open();
+    });
+    $("#CopyTemp").click(function(e) {
+
+    });
+    $("#BackDocument").click(function(e) {
+        $("#MainWrapper").show();
+        $("#EditWrapper").hide();
+
+    });
+
+    
+    $("#EditDocument").click(function(e) {
+        var MODULE_ID = $("#MODULE_ID").val();
+        var TemplateType = $("#TemplateType").data("kendoDropDownList").value();
+        var DocumentFor = $("#DocumentFor").data("kendoDropDownList").value();
+        var Property = $("#Property").data("kendoDropDownList").value();
+        var Document = $("#Document").data("kendoDropDownList").value();
+
+        var TemplateTypeNM = $("#TemplateType").data("kendoDropDownList").text();
+
+        if (!EditValidation()) {
+            return false;
+        } else {
+            $("#BoxTitle").text(TemplateTypeNM);
+            $("#MainWrapper").hide();
+            $("#EditWrapper").show();
+
+            var dataparam = {};
+            dataparam["MODULE_ID"] = MODULE_ID;
+            dataparam["TemplateType"] = TemplateType
+            dataparam["DocumentFor"] = DocumentFor;
+            dataparam["Property"] = Property;
+            dataparam["Document"] = Document;
+            dataparam["TemplateTypeNM"] = TemplateTypeNM;
+            var paramValue = JSON.stringify(dataparam);
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                accepts: "application/json",
+                dataType: "json",
+                url: "/Template/LoadHtmlContent",
+                cache: false,
+                charset: 'utf-8',
+                data: paramValue,
+                success: function(data) {
+                    var editor = $("#editor").data("kendoEditor");
+                    editor.value(data.v);
+                    debugger;
+                    $("#treeview").data("kendoTreeView").dataSource.data(data.d);
+                }
+            });
+
+
+        }
+    });
+    
+    
+    var EditValidation = function () {
+     
+        var MODULE_ID = $("#MODULE_ID").val();
+        var TemplateType = $("#TemplateType").data("kendoDropDownList").value();
+        var DocumentFor = $("#DocumentFor").data("kendoDropDownList").value();
+        var Property = $("#Property").data("kendoDropDownList").value();
+        var Document = $("#Document").data("kendoDropDownList").value();
+        if (TemplateType == "") {
+            $("#AlertMessageHdn").val("Template Type Cannot be Empty.");
+            $("#alertType").val('fail');
+            AlertMesaage();
+            return false;
+        }
+        if (DocumentFor == "") {
+            $("#AlertMessageHdn").val(" DocumentFor Cannot be Empty.");
+            $("#alertType").val('fail');
+            AlertMesaage();
+            return false;
+        }
+        if (Property == "") {
+            $("#AlertMessageHdn").val(" Property Cannot be Empty.");
+            $("#alertType").val('fail');
+            AlertMesaage();
+            return false;
+        }
+        if (Document == "") {
+            $("#AlertMessageHdn").val("Template Name Cannot be Empty.");
+            $("#alertType").val('fail');
+            AlertMesaage();
+            return false;
+        }
+
+        return true;
+    }
+
+    
+    $("#SaveDocument").click(function (e) {
+        debugger;
+        var MODULE_ID = $("#MODULE_ID").val();
+        var TemplateType = $("#TemplateType").data("kendoDropDownList").value();
+        var DocumentFor = $("#DocumentFor").data("kendoDropDownList").value();
+        var Property = $("#Property").data("kendoDropDownList").value();
+        var Document = $("#Document").data("kendoDropDownList").value();
+        var editor = $("#editor").data("kendoEditor");
+        var EditorContent = editor.value();
+        var dataparam = {};       
+        dataparam["MODULE_ID"] = MODULE_ID;
+        dataparam["TemplateType"] = TemplateType;
+        dataparam["DocumentFor"] = DocumentFor;
+        dataparam["Property"] = Property;
+        dataparam["Document"] = Document;      
+        dataparam["EditorContent"] = EditorContent;     
+        var paramValue = JSON.stringify(dataparam);
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            accepts: "application/json",
+            dataType: "json",
+            url: "/Template/SAVE_TEMPLATE",
+            cache: false,
+            charset: 'utf-8',
+            data: paramValue,
+            success: function(data) {
+                $("#AlertMessageHdn").val("Document Saved Successfully.");
+                SaveMesaageWindow();
+            }
+        });
+    });
+  
+    function AlertMesaage() {
+        var meg = $("#AlertMessageHdn").val();
+        $("#alertMeg").text(meg);
+        var alertty = $("#alertType").val();
+        if (alertty == 'fail') {
+            $("#alertimg").show();
+            $("#saveimg").hide();
+            var window = $("#Alert");           
+            var kWnd = window.data("kendoWindow");
+            kWnd.setOptions({
+                title: " <i class='fa fa-exclamation-triangle fa-lg'></i>  Alert"               
+            }) 
+            kWnd.refresh();          
+            kWnd.center().open();
+        }
+        else {
+            $("#saveimg").show();
+            $("#alertimg").hide();
+            var window = $("#Alert");           
+            var kWnd = window.data("kendoWindow");
+            kWnd.setOptions({
+                title: "<i class='fa fa-envelope fa-lg'></i>  Message"               
+            }) 
+            kWnd.refresh();          
+            kWnd.center().open();
+        }
+       
+    }    
+    function DelAlertMesaage() {
+        var meg = $("#AlertMessageHdn").val();
+        $("#alertMeg1").text(meg);
+        var alertty = $("#alertType").val();
+        if (alertty == 'fail') {
+            $("#alertimg1").show();
+            $("#saveimg1").hide();
+        }
+        else {
+            $("#saveimg1").show();
+            $("#alertimg1").hide();
+        }
+        var window = $("#DEAlert");
+        var kWnd = window.data("kendoWindow");
+        kWnd.center().open();
+    }
+    function SaveMesaageWindow() {
+        var meg = $("#AlertMessageHdn").val();
+        $("#alertMegsave").text(meg);
+        var window = $("#MessageSave");
+        var kWnd = window.data("kendoWindow");
+        kWnd.center().open();
+    }
+    
+</script>
+<style>
+
+    html
+    {
+      font: 12px sans-serif;
+    }
+
+    html,
+    body
+    {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #treeview,
+  
+
+    #treeview
+    {
+font-size:14px !important;
+      width: 200px;
+font-weight:normal;
+    }
+
+    .disablecls
+    {
+        pointer-events:none;
+
+    }
+
+  </style>
+
+    </body>
+
+
+
+</html>
+

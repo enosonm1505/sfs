@@ -1,0 +1,317 @@
+﻿.webix_secondary .webix_button {
+    background: #fff ! important;
+    border: 1px solid #3498db! important;
+    color: black ! important;
+    border-radius:5px;
+}
+.skin-yellow .main-header .navbar 
+{
+    background-color: #0798af ! important;
+}
+
+.skin-yellow .main-header .logo 
+
+{
+    background-color:  #505b05 ! important;
+}
+
+.skin-yellow .main-header li.user-header
+
+{
+     background-color: #0798af ! important;
+}
+
+.skin-yellow .main-header .navbar .sidebar-toggle:hover 
+
+{
+    background-color:  #505b05 ! important;
+}
+
+/*.btn 
+
+{
+    border-radius: 5px ! important;
+    -webkit-box-shadow: none ! important;
+    box-shadow: none ! important;
+    border: 1px solid #0798af ! important;
+    margin-bottom:5px! important;
+   
+}*/
+.btn-box-tool 
+
+{
+    padding: 2px ! important;
+    font-size: 14px ! important;
+    background: transparent ! important;
+    color: #0798af ! important;
+}
+
+.box.box-warning 
+
+{
+    border-top-color: #0798af ! important;
+}
+.webix_el_colorpicker input, .webix_el_combo input, .webix_el_datepicker input, .webix_el_search input, .webix_el_text input{
+        border: 1px solid #0798af ! important;
+        font-size: 14px ! important;
+        border-radius:3px ! important;
+}
+.webix_dd_drag_column, .webix_ss_header, .webix_ss_header td, .webix_ss_vscroll_header {
+    background: #0798af ! important;
+}
+.webix_dtable .webix_ss_header td.webix_last_row {
+    border-bottom: 1px solid #0798af ! important;
+}
+.webix_dtable div.webix_ss_vscroll_header {
+    border-bottom-color: #0798af ! important;
+}
+    .webix_column > div.webix_cell_select:nth-child(2n), .webix_column > div.webix_cloumn_select:nth-child(2n), .webix_column > div.webix_row_select:nth-child(2n) {
+        background-color: #dcdbbb !important;
+    }
+    .webix_dtable_focused .webix_column > div.webix_row_select {
+    background: #878c7a !important;
+    color:white !important;
+}
+    .modal-footer {
+    height: 35px !important;
+    padding: 3px !important;
+     border-top-color: #0798af !important;
+}
+    .modal-header {
+    border-bottom-color: #0798af !important;
+    height: 35px !important;
+    padding: 10px !important;
+}
+   .ChkStyle .webix_inp_label{
+        width:0px ! important;
+    }
+   .webix_checkbox_1 .webix_custom_checkbox {
+    color:  #0798af !important;
+}
+    .webix_dtable .webix_ss_body .webix_column > div, .webix_dtable .webix_ss_body .webix_table_cell {
+        border-left-color: #0798af  !important;
+        border-right-color: #0798af  !important;
+    }
+    .webix_dtable_focused .webix_column > div.webix_column_select, .webix_dtable_focused .webix_column > div.webix_row_select {
+        background: #d8d7c5 !important;
+        color:#0798af !important;
+    }
+    .webix_column > div, .webix_table_cell {
+        border-bottom: 1px solid #0798af  !important;
+        border-right: 1px solid #0798af  !important;
+        padding: 0 9pt;
+    }
+.webix_dtable {
+    border-radius:5px ! important
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        /*max-width: 700px!important;
+        margin: 50px auto!important;*/
+       
+    }
+}
+@media (min-width: 576px) {
+    .PopupWidth .modal-dialog {
+        max-width: 1000px!important;
+        margin: 50px auto!important;
+         width:1000px  !important;
+    }
+}
+.webix_el_radio .webix_radio_1 .webix_custom_radio {
+    color: #0798af ! important;
+}
+.webix_fieldset > fieldset {
+    border: 1px solid #0798af! important;
+}
+.webix_el_checkbox input {
+    border-color: #0798af! important;
+}
+.webix_custom_checkbox {
+    color: #0798af! important;
+}
+
+.webix_inp_static, .webix_el_colorpicker input, .webix_el_combo .webix_inp_static, .webix_el_combo input, .webix_el_datepicker .webix_inp_static, .webix_el_datepicker input, .webix_el_richselect .webix_inp_static, .webix_el_richselect input, .webix_el_search .webix_inp_static, .webix_el_search input {
+    border-color: #0798af! important;
+}
+.webix_input_icon {
+    color: #0798af !important;
+}
+.webix_inp_counter_next {
+    color: #0798af !important;
+}
+.webix_inp_counter_prev {
+     color: #0798af !important;
+}
+.webix_el_counter .webix_inp_counter_value {
+    border-color:  #0798af !important;
+}
+.webix_el_counter .webix_inp_counter_next, .webix_el_counter .webix_inp_counter_prev {
+    border: .5px solid #0798af !important;
+}
+.webix_dd_drag_column, .webix_ss_header, .webix_ss_header td, .webix_ss_vscroll_header {
+    color: white !important;
+}
+.webix_fieldset > fieldset {
+    border: 1px solid #0798af !important;
+    border-radius: 3px;
+}
+.webix_hcell {
+    text-align:center ! important;
+}
+
+.webix_el_textarea textarea{
+     border: 1px solid #0798af !important;
+}
+.modal-content {
+    border-radius:5px !important;
+}
+.webix_ss_footer .webix_hcell {
+    text-align:right ! important;
+}
+.webix_dtable .webix_ss_footer tr:nth-child(2) td {
+    border-top: 1px solid #0798af! important;
+}
+.webix_dtable div.webix_ss_vscroll_footer {
+    border-top-color: #0798af! important;
+}
+.webix_tree_open,.webix_tree_close{
+    color:#6aa084 ! important;
+}
+.webix_cell.webix_dtable_colrow{
+    background-color:#6aa084! important;
+    color:red ! important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #ffffff! important;
+    background-color: #0798af! important;
+    border-color: #0798af #0798af #0798af! important;
+}
+.nav-tabs {
+    border-bottom: 1px solid #0798af! important;
+}
+ .webix_view .webix_dt_editor input, .webix_view .webix_dt_editor select {
+    border-color: #0798af! important;
+    border-radius: 2px;
+}
+ .webix_dtable .webix_select_mark>div.webix_row_select {
+    box-shadow: inset 2px 0 #0798af! important;
+}
+ .tab-head {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-bottom: 3px solid #0798af !important;
+}
+ .btn:disabled {
+    opacity: 0.30!important;
+}
+ .webix_cal_body .webix_cal_today .webix_cal_day_inner {
+    box-shadow: inset 0 0 0 1px #0798af !important;
+}
+ .webix_cal_body .webix_cal_event {
+    color: #0798af !important;
+}
+ .webix_cal_body .webix_cal_select .webix_cal_day_inner, .webix_cal_body .webix_cal_today.webix_cal_select .webix_cal_day_inner {
+    background-color:  #0798af !important;
+}
+ .webix_list .webix_list_item.webix_selected {
+    border-bottom: 1px solid  #0798af !important;
+}
+.webix_list_item.webix_selected {
+    box-shadow: inset 2px 0 #0798af !important;
+}
+.webix_list_item.webix_selected {
+    background:  #0798af !important;
+    color: #fff!important;
+}
+/*a {
+    color:  #0798af !important;
+}*/
+.webix_column > div:nth-child(2n) {
+    background-color: #a9d3da !important;
+}
+.close {
+    height: 45px !important;
+    line-height: 0px !important;
+}
+
+.ClickBtn{
+     background-color: #0798af !important;
+        color: #fff! important;
+}
+.UnClickBtn{
+     background-color: #fff !important;
+        color:  #0798af! important;
+}
+.webix_el_counter .webix_inp_counter_prev {
+    font-size:17px ! important;
+     font-weight:bold ! important;
+}
+.webix_el_counter .webix_inp_counter_next {
+    font-size:17px ! important;
+     font-weight:bold ! important;
+}
+ .webix_dtable{
+    border-width:1px 1px ! important;
+}
+.webix_window{
+    border-radius:5px ! important;
+}
+.webix_win_head {
+    border-bottom: 1px solid #dadee0;
+    background-color: #0798af! important;
+}
+
+webix_secondary .webix_button .webix_icon, .webix_secondary .webix_button .webix_icon_btn, .webix_secondary .webix_button .webix_img_btn_text {
+   font-size:20px;
+    font-weight: bold;
+}
+.webix_el_label .webix_el_box, .webix_inp_label, .webix_inp_top_label, legend.webix_forminput_label {
+    color: #313131;
+    font-family: Roboto,sans-serif;
+    font-size: 12px !important;
+    font-weight: 500;
+    letter-spacing: .2px;
+}
+    .webix_inp_label, .webix_inp_top_label, .webix_label_right {
+    font-size: 12px !important;
+}
+    .webix_el_colorpicker input, .webix_el_combo input, .webix_el_datepicker input, .webix_el_search input, .webix_el_text input {
+    font-size: 12px !important;
+}
+.webix_view {
+    font-size: 12px !important;
+}
+.webix_el_box {
+     font-size: 12px !important;
+}
+.webix_button, .webixbutton {
+     font-size: 12px !important;
+}
+.webix_icon_btn {
+    margin-top:1px;
+    line-height: 16.5px;
+}
+
+.bg_white{background-color:#fff; border-radius:5px; margin:4px;}
+
+/*27.11.19 editted by sathish*/
+@media only screen and (min-device-width : 1025px) and (max-device-width : 1366px) {
+    .closed-sidebar .main_wxgrid {
+        margin-left: 7%;
+    }
+}
+
+@media only screen and (min-device-width : 1367px) and (max-device-width : 1920px) {
+    .main_wxgrid{
+        width:90.75% !important;
+    }
+    .closed-sidebar .main_wxgrid{
+        width:80.5% !important;
+        margin-left:7%;
+    }
+}
+
+ /*27.11.19 editted by sathish*/

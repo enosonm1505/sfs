@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="MaterialMgtWCF.MaterialRec" CodeBehind="MaterialRec.svc.cs" %>

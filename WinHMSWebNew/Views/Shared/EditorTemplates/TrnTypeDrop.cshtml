@@ -1,0 +1,15 @@
+﻿@using Kendo.Mvc.UI
+
+ @(Html.Kendo().DropDownList()
+                       .Name("TRN_TYPE")
+                       .DataTextField("Text")
+                       .DataValueField("Value")
+                       .SelectedIndex(0)
+                        .Events(e => e.Change("Trndropchange"))
+                       .HtmlAttributes(new { Style = "width:100px", id = "TRN_TYPE" })
+                       .DataSource(d => d.
+                      Read(r => r.Action("RealzTrnType", "SalesAndMarket")
+          )
+          )
+
+)

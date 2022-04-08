@@ -1,0 +1,44 @@
+﻿body { overflow:hidden
+}
+.mainheader span{padding-left:10px}
+.mainheader a {
+float:right;margin-right:10px;}
+.floatleftVT {
+    width:50%;float:left;
+}
+.floatRightVT {
+    width:50%;float:left;
+}
+.fulwidth{width:100%;float:left;line-height:24px}
+.boxVT{float:left;width:100%!important;height: calc(100vh - 100px)!important;
+  overflow-y:scroll;}
+.boxVTT{float:left;width:100%;height:auto;}
+.boxVT1{float:left;width:100%!important;height: calc(100vh - 100px)!important;
+  overflow-y:auto;}
+.textbox1{width:100px;float:left;padding-left:5px}
+.textbox2{width:216px;float:left;padding-left:5px;margin-left:50px}
+.textbox3{width:215px;float:left;padding-left:5px;margin-left:50px}
+.textbox4{width:320px;float:left;text-align:right;padding-left:5px;}
+.textbox5{width:255px;float:left;text-align:right;padding-left:5px;}
+.textbox6{width:70px;float:left;padding-left:5px;}
+.textbox7{width:292px;float:left;text-align:right;padding-left:5px;}
+.valbox1{width:300px;float:left}
+.valbox2{width:475px;float:left;text-align:right}
+.valbox3{width:150px;float:left}
+.valbox4{width:215px;float:left;padding-left:5px;}
+
+.divMsgBox {width:350px; height:133px;}
+.vochtyp_chk{height: 25px;width: 300px;}
+.vochtyp_chk input[type=checkbox], input[type=radio] {
+    float:right;
+    box-sizing: border-box;
+    padding: 0;
+}
+.vochtyp_chk1 {width:220px; margin-left: 50px;text-align: left; float: left;}
+
+.vochtyp_chk1 input[type=checkbox], input[type=radio] {
+    float:right;
+    box-sizing: border-box;
+    padding: 0;
+}
+.vochtyp_chk2 {width:204px; margin-left: 50px;text-align: left; text-align:left; float:left;}

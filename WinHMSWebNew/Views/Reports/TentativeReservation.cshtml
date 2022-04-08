@@ -1,0 +1,231 @@
+﻿@model FoAnalysisReports.Models.FO_Model
+@{
+    ViewBag.Title = "TentativeReservation";
+    @*// if (ViewBag.VMD == "2") { Layout = "~/Views/Shared/Layout/Fo_ReportLayoutSM.cshtml"; }
+        // else { Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml"; }*@
+
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+}
+
+<style>
+    .k-dropdown {
+        width: inherit !important;
+    }
+
+    .k-datepicker {
+        width: 113px;
+    }
+</style>
+
+<link href="../../Content/sidemenu-custom.css" rel="stylesheet" />
+<link href="~/Content/sidemenu-custom.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <div class="row mb-3 new_hdr" style="margin-top: 40px !important;">
+        <div class="col-sm-3">
+
+            @using (Html.BeginForm("TentativeReservation", "Reports", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="TextWidth"  id="divPropbox">
+                    @(Html.Kendo().DropDownList().Name("Property").DataTextField("Text").DataValueField("Value").HtmlAttributes(new { onchange = "this.form.submit()", Style = "width:220px; height:35px; z-index:1" }).DataSource(source => { source.Read(read => { read.Action("LoadCompany", "Reports"); }); }))
+                </div>
+            }
+
+        </div>
+        <div class="col-sm-5 text-center">
+            <strong>
+                <label style="color:black;font-weight:bold" id="headCaption" class="wc_hdr_tlt">Tentative Reservation</label>
+            </strong>
+        </div>
+        <div class="col-sm-4">
+            <div class="card-tools text-right">
+                @(Html.Kendo().Button().Name("Print").HtmlAttributes(new { id = "print", @class = "printACBook fa fa-print" }).Content(""))
+                @(Html.Kendo().Button().Name("Excel").HtmlAttributes(new { id = "Excel", @class = "printACBook fa fa-file-excel" }).Content(""))
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm(new { enctype = "multipart/form-data" }))
+    {
+        <div class="themedes mythemedes">
+            <div id="Mastable">
+                <div class="col-md-10 col-md-offset-2" id="selectionPart" style=" height: fit-content;">
+                    <div class="Urowline">
+                        <div class="Urowline " style="padding:unset;">
+                            @Html.CheckBox("Due", new { @checked = "checked" })
+                            @Html.Label("Due")
+                        </div>
+                        <div class="Urowline date_range" style="padding:unset;">
+                            @Html.CheckBox("date_range")
+                            @Html.Label("Date Range")
+                        </div>
+                        <div class="Urowline ">
+                            @Html.CheckBox("can")
+                            @Html.Label("Cancelled / No Show")
+                        </div>
+                    </div>
+                    <div class="Urowline" style="padding: unset !important;">
+                        <div class="" style="padding: unset !important;margin-right:30px;">
+                            @Html.Label("Due Start:", new { @id = "fromCaption" })
+                            @(Html.Kendo().DatePicker().Name("duestart").HtmlAttributes(new { id = "duestart" }))
+                            <span id="fErr" class="text-danger"></span>
+                        </div>
+                        <div class=" hideTo" style="padding: unset !important;margin-right:30px;">
+                            @Html.Label("To:")
+                            @(Html.Kendo().DatePicker().Name("to").HtmlAttributes(new { id = "to" }))
+                            <span id="fErr" class="text-danger"></span>
+                        </div>
+                        <div class="" style="padding: unset !important;height: fit-content;">
+                            <button type="button" id="display" class="btn-sm btn-primary">Display</button>
+                        </div>
+                    </div>
+                    <div  style="line-height: 27px;
+    font-size: 13px;
+    display: -webkit-inline-box;">
+                        @Html.Label("No of Reservations:")
+                        @Html.TextBoxFor(x => x.no_of_reserv, new { @style = "width: 30px !important;", disabled = "disabled", @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="divShow" style="height: 487px;margin:1% 0% 0% 0%;width:98%;">
+                        <iframe id="MyReport" width="98%" height="450px" style="overflow:hidden !important;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="AlertMessageHdn" />
+    }
+</div>
+<script type="text/javascript">
+        var edbLDays = "60";
+        var Account_dt = "";
+        $(document).ready(function (e) {
+            today = new Date();
+            $('#to').data('kendoDatePicker').value(kendo.date.addDays(today, 7));
+            loadIndicators();
+            if ($('#Due').prop('checked')) {
+                $('#can').prop('checked', false);
+                $('.date_range').show();
+                $('#headCaption').text('Tentative Reservation - Due');
+            }
+            else {
+                $('.date_range').hide();
+                $('#date_range').prop('checked', true);
+            }
+            if (($('#Due').prop('checked') == false) && ($('#can').prop('checked') == false)) {
+                $('#Due').prop('checked', true);
+            }
+            if ($('#date_range').prop('checked')) {
+                $('#fromCaption').text('Due Start');
+                $('.hideTo').show();
+            }
+            else {
+                $('#fromCaption').text('Due on');
+                $('#duestart').data('kendoDatePicker').value(Account_dt);
+                $('.hideTo').hide();
+            }
+        });
+        $('#Due').change(function () {
+            $('#selectionPart').removeClass('col-md-offset-2');
+            $('#selectionPart').addClass('col-md-offset-1');
+            $('#can').prop('checked', false);
+            $('#Due').prop('checked', true);
+            $('.date_range').show();
+            $('#date_range').prop('checked', true);
+            $('#headCaption').text('Tentative Reservation - Due');
+            $('.hideTo').show();
+        });
+        $('#can').change(function () {
+            $('#selectionPart').removeClass('col-md-offset-1');
+            $('#selectionPart').addClass('col-md-offset-2');
+            $('.hideTo').show();
+            $('#headCaption').text('Tentative Reservation - Cancelled/No Show');
+            $('#Due').prop('checked', false);
+            $('#can').prop('checked', true);
+            $('.date_range').hide();
+        });
+        $('#date_range').change(function (e) {
+            if ($('#date_range').prop('checked')) {
+                $('#fromCaption').text('Due Start');
+                $('.hideTo').show();
+                $('#selectionPart').removeClass('col-md-offset-2');
+                $('#selectionPart').addClass('col-md-offset-1');
+            }
+            else {
+                $('#fromCaption').text('Due on');
+                $('#duestart').data('kendoDatePicker').value(Account_dt);
+                $('.hideTo').hide();
+                $('#selectionPart').removeClass('col-md-offset-1');
+                $('#selectionPart').addClass('col-md-offset-2');
+            }
+        });
+        $("#MyReport").on('load', function () {
+            $("#divTheme").removeClass("pagefalse");
+            $("#pageload").hide();
+        });
+        $('#print').click(function () {
+            $('#MyReport').contents().find('#Print').trigger("click");
+        });
+        $('#Excel').click(function () {
+            $('#MyReport').contents().find('#Excel').trigger("click");
+        });
+        $('#display').click(function () {
+            debugger;
+            $('#no_of_reserv').val('');
+            var reqObj = {};
+            reqObj["REQID"] = "2";
+            reqObj["REQTYPE"] = "Ten_Res_Display";
+            reqObj["Due"] = ($('#Due').prop('checked') ? "1" : "0");
+            reqObj["Cancelled"] = ($('#can').prop('checked') ? "1" : "0");
+            reqObj["Date_Range"] = ($('#date_range').prop('checked') ? "1" : "0");
+            reqObj["From"] = kendo.toString($('#duestart').data('kendoDatePicker').value(), 'MM/dd/yyyy');
+            reqObj["To"] = kendo.toString($('#to').data('kendoDatePicker').value(), 'MM/dd/yyyy');
+            reqObj["CrsResFlag"] = "";
+            $.ajax({
+                type: "POST",
+                url: "/Reports/CallService",
+                async: false,
+                data: "req=" + JSON.stringify(reqObj),
+                success: function (e) {
+                    var d = JSON.parse(e);
+                    var count = 0;
+                    for (i = 0; i < d.length; i++) {
+                        if (d[i]["reserve_no"] != null) {
+                            if (d[i]["reserve_no"].toString().trim() != "") {
+                                count += 1;
+                            }
+                        }
+                    }
+                    if (count >= 0) {
+                        $('#no_of_reserv').val(count);
+                    }
+                    $.ajax({
+                        type: "POST",
+                        url: "/Reports/AssignSession",
+                        async: false,
+                        data: "data=" + encodeURIComponent(e) + "&From=" + $('#duestart').val() + "&To=" + $('#to').val(),
+                        success: function (e) {
+                            $("#MyReport").attr('src', '../../Reports_AspxPages/TentativeReservation.aspx?RptData=1');
+                        }
+                    });
+                }
+            });
+        });
+        function loadIndicators() {
+            var reqObj = {};
+            reqObj["REQID"] = "1";
+            reqObj["REQTYPE"] = "Ten_Res_IndicatorLoad";
+            $.ajax({
+                type: "POST",
+                url: "/Reports/CallService",
+                async: false,
+                data: "req=" + JSON.stringify(reqObj),
+                success: function (e) {
+                    d = JSON.parse(e);
+                    if (d.length > 0) {
+                        Account_dt = d[0]["Cur_Dt"].toString().trim();
+                    }
+                }
+            });
+        }
+</script>

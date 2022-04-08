@@ -1,0 +1,171 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<!DOCTYPE html>
+<html lang="en">
+    <head runat="server">
+        <meta charset="utf-8" />
+        <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+        <link href="<%: Url.Content("~/favicon.ico") %>" rel="shortcut icon" type="image/x-icon" />     
+        <meta name="viewport" content="width=device-width" />
+ 
+        
+            <link href="../../Content/bluetheme.css" rel="stylesheet" />
+            <link href="../../Content/Home.css" rel="stylesheet" />
+        <link href="../../Content/MyDesign.css" rel="stylesheet" />
+        <script src="../../scripts/kendo/2015.3.930/kendo.timezones.min.js"></script>
+        <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.common-bootstrap.min.css") %>" rel="stylesheet" type="text/css" />
+        <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.mobile.all.min.css") %>" rel="stylesheet" type="text/css" />
+        <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.dataviz.min.css") %>" rel="stylesheet" type="text/css" />
+        <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.bootstrap.min.css") %>" rel="stylesheet" type="text/css" />
+        <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.dataviz.bootstrap.min.css") %>" rel="stylesheet" type="text/css" />
+        <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/jquery.min.js") %>"></script>  
+        <script src="../../scripts/bootstrap.min.js"></script>
+        <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/kendo.all.min.js") %>"></script> 
+        <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/kendo.aspnetmvc.min.js") %>"></script>         
+        <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/jszip.min.js") %>"></script>     
+        <script src="../../scripts/bootstrap.min.js"></script>
+</head>    
+
+    <script type="text/javascript">
+
+        document.onkeypress = function (event) {
+            event = (event || window.event);
+            if (event.keyCode == 123) {
+                //alert('No F-12');
+                return false;
+            }
+             if (event.keyCode == 222) {
+                //alert('No F-12');
+                return false;
+            }
+             if (event.keyCode == 186) {
+                //alert('No F-12');
+                return false;
+            }
+        }
+
+        document.onmousedown = function (event) {
+            event = (event || window.event);
+            if (event.keyCode == 123) {
+                //alert('No F-keys');
+                return false;
+            }
+            if (event.keyCode == 222) {
+                //alert('No F-12');
+                return false;
+            }
+            if (event.keyCode == 186) {
+                //alert('No F-12');
+                return false;
+            }
+        }
+
+        document.onkeydown = function (event) {
+            event = (event || window.event);
+            if (event.keyCode == 123) {
+                //alert('No F-keys');
+                return false;
+            }
+            if (event.keyCode == 222) {
+                //alert('No F-12');
+                return false;
+            }
+            if (event.keyCode == 186) {
+                //alert('No F-12');
+                return false;
+            }
+        }
+        /////////////////////end///////////////////////
+
+       //// Disable right click script
+        /////visit http://www.rainbow.arch.scriptmania.com/scripts/
+       ///// var message = "Sorry, right-click has been disabled";
+        /////////////////////////////////
+            //function clickIE() { if (document.all) { (message); return false; } }
+            //function clickNS(e) {
+            //if 
+            //(document.layers || (document.getElementById && !document.all)) {
+            //if (e.which == 2 || e.which == 3) { (message); return false; }
+            //}
+            //}
+            //if (document.layers)
+            //{ document.captureEvents(Event.MOUSEDOWN); document.onmousedown = clickNS; }
+            //else { document.onmouseup = clickNS; document.oncontextmenu = clickIE; }
+            //document.oncontextmenu = new Function("return false")
+        
+        
+        //function disableCtrlKeyCombination(e) {
+        //    //list all CTRL + key combinations you want to disable
+        //    var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'v', 'j', 'w', 's');
+        //    var key;
+        //    var isCtrl;
+        //    if (window.event) {
+        //        key = window.event.keyCode;     //IE
+        //        if (window.event.ctrlKey)
+        //            isCtrl = true;
+        //        else
+        //            isCtrl = false;
+        //    }
+        //    else {
+        //        key = e.which;     //firefox
+        //        if (e.ctrlKey)
+
+        //            isCtrl = true;
+        //        else
+        //            isCtrl = false;
+        //    }
+        //    //if ctrl is pressed check if other key is in forbidenKeys array
+        //    if (isCtrl) {
+
+        //        for (i = 0; i < forbiddenKeys.length; i++) {
+
+        //            //case-insensitive comparation
+        //            if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+
+
+        //                // alert('Key combination CTRL + ' + String.fromCharCode(key) + ' has been disabled.');
+        //                return false;
+        //            }
+        //        }
+        //    }
+        //    // return true;
+        //}
+
+        function IsNumber(evt) {
+            //debugger;
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            else return true;
+            
+        }
+</script>
+   <body  style="overflow-y:scroll; overflow:auto;">
+<%--<body onload="changeHashOnLoad();" >--%>
+            <div class="divfield">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                <div id="pageloaddiv" style=" position:absolute; left:0px; top:0px; width:100%; height:100%; margin:0px; fit-position:100%; z-index:189">
+                    <img src="../../Images/progress.GIF" style="position:absolute; left:50%; top:45%; height:100px; width:80px;" />
+                </div>
+                </div>   
+        <div class="divfield1">
+            <div class="themedes">
+            <asp:ContentPlaceHolder ID="FeaturedContent" runat="server" />
+          </div></div>      
+        <%: Html.Partial("_CommonMeaasgeWindow") %>     
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">                   
+                </div>
+            </div>
+        </footer>                
+        <asp:ContentPlaceHolder ID="ScriptsSection" runat="server" />
+        
+        <script type="text/javascript">
+            $(window).load(function () {
+                $("#pageloaddiv").fadeOut(10);
+            });
+</script> 
+        <script src="../../Scripts/FTDateValidation.js"></script>
+    </body>
+</html>

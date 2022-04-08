@@ -1,0 +1,1131 @@
+﻿@{
+    ViewBag.Title = "FoRptCashTransaction";
+    
+    //if (ViewBag.VMD == "2") { Layout = "~/Views/Shared/Layout/FO_LayoutSM.cshtml"; }
+    //else
+    //{ Layout = "~/Views/Shared/_FoTransLayout.cshtml"; }
+    Layout = "~/Views/Shared/_FoComLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $("#MenuName").val('FOMNUCASCASHTRN');
+        $("#MenuLvl").val('FOMNUCAS');
+        $("#MenuLvl1").val('');
+         var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+            var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+        webix.ready(function () {
+            $("#LoadDIv").hide();
+
+            var Prop_Id =  @Html.Raw(Json.Encode(ViewBag.COMP));
+            var defClos="<--ALL-->";
+            var newdt=new Date();
+            var Propertyload = LoadProperty();
+            var AccountDt = account_dt();
+            var vFromDt = formatDate1(AccountDt);
+            var CurrDt = current_dt();
+            var CurrDt = current_dt();
+            var vToDt=formatDate1(CurrDt);
+
+            var  Mulprop = @Html.Raw(Json.Encode(ViewBag.MULPROP));
+            
+            webix.ui({
+                container: "divPropbox", view: "richselect", id: "ddlproperty", options: Propertyload,
+                on: {
+                    onChange: function (newv, oldv) {
+                        sessionReassign();
+                        LoadCurrDet(newv);
+                    }
+
+                }
+            });
+
+
+            webix.ui({
+                view: "button", id: "Excel", value: "Excel", width: 70, container: "divExcel", label: excel, tooltip: true,
+                on: {
+                    onItemClick: function () {
+                        DisplayExcel();
+
+                    }
+
+                }
+
+            });
+
+
+            webix.ui({
+                container: "divMisc", view: "checkbox", id: "ChkMisc", labelWidth: 5, labelRight: "Incl Misc Payment/Collection", customCheckbox: false,
+                click: function () {
+                   
+                },
+                on: {
+                    onChange: function (newv, oldv) {
+
+                    }
+                }
+            }),
+
+             //webix.ui({
+             //    container: "divUser", view: "checkbox", id: "ChkUser", labelWidth: 5, labelRight: "User All", customCheckbox: false,value:"1",
+                
+             //    on: {
+             //        onChange: function (newv, oldv) {
+             //            if($$("ChkUser").getValue() == "1")
+             //                $$("ImgUser").hide();
+             //            else
+             //                $$("ImgUser").show();
+             //        }
+             //    }
+             //}),
+
+             //webix.ui({
+             //    container: "divImgUser", view: "button", id: "ImgUser", type:"icon",icon: 'wxi-search',
+             //    click: function () {
+             //        UserLoadfn();
+             //    },
+             //}),
+           
+            webix.ui({ container: "divFrom", view: "label", id: "lblAson", label: "As on",});
+
+            webix.ui({
+                container: "divFromDt", view: "datepicker", name: "AsOn", id: "AsOn", format: "%d/%m/%Y", stringResult: true, value: vToDt,
+                on: {
+                    onChange: function (newv, oldv) {
+                        var AsOn=$$("AsOn").getText();
+                        $$("dtTrans").clearAll();
+                    }
+                }
+            });
+
+            webix.ui({ container: "divbtnDisp",css:"webix_primary", view: "button", id: "btnDisplay", icon: "wxi-check", label: "Display", inputWidth: 80, width: 80, 
+                click: function () { fnbtnDisplay(); } }),
+                webix.ui({
+                view: "button", id: "Print", value: "Print", width: 70, container: "divPrint", label: Print, tooltip: true,
+                on: {
+                    onItemClick: function () {
+                        fnGridPrint();
+                    }
+                }
+
+                });
+
+            
+
+            webix.ui({
+                container: "divTransTy", label: "Trn Type", maxWidth: 350, labelWidth: 100, view: "search",id: "txtTranTy", readonly: true, placeholder: "<All>",
+                on: {
+                    onSearchIconClick: function () {
+                        TrnTypeLoadfn();
+                    },
+                    onChange: function(NewVal, OldVal){
+                    }
+                }
+            });
+
+            webix.ui({
+                container: "divUserTy", label: "User", maxWidth: 350, labelWidth: 100, view: "search",id: "txtUserId", readonly: true, placeholder: "<All>",
+                on: {
+                    onSearchIconClick: function () {
+                        UserLoadfn();
+                    },
+                    onChange: function(NewVal, OldVal){
+                    }
+                }
+            });
+
+
+           
+            $$("ddlproperty").setValue(Prop_Id);
+            LoadCurrDet(Prop_Id);
+            //$$("ImgUser").hide();
+            if(Mulprop == "1")
+                $$("ddlproperty").show();
+            else
+                $$("ddlproperty").hide();
+            dtLoadReport();
+        });
+    });
+    $(document).on('shown.lte.pushmenu', function () {
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(1);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+      
+    }).on('collapsed.lte.pushmenu', function(){
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(2);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+    });
+    function  sidebarFn(val){
+       
+        $$("dtTrans").resize();
+    }
+    function dtLoadReport() {
+        webix.ui({
+            view: "treetable",
+            id: "dtTrans",
+            select: 'row',
+            fixedRowHeight: false,
+            rowLineHeight: 23,
+            height: 485,
+            minWidth: 900,
+            spans: true,
+            autoConfig: true,
+            resizeColumn: true,
+            data: [],
+            css: "webix_header_border",
+            container: "gridRptt",
+            columns: [
+                { header: "Vouch No", id: "VouchNo",width:70,css: { 'text-align': 'left ! important' } },
+                { header: "Room No", id: "Room",  width:70,css: { 'text-align': 'left ! important' } },
+                { header: "Guest Name", id: "Guest",width:300, css: { 'text-align': 'left ! important' } },
+                { header: "Arrival Dt", id: "Arrival_Dt",width:100, css: { 'text-align': 'left ! important' } },
+                { header: "Departure Dt", id: "Departure_Dt",width:100, css: { 'text-align': 'left ! important' } },
+                { header: "Trn Type", id: "Trn_type",width:150,  css: { 'text-align': 'left ! important' } },
+                { header: "Revenue", id: "Revenue",  css: { 'text-align': 'left ! important' },hidden:true, },
+                {
+                    header: "Amt Received", id: "Receive_Id", width: 100, css: { 'text-align': 'right ! important' },
+                    format: function (value) {
+                        return fnCurrFormat(value);
+                    },
+                    exportType: "number",
+                    exportFormat: "#,##0.00",
+                },
+
+                {
+                    header: "Amt Paid", id: "Pay", width: 100, css: { 'text-align': 'right ! important' },
+                    format: function (value) {
+                        return fnCurrFormat(value);
+                    },
+                    exportType: "number",
+                    exportFormat: "#,##0.00",
+                },
+                   {
+                       header: "Bal Amt", id: "Bal", width: 100, css: { 'text-align': 'right ! important' },
+                       format: function (value) {
+                           return fnCurrFormat(value);
+                       },
+                       exportType: "number",
+                       exportFormat: "#,##0.00",
+                   },
+                   
+                   { header: "Narration", id: "Narration", width: 200, css: { 'text-align': 'left ! important' } },
+
+                    { header: "User", id: "User", width: 90, css: { 'text-align': 'left ! important' } },
+
+            ],
+            scheme: {
+                $change: function (item) {
+
+                    if (item.Guest != "" && item.Guest != null) {
+
+                        if (item.Guest.substring(0,5) == "Total") {
+                            debugger;
+                            $$("dtTrans").addSpan(item.id, "Guest", 1, 1, null, "GrpTot1");
+                            $$("dtTrans").addSpan(item.id, "Receive_Id", 1, 1, null, "GrpTot1");
+                            $$("dtTrans").addSpan(item.id, "Pay", 1, 1, null, "GrpTot1");
+                            $$("dtTrans").addSpan(item.id, "Bal", 1, 1, null, "GrpTot1");
+                        }
+
+
+                    }
+                },
+
+            },
+
+            on: {
+                onAfterLoad: function () {
+                    var rowId = this.getFirstId();
+                },
+
+                onBeforeClose: function () {
+                    return false;
+
+                },
+
+            },
+        });
+
+    }
+    
+    function formatDate1(StrDt) {
+
+        var Parts = StrDt.split("/");
+        var Dt = Parts[0];
+        var Mn = Parts[1];
+        var Yr = Parts[2].substring(0, 4);
+        var Str = Yr + "-" + Mn + "-" + Dt;
+        return Str;
+    };
+    function current_dt() {
+
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETCURRENTDT";
+        reqobj["DateFormat"] = "DTM";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/getCurrentDate",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+
+                    if (d != "" && d != undefined && d != null) {
+                        rowData = JSON.parse(d);
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+        return rowData.CURR_DT;
+    }
+    function account_dt() {
+
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETACCOUNTDT";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/getAcountDate",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+
+                    if (d != "" && d != undefined && d != null) {
+                        rowData = JSON.parse(d);
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+        return rowData.Account_Dt;
+    }
+
+    function LoadCurrDet(vProperty) {
+        //debugger;
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETCURRFORMATDETAILS";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/GetCurrFormatDetails",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+
+                    if (d != "" && d != undefined && d != null) {
+                        rowData = JSON.parse(d);
+                        $("#CURRENCY_FORMAT").val(rowData.CURRENCY_DECIMLIMIT);
+                        $("#CURRENCY_DELIMIT").val(rowData.CURRENCY_DELIMIT);
+                        $("#CURRENCY_DECIMLIMIT").val(rowData.CURRENCY_DECIMLIMIT);
+
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+    };
+
+    function fnCurrFormat(value) {
+
+        var Currfrmt = $("#CURRENCY_FORMAT").val();
+        var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+        var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+        return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+    }
+    function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+
+
+        if (value == null) return "";
+
+        if (value.toString() != "") {
+
+
+            if (Currfrmt == "L") {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+                var afterPoint = '';
+                if (x.indexOf('.') > 0) {
+                    afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                    afterPoint = CurrDelimit + afterPoint
+                }
+
+
+
+                x = Math.floor(x);
+                x = x.toString();
+                var lastThree = x.substring(x.length - 3);
+                var otherNumbers = x.substring(0, x.length - 3);
+                if (otherNumbers != '' && otherNumbers != '-')
+                    lastThree = ',' + lastThree;
+                return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+            }
+            else {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+
+                //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                //var res = x.replace(/(\d{3})/g, "1,")
+                var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                if (res.indexOf('.') > 0) {
+
+                    res = res.replace(".", CurrDelimit)
+                }
+
+
+                return res;
+            }
+        }
+        else {
+            return value;
+        }
+    };
+    function LoadProperty() {
+
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GET_PROPERTYLOAD_WEBIX";
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: "/FoTrans/fnGetProperty",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+
+                if (d != "" && d != undefined && d != null) {
+                    rowData = d;
+
+
+                }
+
+            },
+        });
+        return rowData;
+
+    }
+    function sessionReassign() {
+        var PropertyId = $$("ddlproperty").getValue();
+        $.ajax({
+            type: "POST",
+            url: "/FoTrans/PeopertySessionReAssign",
+            data: "PropertyId=" + PropertyId,
+            success: function (data) {
+                
+            }
+        });
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "/Reports/GetCurrFormatDetails",
+            data: "CmpId=" + PropertyId,
+            success: function (d) {
+                return true;
+            }
+        });
+    }
+    
+    function fnGridPrint() {
+        debugger;
+        var FileName = "";
+        var len ="";
+        FileName = "Cash Transaction ";
+        var vHeader = FileName;
+        var FullData = "";
+        FullData = $$("dtTrans").serialize();
+        len = FullData.length;
+        if (len > 0) {
+            webix.print($$("dtTrans"), {
+                docHeader: vHeader,
+                fontSize: 25,
+                mode: "landscape",
+                fit: "data"
+
+            });
+        }
+        else {
+            alert("Records not present in Report");
+        }
+
+    };
+    function DisplayExcel() {
+        debugger;
+        var FileName = "";
+        var FullData = "";
+        var len = 0;
+        FileName = "Cash Transaction ";
+        FullData = $$("dtTrans").serialize();
+            len = FullData.length;
+            if (len > 0) {
+                var data = $$("dtTrans");
+                webix.toExcel($$("dtTrans"), {
+
+                    filename: FileName,
+                    styles: false,
+                    name: FileName,
+                    rawValues: true,
+                    spans: true,
+                    filterHTML: true,
+                    title:true,
+                });
+            }
+            else
+            {
+                alert("Records not present in Report");
+            }
+    }
+    function fnbtnDisplay() {
+
+
+        $("#LoadDIv").show();
+        //$$("dtChkIn").clearAll();
+        var reqobj = {};
+        var DispalyLedgerval = "";
+
+        if ($$("AsOn").getText() == "") {
+            webix.message({ type: 'warning', text: "AsOn Date cann't be empty" });
+            return;
+        }
+
+        if ($$("ddlproperty").getText() == "") {
+            webix.message({ type: 'warning', text: "Property cann't be empty" });
+            return;
+        }
+        reqobj["AsOn"] = $$("AsOn").getText();
+        reqobj["ChkMisc"] =$$("ChkMisc").getValue();
+        reqobj["StrFilUser"] = $("#User_Id").val();
+        reqobj["TRNID"] =  $("#TrnType_Id").val();
+        reqobj["TRNNM"] =  $("#TrnType_Nm").val();
+        
+        reqobj["ToMin"] = "";
+        reqobj["REQTYPE"] = "GET_FOCASHTRANASACTIONONLY";
+        
+        var dataparam = JSON.stringify(reqobj);
+        $$("dtTrans").clearAll();
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/FoTrans/fnCashOnly",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+
+                if (d != "" && d != undefined && d != null) {
+                    rowData = d;
+                    $$("dtTrans").clearAll();
+                    $$("dtTrans").parse(rowData);
+                    $$("dtTrans").refresh();
+
+                }
+                else {
+                    AlertMessage("No records found");
+                }
+
+            },
+        });
+        $("#LoadDIv").hide();
+    }
+
+    function UserLoadfn() {
+        webix.ui({
+            view: "window",
+            move: true,
+            position: "center",
+            head: "User Search",
+            id: 'UserPOP',
+            modal: true,
+            width: 300,
+            close: true,
+            body: {
+                rows: [
+                    {
+                        id:"UserSearch",
+                        select: 'row',
+                        view: "datatable",
+                        columns: [
+                                { id: "User_nm", header: 'User Name', width: 250, css: { 'text-align': 'left ! important' } },
+                               // { header: "Select", id: "Select", template: "{common.checkbox()}", width: 80, css: { 'text-align': 'center ! important' } },
+                                { id: "Select", editor: "Checkbox", header: [{ content: "masterCheckbox", css: { 'padding': '0px ! important' } }], width: 30, css: "check_box", template: "{common.checkbox()}" },
+                                { id: "USER_ID", hidden: true },
+                        ],
+                        scroll: "y",
+                        height: 350,
+                        data: [],
+                        on: {
+                        },
+                    },
+                    {
+                        view: 'form',
+                        elements:[
+                            {
+                                cols: [
+                                    {
+                                        view: 'label',
+                                        label: ' ',
+                                        name: 'label1',
+                                        id: 'label1',
+                                        labelWidth: 100,
+                                    },
+                                    {
+                                        cols: [
+                                            {
+                                                view: 'button',
+                                                type: "icon",
+                                                icon: "wxi-file",
+                                                label: 'Ok',
+                                                width: 100,
+                                                align: "right",
+                                                on: {
+                                                    onItemClick: function () {
+                                                        var data = $$("UserSearch").serialize();
+                                                        var lenval = data.length;
+                                                        var UserId = '';
+                                                        var UserNm = '';
+                                                        if (lenval != 0) {
+                                                            for (i = 0; i < lenval; i++) {
+                                                                debugger;
+                                                                if (data[i].Select == "1") {
+                                                                    if (UserId == "") {
+                                                                        UserId += "'"+ $.trim(data[i].USER_ID)+"'";
+                                                                        UserNm += "'"+ $.trim(data[i].User_nm)+"'";
+
+                                                                    }
+                                                                    else {
+                                                                        UserId += ",'" + $.trim(data[i].USER_ID)+"'";
+                                                                        UserNm += ",'" + $.trim(data[i].User_nm)+"'";
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        $("#User_Id").val(UserId);
+                                                        $("#User_Nm").val(UserNm);
+                                                        $$("txtUserId").setValue($("#User_Nm").val());
+                                                        
+                                                        $$("UserPOP").hide();
+                                                        fnbtnDisplay();
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                view: 'button',
+                                                type: "icon",
+                                                icon: "wxi-close",
+                                                label: 'Cancel',
+                                                minWidth: 100,
+                                                align: "right",
+                                                on: {
+                                                    onItemClick: function () {
+                                                        $$("UserPOP").hide();
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }).show();
+        var dataval = UserSearchloadfn();
+    }
+
+    function UserSearchloadfn()
+    {
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GET_USERSRCH";
+        reqobj["TRNDT"] = $$("AsOn").getText();
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/FoTrans/fnUserSerach",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+                $$("UserSearch").clearAll();
+
+                
+                if (d != "") {
+                    var UserId = $("#User_Id").val();
+                    rowData = d;
+
+                    $$("UserSearch").clearAll();
+                    $$("UserSearch").parse(rowData);
+                    
+                    var data = $$("UserSearch").serialize();
+                    var lenval = data.length;
+                    if (lenval != 0) {
+                        for (i = 0; i < lenval; i++) {
+                            if (UserId != "") {
+                                if (UserId.includes($.trim(data[i].USER_ID)) == true)
+                                    data[i].Select = "1";
+                                else
+                                    data[i].Select = "0";
+
+                            }
+                        }
+                    }
+                }
+                $$("UserSearch").refresh();
+            },
+        });
+    }
+
+
+    function TrnTypeLoadfn() {
+       
+        webix.ui({
+            view: "window",
+            move: true,
+            position: "center",
+            head: "Transaction Type Search",
+            id: 'TrnTyPop',
+            modal: true,
+            width: 300,
+            close: true,
+            body: {
+                rows: [
+                    {
+                        cols: [
+                                    {
+                                    },
+                                    {
+                                    },
+                                    {
+                                    },
+                                    {
+                                        view: "checkbox", id: "chkAll", labelWidth: 5, labelRight: "All", customCheckbox: false,
+                            
+                                        on: {
+                                            onChange: function (newv, oldv) {
+                                                var data = $$("TrnTySearch").serialize();
+                                                var lenval = data.length;
+                                                var sel = "";
+                                                if (lenval != 0) {
+                                                    for (i = 0; i < lenval; i++) {
+                                                        if($$("chkAll").getValue() == "1")
+                                                            data[i].Select = "1";
+                                                        else
+                                                            data[i].Select = "0";
+                                                    }
+                                                }
+                                                $$("TrnTySearch").refresh();
+                                            }
+                                        }
+                                    }
+                                    ]
+                    },
+                    {
+                        id:"TrnTySearch",
+                        select: 'row',
+                        view: "datatable",
+                        columns: [
+                                { id: "TRN_NM", header: 'Transaction Type', width: 200, css: { 'text-align': 'left ! important' } },
+                                //{ header: { content: "masterCheckbox", css: { 'padding': '0px ! important' } }, id: "Select", template: "{common.checkbox()}", width: 80, css: { 'text-align': 'center ! important', 'padding': '0px ! important' } },
+                                { header: "Select", id: "Select", template: "{common.checkbox()}", width: 80, css: { 'text-align': 'center ! important' } },
+                                { id: "TRN_ID", hidden: true },
+                        ],
+                        scroll: "y",
+                        height: 250,
+                        data: [],
+                        on: {
+                        },
+                    },
+                    {
+                        view: 'form',
+                        elements:[
+                            {
+                                cols: [
+                                    {
+                                        view: 'label',
+                                        label: ' ',
+                                        name: 'label1',
+                                        id: 'label1',
+                                        labelWidth: 100,
+                                    },
+                                    {
+                                        cols: [
+                                            {
+                                                view: 'button',
+                                                type: "icon",
+                                                icon: "wxi-file",
+                                                label: 'Ok',
+                                                width: 100,
+                                                align: "right",
+                                                on: {
+                                                    onItemClick: function () {
+                                                        fngetTrnType();
+                                                        $$("TrnTyPop").hide();
+                                                        fnbtnDisplay();
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                view: 'button',
+                                                type: "icon",
+                                                icon: "wxi-close",
+                                                label: 'Cancel',
+                                                minWidth: 100,
+                                                align: "right",
+                                                on: {
+                                                    onItemClick: function () {
+                                                        $$("TrnTyPop").hide();
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }).show();
+        var dataval = TransactionTypeSrch();
+    }
+
+    function fngetTrnType(){
+        var data = $$("TrnTySearch").serialize();
+        var lenval = data.length;
+        var TrnType_Id = '';
+        var TrnType_Nm = '';
+        if (lenval != 0) {
+            for (i = 0; i < lenval; i++) {
+                debugger;
+                if (data[i].Select == "1") {
+                    if (TrnType_Id == "") {
+                        TrnType_Id += "'"+ $.trim(data[i].TRN_ID)+"'";
+                        TrnType_Nm += "'"+ $.trim(data[i].TRN_NM)+"'";
+                    }
+                    else {
+                        TrnType_Id += ",'" + $.trim(data[i].TRN_ID)+"'";
+                        TrnType_Nm += ",'"+ $.trim(data[i].TRN_NM)+"'";
+                    }
+                }
+            }
+        }
+        $("#TrnType_Id").val(TrnType_Id);
+        $("#TrnType_Nm").val(TrnType_Nm);
+        $$("txtTranTy").setValue($("#TrnType_Nm").val());
+    }
+
+    function TransactionTypeSrch()
+    {
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GET_TRNTYPE";
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/FoTrans/fnUserSerach",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+                $$("TrnTySearch").clearAll();
+                
+                if (d != "") {
+                    var TrnNm = $("#TrnType_Nm").val();
+                    rowData = d;
+
+                    $$("TrnTySearch").clearAll();
+                    $$("TrnTySearch").parse(rowData);
+                    
+                    var data = $$("TrnTySearch").serialize();
+                    var lenval = data.length;
+                    if (lenval != 0) {
+                        for (i = 0; i < lenval; i++) {
+                            if (TrnNm != "") {
+                                if (TrnNm.includes("'"+$.trim(data[i].TRN_NM)+"'") == true)
+                                    data[i].Select = "1";
+                                else
+                                    data[i].Select = "0";
+
+                            }
+                        }
+                    }
+                }
+                $$("TrnTySearch").refresh();
+            },
+        });
+    }
+
+    
+
+    function AlertMessage(Text) {
+        return webix.alert({
+            ok: "Ok",
+            width: 350,
+            title: "Alert Message",
+            text: Text,
+            modal: true,
+        });
+    }
+</script>
+<style>
+    .textaligntotal {
+        text-align: right;
+    }
+
+    .ColColor {
+        color: #28a745;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: left !important;
+    }
+
+    .GrpTot1 {
+        color: red;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: right !important;
+    }
+
+    .GrpTot2 {
+        color: red;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: right !important;
+    }
+
+    .GrpHead {
+        color: #4894ca;
+        font-weight: Bold;
+        font-family: Arial !important;
+    }
+
+    .btnXX {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 1.5;
+    }
+    .webix_button {
+        background-color: #dad6d6 !important;
+        color: #454545 !important;
+    }
+
+
+    .webix_secondary .webix_button:focus, .webix_secondary .webix_button:hover {
+        color: #fff !important;
+        background-color: #1a388a !important;
+    }
+
+    webix_secondary .webix_button:active {
+        color: #fff !important;
+        background-color: #1a388a !important;
+    }
+
+    .new_hdr {
+        background: rgba(220, 239, 252,0.15);
+        -webkit-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        -moz-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        padding: 10px 0px 9px 10px;
+        margin-top: 40px !important;
+    }
+    .webix_dtable {
+        cursor: default;
+        position: relative;
+        z-index: 0;
+       
+    }
+</style>
+<link href="~/Content/sidemenu-custom.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 " ng-app="CashCollect" ng-controller="CashController" id="CashCollect">
+
+        <div id="divPage">
+
+            <div class="container-fluid">
+
+                <div class="row new_hdr">
+
+
+
+                    <div class="col-sm-3">
+                        <div class="TextWidth" style="margin-left: 10px;margin-top:5px;" id="divPropbox">
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-5 text-center">
+                        <label class="mt-1" style="color: black; font-weight: bold" id="lblRptCaption"><strong class="mt-1 wc_hdr_tlt">Cash Transaction Report</strong></label>
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        <div class="mt-1">
+
+                            <div class=" float-right"><div id="divPrint" ></div></div>
+                            <div class=" float-right"><div id="divExcel" ></div></div>
+
+                        </div>
+
+                    </div>
+                </div>
+                @*<div class="TopHdr">
+                <div class="logcnt">
+                    <img src="../../Images/Logo.png">
+                </div>
+                <div class="TextWidth" style="margin-left: 10px;margin-top:5px;" id="divPropbox">
+                </div>
+
+                <div class="TopHdrMod">
+                    <label style="color: black; font-weight: bold" id="lblRptCaption">Cash Transaction Report</label>
+                </div>
+                <div class="HdrBtnBx">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class="btnXX"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+                <div style="border:solid transparent;" class="row">
+
+                    <div class="col-xl-3 col-md-8 col-sm-2 pr-0">
+                        <div style="width:100%; float: left">
+                            <div id="divMisc" style="width:100%;"></div>
+
+                        </div>
+                    </div>
+                    @*<div class="col-xl-3 col-md-8 col-sm-6 pr-0">
+                        <div style="width:40%; float: left">
+                            <div id="divUser" style="width:100%;"></div>
+
+                        </div>
+                        <div style="width:20%; float: left">
+                            <div id="divImgUser" style="width:100%;"></div>
+
+                        </div>
+                    </div>*@
+
+                    <div class="col-xl-3 col-md-5 col-sm-3 ">
+                        <div class="row">
+                            <div class="col-xl-3 col-md-3 col-sm-3 pr-0 ">
+                                <div id="divFrom"></div>
+                            </div>
+                            <div class="col-xl-6 col-md-7 col-sm-6 pl-0">
+                                <div id="divFromDt"> </div>
+
+                            </div>
+                            <div class="col-xl-3 col-md-7 col-sm-6 pl-0"><div id="divbtnDisp"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div style="width:100%; float: left">
+                            <div id="divTransTy"  style="width:100%;"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div style="width:100%; float: left">
+                            <div id="divUserTy" style="width:100%;"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="gridRptt" style="width: 100%; height: 500px"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </section>
+    </div>
+    <input type="hidden" id="CURRENCY_FORMAT" />
+    <input type="hidden" id="CURRENCY_DELIMIT" />
+    <input type="hidden" id="CURRENCY_DECIMLIMIT" />
+    <input type="hidden" id="NA_POS_POST_IND" />
+    <input type="hidden" id="NA_FACL_POST_IND" />
+    <input type="hidden" id="NA_BNQ_POST_IND" />
+    <input type="hidden" id="NA_SPA_POST_IND" />
+    <input type="hidden" id="User_Id" />
+    <input type="hidden" id="TrnType_Id">
+<input type="hidden" id="User_Nm">
+<input type="hidden" id="TrnType_Nm">

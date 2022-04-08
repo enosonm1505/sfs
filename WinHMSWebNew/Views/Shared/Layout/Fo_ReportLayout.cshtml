@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/favicon.ico")" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @*@Styles.Render("~/Content/Kendo/css")
+    <link href="../../Content/MyDesign.css" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/kendo.compatibility.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.3.930/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.3.930/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2015.3.930/kendo.default.min.css") " rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/2015.3.930/jquery.min.js") "></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.3.930/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.3.930/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.3.930/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2015.3.930/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>*@
+
+    
+
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <link href="../../Content/bluetheme.css" rel="stylesheet" />
+    <link href="../../Content/Calender.css" rel="stylesheet" />
+    <link href="../../Content/Home.css" rel="stylesheet" />
+
+    <link href="../../webix-pro/webix.min.css" rel="stylesheet" /> 
+    @*<link href="../../Content/webixCss.css" rel="stylesheet" />*@
+
+    <script src="../../webix-pro/webix.min.js"></script> 
+    <script src="../../webix-pro/index.js"></script>
+
+
+
+    <script src="../../Scripts/FTDateValidation.js"></script>
+
+    <style>
+        .Urowline {
+            line-height: 27px;
+            font-size: 13px;
+            display: -webkit-inline-box;
+            margin-right: 30px;
+        }
+
+        .Pagefalse {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .btnButton {
+            margin-right: 15px !important;
+            margin-left: 0 !important;
+            margin-bottom: 2px !important;
+            border: 1px solid #8BCADE !important;
+            background-color: #C0EAF7 !important;
+            font-weight: normal !important;
+        }
+
+        .col-md-offset-3 {
+            margin-left: 25%;
+        }
+
+        .icon {
+            font-style: normal !important;
+            font-weight: bold;
+        }
+        input[type=checkbox] {
+        vertical-align: sub;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body  style="overflow-y: scroll">
+    <div id="pageloaddiv" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+        <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+    </div>
+    @Html.Partial("_HeaderMenuFoMaster")
+    @RenderBody()
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+    $(window).load(function () {
+        $("#pageloaddiv").fadeOut(2000);
+    });    
+    
+</script>
+

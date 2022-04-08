@@ -1,0 +1,238 @@
+﻿/*Main Table*/
+.Rectable
+{
+    background-color: #e9f3ed;
+    border-collapse: collapse !important;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    position: inherit !important;
+}
+
+.css
+{
+}
+
+.Rectable > thead > tr > th
+{
+    background-color: #cee5e7 !important;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 4px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    white-space: nowrap;
+    height:24px;
+    color:#333;
+    /*border-top: 1px solid red;*/
+    /*border-bottom: 2px solid #ddd;*/
+}
+/*.Rectable > tbody > tr > th,.Rectable > tfoot > tr > th,.Rectable > thead > tr > th,.Rectable > thead > tr > td */
+.Rectable > tbody > tr > td, .Rectable > tfoot > tr > td {
+    font-size: 13px;
+    /*padding: 3px 4px;*/
+
+    padding: 7px 4px;
+    line-height: 1.42857143;
+    /*border-top: 1px solid red;*/
+    white-space: nowrap;
+    vertical-align: middle;
+    height: 25px;
+    color:#333;
+}
+
+.Rectable > caption + thead > tr:first-child > td, .Rectable > caption + thead > tr:first-child > th, .Rectable > colgroup + thead > tr:first-child > td, .Rectable > colgroup + thead > tr:first-child > th, .Rectable > thead:first-child > tr:first-child > td, .Rectable > thead:first-child > tr:first-child > th
+{
+    border-top: 0;
+    vertical-align:middle;
+}
+
+.Rectable > tbody + tbody
+{
+    /*border-top: 2px solid #ddd;*/
+}
+
+.Rectable-condensed > tbody > tr > td, .Rectable-condensed > tbody > tr > th, .Rectable-condensed > tfoot > tr > td, .Rectable-condensed > tfoot > tr > th, .Rectable-condensed > thead > tr > td, .Rectable-condensed > thead > tr > th
+{
+    padding: 5px;
+}
+
+/*Table Bordered*/
+.Rectable-bordered
+{
+    /*border: 1px solid #d6e3f2;*/
+      border-top: 1px solid #bdd2ed;
+}
+
+    .Rectable-bordered th
+    {
+        /*border: 2px solid #d6e3f2 !important;*/
+    }
+
+    .Rectable-bordered td
+    {
+        border-radius: 12px;
+        /*border: 2px solid #d6e3f2 !important;*/
+        /*border: 2px solid #bce8f1 !important;*/
+        border: 3px solid #e8f4ef !important;
+            background-color: #fff;
+    }
+
+    .Rectable-bordered > tbody > tr > td, .Rectable-bordered > tbody > tr > th, .Rectable-bordered > tfoot > tr > td, .Rectable-bordered > tfoot > tr > th, .Rectable-bordered > thead > tr > td, .Rectable-bordered > thead > tr > th
+    {
+        border: 1px solid #bdd2ed;
+    }
+
+    .Rectable-bordered > thead > tr > td, .Rectable-bordered > thead > tr > th
+    {
+        /*border-bottom-width: 2px;*/
+    }
+
+.Rectable-striped > tbody > tr:nth-of-type(odd)
+{
+    background-color: #f9f9f9;
+}
+
+.Rectable-hover > tbody > tr:hover
+{
+    background-color: #f5f5f5;
+}
+
+.Rectable > tbody > tr.active > td, .Rectable > tbody > tr.active > th, .Rectable > tbody > tr > td.active, .Rectable > tbody > tr > th.active, .Rectable > tfoot > tr.active > td, .Rectable > tfoot > tr.active > th, .Rectable > tfoot > tr > td.active, .Rectable > tfoot > tr > th.active, .Rectable > thead > tr.active > td, .Rectable > thead > tr.active > th, .Rectable > thead > tr > td.active, .Rectable > thead > tr > th.active
+{
+    background-color: #f5f5f5;
+}
+
+.Rectable-hover > tbody > tr.active:hover > td, .Rectable-hover > tbody > tr.active:hover > th, .Rectable-hover > tbody > tr:hover > .active, .Rectable-hover > tbody > tr > td.active:hover, .Rectable-hover > tbody > tr > th.active:hover
+{
+    background-color: #e8e8e8;
+}
+
+.Rectable > tbody > tr.success > td, .Rectable > tbody > tr.success > th, .Rectable > tbody > tr > td.success, .Rectable > tbody > tr > th.success, .Rectable > tfoot > tr.success > td, .Rectable > tfoot > tr.success > th, .Rectable > tfoot > tr > td.success, .Rectable > tfoot > tr > th.success, .Rectable > thead > tr.success > td, .Rectable > thead > tr.success > th, .Rectable > thead > tr > td.success, .Rectable > thead > tr > th.success
+{
+    background-color: #dff0d8;
+}
+
+.Rectable-hover > tbody > tr.success:hover > td, .Rectable-hover > tbody > tr.success:hover > th, .Rectable-hover > tbody > tr:hover > .success, .Rectable-hover > tbody > tr > td.success:hover, .Rectable-hover > tbody > tr > th.success:hover
+{
+    background-color: #d0e9c6;
+}
+
+.Rectable > tbody > tr.info > td, .Rectable > tbody > tr.info > th, .Rectable > tbody > tr > td.info, .Rectable > tbody > tr > th.info, .Rectable > tfoot > tr.info > td, .Rectable > tfoot > tr.info > th, .Rectable > tfoot > tr > td.info, .Rectable > tfoot > tr > th.info, .Rectable > thead > tr.info > td, .Rectable > thead > tr.info > th, .Rectable > thead > tr > td.info, .Rectable > thead > tr > th.info
+{
+    background-color: #d9edf7;
+}
+
+.Rectable-hover > tbody > tr.info:hover > td, .Rectable-hover > tbody > tr.info:hover > th, .Rectable-hover > tbody > tr:hover > .info, .Rectable-hover > tbody > tr > td.info:hover, .Rectable-hover > tbody > tr > th.info:hover
+{
+    background-color: #c4e3f3;
+}
+
+.Rectable > tbody > tr.warning > td, .Rectable > tbody > tr.warning > th, .Rectable > tbody > tr > td.warning, .Rectable > tbody > tr > th.warning, .Rectable > tfoot > tr.warning > td, .Rectable > tfoot > tr.warning > th, .Rectable > tfoot > tr > td.warning, .Rectable > tfoot > tr > th.warning, .Rectable > thead > tr.warning > td, .Rectable > thead > tr.warning > th, .Rectable > thead > tr > td.warning, .Rectable > thead > tr > th.warning
+{
+    background-color: #fcf8e3;
+}
+
+.Rectable-hover > tbody > tr.warning:hover > td, .Rectable-hover > tbody > tr.warning:hover > th, .Rectable-hover > tbody > tr:hover > .warning, .Rectable-hover > tbody > tr > td.warning:hover, .Rectable-hover > tbody > tr > th.warning:hover
+{
+    background-color: #faf2cc;
+}
+
+.Rectable > tbody > tr.danger > td, .Rectable > tbody > tr.danger > th, .Rectable > tbody > tr > td.danger, .Rectable > tbody > tr > th.danger, .Rectable > tfoot > tr.danger > td, .Rectable > tfoot > tr.danger > th, .Rectable > tfoot > tr > td.danger, .Rectable > tfoot > tr > th.danger, .Rectable > thead > tr.danger > td, .Rectable > thead > tr.danger > th, .Rectable > thead > tr > td.danger, .Rectable > thead > tr > th.danger
+{
+    background-color: #f2dede;
+}
+
+.Rectable-hover > tbody > tr.danger:hover > td, .Rectable-hover > tbody > tr.danger:hover > th, .Rectable-hover > tbody > tr:hover > .danger, .Rectable-hover > tbody > tr > td.danger:hover, .Rectable-hover > tbody > tr > th.danger:hover
+{
+    background-color: #ebcccc;
+}
+
+.Rectable-responsive
+{
+    min-height: .01%;
+    overflow-x: auto;
+}
+
+@media screen and (max-width:767px)
+{
+    .Rectable-responsive
+    {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        /*border: 1px solid #ddd;*/
+    }
+
+        .Rectable-responsive > .Rectable
+        {
+            margin-bottom: 0;
+        }
+
+            .Rectable-responsive > .Rectable > tbody > tr > td, .Rectable-responsive > .Rectable > tbody > tr > th, .Rectable-responsive > .Rectable > tfoot > tr > td, .Rectable-responsive > .Rectable > tfoot > tr > th, .Rectable-responsive > .Rectable > thead > tr > td, .Rectable-responsive > .Rectable > thead > tr > th
+            {
+                white-space: nowrap;
+            }
+
+        .Rectable-responsive > .Rectable-bordered
+        {
+            border: 0;
+        }
+
+            .Rectable-responsive > .Rectable-bordered > tbody > tr > td:first-child, .Rectable-responsive > .Rectable-bordered > tbody > tr > th:first-child, .Rectable-responsive > .Rectable-bordered > tfoot > tr > td:first-child, .Rectable-responsive > .Rectable-bordered > tfoot > tr > th:first-child, .Rectable-responsive > .Rectable-bordered > thead > tr > td:first-child, .Rectable-responsive > .Rectable-bordered > thead > tr > th:first-child
+            {
+                border-left: 0;
+            }
+
+            .Rectable-responsive > .Rectable-bordered > tbody > tr > td:last-child, .Rectable-responsive > .Rectable-bordered > tbody > tr > th:last-child, .Rectable-responsive > .Rectable-bordered > tfoot > tr > td:last-child, .Rectable-responsive > .Rectable-bordered > tfoot > tr > th:last-child, .Rectable-responsive > .Rectable-bordered > thead > tr > td:last-child, .Rectable-responsive > .Rectable-bordered > thead > tr > th:last-child
+            {
+                border-right: 0;
+            }
+
+            .Rectable-responsive > .Rectable-bordered > tbody > tr:last-child > td, .Rectable-responsive > .Rectable-bordered > tbody > tr:last-child > th, .Rectable-responsive > .Rectable-bordered > tfoot > tr:last-child > td, .Rectable-responsive > .Rectable-bordered > tfoot > tr:last-child > th
+            {
+                border-bottom: 0;
+            }
+}
+
+
+
+.panel > .Rectable-bordered, .panel > .Rectable-responsive > .Rectable-bordered
+{
+    border: 0;
+}
+
+    .panel > .Rectable-bordered > tbody > tr > td:first-child, .panel > .Rectable-bordered > tbody > tr > th:first-child, .panel > .Rectable-bordered > tfoot > tr > td:first-child, .panel > .Rectable-bordered > tfoot > tr > th:first-child, .panel > .Rectable-bordered > thead > tr > td:first-child, .panel > .Rectable-bordered > thead > tr > th:first-child, .panel > .Rectable-responsive > .Rectable-bordered > tbody > tr > td:first-child, .panel > .Rectable-responsive > .Rectable-bordered > tbody > tr > th:first-child, .panel > .Rectable-responsive > .Rectable-bordered > tfoot > tr > td:first-child, .panel > .Rectable-responsive > .Rectable-bordered > tfoot > tr > th:first-child, .panel > .Rectable-responsive > .Rectable-bordered > thead > tr > td:first-child, .panel > .Rectable-responsive > .Rectable-bordered > thead > tr > th:first-child
+    {
+        border-left: 0;
+    }
+
+    .panel > .Rectable-bordered > tbody > tr > td:last-child, .panel > .Rectable-bordered > tbody > tr > th:last-child, .panel > .Rectable-bordered > tfoot > tr > td:last-child, .panel > .Rectable-bordered > tfoot > tr > th:last-child, .panel > .Rectable-bordered > thead > tr > td:last-child, .panel > .Rectable-bordered > thead > tr > th:last-child, .panel > .Rectable-responsive > .Rectable-bordered > tbody > tr > td:last-child, .panel > .Rectable-responsive > .Rectable-bordered > tbody > tr > th:last-child, .panel > .Rectable-responsive > .Rectable-bordered > tfoot > tr > td:last-child, .panel > .Rectable-responsive > .Rectable-bordered > tfoot > tr > th:last-child, .panel > .Rectable-responsive > .Rectable-bordered > thead > tr > td:last-child, .panel > .Rectable-responsive > .Rectable-bordered > thead > tr > th:last-child
+    {
+        border-right: 0;
+    }
+
+    .panel > .Rectable-bordered > tbody > tr:first-child > td, .panel > .Rectable-bordered > tbody > tr:first-child > th, .panel > .Rectable-bordered > thead > tr:first-child > td, .panel > .Rectable-bordered > thead > tr:first-child > th, .panel > .Rectable-responsive > .Rectable-bordered > tbody > tr:first-child > td, .panel > .Rectable-responsive > .Rectable-bordered > tbody > tr:first-child > th, .panel > .Rectable-responsive > .Rectable-bordered > thead > tr:first-child > td, .panel > .Rectable-responsive > .Rectable-bordered > thead > tr:first-child > th
+    {
+        border-bottom: 0;
+    }
+
+    .panel > .Rectable-bordered > tbody > tr:last-child > td, .panel > .Rectable-bordered > tbody > tr:last-child > th, .panel > .Rectable-bordered > tfoot > tr:last-child > td, .panel > .Rectable-bordered > tfoot > tr:last-child > th, .panel > .Rectable-responsive > .Rectable-bordered > tbody > tr:last-child > td, .panel > .Rectable-responsive > .Rectable-bordered > tbody > tr:last-child > th, .panel > .Rectable-responsive > .Rectable-bordered > tfoot > tr:last-child > td, .panel > .Rectable-responsive > .Rectable-bordered > tfoot > tr:last-child > th
+    {
+        border-bottom: 0;
+    }
+
+.panel > .Rectable-responsive
+{
+    margin-bottom: 0;
+    border: 0;
+}
+
+table.dataTable tbody th.dt-body-center, table.dataTable tbody td.dt-body-center,table.dataTable thead tr.dt-body-center {
+    text-align: center;
+}
+table.dataTable tbody td.dt-body-Right,table.dataTable thead tr.dt-body-Right {
+    text-align: right;
+}

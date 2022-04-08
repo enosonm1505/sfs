@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_FoTransLayout.cshtml";
+}
+<div ng-app="MainApp" ng-controller="IndexControl" class="themedess_mp">
+
+    <form>
+        <div class="col-xl-6">
+            <div class=" row">
+                <div class="col-xl-12 text-center">
+                    <div class="col-xl-12 ">
+                        <label style="color:maroon; font-weight:bold;">MVC checkin</label>
+                    </div>
+                </div>
+            </div>
+            <div class=" row">
+                <div class="col-xl-12">
+                    <div class="col-xl-12 ">
+                        <a href="#" ng-click="FoGrupchkin()">
+                            <label style=" font-weight:bold;">Group checkin</label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class=" row">
+                <div class="col-xl-12">
+                    <div class="col-xl-12 ">
+                        <a href="#" ng-click="FoGroupList()">
+                            <label style=" font-weight:bold;">Group List</label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </form>
+</div>
+<script>
+    var app = angular.module('MainApp', [])
+
+    app.controller('IndexControl', function ($scope, $window) {
+        debugger;
+        $scope.FoGrupchkin = function () {
+            var Host = $window.location.host;
+            var LoadingUrl = "http://" + Host + "/FoTrans/FoGroupCheckin";
+            window.location.href = LoadingUrl;
+        };
+     $scope.FoGroupList = function () {
+            var Host = $window.location.host;
+            var LoadingUrl = "http://" + Host + "/FoTrans/FORptGroupList";
+            window.location.href = LoadingUrl;
+        };
+    });
+</script>

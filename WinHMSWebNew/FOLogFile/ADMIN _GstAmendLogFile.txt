@@ -1,0 +1,97 @@
+12/23/2021 12:29:06 PM
+D:\Hosted\WinHMSWebNew\FOLogFile\ADMIN _GstAmendLogFile.txt
+
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.SqlClient.SqlException: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlD...).
+Date :12/23/2021 12:29:06 PM
+
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.SqlClient.SqlException: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlD...).Date :12/23/2021 12:29:10 PM
+fnGetProfGstDet:10Date :12/23/2021 12:29:11 PM
+
+System.ArgumentException: Column 'CHECK_IN_DT' does not belong to table PROFSTATISTICS.
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at FoReports2.FOGstInfoAmend.fnLoadStatistics(String gstId)
+   at FoReports2.FOGstInfoAmend.fnProfileEdit(Int32 Profindx, Int32 GrdIndx, Int32 flag)Column 'CHECK_IN_DT' does not belong to table PROFSTATISTICS.System.Data   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at FoReports2.FOGstInfoAmend.fnLoadStatistics(String gstId)
+   at FoReports2.FOGstInfoAmend.fnProfileEdit(Int32 Profindx, Int32 GrdIndx, Int32 flag)Date :12/23/2021 12:29:11 PM
+
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.SqlClient.SqlException: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlD...).Date :12/23/2021 2:41:19 PM
+
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.SqlClient.SqlException: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlD...).Date :12/23/2021 2:56:45 PM
+
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.SqlClient.SqlException: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlD...).Date :12/23/2021 2:56:53 PM
+fnGetProfGstDet:10Date :12/23/2021 2:56:54 PM
+
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'. (Fault Detail is equal to An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.SqlClient.SqlException: Incorrect syntax near the keyword 'UNION'.
+Incorrect syntax near the keyword 'AND'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlD...).Date :12/23/2021 5:19:57 PM
+
+System.ArgumentException: The 'SelectedIndex' and 'SelectedValue' attributes are mutually exclusive.
+   at System.Web.UI.WebControls.ListControl.PerformDataBinding(IEnumerable dataSource)
+   at System.Web.UI.WebControls.ListControl.OnDataBinding(EventArgs e)
+   at System.Web.UI.WebControls.ListControl.PerformSelect()
+   at System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   at FoReports2.FOGstInfoAmend.fnProfileEdit(Int32 Profindx, Int32 GrdIndx, Int32 flag)The 'SelectedIndex' and 'SelectedValue' attributes are mutually exclusive.System.Web   at System.Web.UI.WebControls.ListControl.PerformDataBinding(IEnumerable dataSource)
+   at System.Web.UI.WebControls.ListControl.OnDataBinding(EventArgs e)
+   at System.Web.UI.WebControls.ListControl.PerformSelect()
+   at System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   at FoReports2.FOGstInfoAmend.fnProfileEdit(Int32 Profindx, Int32 GrdIndx, Int32 flag)

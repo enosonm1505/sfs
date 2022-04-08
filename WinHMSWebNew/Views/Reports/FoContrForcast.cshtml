@@ -1,0 +1,2798 @@
+﻿@{
+    ViewBag.Title = "Contribution Forecast";
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+   
+}
+
+@Html.Partial("_RptRoomTpSrch")
+@Html.Partial("_RptSegmentTypeSrch")
+@*@Html.Partial("_RptContForcastOptions")*@
+@*@Html.Partial("_CommonMeaasgeWindow")*@
+<div class="content-wrapper">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <link href="../../Content/Contribute.css" rel="stylesheet" />
+        <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+       
+        <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+        <link href="~/FO/CSS/sidemenu-custom.css" rel="stylesheet" />
+        <div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>
+        </div>
+
+        @*<%@ Register Src="~/FO/FOMaster.ascx" TagName="MENUFO" TagPrefix="MN" %>
+            <div><MN:MENUFO ID="Menu" runat="server"></MN:MENUFO></div>*@
+
+        <div id="divPage">
+
+            <div class="container-fluid">
+
+                <div style="margin-top: 40px !important;" class="row new_hdr">
+                    <div class="col-sm-3">
+
+                        <div class="TextWidth" style="margin-left: 10px;margin-top:5px;" id="divPropbox">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-center">
+                        <strong>
+                            <label class="wc_hdr_tlt" id="lblRptCaption"><strong>Contribution Forecast </strong></label>
+                        </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card-tools text-right mt-2">
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class="btnXX"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                @*<%--<div style="width:280px;float:left; height:100vh;">sidemenu</div>--%>*@
+                
+                <div style="border:solid transparent;" class="row">                    
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="col-xl-11 col-md-11 col-sm-11 p-0" style="float: left;">
+                                    <div id="divSeg"></div>
+                                </div>
+                                <div class="col-xl-1 col-md-1 col-sm-1  pr-0" style=" float:left;">
+                                    <div id="divAdvSrch"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="display:none">
+                            <div class="col-12">
+                                <div class="col-xl-4 col-lg-4 col-md-5 col-sm-3" style="padding-right: 2px; float: left; ">
+                                    <div id="divlblCat"></div>
+                                </div>
+                                <div class="col-xl-1  col-md-1 col-sm-1 p-0" style="float: left;">
+                                    <div id="divCat"></div>
+                                </div>
+                                <div class="col-xl-7 col-lg-7 col-md-6 col-sm-7 p-0" style="float: left;">
+                                    <div id="divddlCat"> </div>
+                                </div>
+
+                            </div>
+                        </div>
+                       
+                        <div class="row">
+                            <div class="col-12">
+                                
+                                <div class="col-xl-5 col-lg-5  col-md-6 col-sm-6 p-0" style="float: left;max-width:80px">
+                                    <div id="divAll"></div>
+                                </div>                                
+                                <div class="col-xl-7 col-lg-7 col-md-6 col-sm-7 p-0" style="float: left;">
+                                    <div id="divAllbtn"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-2 col-md-2 col-sm-4" style="max-width:145px">
+                        <div id="divChkComplHU"></div>
+                        <div id="divChkDayUse"></div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6 ">
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-9 col-md-10 col-sm-9 pr-0" style="max-width:180px">
+                                <div id="divFromMthDate"> </div>
+                                <div id="divFromDt"> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-9 col-md-10 col-sm-9 pr-0" style="max-width:180px">
+                                <div id="divToMthDate"></div>
+                                <div id="divToDt"> </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-2 col-sm-3  pr-0">
+                                <div id="divbtnDisp"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-6 pr-0" style="max-width:280px">
+
+                        <div style="width:35%; float: left">
+                            <div id="divChkReal" style="height:18px"></div>
+                            <div id="divChkDet" style="height:18px"></div>
+                        </div>
+                        <div style="width: 35%; float: left" id="dvOccPer">
+                            <div id="divChkDayws" style="height:18px"></div>
+                            <div id="divChkQuart" style="height:18px"></div>
+                            <div id="divChkMonthws" style="height:18px"></div>
+                            <div id="divChkLstYr" style="height:18px;display:none"></div>
+                            <div id="divChkVar" style="height:18px;display:none"></div>
+                        </div>
+                        <div style="width: 30%; float: left" id="dvOccPer">
+                            <div id="divChkRevPar"></div>
+                            <div id="divChkRevPor"></div>
+                            <div class="row">                               
+                                <div class="col-12">
+                                    <div id="divAnlbtn" style="float:left"></div>
+                                </div>
+                                <div class="col-12">
+                                    <div id="divOptbtn" style="float:left"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div id="gridRptt" style="width: 100%; "></div>
+                        <div id="gridRpttMnth" style="width: 100%; "></div>
+
+                    </div>
+                </div>
+
+                @*<div class="row">
+                        <div class="col-sm-12">
+                            <div id="gridRptt" style="width: 100%; height: 500px"></div>
+
+                        </div>
+                    </div>*@
+
+
+
+
+            </div>
+        </div>
+
+
+        <input type="hidden" id="Log" />
+        <input type="hidden" id="W10_IND" />
+        <input type="hidden" id="J15_IND" />
+        <input type="hidden" id="Q15_IND" />
+        <input type="hidden" id="COMPID" />
+        <input type="hidden" id="CURRENCY_FORMAT" />
+        <input type="hidden" id="CURRENCY_DELIMIT" />
+        <input type="hidden" id="CURRENCY_DECIMLIMIT" />
+        <input type="hidden" id="CHK_CONSOLID" value="1" />
+        <input type="hidden" id="CHK_SEGMENT" value="0" />
+        <input type="hidden" id="CHK_SUMMARY" value="0" />
+        <input type="hidden" id="S14_IND" />
+        <input type="hidden" id="C3_IND" />
+        <input type="hidden" id="F1_IND" />
+        <input type="hidden" id="G3_IND" />
+        <input type="hidden" id="F11_IND" />
+        <input type="hidden" id="J14_IND" />
+        <input type="hidden" id="J2_IND" />
+        <input type="hidden" id="PM_IND" />
+        <input type="hidden" id="SALE_IND" />
+        <input type="hidden" id="V24_IND" />
+        <input type="hidden" id="R24_IND" />
+        <input type="hidden" id="L12_IND" />
+        <input type="hidden" id="B3_IND" />
+        <input type="hidden" id="PLAN_APPL_IND" />
+        <input type="hidden" id="TRAVEL_IND" />
+        <input type="hidden" id="SegmntId" />
+        <input type="hidden" id="RoomTyId" />
+        <input type="hidden" id="HdnCurrDt" />
+        <input type="hidden" id="HdnCurrMnth" />
+        <input type="hidden" id="HdnAccDt" />
+        <input type="hidden" id="HdnToAccDt" />
+        <input type="hidden" id="HdnAccMnth" />
+        <input type="hidden" id="HdnFrmMnth" />
+        <input type="hidden" id="HdnToMnth" />
+        <input type="hidden" id="HdnYrFrmMnth" />
+        <input type="hidden" id="HdnYrToMnth" />
+
+        <input type="hidden" id="CUST_CUR_DT" />
+        <input type="hidden" id="YEAR_START_DATE" />
+        <input type="hidden" id="BASE_COUNTRY_ID" />
+
+        <input type="hidden" id="CHK_NT" value="1" />
+        <input type="hidden" id="CHK_REV" />
+        <input type="hidden" id="CHK_ARR" />
+        <input type="hidden" id="CHK_OTHREV" />
+        <input type="hidden" id="CHK_PAX" />
+
+
+
+        @*Topmenu Style start*@
+
+        <style>
+           
+
+            .btnXX {
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 1.5;
+            }
+        </style>
+
+        @*Topmenu Style ends*@
+        <style>
+            .Pagefalse {
+                pointer-events: none;
+                opacity: 0.6;
+            }
+
+            .btn-filter .webix_button {
+                border: none !important;
+                background: none !important;
+            }
+
+            .btn-option .webix_icon_btn {
+                font-weight: normal !important;
+            }
+
+            .multiline {
+                line-height: 22px !important;
+                position: relative;
+            }
+
+            .GrpTot1 {
+                color: black;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GrpTot2 {
+                color: black;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GrpTotBtm {
+                background-color: lightgray;
+                color: Brown;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GrpTotGrnd {
+                background-color: blue;
+                color: white;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .GndTot {
+                background-color: blue;
+                color: white;
+                font-weight: Bold;
+                font-family: Arial !important;
+            }
+
+            .HideRow {
+                display: none !important;
+            }
+
+            .WeakEnd {
+                background-color: #ffb6c147;
+            }
+
+            .PastDay {
+                background-color: #f3001673;
+            }
+        </style>
+
+        <script>
+
+        $(document).ready(function () {
+            
+            $("#LoadDIv").hide();
+            var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+            var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+
+
+
+            function fnExcelExport() {
+                
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+                if ($$("ChkMonthws").getValue() == 1 || $$("ChkQuartws").getValue() == 1 || $$("ChkDayws").getValue() == 1) {
+                    FullData = $$("gridRptMnth").serialize();
+                    var len = FullData.length;
+                    if (len > 0) {
+                        webix.toExcel($$("gridRptMnth"), {
+                            filename: vHeader,
+                            styles: true,
+                            name: vHeader,
+                            docHeader: vHeader,
+                            rawValues: true,
+                        });
+                    }
+                    else {
+                        alert("Records not present in Report");
+                    }
+                }
+                else {
+                    FullData = $$("gridRpt").serialize();
+                    var len = FullData.length;
+                    if (len > 0) {
+                        webix.toExcel($$("gridRpt"), {
+                            filename: vHeader,
+                            styles: true,
+                            name: vHeader,
+                            docHeader: vHeader,
+                            rawValues: true,
+                        });
+                    }
+                    else {
+                        alert("Records not present in Report");
+                    }
+                }
+            };
+            function fnGridPrint() {
+                
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+
+                if ($$("ChkMonthws").getValue() == 1 || $$("ChkQuartws").getValue() == 1 || $$("ChkDayws").getValue() == 1) {
+                    FullData = $$("gridRptMnth").serialize();
+                    var len = FullData.length;
+                    if (len > 0) {
+                        webix.print($$("gridRptMnth"), {
+                            docHeader: { text: vHeader, fontSize: 25 },
+                            fit: "page",
+                            scroll: false,
+                            mode: "landscape"
+                        });
+                    }
+                    else {
+                        alert("Records not present in Report");
+
+                    }
+                }
+                else {
+                    FullData = $$("gridRpt").serialize();
+                    var len = FullData.length;
+                    if (len > 0) {
+                        webix.print($$("gridRpt"), {
+                            docHeader: { text: vHeader, fontSize: 25 },
+                            fit: "page",
+                            scroll: false,
+                            mode: "landscape"
+                        });
+                    }
+                    else {
+                        alert("Records not present in Report");
+                    }
+                }
+
+            };
+          
+            webix.ready(function () {
+                GridDesign();
+                fnLoadPopWindows();
+                fnLoanContAnlOptWindowLoad();
+                webix.ui({
+                    view: "button", id: "Print", value: "Print",  width: 70, container: "divPrint", label: Print, tooltip: true,
+                    on: {
+                        onItemClick: function () {
+                            fnGridPrint();
+                        }
+                    }
+
+                });
+
+                webix.ui({
+                    view: "button", id: "Excel", value: "Excel",  width: 70, container: "divExcel", label: excel, tooltip: true,
+                    on: {
+                        onItemClick: function () {
+                            fnExcelExport();
+
+                        }
+
+                    }
+
+                });
+
+                
+                //webix.ui({ container: "divlblSeg", view: "label",  label: "Segment", });
+                webix.ui({ container: "divSeg", view: "richselect",label:"Segment",labelWidth:60,  id: "ddlSeg", on: { onChange: function () { fnddlSegChange(); } } });
+                webix.ui({ container: "divlblCat", view: "label", id: "ChkCatLbl", label: "Category", });
+                webix.ui({ container: "divCat", view: "checkbox", id: "ChkCat", labelWidth: 0, customCheckbox: false, click: function () { fnChkCatClick(); } }),
+                webix.ui({ container: "divddlCat", view: "richselect", id: "ddlCat", on: { onChange: function () { $$("gridRpt").clearAll(); } }, hidden: true, });
+
+               
+                webix.ui({ container: "divAll", view: "checkbox", id: "ChkAll", labelWidth: 60, label: "All", width: 80, customCheckbox: false, click: function () { fnChkAllClick(); } }),
+                webix.ui({ container: "divAllbtn", view: "button", width: 30, borderless: true, id: "btnAll", label: "<span  class='wc_fnt18 fas fa-1x  fa-search'></span>", click: function () { fnbtnAllClick(); } });
+
+                webix.ui({ container: "divAdvSrch", tooltip: "Advance Filter", view: "button", width: 30, type: "icon", borderless: true, hidden: true, id: "btnAdvSearch", icon: 'fa fa-filter', css: "btn-filter", click: function () { $$("RptAdvFilter").show(); } });
+
+
+
+                
+                webix.ui({
+                    container: "divFromDt", view: "datepicker", label: "From", labelWidth:40, name: "FromDt", id: "FromDt", format: "%d/%m/%Y", stringResult: true,
+                    on: {
+                        onChange: function () {
+                            $$("gridRpt").clearAll();
+                            $$("gridRptMnth").clearAll();
+                            var frmdate = $$("FromDt").getValue();
+                            var todate = $$("ToDt").getValue();
+                            if (frmdate != "" && todate != "") SMFromDateChange();
+                        }
+                    }
+                });
+                webix.ui({
+                    container: "divFromMthDate", view: "datepicker", label: "From", labelWidth: 40, name: "FromMthDate", id: "FromMthDate", format: "%M %Y", type: "month", stringResult: true, hidden: true,
+                    on: {
+                        onChange: function () {
+                            $$("gridRpt").clearAll();
+                            $$("gridRptMnth").clearAll();
+
+                            if ($$("ChkQuartws").getValue() == 1) {
+                                var YrStDt = $("#YEAR_START_DATE").val();
+                                if (YrStDt != "")
+                                    var vSetDate = "";
+                                var YrStMnth = YrStDt.substring(3, 5);
+                                var CurrDt = $$("FromMthDate").getValue();
+                                var CurrYr = CurrDt.substring(4, 8);
+                                var vSetDate = FnRetMonth1(parseInt(YrStMnth)) + " " + CurrYr.toString().trim();
+                                $$("FromMthDate").setValue(vSetDate);
+                                var vEndMnth = parseInt(YrStMnth) + 11;
+                                if (vEndMnth > 12) {
+                                    vEndMnth = vEndMnth - 12;
+                                    CurrYr = Number(CurrYr) + 1;
+                                }
+                                vSetDate = FnRetMonth1(parseInt(vEndMnth)) + " " + CurrYr.toString().trim();
+                                $$("ToMthDate").setValue(vSetDate);
+                            }
+                            var frmdate = $$("FromMthDate").getValue();
+                            var todate = $$("ToMthDate").getValue();
+                            if (frmdate != "" && todate != "") fnHeader();
+                        }
+                    }
+                });
+
+               
+                webix.ui({
+                    container: "divToDt", view: "datepicker", label: "To", labelWidth: 40, name: "ToDt", id: "ToDt", format: "%d/%m/%Y", stringResult: true,
+                    on: {
+                        onChange: function () {
+                            $$("gridRpt").clearAll();
+                            $$("gridRptMnth").clearAll();
+                            var frmdate = $$("FromDt").getValue();
+                            var todate = $$("ToDt").getValue();
+                            if (frmdate != "" && todate != "") SMFromDateChange();
+                        }
+                    }
+                });
+                webix.ui({
+                    container: "divToMthDate", view: "datepicker", label: "To", labelWidth: 40, name: "ToMthDate", type: "month", id: "ToMthDate", format: "%M %Y", stringResult: true, hidden: true,
+                    on: {
+                        onChange: function () {
+                            $$("gridRpt").clearAll();
+                            var frmdate = $$("FromMthDate").getValue();
+                            var todate = $$("ToMthDate").getValue();
+                            if (frmdate != "" && todate != "") fnHeader();
+                        }
+                    }
+                });
+
+                webix.ui({ container: "divbtnDisp", view: "button", css: "webix_primary", id: "btnDisplay", icon: "wxi-check", label: "Display",  width: 70, click: function () { fnbtnDisplay(); } }),
+                webix.ui({ container: "divChkComplHU", view: "checkbox", id: "ChkComplHU", labelWidth: 5, labelRight: "With Comp/HU", customCheckbox: false, click: function () { fnChkComplHUClick(); } }),
+                webix.ui({ container: "divChkDayUse", view: "checkbox", id: "ChkDayUse", labelWidth: 5, labelRight: "With DayUse", customCheckbox: false, click: function () { fnChkDayUseClick(); } }),
+                webix.ui({ container: "divChkReal", view: "checkbox", id: "ChkRealTime", labelWidth: 5, labelRight: "Real Time", customCheckbox: false, click: function () { fnChkRealTimeClick(); } }),
+                webix.ui({ container: "divChkDet", view: "checkbox", id: "ChkDet", hidden:true, labelWidth: 5, labelRight: "Detail", customCheckbox: false, click: function () { fnChkDetClick(); } }),
+                webix.ui({ container: "divChkDayws", view: "checkbox", id: "ChkDayws", labelWidth: 5, labelRight: "Daywise", customCheckbox: false, click: function () { fnChkDaywsClick(); } }),
+                webix.ui({ container: "divChkQuart", view: "checkbox", id: "ChkQuartws", labelWidth: 5, labelRight: "Quarterly", customCheckbox: false, click: function () { fnChkQuartClick(); } }),
+                webix.ui({ container: "divChkMonthws", view: "checkbox", id: "ChkMonthws", labelWidth: 5, labelRight: "Monthwise", customCheckbox: false, click: function () { fnChkMonthwsClick(); } }),
+                webix.ui({ container: "divChkRevPar", view: "checkbox", id: "ChkRevPar", labelWidth: 5, labelRight: "RevPAR", customCheckbox: false, click: function () { fChkRevParClick(); } }),
+                webix.ui({ container: "divChkRevPor", view: "checkbox", id: "ChkRevPor", labelWidth: 5, labelRight: "RevPOR", customCheckbox: false, click: function () { fnChkRevPorClick(); } }),
+
+                webix.ui({ container: "divChkLstYr", view: "checkbox", id: "ChkLstYr", labelWidth: 5,width:100, labelRight: "Last Year", customCheckbox: false, click: function () { fnChkLstYearClick(); }, }),
+                webix.ui({ container: "divChkVar", view: "checkbox", id: "ChkVar", labelWidth: 5, width: 100, labelRight: "Variance", customCheckbox: false, click: function () { fnChkVarClick(); }, }),
+                               
+
+                //webix.ui({ container: "divAnlLbl", view: "label", id: "AnlLbl", label: "Analysis",hidden:true, });
+                webix.ui({ container: "divAnlbtn", view: "button", css: "webix_primary", tooltip: "Options", width: 30, id: "btnAnl", label: '<span class="fa fa-list"></span>', hidden: true, popup: "RpContForcastOpt", click: function () { fnbtnAnlClick(); } });
+                webix.ui({ container: "divOptbtn", view: "button", css: "webix_primary", tooltip: "Options", width: 30, id: "btnOptions", label: '<span class="fa fa-list"></span>', hidden: true,  click: function () { $$("RptOptionsNew").show(); } });
+
+
+
+                webix.ui({container: "divPropbox",view: "richselect",id: "Property",//width: 220,//autowidth:true,
+                    options: LoadCompany(),
+                    on: {
+                        onChange: function (NewVal, OldVal) {
+                            if (NewVal != "") {
+                                
+                                $$("gridRpt").clearAll();
+                                LoadCompChange(NewVal);
+                                LoadControl(NewVal);
+                                LoadCurrDet(NewVal);
+                                var W10_IND = "0";
+                                var CHKPM = "0";
+                                var vCmpId = $$("Property").getValue();
+
+                                //fnLoadRoomTpPop(vCmpId, CHKPM, W10_IND);
+                                //fnLoadSegmentPop(vCmpId, "M", "");
+                                fnLoadContribiute();
+                                fnLoadCat();
+
+                            }
+                        }
+                    }
+
+                });
+                //
+                var cmpid = '@Session["COMPIDD"]'; @*'<%=Session["COMPIDD"]%>';*@
+                $$("Property").setValue(cmpid);
+
+                LoadDate();
+                $("#gridRptt").show();
+                $("#gridRpttMnth").hide();
+
+                //
+                // fnHeader();
+                gridResize();
+
+
+            });
+            webix.event(window, "resize", function () {
+                gridResize();
+            })
+
+
+        });
+
+          
+        function gridResize() {
+                var vheight = window.innerHeight
+                        || document.documentElement.clientHeight
+                        || document.body.clientHeight;
+                var offset = $("#gridRptt").offset();
+                $$("gridRpt").define("height", ((vheight - offset.top - 20)));
+                $$("gridRpt").adjust();
+
+                var offset = $("#gridRpttMnth").offset();
+                $$("gridRptMnth").define("height", ((vheight - offset.top - 20)));
+                $$("gridRptMnth").adjust();
+            };
+        function LoadDate() {
+            
+            $.ajax({
+                type: "POST",
+                url: "/Reports/GetFrmMnthToMnth",
+                cache: false,
+                async: false,
+                charset: 'utf-8',
+                data: "ADDMONTH=" + "2",
+
+                success: function (data) {
+                    
+                    var data1 = JSON.parse(data);
+                    var vCurrDt = data1[0].CURRDT.toString().trim();
+                    var vAccDt = data1[0].ACC_DT.toString().trim();
+                    var vToAccDt = data1[0].TO_ACC_DT.toString().trim();
+                    var vAccMnth = data1[0].ACC_MNTH.toString().trim();
+                    var vFromMnth = data1[0].FRMMNTH.toString().trim();
+                    var vToMnth = data1[0].TOMNTH.toString().trim();
+
+                    $("#HdnCurrDt").val(vCurrDt);
+                    $("#HdnAccDt").val(vAccDt);
+                    $("#HdnToAccDt").val(vToAccDt);
+                    $("#HdnAccMnth").val(vAccMnth);
+                    $("#HdnFrmMnth").val(vFromMnth);
+                    $("#HdnToMnth").val(vToMnth);
+
+                    var vFromDt = formatDate1(vAccDt);
+                    var vToDt = formatDate1(vToAccDt);
+                    $$("FromDt").setValue(vFromDt);
+                    $$("ToDt").setValue(vToDt);
+
+                    $$("FromMthDate").setValue(vFromMnth);
+                    $$("ToMthDate").setValue(vToMnth);
+
+                },
+            });
+        };
+        function formatDate1(StrDt) {
+            
+            var Parts = StrDt.split("/");
+            var Dt = Parts[0];
+            var Mn = Parts[1];
+            var Yr = Parts[2].substring(0, 4);
+            var Str = Yr + "-" + Mn + "-" + Dt;
+            return Str;
+        };
+        function AdvFilterClick() {
+            var CHK_CONSOLID = $("#CHK_CONSOLID").val();
+            var CHK_SEGMENT = $("#CHK_SEGMENT").val();
+            var CHK_SUMMARY = $("#CHK_SUMMARY").val();
+            $$("ChkSegmntwise").setValue(CHK_SEGMENT);
+            $$("ChkConsolidate").setValue(CHK_CONSOLID);
+            $$("ChkSummary").setValue(CHK_SUMMARY);
+
+            $$("RptSegmentSrchPopUp").show();
+        };
+        function LoadCompany() {
+            //
+            var rowData = [];
+            try {
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "/Reports/fnLoadProperty",
+                    data: "",
+                    success: function (d) {
+                        
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                        }
+                    },
+
+                });
+            }
+            catch (e) {
+                console.log(e.message)
+            }
+            return rowData;
+        };
+        function fnLoadRoomType() {
+            //
+            var rowData = [];
+            var W10_IND = $("#W10_IND").val();
+            var CHKPM = "0";
+            var vCmpId = $$("Property").getValue();
+
+            if ($("#chkPM")[0].checked == true) CHKPM = "1";
+            if (W10_IND == "") W10_IND = "0";
+            try {
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "/Reports/fnLoadRoomType",
+                    data: "CmpId=" + vCmpId + "&W10_IND=" + W10_IND + "&CHKPM=" + CHKPM,
+                    success: function (d) {
+                        rowData = JSON.parse(d);
+
+                        $$("ddlRoomTp").define("options", rowData);
+                        $$("ddlRoomTp").setValue("<-ALL->");
+                    }
+                });
+            }
+            catch (e) {
+                console.log(e.message)
+            }
+            //return rowData;
+        };
+        function fnLoadContribiute() {
+            
+            var rowData = [];
+            var vCmpId = $$("Property").getValue();
+            var hash ={};
+            var vCnt = 0;
+
+            rowData = [
+                { "id": 1, "value": "Country"},
+                { "id": 2, "value": "Company"},
+                { "id": 3, "value": "Business Source"},
+                { "id": 4, "value": "Market Segment"}
+            ];
+            vCnt = 4;
+            if ($("#B3_IND").val() == 1 || $("#B3_IND").val() == 2) {
+                vCnt = vCnt + 1;
+                hash = { id: vCnt, value: "Nationality" };
+                rowData.push(hash);
+            }
+            vCnt = vCnt + 1;
+            hash = {};
+            hash = { id: vCnt, value: "Guest Type" };
+            rowData.push(hash);
+
+            if ($("#TRAVEL_IND").val() == 0) {
+                vCnt = vCnt + 1;
+                hash = {};
+                hash = { id: vCnt, value: "Travel Agent" };
+                rowData.push(hash);
+            }
+
+            vCnt = vCnt + 1;
+            hash = {};
+            hash = { id: vCnt, value: "Reserve Mode" };
+            rowData.push(hash);
+
+            vCnt = vCnt + 1;
+            hash = {};
+            hash = { id: vCnt, value: "Guest Status" };
+            rowData.push(hash);
+
+            if ($("#PLAN_APPL_IND").val() == 1) {
+                vCnt = vCnt + 1;
+                hash = {};
+                hash = { id: vCnt, value: "Plan" };
+                rowData.push(hash);
+            }
+
+            vCnt = vCnt + 1;
+            hash = {};
+            hash = {id: vCnt,value: "Group"}
+            rowData.push(hash);
+
+            if ($("#F11_IND").val()== 1){
+                vCnt = vCnt + 1;
+                hash = {};
+                hash = { id: vCnt, value: "Source" };
+                rowData.push(hash);
+            }
+
+            if ($("#J2_IND").val()== 1){
+                vCnt = vCnt + 1;
+                hash = {};
+                hash = { id: vCnt, value: "Booker" };
+                rowData.push(hash);
+            }
+
+            if ($("#SALE_IND").val() == "1" || $("#SALE_IND").val() == "2") {
+                vCnt = vCnt + 1;
+                hash = {};
+                hash = { id: vCnt, value: "Sales Executive" };
+                rowData.push(hash);
+            }
+            vCnt = vCnt + 1;
+            hash = {};
+            hash = { id: vCnt, value: "Room Type" };
+            rowData.push(hash);
+
+            $$("ddlSeg").define("options", rowData);
+            $$("ddlSeg").setValue(2);
+
+            //return rowData;
+        };
+        function LoadCompChange(vProperty) {
+            //
+            $("#CHK_NT").val("1");
+            $("#CHK_REV").val("1");
+            $("#CHK_ARR").val("1");
+            $("#CHK_OTHREV").val("1");
+            $("#CHK_PAX").val("1");
+            try {
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "/Reports/PeopertySessionReAssign",
+                    data: "PropertyId=" + vProperty,
+                    success: function (d) {
+                        return true;
+                    }
+                });
+
+            }
+            catch (e) {
+                console.log(e.message)
+            }
+        };
+        function LoadCurrDet(vProperty) {
+            //
+            var rowDatad = [];
+            try {
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "/Reports/GetCurrFormatDetails",
+                    data: "CmpId=" + vProperty,
+                    success: function (d) {
+                        if (d != "") {
+                            rowDatad = JSON.parse(d);
+                            $("#CURRENCY_FORMAT").val(rowDatad.CURRENCY_FORMAT);
+                            $("#CURRENCY_DELIMIT").val(rowDatad.CURRENCY_DELIMIT);
+                            $("#CURRENCY_DECIMLIMIT").val(rowDatad.CURRENCY_DECIMLIMIT);
+                        }
+                    }
+                });
+
+            }
+            catch (e) {
+                console.log(e.message)
+            }
+        };
+        function LoadControl(vProperty) {
+            //
+            var rowDatad = [];
+            try {
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "/Reports/LoadFoControl",
+                    data: "CmpId=" + vProperty,
+                    success: function (d) {
+                        
+                        if (d != "") {
+                            rowDatad = JSON.parse(d);
+                            var W10_IND = 0; var J15_IND = 0; var C3_IND = 0; var F1_IND = 0; var S14_IND = 0; var G3_IND = 0;var F11_IND = 0;var J14_IND = 0;var J2_IND = 0;
+                            var PM_IND = 0; var SALE_IND = 0; var Q15_IND = 0;var CUST_CUR_DT = "";
+                            var V24_IND = 0; var R24_IND = 0; var V18_IND = 0; var TARIFF_EDIT_IND = 0; var RESERVE_PROV_APPL_IND = 0; var K_TAX = 0; var BASE_COUNTRY_ID = "";
+                            if (rowDatad.FO_CONT[0].W10_IND != null && rowDatad.FO_CONT[0].W10_IND != "") W10_IND = parseInt(rowDatad.FO_CONT[0].W10_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONT[0].J15_IND != null && rowDatad.FO_CONT[0].J15_IND != "") J15_IND = parseInt(rowDatad.FO_CONT[0].J15_IND.toString().trim());
+                            if (rowDatad.FO_CONT[0].Q15_IND != null && rowDatad.FO_CONT[0].Q15_IND != "") Q15_IND = parseInt(rowDatad.FO_CONT[0].Q15_IND.toString().trim());
+                            if (rowDatad.FO_CONT[0].C3_IND != null && rowDatad.FO_CONT[0].C3_IND != "" ) C3_IND = parseInt(rowDatad.FO_CONT[0].C3_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONT[0].F1_IND != null && rowDatad.FO_CONT[0].F1_IND != "" ) F1_IND = parseInt(rowDatad.FO_CONT[0].F1_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONT[0].S14_IND != null && rowDatad.FO_CONT[0].S14_IND != "" ) S14_IND = parseInt(rowDatad.FO_CONT[0].S14_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONT[0].G3_IND != null && rowDatad.FO_CONT[0].G3_IND != "" ) G3_IND = parseInt(rowDatad.FO_CONT[0].G3_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONT[0].F11_IND != null && rowDatad.FO_CONT[0].F11_IND != "") F11_IND = parseInt(rowDatad.FO_CONT[0].F11_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONT[0].J14_IND != null && rowDatad.FO_CONT[0].J14_IND != "" ) J14_IND = parseInt(rowDatad.FO_CONT[0].J14_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONT[0].J2_IND != null && rowDatad.FO_CONT[0].J2_IND != "") J2_IND = parseInt(rowDatad.FO_CONT[0].J2_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONT[0].PM_IND != null && rowDatad.FO_CONT[0].PM_IND != "") PM_IND = parseInt(rowDatad.FO_CONT[0].PM_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONT[0].SALE_IND != null && rowDatad.FO_CONT[0].SALE_IND != "" ) SALE_IND = parseInt(rowDatad.FO_CONT[0].SALE_IND.toString().trim()) ;
+
+                            
+                            if (rowDatad.FO_CONTROL[0].V24_IND != null && rowDatad.FO_CONTROL[0].V24_IND != "" ) V24_IND = parseInt(rowDatad.FO_CONTROL[0].V24_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONTROL[0].R24_IND != null && rowDatad.FO_CONTROL[0].R24_IND != "") R24_IND = parseInt(rowDatad.FO_CONTROL[0].R24_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONTROL[0].L12_IND != null && rowDatad.FO_CONTROL[0].L12_IND != "" ) L12_IND = parseInt(rowDatad.FO_CONTROL[0].L12_IND.toString().trim()) ;
+                            if (rowDatad.FO_CONTROL[0].L7_IND != null && rowDatad.FO_CONTROL[0].L7_IND != "" ) B3_IND = parseInt(rowDatad.FO_CONTROL[0].L7_IND.toString().trim());
+                            if (rowDatad.FO_CONTROL[0].PLAN_APPL_IND != null && rowDatad.FO_CONTROL[0].PLAN_APPL_IND != "" ) PLAN_APPL_IND = parseInt(rowDatad.FO_CONTROL[0].PLAN_APPL_IND.toString().trim());
+                            if (rowDatad.FO_CONTROL[0].A17_IND != null && rowDatad.FO_CONTROL[0].A17_IND != "") TRAVEL_IND = parseInt(rowDatad.FO_CONTROL[0].A17_IND.toString().trim());
+                            if (rowDatad.FO_CONTROL[0].CUST_CUR_DT != null && rowDatad.FO_CONTROL[0].CUST_CUR_DT != "") CUST_CUR_DT = rowDatad.FO_CONTROL[0].CUST_CUR_DT.toString().trim();
+                            if (rowDatad.FO_CONTROL[0].CUST_YEAR_START_DATE != null && rowDatad.FO_CONTROL[0].CUST_YEAR_START_DATE != "") CUST_YEAR_START_DATE = rowDatad.FO_CONTROL[0].CUST_YEAR_START_DATE.toString().trim();
+
+
+                            if (rowDatad.MST_COMPANY[0].K_TAX != null && rowDatad.MST_COMPANY[0].K_TAX != "") K_TAX = parseInt(rowDatad.MST_COMPANY[0].K_TAX.toString().trim());
+                            if (rowDatad.MST_COMPANY[0].COUNTRY_ID != null && rowDatad.FO_CONTROL[0].COUNTRY_ID != "") BASE_COUNTRY_ID = rowDatad.MST_COMPANY[0].COUNTRY_ID.toString().trim();
+
+
+                            $("#W10_IND").val(W10_IND);
+                            $("#J15_IND").val(J15_IND);
+                            $("#Q15_IND").val(Q15_IND);
+                            $("#C3_IND").val(C3_IND);
+                            $("#F1_IND").val(F1_IND);
+                            $("#S14_IND").val(S14_IND);
+                            $("#G3_IND").val(G3_IND);
+                            $("#F11_IND").val(F11_IND);
+                            $("#J14_IND").val(J14_IND);
+                            $("#J2_IND").val(J2_IND);
+                            $("#PM_IND").val(PM_IND);
+                            $("#SALE_IND").val(SALE_IND);
+
+
+                            $("#V24_IND").val(V24_IND);
+                            $("#R24_IND").val(R24_IND);
+                            $("#L12_IND").val(L12_IND);
+                            $("#B3_IND").val(B3_IND);
+                            $("#PLAN_APPL_IND").val(PLAN_APPL_IND);
+                            $("#TRAVEL_IND").val(TRAVEL_IND);
+                            $("#CUST_CUR_DT").val(CUST_CUR_DT);
+
+                            $("#BASE_COUNTRY_ID").val(BASE_COUNTRY_ID);
+                            $("#YEAR_START_DATE").val(CUST_YEAR_START_DATE);
+
+                            if (B3_IND == 1 || B3_IND == 2){
+                                $("#divChkMonthws").show();
+                                $("#divChkQuart").show();
+                            }
+                            else{
+                                $("#divChkMonthws").hide();
+                                $("#divChkQuart").hide();
+                            }
+
+                            if (Q15_IND == 1) {
+                                $("#divChkRevPor").show();
+                            }
+                            else {
+                                $("#divChkRevPor").hide();
+                            }
+
+
+                            
+                            if (R24_IND == 0) {
+                                $$("ChkComplHU").setValue(0);
+                                $$("ChkDayUse").setValue(1);
+                            }
+                            else if (R24_IND == 1) {
+                                $$("ChkComplHU").setValue(1);
+                                $$("ChkDayUse").setValue(0);
+
+                            }
+                            else if (R24_IND == 2) {
+                                $$("ChkComplHU").setValue(1);
+                                $$("ChkDayUse").setValue(1);
+
+                            }
+                            else if (R24_IND == 3) {
+                                $$("ChkComplHU").setValue(0);
+                                $$("ChkDayUse").setValue(0);
+                            }
+
+                        }
+                    }
+                });
+            }
+            catch (e) {
+                console.log(e.message)
+            }
+        };
+        function fnLoadCat() {
+            
+            var rowData = [];
+            $$("ddlCat").define("options", rowData);
+            var vCmpId = $$("Property").getValue();
+            try {
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "/Reports/fnLoadCat",
+                    data: "CmpId=" + vCmpId ,
+                    success: function (d) {
+                        rowData = JSON.parse(d);
+                        $$("ddlCat").define("options", rowData);
+                        $$("ddlCat").setValue("<-ALL->");
+                    }
+                });
+            }
+            catch (e) {
+                console.log(e.message)
+            }
+            //return rowData;
+        };
+        function GridDesign() {
+            webix.ui({
+                id: "gridRpt",
+                container: "gridRptt",
+                select: 'row',
+                view: "treetable",
+                fixedRowHeight: false,
+                rowLineHeight: 23,
+                autoConfig: true,
+                resizeColumn: true,
+                resizeRow: true,
+                //height: 460,
+                minWidth: 900,
+                position: "flex",
+                css: "webix_header_border",
+                data: [],
+                columns: [
+                        { id: "DATE", header: { text: "Date", }, width: 100, hidden: true, css: { 'text-align': 'center ! important' } },
+                        { id: "CONTRIBUTION", header: { text: "Segment", }, width: 200, sort: sortByContrib },
+                        { id: "ROOM", header: { text: "Nights", }, width: 100, css: { 'text-align': 'right ! important' }, sort: sortByRoom,},
+                        { id: "ROOMPER", header: { text: "Occ %", }, width: 100, css: { 'text-align': 'right ! important' }, sort: sortByRoomPer, },
+                        { id: "PAX", header: { text: "Pax", }, width: 80,css: { 'text-align': 'center ! important'} ,sort:sortByPax,},
+                        { id: "REV", header: { text: "Room Revenue", }, width: 150, css: { 'text-align': 'right ! important' }, sort:sortByRev,
+                            format: function (value) {
+                                return fnCurrFormat(value);
+                            },
+                        },
+                        { id: "REVPER", header: { text: "Revenue %", }, width: 120, css: { 'text-align': 'right ! important' }, sort: sortByRevPer, },
+                        { id: "ARR", header: { text: "ADR", }, width: 100, css: { 'text-align': 'right ! important' },sort:sortByArr,
+                            format: function (value) {
+                                return fnCurrFormat(value);
+                            },
+                            exportType: "number",
+                            exportFormat: "#,##0.00",
+                        },
+                        { id: "ARP", header: { text: "ARP", }, width: 100, css: { 'text-align': 'right ! important' }, sort: sortByArp,
+                            format: function (value) {
+                                return fnCurrFormat(value);
+                            },
+                            exportType: "number",
+                            exportFormat: "#,##0.00",
+                        },
+                        { id: "ID", header: { text: "Date", }, width: 100, hidden: true },
+                        { id: "TARRIFPLAN", header: { text: "Date", }, width: 100, hidden: true },
+                        { id: "PLAN", header: { text: "Date", }, width: 100 , hidden: true},
+                        { id: "PKG", header: { text: "Pkg.Rev", }, width: 100, hidden: true, css: { 'text-align': 'right ! important' },sort:sortByPkg,
+                            format: function (value) {
+                                return fnCurrFormat(value);
+                            },
+                            exportType: "number",
+                            exportFormat: "#,##0.00",
+                        },
+                        {  id: "EXTPKG", header: { text: "Ext.Rev", }, width: 100, hidden: true, css: { 'text-align': 'right ! important' },sort:sortByExtPkg,
+                            format: function (value) {
+                                return fnCurrFormat(value);
+                            },
+                            exportType: "number",
+                            exportFormat: "#,##0.00",
+                        },
+                        {id: "REVPOR", header: { text: "RevPOR", }, width: 100, hidden: true, css: { 'text-align': 'right ! important' },sort:sortByRevPor,
+                            format: function (value) {
+                                return fnCurrFormat(value);
+                            },
+                            exportType: "number",
+                            exportFormat: "#,##0.00",
+                        },
+                        {id: "REVPAR", header: { text: "RevPAR", }, width: 100, hidden: true, css: { 'text-align': 'right ! important' },sort:sortByRevPar,
+                            format: function (value) {
+                                return fnCurrFormat(value);
+                            },
+                            exportType: "number",
+                            exportFormat: "#,##0.00",
+                        },
+                        { id: "CLR", hidden: true },
+
+                ],
+
+                scheme: {
+                    $init: function (item) {
+                        if (item.CLR != "" && item.CLR != null) {
+                            item.$css = item.CLR;
+                        }
+                    },
+                },
+
+                on: {
+                    onBeforeClose: function () {
+                        return false;
+                    },
+                    onAfterload: function () {
+                    }
+                },
+            });
+
+            webix.ui({
+                id: "gridRptMnth",
+                container: "gridRpttMnth",
+                select: 'row',
+                view: "treetable",
+                fixedRowHeight: false,
+                rowLineHeight: 23,
+                autoConfig: true,
+                resizeColumn: true,
+                resizeRow: true,
+                //height: 460,
+                //minWidth:900,
+                position: "flex",
+                //hidden:true,
+                css: "webix_header_border",
+                data: [],
+                columns: [
+                        { id: "ID", header: { text: "Date", }, width: 100, hidden: true },
+                        { id: "CONTRIBUTION", header: { text: "Company", }, width: 200 },
+                        { id: "TYPE", header: { text: "", }, width: 100 },
+                        { id: "CLR", hidden: true },
+                ],
+
+                scheme: {
+                    $init: function (item) {
+                        if (item.CLR != "" && item.CLR != null) {
+                            item.$css = item.CLR;
+                        }
+                    },
+                },
+
+                on: {
+
+                    onBeforeClose: function () {
+                        return false;
+                    },
+                    onAfterload: function () {
+                    }
+
+                },
+            });
+        };
+        function fnLoadPopWindows() {
+
+            webix.ui({
+                view: "window",
+                close: true,
+                modal: true,
+                id: "RptOptionsNew",
+                head: "Option",
+                position: "center",
+                css: "WebIxStyle",
+                height: 550,
+                width: 300,
+                move: true,
+                body: {
+                    rows: [
+                            {
+                                view: "scrollview", scroll: "y", height: 450, width: 300, body: {
+                                    padding: { top: 20, left: 30, bottom: 20, right: 10 },
+                                    rows: [
+                                        { view: "checkbox", id: "chkAdCh", labelWidth: 5, labelRight: "Adult & Child", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkTarPln", labelWidth: 5, labelRight: "Tarrif + Plan", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkPlnAmt", labelWidth: 5, labelRight: "Plan Amount", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkArrDt", labelWidth: 5, labelRight: " Arrival Dt", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkDepDt", labelWidth: 5, labelRight: "Dept Dt", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkBooker", labelWidth: 5, labelRight: "Booker", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkRev", labelWidth: 5, labelRight: "Package Revenue", customCheckbox: false, hidden: true, },
+                                        { view: "checkbox", id: "chkSaExe", labelWidth: 5, labelRight: "Sales Executive", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkSource", labelWidth: 5, labelRight: "Source", customCheckbox: false, hidden: true, },
+                                        { view: "checkbox", id: "chkTrvAgnt", labelWidth: 5, labelRight: "Travel Agent", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkNation", labelWidth: 5, labelRight: "Nationality", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkChannel", labelWidth: 5, labelRight: "Channel", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkMSeg", labelWidth: 5, labelRight: "Market Segment", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkRateTp", labelWidth: 5, labelRight: "Rate Type", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkInBy", labelWidth: 5, labelRight: "Checkin By", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkOutBy", labelWidth: 5, labelRight: "Checkout By", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkPax", labelWidth: 5, labelRight: "Pax", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkARP", labelWidth: 5, labelRight: "ARP", customCheckbox: false, },
+                                        { view: "checkbox", id: "chkSuppZero", labelWidth: 5, labelRight: "Suppress Zero", customCheckbox: false, },
+                                        //{ cols: [{}, { view: "button", type: "icon", id: "Okoptions", icon: "wxi-check", label: "OK", inputWidth: 80, width: 80, click: function () { $("#Display").click(); $$("RptOptionsNew").hide(); } }], }
+                                    ]
+                                }
+                            },
+                            { cols: [{}, { view: "button", type: "icon", id: "Okoptions1", icon: "wxi-check", label: "OK", inputWidth: 80, width: 80, click: function () { $("#btnDisplay").click(); $$("RptOptionsNew").hide(); } }], }
+                    ]
+
+                }
+            });
+            webix.ui({
+                view: "window",
+                close: true,
+                modal: true,
+                id: "RptAdvFilter",
+                head: "Advance Filter",
+                position: "center",
+                css: "WebIxStyle",
+                height: 250,
+                width: 380,
+                move: true,
+                body: {
+                    padding: { top: 20, left: 30, bottom: 20, right: 10 },
+                    rows: [
+                            { view: "text", id: "txtCompId", label: "Company", readonly: true, hidden: true },
+                            { view: "text", id: "txtTrvAgntId", label: "TrvAgnt", readonly: true, hidden: true },
+                            { cols: [{ view: "text", id: "txtComp", label: "Company", readonly: true }, { view: "button", width: 30, type: "icon", id: "btnCmpSrch", borderless: true, icon: "wxi-search", click: function () { fnbtnCompClick(); } }, { view: "button", width: 30, type: "icon", id: "btnCmpDel", borderless: true, icon: "fa fa-trash", click: function () { $$("txtCompId").setValue(""); $$("txtComp").setValue(""); } }] },
+                            { cols: [{ view: "text", id: "txtTrvAgnt", label: "Travel Agent", readonly: true }, { view: "button", width: 30, type: "icon", id: "btnTavAgntSrch", borderless: true, icon: "wxi-search", click: function () { fnbtnTrvlAgnClick(); } }, { view: "button", width: 30, type: "icon", id: "btnTrvAgntDel", borderless: true, icon: "fa fa-trash", click: function () { $$("txtTrvAgntId").setValue(""); $$("txtTrvAgnt").setValue(""); } }] },
+                            { cols: [{}, { view: "button", type: "icon", id: "OkFilter", icon: "wxi-check", label: "OK", inputWidth: 80, width: 80, click: function () { $("#btnDisplay").click(); $$("RptOptionsNew").hide(); } }], }
+                    ]
+                }
+            });
+            webix.ui({
+                view: "window",
+                close: true,
+                modal: true,
+                id: "RptCompSrch",
+                head: "Company",
+                position: "center",
+                css: "WebIxStyle",
+                height: 500,
+                width: 380,
+                move: true,
+                scrollX: false,
+                body: {
+                    rows: [
+                        {
+                            view: "datatable",
+                            id: "CompGrid",
+                            select: 'row',
+                            //editable: true,
+                            css: "webix_header_border",
+                            scrollX: false,
+                            columns: [
+                                    { id: "NM", header: ['Company', { content: "textFilter", }], width: 335, css: { 'text-align': 'left ! important' }, },
+                                    { id: "CompChk", editor: "Checkbox", header: [{ content: "masterCheckbox", css: { 'padding': '0px ! important' } }], width: 30, css: "check_box", template: "{common.checkbox()}" },
+                                    { id: "ID", hidden: true },
+                            ],
+                            data: [],
+
+                        },
+                        {
+                            margin: 10,
+                            padding: { top: 5, bottom: 5, right: 5 },
+                            cols: [
+                                {
+                                    view: "button",
+                                    type: "icon",
+                                    icon: "wxi-check",
+                                    label: "Ok",
+                                    inputWidth: 80,
+                                    click: function () {
+                                        var vCompNm = "";
+                                        var vCompId = "";
+                                        $$("CompGrid").data.each(function (obj) {
+                                            
+                                            if (obj.CompChk) {
+                                                if (vCompNm != "") {
+                                                    vCompNm = vCompNm + "," + obj.NM.trim();
+                                                }
+                                                else {
+                                                    vCompNm = obj.NM.trim();
+                                                }
+
+                                                if (vCompId != "") {
+                                                    vCompId = vCompId + "','" + obj.ID.trim();
+                                                }
+                                                else {
+                                                    vCompId = obj.ID.trim();
+                                                }
+                                            }
+                                        });
+                                        $$("txtComp").setValue(vCompNm);
+                                        $$("txtCompId").setValue(vCompId);
+                                        $$("RptCompSrch").hide();
+
+                                    },
+                                    align: "right"
+                                }
+                            ]
+                        }],
+                }
+            });
+            webix.ui({
+                view: "window",
+                close: true,
+                modal: true,
+                id: "RptTrvAgntSrch",
+                head: "Travel Agent",
+                position: "center",
+                css: "WebIxStyle",
+                height: 500,
+                width: 380,
+                move: true,
+                scrollX: false,
+                body: {
+                    rows: [
+                        {
+                            view: "datatable",
+                            id: "TrvAgntGrid",
+                            select: 'row',
+                            //editable: true,
+                            css: "webix_header_border",
+                            scrollX: false,
+                            columns: [
+                                    { id: "NM", header: ['Travel Agent', { content: "textFilter", }], width: 335, css: { 'text-align': 'left ! important' }, },
+                                    { id: "TrvAgntChk", editor: "Checkbox", header: [{ content: "masterCheckbox", css: { 'padding': '0px ! important' } }], width: 30, css: "check_box", template: "{common.checkbox()}" },
+                                    { id: "ID", hidden: true },
+                            ],
+                            data: [],
+
+                        },
+                        {
+                            margin: 10,
+                            padding: { top: 5, bottom: 5, right: 5 },
+                            cols: [
+                                {
+                                    view: "button",
+                                    type: "icon",
+                                    icon: "wxi-check",
+                                    label: "Ok",
+                                    inputWidth: 80,
+                                    click: function () {
+                                        var vTrvAgntNm = "";
+                                        var vTrvAgntId = "";
+                                        $$("TrvAgntGrid").data.each(function (obj) {
+                                            
+                                            if (obj.TrvAgntChk) {
+                                                if (vTrvAgntNm != "") {
+                                                    vTrvAgntNm = vTrvAgntNm + "," + obj.NM.trim();
+                                                }
+                                                else {
+                                                    vTrvAgntNm = obj.NM.trim();
+                                                }
+
+                                                if (vTrvAgntId != "") {
+                                                    vTrvAgntId = vTrvAgntId + "','" + obj.ID.trim();
+                                                }
+                                                else {
+                                                    vTrvAgntId = obj.ID.trim();
+                                                }
+                                            }
+                                        });
+                                        $$("txtTrvAgnt").setValue(vTrvAgntNm);
+                                        $$("txtTrvAgntId").setValue(vTrvAgntId);
+                                        $$("RptTrvAgntSrch").hide();
+
+                                    },
+                                    align: "right"
+                                }
+                            ]
+                        }],
+                }
+            });
+
+        };
+        function sortByContrib(a, b) {
+            
+            var a = a.CONTRIBUTION;
+            var b = b.CONTRIBUTION;
+            if (a == "" || a == "Total" || a==null) return 0;
+            else return a > b ? 1 : (a < b ? -1 : 0);
+        };
+        function sortByRoom(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.ROOM;
+            var b = b.ROOM;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByRev(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.REV;
+            var b = b.REV;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByRevPer(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.REVPER;
+            var b = b.REVPER;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByPax(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.PAX;
+            var b = b.PAX;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByRoomPer(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.ROOMPER;
+            var b = b.ROOMPER;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByArr(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.ARR;
+            var b = b.ARR;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByArp(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.ARP;
+            var b = b.ARP;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByRevPar(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.REVPAR;
+            var b = b.REVPAR;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByRevPor(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.REVPOR;
+            var b = b.REVPOR;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByPkg(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.PKG;
+            var b = b.PKG;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function sortByExtPkg(a, b) {
+            
+            var cont1 = a.CONTRIBUTION;
+            var a = a.EXTPKG;
+            var b = b.EXTPKG;
+            var v1 = 0;
+            var v2 = 0;
+            if (a != "" && a != null) v1 = parseFloat(a);
+            if (b != "" && b != null) v2 = parseFloat(b);
+            if (cont1 == "" || cont1 == "Total" || cont1 == null) return 0;
+            else return v1 > v2 ? 1 : (v1 < v2 ? -1 : 0);
+        };
+        function fnCurrFormat(value) {
+
+            var Currfrmt = $("#CURRENCY_FORMAT").val();
+            var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+            var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+            return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+        }
+        function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+            // 
+
+            if (value == null) return "";
+
+            if (value.toString() != "") {
+
+
+                if (Currfrmt == "L") {
+                    var x = parseFloat(value).toFixed(CurrDecimal);
+                    var neg = false;
+                    if (value < 0) {
+                        neg = true;
+                        //x = math.abs(x);
+                    }
+
+                    x = x.toString();
+                    var afterPoint = '';
+                    if (x.indexOf('.') > 0) {
+                        afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                        afterPoint = CurrDelimit + afterPoint
+                    }
+
+
+
+                    x = Math.floor(x);
+                    x = x.toString();
+                    var lastThree = x.substring(x.length - 3);
+                    var otherNumbers = x.substring(0, x.length - 3);
+                    if (otherNumbers != '' && otherNumbers != '-')
+                        lastThree = ',' + lastThree;
+                    return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                }
+                else {
+                    var x = parseFloat(value).toFixed(CurrDecimal);
+                    var neg = false;
+                    if (value < 0) {
+                        neg = true;
+                        //x = math.abs(x);
+                    }
+
+                    x = x.toString();
+
+                    //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                    //var res = x.replace(/(\d{3})/g, "1,")
+                    var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                    if (res.indexOf('.') > 0) {
+
+                        res = res.replace(".", CurrDelimit)
+                    }
+
+
+                    return res;
+                }
+            }
+            else {
+                return value;
+            }
+        };
+        function fnbtnTrvlAgnClick() {
+            var vCmpId = $$("Property").getValue();
+            fnLoadTrvlAgntPop(vCmpId, "TA", "", $$("txtTrvAgntId").getValue());
+            $$("RptTrvAgntSrch").show();
+        };
+        function fnbtnCompClick() {
+            var vCmpId = $$("Property").getValue();
+            fnLoadCompPop(vCmpId, "CMNY", "", $$("txtCompId").getValue());
+            $$("RptCompSrch").show();
+        };
+
+        function fnLoadCompPop(vCmpId, TYPETAG, SUBTYPE, CMPIDS) {
+            
+            $$("CompGrid").clearAll();
+            var rowDatad = "";
+
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/Reports/fnLoadSearchAll",
+                data: "CmpId=" + vCmpId + "&TYPETAG=" + TYPETAG + "&SUBTYPE=" + SUBTYPE,
+
+
+                success: function (d) {
+                    
+                    if (d != "") {
+                        rowDatad = JSON.parse(d);
+
+                        var Sa = rowDatad;
+                        var Rows = [];
+                        if (CMPIDS != "") {
+                            CMPIDS = "'" + CMPIDS + "'";
+                        }
+                        $.each(Sa, function (key, value) {
+                            var set = {};
+                            bTrue = "";
+                            bChk = false;
+                            var arr = [];
+                            if (CMPIDS != "") {
+                                
+                                arr = CMPIDS.split(",");
+                                bTrue = arr.filter(function (id) {
+                                    return id == "'" + value.id.trim() + "'";
+                                });
+                                if (bTrue.length > 0) bChk = true;
+
+                            }
+                            set = { NM: value.value.trim(), ID: value.id.trim(), CompChk: bChk };
+                            Rows.push(set);
+                        });
+                        //$$("CompGrid").getColumnConfig("CmpChk").header[0].checked = true;
+                        //$$("CompGrid").refreshColumns();
+
+                        $$("CompGrid").parse(Rows);
+                        $$("CompGrid").refresh();
+
+                    }
+                }
+            });
+        };
+        function fnLoadTrvlAgntPop(vCmpId, TYPETAG, SUBTYPE, TRVLAGNTIDS) {
+            
+            $$("TrvAgntGrid").clearAll();
+            var rowDatad = "";
+
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/Reports/fnLoadSearchAll",
+                data: "CmpId=" + vCmpId + "&TYPETAG=" + TYPETAG + "&SUBTYPE=" + SUBTYPE,
+
+
+                success: function (d) {
+                    
+                    if (d != "") {
+                        rowDatad = JSON.parse(d);
+
+                        var Sa = rowDatad;
+                        var Rows = [];
+                        if (TRVLAGNTIDS != "") {
+                            TRVLAGNTIDS = "'" + TRVLAGNTIDS + "'";
+                        }
+                        $.each(Sa, function (key, value) {
+                            var set = {};
+                            bTrue = "";
+                            bChk = false;
+                            if (TRVLAGNTIDS != "") {
+                                arr = TRVLAGNTIDS.split(",");
+                                bTrue = arr.filter(function (id) {
+                                    return id == "'" + value.id.trim() + "'";
+                                });
+                                if (bTrue.length > 0) bChk = true;
+
+                            }
+                            set = { NM: value.value.trim(), ID: value.id.trim(), TrvAgntChk: bChk };
+                            Rows.push(set);
+                        });
+                        //$$("TrvAgntGrid").getColumnConfig("TrvAgntChk").header[0].checked = true;
+                        //$$("TrvAgntGrid").refreshColumns();
+
+                        $$("TrvAgntGrid").parse(Rows);
+                        $$("TrvAgntGrid").refresh();
+
+                    }
+                }
+            });
+        };
+
+        </script>
+        <script type="text/javascript">
+
+        $(document).ready(function () {
+            
+            $("#divPage").removeClass("Pagefalse");
+            $("#LoadDIv").hide();
+
+            $("#MenuName").val('FOMNUQUROOMNGHTSOLD');
+            $("#MenuLvl").val('FOMNUANL');
+            $("#MenuLvl1").val('');
+
+            var propchk = '@Session["MLTPROPHISHIND"]';
+            if (propchk == "1") $("#divPropbox").show();
+            else if (propchk == "0") $("#divPropbox").hide();
+            var compid = '@Session["COMPIDD"]';
+
+
+            var pageMethod = '@Session["PageMethod"]';
+
+            var text = "";
+
+
+        });
+            $(document).on('shown.lte.pushmenu', function () {
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(1);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+
+            }).on('collapsed.lte.pushmenu', function () {
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(2);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+            });
+            function sidebarFn(val) {
+                
+                var rowDatad = [];
+                var rowDatad1 = [];
+                
+                $$("gridRpt").resize();
+                $$("gridRptMnth").resize();
+
+            }
+        function fnbtnAllClick() {
+            
+            $$("gridRpt").clearAll();
+            var vType = "";
+            var vCmpId = $$("Property").getValue();
+            if ($$("ddlSeg").getText().toString().trim() == "Company") vType = "CMNY"
+            else if ($$("ddlSeg").getText().toString().trim() == "Market Segment") vType = "M"
+            else if ($$("ddlSeg").getText().toString().trim() == "Guest Type") vType = "G"
+            else if ($$("ddlSeg").getText().toString().trim() == "Business Source") vType = "B"
+            else if ($$("ddlSeg").getText().toString().trim() == "Segment Group") vType = "SG"
+            else if ($$("ddlSeg").getText().toString().trim() == "Group") vType = "GR"
+            fnLoadSegmentPop(vCmpId, vType, "");
+            $$("RptSegmentTypeSrchPopUp").show();
+
+        }
+
+        function fnddlSegChange() {
+            
+            ClearGrid();
+            $$("ChkAll").setValue(1);
+            $$("btnAll").hide();
+
+            if ($$("gridRpt").config.columns[0].id == "CONTRIBUTION") $$("gridRpt").config.columns[0].header = $$("ddlSeg").getText();
+            else $$("gridRpt").config.columns[1].header = $$("ddlSeg").getText();
+            $$("gridRpt").refreshColumns();
+            if ($$("gridRptMnth").config.columns[0].id == "CONTRIBUTION") $$("gridRptMnth").config.columns[0].header = $$("ddlSeg").getText();
+            else $$("gridRptMnth").config.columns[1].header = $$("ddlSeg").getText();
+            $$("gridRptMnth").refreshColumns();
+
+            if ($$("ChkMonthws").getValue() == 1 || $$("ChkQuartws").getValue() == 1 || $$("ChkDayws").getValue() == 1) {
+                if ($$("CATAPPL") == 0) {
+                    $$("ChkCat").hide();
+                    $$("ChkCatLbl").hide();
+                    $$("ddlCat").hide();
+                }
+                else {
+                    $$("ChkCat").show();
+                    $$("ChkCatLbl").show();
+                    $$("ddlCat").hide();
+                }
+                return;
+            }
+            $$("ChkAll").hide();            
+            $$("btnAll").hide();
+            $$("ChkCat").setValue(0);
+            if ($$("ddlSeg").getText().toString().trim() == "Company" || $$("ddlSeg").getText().toString().trim() == "Market Segment" ||
+                $$("ddlSeg").getText().toString().trim() == "Business Source" || $$("ddlSeg").getText().toString().trim() == "Guest Type" ||
+                $$("ddlSeg").getText().toString().trim() == "Segment Group" || $$("ddlSeg").getText().toString().trim() == "Group")
+            {
+                $$("ChkAll").show();                
+            }
+
+
+        }
+
+        function fnChkCatClick() {
+            
+            ClearGrid();
+            if ($$("ChkCat").getValue() == 1) $$("ddlCat").show();
+            else $$("ddlCat").hide();
+        }
+        function fnChkAllClick() {
+            ClearGrid();
+            if ($$("ChkAll").getValue() == 1) $$("btnAll").hide();
+            else $$("btnAll").show();
+        }
+        function fnChkRealTimeClick() {
+            ClearGrid();
+            $$("ChkDayws").setValue(0);
+            $$("ChkQuartws").setValue(0);
+            $$("ChkMonthws").setValue(0);
+            fnChkMonthwsClick();
+            if($$("ChkRealTime").getValue()==1){
+                //$$("ChkDayws").hide();
+                //$$("ChkQuartws").hide();
+                //$$("ChkMonthws").hide();
+                $("#divChkMonthws").hide();
+                $("#divChkQuart").hide();
+                $("#divChkDayws").hide();
+            }
+            else{
+                //$$("ChkDayws").show();
+                //$$("ChkQuartws").show();
+                //$$("ChkMonthws").show();
+
+                $("#divChkMonthws").show();
+                $("#divChkQuart").show();
+                $("#divChkDayws").show();
+            }
+        }
+        function fnChkComplHUClick() {
+            ClearGrid();
+        }
+        function fnChkDayUseClick() {
+            ClearGrid();
+        }
+        function fnChkDaywsClick() {
+            
+            ClearGrid();
+            fnChkMonthwsClick();
+
+        }
+        function fnChkQuartClick() {
+            ClearGrid();
+
+            fnChkMonthwsClick();
+
+        }
+        function fnChkDetClick() {
+            ClearGrid();
+            $$("ChkMonthws").setValue(0);
+            $$("ChkQuartws").setValue(0);
+            $$("ChkDayws").setValue(0);
+
+            fnChkMonthwsClick();
+            if ($$("ChkRealTime").getValue() == 1) {
+                //$$("ChkDayws").hide();
+                //$$("ChkQuartws").hide();
+                //$$("ChkMonthws").hide();
+
+                $("#divChkMonthws").hide();
+                $("#divChkQuart").hide();
+                $("#divChkDayws").hide();
+
+            }
+            else {
+                //$$("ChkDayws").show();
+                //$$("ChkQuartws").show();
+                //$$("ChkMonthws").show();
+
+                $("#divChkMonthws").show();
+                $("#divChkQuart").show();
+                $("#divChkDayws").show();
+            }
+        }
+
+        function fnChkMonthwsClick() {
+            ClearGrid();
+            
+            $$("btnOptions").hide();
+            $$("btnAdvSearch").hide();
+            
+            $("#CHK_NT").val("1");
+            $("#CHK_REV").val("1");
+            $("#CHK_ARR").val("1");
+            $("#CHK_OTHREV").val("1");
+            $("#CHK_PAX").val("1");
+
+            //if ($$("ChkDayws").getValue() == 1) $$("gridRptMnth").showColumn("DATE");
+
+            if ($$("ChkMonthws").getValue() == 1 || $$("ChkQuartws").getValue() == 1 || $$("ChkDayws").getValue() == 1) {
+                
+                $("#gridRptt").hide();
+                $("#gridRpttMnth").show();
+                $$("gridRptMnth").resize();
+                $$("gridRpt").resize();
+                $$("ChkRevPar").hide();
+                $$("ChkRevPor").hide();
+                $$("ChkAll").hide();                
+                $$("btnAll").hide();
+                $$("btnAnl").show();
+                $$("ChkDet").setValue(0);
+                //$$("AnlLbl").show();
+
+                if ($$("ChkDayws").getValue() == 1) {
+                    $$("FromMthDate").hide();
+                    $$("ToMthDate").hide();
+                    $$("FromDt").show();
+                    $$("ToDt").show();
+                    $$("ChkMonthws").blockEvent();
+                    $$("ChkQuartws").blockEvent();
+                    $$("ChkMonthws").setValue(0);
+                    $$("ChkQuartws").setValue(0);
+                    $$("ChkMonthws").unblockEvent();
+                    $$("ChkQuartws").unblockEvent();
+                    //$$("ChkMonthws").hide();
+                    //$$("ChkQuartws").hide();
+
+                    $("#divChkMonthws").hide();
+                    $("#divChkQuart").hide();
+                    $("#divChkLstYr").hide();
+                    $("#divChkVar").hide();
+                    $$("ChkLstYr").setValue('0');
+                    $$("ChkVar").setValue('0');
+
+                    var vAccDt = $("#HdnAccDt").val();
+                    var vToAccDt = $("#HdnToAccDt").val();
+                    var vFromDt = formatDate1(vAccDt);
+                    var vToDt = formatDate1(vToAccDt);
+                    $$("FromDt").blockEvent();
+                    $$("ToDt").blockEvent();
+                    $$("FromDt").setValue(vFromDt);
+                    $$("ToDt").setValue(vToDt);
+                    $$("FromDt").unblockEvent();
+                    $$("ToDt").unblockEvent();
+                    $("#lblRptCaption").empty();
+                    $("#lblRptCaption").append("Contribution Forecast - Daywise");
+
+                }
+                else if ($$("ChkMonthws").getValue() == 1) {
+                    $$("FromMthDate").show();
+                    $$("ToMthDate").show();
+                    $$("FromDt").hide();
+                    $$("ToDt").hide();
+                    $$("ChkQuartws").blockEvent();
+                    $$("ChkDayws").blockEvent();                    
+                    $$("ChkQuartws").setValue(0);
+                    $$("ChkDayws").setValue(0);
+                    $$("ChkQuartws").unblockEvent();
+                    $$("ChkDayws").unblockEvent();
+                    //$$("ChkQuartws").hide();
+                    //$$("ChkDayws").hide();
+
+                    $("#divChkQuart").hide();
+                    $("#divChkDayws").hide();
+                    //$("#divChkLstYr").show();
+                    
+
+                    var vFromMnth = $("#HdnFrmMnth").val();
+                    var vToMnth = $("#HdnToMnth").val();
+                    $$("FromMthDate").blockEvent();
+                    $$("ToMthDate").blockEvent();
+                    $$("FromMthDate").setValue(vFromMnth);
+                    $$("ToMthDate").setValue(vToMnth);
+                    $$("FromMthDate").unblockEvent();
+                    $$("ToMthDate").unblockEvent();
+                    $$("ToMthDate").enable();
+                    $("#lblRptCaption").empty();
+                    $("#lblRptCaption").append("Contribution Forecast - Monthwise");
+                }
+                else if ($$("ChkQuartws").getValue() == 1) {
+                    
+                    $$("FromMthDate").show();
+                    $$("ToMthDate").show();
+                    $$("FromDt").hide();
+                    $$("ToDt").hide();
+                    $$("ChkMonthws").setValue(0);
+                    $$("ChkDayws").setValue(0);
+                    //$$("ChkMonthws").hide();
+                    //$$("ChkDayws").hide();
+
+                    $("#divChkMonthws").hide();
+                    $("#divChkDayws").hide();
+                    //$("#divChkLstYr").show();
+
+                    var vSetDate = "";
+                    var CurrDt = $("#HdnCurrDt").val();
+                    var YrStDt = $("#YEAR_START_DATE").val();
+                    var CurrMnth = CurrDt.substring(3, 5);
+                    var CurrYr = CurrDt.substring(6, 10);
+                    var YrStMnth = YrStDt.substring(3, 5);
+                    var vEndMnth = "";
+                    if (Number(CurrMnth) >= Number(YrStMnth)) {
+                        vSetDate = FnRetMonth1(parseInt(YrStMnth)) + " " + CurrYr;
+                        $$("FromMthDate").setValue(vSetDate);
+
+                        vEndMnth = parseInt(YrStMnth) + 11;
+                        if (vEndMnth > 12) {
+                            vEndMnth = vEndMnth - 12;
+                            CurrYr = Number(CurrYr)+1;
+                        }
+                        vSetDate = FnRetMonth1(parseInt(vEndMnth)) + " " + CurrYr.toString().trim();
+                        $$("ToMthDate").setValue(vSetDate);
+                        $$("ToMthDate").disable();
+                    }
+                    else {
+                        CurrYr = Number(CurrYr) - 1;
+                        vSetDate = FnRetMonth1(parseInt(YrStMnth)) + " " + CurrYr.toString().trim();
+                        $$("FromMthDate").setValue(vSetDate);
+
+                        vEndMnth = Number(YrStMnth) + 11;
+                        if (vEndMnth > 12) {
+                            vEndMnth = vEndMnth - 12;
+                            CurrYr = CurrYr + 1;
+                        }
+                        vSetDate = FnRetMonth1(parseInt(vEndMnth)) + " " + CurrYr.toString().trim();
+                        $$("ToMthDate").setValue(vSetDate);
+                        $$("ToMthDate").disable();
+                    }
+
+                    $("#lblRptCaption").empty();
+                    $("#lblRptCaption").append("Contribution Forecast - Quarterly");
+
+                }
+
+                fnHeader();
+
+
+            }
+            else if ($$("ChkDet").getValue() == 1) {
+                $("#gridRptt").show();
+                $$("gridRptMnth").resize();
+                $$("gridRpt").resize();
+                $("#gridRpttMnth").hide();
+                //$$("ChkQuartws").show();
+                //$$("ChkDayws").show();
+                //$$("ChkMonthws").show();
+
+                $("#divChkMonthws").show();
+                $("#divChkQuart").show();
+                $("#divChkDayws").show();
+                $("#divChkLstYr").hide();
+                $("#divChkVar").hide();
+
+                $$("ChkLstYr").setValue('0');
+                $$("ChkVar").setValue('0');
+
+                $$("FromDt").show();
+                $$("ToDt").show();
+                $$("FromMthDate").hide();
+                $$("ToMthDate").hide();
+                $$("ChkRevPar").hide();
+                $$("ChkRevPor").hide();
+                $$("btnAnl").hide();
+                $$("btnOptions").show();
+                $$("btnAdvSearch").show();
+               // $$("AnlLbl").hide();
+                fnddlSegChange();
+                $("#lblRptCaption").empty();
+                $("#lblRptCaption").append("Contribution Forecast Details");
+            }
+            else {
+                $("#gridRptt").show();
+                $$("gridRptMnth").resize();
+                $$("gridRpt").resize();
+                $("#gridRpttMnth").hide();
+                //$$("ChkQuartws").show();
+                //$$("ChkDayws").show();
+                //$$("ChkMonthws").show();
+
+                $("#divChkMonthws").show();
+                $("#divChkQuart").show();
+                $("#divChkDayws").show();
+                $("#divChkLstYr").hide();
+                $("#divChkVar").hide();
+
+                $$("ChkLstYr").setValue('0');
+                $$("ChkVar").setValue('0');
+
+                $$("FromDt").show();
+                $$("ToDt").show();
+                $$("FromMthDate").hide();
+                $$("ToMthDate").hide();
+                $$("ChkRevPar").show();
+                $$("ChkRevPor").show();
+                $$("btnAnl").hide();
+
+                // $$("AnlLbl").hide();
+                fnddlSegChange();
+                $("#lblRptCaption").empty();
+                $("#lblRptCaption").append("Contribution Forecast");
+            }
+
+            gridResize();
+
+        }
+        function fChkRevParClick() {
+            ClearGrid();
+            if ($$("ChkRevPar").getValue() == 1) {
+                $$("gridRpt").showColumn("REVPAR");
+            }
+            else {
+                $$("gridRpt").hideColumn("REVPAR");
+            }
+        }
+
+        function fnChkLstYearClick() {
+            ClearGrid();
+            if ($$("ChkLstYr").getValue() == 1) {
+                $("#divChkVar").show();
+            }
+            else {
+                $("#divChkVar").hide();
+            }
+            fnChkMonthwsClick();
+        }
+
+        function fnChkVarClick() {
+            ClearGrid();            
+        }           
+
+        function fnChkRevPorClick() {
+            ClearGrid();
+            if ($$("ChkRevPor").getValue() == 1) {
+                $$("gridRpt").showColumn("REVPOR");
+                $$("gridRpt").showColumn("PKG");
+                $$("gridRpt").showColumn("EXTPKG");
+            }
+            else {
+                $$("gridRpt").hideColumn("REVPOR");
+                $$("gridRpt").hideColumn("PKG");
+                $$("gridRpt").hideColumn("EXTPKG");
+            }
+        };
+        function fnLoanContAnlOptWindowLoad() {
+            webix.ui({
+                view: "popup",
+                //close: true,
+                //modal: true,
+                id: "RpContForcastOpt",
+                head: "Analysis By",
+                position: "center",
+                css: "WebIxStyle",
+                height: 500,
+                width: 200,
+                move: true,
+                body: {
+                    padding: { top: 20, left: 30, bottom: 20, right: 10 },
+                    rows: [
+                       { view: "checkbox", id: "ChkNight", labelWidth: 5, labelRight: "Nights", customCheckbox: false, },
+                       { view: "checkbox", id: "ChkRev", labelWidth: 5, labelRight: "Revenue", customCheckbox: false, },
+                       { view: "checkbox", id: "ChkARR", labelWidth: 5, labelRight: "ADR", customCheckbox: false, },
+                       { view: "checkbox", id: "ChkOthRev", labelWidth: 5, labelRight: "Other Revenue", customCheckbox: false, },
+                       { view: "checkbox", id: "ChkPax", labelWidth: 5, labelRight: "Pax", customCheckbox: false, },
+                       { cols: [{}, { view: "button", type: "icon", id: "Okoptions", icon: "wxi-check", label: "OK", inputWidth: 80, width: 80, click: function () { fnContForcastOptOkClick(); } }], }
+                    ]
+                }
+            });
+        };
+        function fnContForcastOptOkClick() {
+
+            var CHKREV = $$("ChkRev").getValue();
+            var CHKARR = $$("ChkARR").getValue();
+            var CHKNT = $$("ChkNight").getValue();
+            var CHKOTHREV = $$("ChkOthRev").getValue();
+            var CHKPAX = $$("ChkPax").getValue();
+
+            if (CHKREV == 0 && CHKARR == 0 && CHKNT == 0 && CHKOTHREV == 0 && CHKPAX == 0) {
+                webix.message("Select atleast one Analysis By", "warning", 800);
+                return;
+            }
+
+
+            $("#CHK_NT").val(CHKNT);
+            $("#CHK_REV").val(CHKREV);
+            $("#CHK_ARR").val(CHKARR);
+            $("#CHK_OTHREV").val(CHKOTHREV);
+            $("#CHK_PAX").val(CHKPAX);
+
+            $$("RpContForcastOpt").hide();
+            fnbtnDisplay();
+        };
+
+        function fnbtnAnlClick()
+        {
+
+            var CHKNT = $("#CHK_NT").val();
+            var CHKREV = $("#CHK_REV").val();
+            var CHKARR = $("#CHK_ARR").val();
+            var CHKOTHREV = $("#CHK_OTHREV").val();
+            var CHKPAX = $("#CHK_PAX").val();
+
+            $$("ChkRev").setValue(CHKREV);
+            $$("ChkARR").setValue(CHKARR);
+            $$("ChkNight").setValue(CHKNT);
+            $$("ChkOthRev").setValue(CHKOTHREV);
+            $$("ChkPax").setValue(CHKPAX);
+            //$$("RpContForcastOpt").show();
+
+
+        }
+
+        function ClearGrid() {
+            $$("gridRpt").clearAll();
+            $$("gridRptMnth").clearAll();
+        }
+        function fnbtnDisplay() {
+            
+            $("#LoadDIv").show();
+            var frmdate = "";
+            var todate = "";
+            var REPTYPE = "";
+            var CHKPM = "";
+            var ROOMTYIDS = "";
+            var CHKOCCPER = "";
+            var CHKREVPAR = "";
+            var CHKPASTDT = "";
+            var CHKCOMPLHU = "";
+            var CHKTENTRESV = "";
+            var CHKDAYUSE = "";
+            var V24_IND = "";
+            var CATID = "";
+            var SEGIDS = "";
+            var CHKREALTM = "";
+            var CHKNT = "";
+            var CHKREV = "";
+            var CHKARR = "";
+            var CHKOTHREV = "";
+            var CHKPAX = "";
+            var frmdate = $$("FromDt").getText();
+            var todate = $$("ToDt").getText();
+            var CHKDAYTP = "";
+            var vChkLstYr = "0"; 
+
+            REPTYPE = "1";
+            if ($$("ChkMonthws").getValue() == 1 || $$("ChkQuartws").getValue() == 1 || $$("ChkDayws").getValue() == 1) {
+                REPTYPE = "2";
+                if ($$("ChkDayws").getValue() == 1) CHKDAYTP = "D";
+                if ($$("ChkMonthws").getValue() == 1) CHKDAYTP = "M";
+                if ($$("ChkQuartws").getValue() == 1) CHKDAYTP = "Q";
+                CHKNT = $("#CHK_NT").val();
+                CHKREV = $("#CHK_REV").val();
+                CHKARR = $("#CHK_ARR").val();
+                CHKOTHREV = $("#CHK_OTHREV").val();
+                CHKPAX = $("#CHK_PAX").val();
+                vChkLstYr = $$("ChkLstYr").getValue();
+            }
+
+            if ($$("ChkMonthws").getValue() == 1 || $$("ChkQuartws").getValue() == 1 ) {
+                frmdate = $$("FromMthDate").getValue();
+                todate = $$("ToMthDate").getValue()
+                
+                frmdate = formatDate(frmdate);
+                todate = formatDate(todate);
+            }
+
+            if (frmdate == "") {
+                webix.message("From Date can't be empty", "warning", 500);
+                $("#LoadDIv").hide();
+                return;
+            }
+            if (todate == "") {
+                webix.message("To Date can't be empty", "warning", 500);
+                $("#LoadDIv").hide();
+                return;
+            }
+            //frmdate = formatDate(frmdate);
+            //todate = formatDate(todate);
+            var bSucc = "1";
+
+            $.ajax({
+                type: "POST",
+                url: "/Reports/FTDateValidation",
+                cache: false,
+                charset: 'utf-8',
+                data: "F=" + frmdate + "&T=" + todate,
+                success: function (data) {
+                    if (data.d != "") {
+                        
+                        webix.message("From Month Should be less than To Month ", "warning", 500);
+                        $("#LoadDIv").hide();
+                        bSucc = "0";
+                    }
+                }
+            });
+
+            if (bSucc == "0") return;
+            var comp = $$("Property").getValue();
+
+
+            if (comp == "") {
+                webix.message("Property can't be empty", "warning", 500);
+                $("#LoadDIv").hide();
+                return;
+            }
+
+
+
+            //var W10_IND = $("#CHK_CONSOLID").val();
+            if ($$("ChkAll").getValue() == 0) SEGIDS = $("#SegmntId").val();
+
+            if($$("ddlCat").getValue()!="<-ALL->" && $$("ChkCat").getValue()==1) CATID = $$("ddlCat").getValue();
+
+            SEGTYPE=$$("ddlSeg").getText();
+
+
+            CHKREVPAR = $$("ChkRevPar").getValue();
+            CHKCOMPLHU = $$("ChkComplHU").getValue();
+            CHKDAYUSE = $$("ChkDayUse").getValue();
+            CHKREALTM = $$("ChkRealTime").getValue();
+
+            var param = JSON.stringify({
+                comp: comp, frmdate: frmdate, todate: todate, REPTYPE: REPTYPE, SEGTYPE: SEGTYPE, SEGIDS: SEGIDS, CATID: CATID, CHKREVPAR: CHKREVPAR, CHKCOMPLHU: CHKCOMPLHU,
+                CHKDAYUSE: CHKDAYUSE, CHKREALTM: CHKREALTM,CHKDAYTP:CHKDAYTP, CHKNT: CHKNT, CHKREV: CHKREV, CHKARR: CHKARR, CHKOTHREV: CHKOTHREV, CHKPAX: CHKPAX,CHKLSTYR: vChkLstYr
+            });
+
+            var Currfrmt = $("#CURRENCY_FORMAT").val();
+            var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+            var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                accepts: "application/json",
+                dataType: "json",
+                url: "/Reports/fnRptFoContrForcast",
+                cache: false,
+                async: true,
+                charset: 'utf-8',
+                data: param,
+                success: function (data) {
+                    
+                    if (data != "") {
+                        var rowDatad = JSON.parse(data);
+                        if (REPTYPE == 1) {
+                            $$("gridRpt").clearAll();
+                            $$("gridRpt").parse(rowDatad.GridOpp);
+                        }
+                        else {
+                            $$("gridRptMnth").clearAll();
+                            $$("gridRptMnth").parse(rowDatad.GridOpp);
+                        }
+
+                    }
+
+                },
+                error: function (err) {
+                    $("#LoadDIv").hide();
+                },
+                complete: function () {
+                    
+                    $("#LoadDIv").hide();
+                }
+            });
+        }
+        function formatDate(StrDt) {
+            //
+            var Parts = StrDt.split(" ");
+            var MN = FnRetMonth(Parts[0]);
+            var YR = Parts[1];
+            var Str = "01" + "/" + MN + "/" + YR;
+            return Str;
+        }
+        function FnRetMonth(StrMnNm) {
+            //
+            var UStr = StrMnNm.toUpperCase();
+            var str = "";
+
+            switch (UStr) {
+                case "JAN": str = "01"; break;
+                case "FEB": str = "02"; break;
+                case "MAR": str = "03"; break;
+                case "APR": str = "04"; break;
+                case "MAY": str = "05"; break;
+                case "JUN": str = "06"; break;
+                case "JUL": str = "07"; break;
+                case "AUG": str = "08"; break;
+                case "SEP": str = "09"; break;
+                case "OCT": str = "10"; break;
+                case "NOV": str = "11"; break;
+                case "DEC": str = "12"; break;
+            }
+
+            return str;
+        }
+
+        function FnRetMonth1(intMn) {
+            //
+
+            var str = "";
+
+            switch (intMn) {
+                case 1 : str = "Jan"; break;
+                case 2 : str = "Feb"; break;
+                case 3 : str = "Mar"; break;
+                case 4 : str = "Apr"; break;
+                case 5 : str = "May"; break;
+                case 6 : str = "Jun"; break;
+                case 7 : str = "Jul"; break;
+                case 8 : str = "Aug"; break;
+                case 9 : str = "Sep"; break;
+                case 10 : str = "Oct"; break;
+                case 11 : str = "Nov"; break;
+                case 12 : str = "Dec"; break;
+            }
+
+            return str;
+        }
+
+        function ExcelFormat() {
+            
+            return //"#,##0.00",
+        }
+        function fnHeader() {
+            //
+            var bSucc =0;
+            if ($$("ChkDayws").getValue() == 0 && $$("ChkMonthws").getValue() == 0 && $$("ChkQuartws").getValue() == 0) return;
+            if ($$("ChkDayws").getValue() == 0) bSucc = SMFromDateChange();
+            else bSucc = SMFromMnthChange();
+            if (bsucc = 0) return;
+
+            var Currfrmt = $("#CURRENCY_FORMAT").val();
+            var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+            var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+            ClearGrid();
+            var vColumn = $$("gridRptMnth").config.columns;
+            vColumn.splice(2, vColumn.length);
+
+            $$("gridRptMnth").config.columns[0].header = $$("ddlSeg").getText();
+            $$("gridRptMnth").refreshColumns();
+
+            var vWidth = 100;
+            if ($$("ChkDayws").getValue() == 1) {
+                try {
+                    var set = {
+                        id:"Mon", header: "Mon", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: ExcelFormat,//"#,##0.00",
+                    };
+                    vColumn.push(set);
+
+                    var set = {
+                        id: "Tue", header: "Tue", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+
+                    };
+                    vColumn.push(set);
+                    var set = {
+                        id: "Wed", header: "Wed", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+                    var set = {
+                        id: "Thu", header: "Thu", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+                    var set = {
+                        id: "Fri", header: "Fri", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+                    var set = {
+                        id: "Sat", header: "Sat", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+                    var set = {
+                        id: "Sun", header: "Sun", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+
+                    var set = {
+                        id: "Total", header: "Total", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+                    $$("gridRptMnth").refreshColumns();
+
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            }
+            else if ($$("ChkMonthws").getValue() == 1) {
+                try {
+                    var frmdate = $$("FromMthDate").getValue();
+                    var todate = $$("ToMthDate").getValue();
+                    var vCmpId = $$("Property").getValue();
+                    var vChkLstYr = $$("ChkLstYr").getValue();
+                    //
+                    frmdate = formatDate(frmdate);
+                    todate = formatDate(todate);
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/Reports/fnGetMonthBetwnDt",
+                        data: "CmpId=" + vCmpId + "&frmdate=" + frmdate + "&todate=" + todate + "&ChkLstYr=" + vChkLstYr,
+                        success: function (d) {
+                            //
+                            rowData = JSON.parse(d);
+                            if (rowData.length > 0) {
+                                $.each(rowData, function (key, value) {
+                                    //
+                                    var Hdr = value.MNTH_NM.toString().replace("_", " ");
+                                    var vCss = "";
+                                    var vWidth = 100;
+
+                                    var set = {
+                                        id: $.trim(value.MNTH_ID), header: Hdr,  width: vWidth, css: { 'text-align': 'right ! important' },
+                                        template: function (obj, common, value, config) {
+                                            //
+                                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                                            }
+                                            else return value;
+
+                                        },
+                                        exportType: "number",
+                                        exportFormat: "#,##0.00",
+
+                                    };
+                                    vColumn.push(set);
+                                });
+                                var set = {
+                                    id: "Total", header: "Total", width: vWidth, css: { 'text-align': 'right ! important' },
+                                    template: function (obj, common, value, config) {
+                                        //
+                                        if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                            return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                                        }
+                                        else return value;
+
+                                    },
+                                    exportType: "number",
+                                    exportFormat: "#,##0.00",
+                                };
+                                vColumn.push(set);
+                                $$("gridRptMnth").refreshColumns();
+                            }
+                        }
+                    });
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            }
+            else if ($$("ChkQuartws").getValue() == 1) {
+                vWidth = 150;
+                try {
+                    var set = {
+                        id: "1", header: "1st Quarter", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+
+                    var set = {
+                        id: "2", header: "2nd Quarter", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                           // 
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+
+                    };
+                    vColumn.push(set);
+                    var set = {
+                        id: "3", header: "3rd Quarter", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+                    var set = {
+                        id: "4", header: "4th Quarter", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+                    var set = {
+                        id: "Total", header: "Total", width: vWidth, css: { 'text-align': 'right ! important' },
+                        template: function (obj, common, value, config) {
+                            //
+                            if (obj.TYPEID == "ADR" || obj.TYPEID == "REV") {
+                                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+                            }
+                            else return value;
+
+                        },
+                        exportType: "number",
+                        exportFormat: "#,##0.00",
+                    };
+                    vColumn.push(set);
+                    $$("gridRptMnth").refreshColumns();
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            }
+            
+        }
+
+        //function AlertMesaageDate() {
+        //    var window = $("#CommonAlert");
+        //    var kWnd = window.data("kendoWindow");
+        //    kWnd.center().open();
+        //}
+        function SMToDateChange(e) {
+            //
+
+            var From = $$("FromDate").getValue();
+            var To = $$("ToDate").getValue()
+
+            if (From == "") return false;
+            if (To == "") return false;
+
+            From = formatDate(From);
+            To = formatDate(To);
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Reports/FTDateValidation",
+                cache: false,
+                charset: 'utf-8',
+                data: "F=" + From + "&T=" + To,
+                success: function (data) {
+                    if (data.d != "") {
+                        //AlertMesaageDate();
+
+                        $("#FromDate").val(To);
+                    }
+                }
+            });
+        }
+
+
+        function SMFromDateChange(e) {
+            
+            var frmdate = $$("FromDt").getText();
+            var todate = $$("ToDt").getText();
+            var sFrmDt = $$("FromDt").getText();
+            var vAccDt = $("#HdnAccDt").val();
+
+            var bSucc = "1";
+
+            if (frmdate == "") {
+                webix.message("From Date can't be empty", "warning", 800);
+                $("#LoadDIv").hide();
+                bSucc = "0";
+                return bSucc;
+            }
+
+
+            if (todate == "") {
+                webix.message("To Date can't be empty", "warning", 800);
+                $("#LoadDIv").hide();
+                bSucc = "0";
+                return bSucc;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/Reports/FTDateValidation",
+                cache: false,
+                async: false,
+                charset: 'utf-8',
+                data: "F=" + frmdate + "&T=" + todate,
+                success: function (data) {
+                    if (data.d != "") {
+                        
+                        //webix.message("From Month Should be less than To Month ", "warning", 500);
+                        $("#LoadDIv").hide();
+                        //$$("ToMthDate").setValue(FrmMnth);
+                        var vToDt = formatDate1(sFrmDt);
+                        $$("ToDt").setValue(vToDt);
+                        //bSucc = "0";
+                    }
+                }
+            });
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Reports/FTDateValidation",
+                cache: false,
+                async: false,
+                charset: 'utf-8',
+                data: "F=" + vAccDt + "&T=" + frmdate,
+                success: function (data) {
+                    if (data.d != "") {
+                        
+                        //webix.message("From Month Should be less than To Month ", "warning", 500);
+                        $("#LoadDIv").hide();
+                        //$$("FromDt").setValue(vAccDt);
+                        var vFromDt = formatDate1(vAccDt);
+                        $$("FromDt").setValue(vFromDt);
+
+
+                        //bSucc = "0";
+                    }
+                }
+            });
+
+
+
+            return bSucc;
+
+        }
+
+        function SMFromMnthChange(e) {
+            
+            frmdate = $$("FromMthDate").getValue();
+            todate = $$("ToMthDate").getValue()
+            frmdate = formatDate(frmdate);
+            todate = formatDate(todate);
+            FrmMnth = $$("FromMthDate").getValue();
+
+            var bSucc = "1";
+
+            if (frmdate == "") {
+                webix.message("From Date can't be empty", "warning", 800);
+                $("#LoadDIv").hide();
+                bSucc = "0";
+                return bSucc;
+            }
+
+
+            if (todate == "") {
+                webix.message("To Date can't be empty", "warning", 800);
+                $("#LoadDIv").hide();
+                bSucc = "0";
+                return bSucc;
+            }
+
+
+            $.ajax({
+                type: "POST",
+                url: "/Reports/FTDateValidation",
+                cache: false,
+                async: false,
+                charset: 'utf-8',
+                data: "F=" + frmdate + "&T=" + todate,
+                success: function (data) {
+                    if (data.d != "") {
+                        
+                        //webix.message("From Month Should be less than To Month ", "warning", 500);
+                        $("#LoadDIv").hide();
+                        $$("ToMthDate").setValue(FrmMnth);
+                        //bSucc = "0";
+                    }
+                }
+            });
+
+
+
+            return bSucc;
+
+        }
+
+        </script>
+    </section>
+    </div>

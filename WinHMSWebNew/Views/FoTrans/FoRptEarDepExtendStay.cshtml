@@ -1,0 +1,797 @@
+﻿@{
+    ViewBag.Title = "Early Departure - Extended Stay";
+   
+    //if (ViewBag.VMD == "2") { Layout = "~/Views/Shared/Layout/FO_LayoutSM.cshtml"; }
+    //else
+    //{ Layout = "~/Views/Shared/_FoTransLayout.cshtml"; }
+    Layout = "~/Views/Shared/_FoComLayout.cshtml";
+}
+<script>
+
+    $(document).ready(function () {
+        var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+        var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+        webix.ready(function () {
+            $("#LoadDIv").hide();
+            debugger;
+            var Prop_Id =  @Html.Raw(Json.Encode(ViewBag.COMP));
+            var Propertyload = LoadProperty();
+            var AccountDt = account_dt();
+            var vFromDt = formatDate1(AccountDt);
+            var CurrDt = current_dt();
+            var vToDt=formatDate1(CurrDt);
+
+            webix.ui({
+                container: "divPropbox", view: "richselect", id: "ddlproperty", options: Propertyload,
+                on: {
+                    onChange: function (newv, oldv) {
+                        sessionReassign();
+                        LoadCurrDet(newv);
+                    }
+
+                }
+            });
+
+
+            webix.ui({
+                view: "button", id: "Excel", value: "Excel", width: 70, container: "divExcel", label: excel, tooltip: true,
+                on: {
+                    onItemClick: function () {
+                        DisplayExcel();
+
+                    }
+
+                }
+
+            });
+            webix.ui({ container: "divFrom", view: "label", id: "RoomTyLbl", label: "From", });
+            webix.ui({
+                container: "divFromDt", view: "datepicker", name: "FromDt", id: "FromDt", format: "%d/%m/%Y", stringResult: true, value: vToDt,
+                on: {
+                    onChange: function () {
+                        $$("dtChkIn").clearAll();
+
+                    }
+                }
+            });
+            webix.ui({ container: "divTo", view: "label", id: "ToDtLbl", label: "To", });
+            webix.ui({
+                container: "divToDt", view: "datepicker", name: "ToDt", id: "ToDt", format: "%d/%m/%Y", stringResult: true, value: vToDt,
+                on: {
+                    onChange: function () {
+                        $$("dtChkIn").clearAll();
+
+                    }
+                }
+            });
+            webix.ui({ container: "divbtnDisp", view: "button", id: "btnDisplay", icon: "wxi-check", label: "Display", inputWidth: 80, width: 80, click: function () { fnbtnDisplay(); } }),
+                webix.ui({
+                    container: "divChkEarlyDep", view: "checkbox", id: "ChkEarlyDep", labelWidth: 40, labelRight: "Early Departure (Departure Prior to Actual Departure)", customCheckbox: false,
+                    click: function () {
+                        debugger;
+                        $$("dtChkIn").clearAll();
+                        if ($$("ChkEarlyDep").getValue() == 0 && $$("ChkStay").getValue() == 0) $$("ChkEarlyDep").setValue(1);
+                        else if ($$("ChkEarlyDep").getValue() == 1) $$("ChkStay").setValue(0);
+
+                    },
+                    on: {
+                        onChange: function (newv, oldv) {
+
+                        }
+                    }
+                }),
+                webix.ui({
+                    container: "divChkExtStay", view: "checkbox", id: "ChkStay", labelWidth: 40, labelRight: "Extended Stay (Exted the Stay Period)", customCheckbox: false,
+                    click: function () {
+                        debugger;
+                        $$("dtChkIn").clearAll();
+                        if ($$("ChkStay").getValue() == 0 && $$("ChkEarlyDep").getValue() == 0) $$("ChkStay").setValue(1);
+                        else if ($$("ChkStay").getValue() == 1) $$("ChkEarlyDep").setValue(0);
+                    },
+                    on: {
+                        onChange: function (newv, oldv) {
+
+                        }
+                    }
+                });
+
+            webix.ui({
+                view: "button", id: "Print", value: "Print", width: 70, container: "divPrint", label: Print, tooltip: true,
+                on: {
+                    onItemClick: function () {
+                        fnGridPrint();
+                    }
+                }
+
+            });
+            debugger;
+            $$("ddlproperty").setValue(Prop_Id);
+            $$("ChkEarlyDep").setValue(1)
+            LoadCurrDet(Prop_Id);
+            dtLoadReport();
+
+        });
+    });
+    function formatDate1(StrDt) {
+        debugger;
+        var Parts = StrDt.split("/");
+        var Dt = Parts[0];
+        var Mn = Parts[1];
+        var Yr = Parts[2].substring(0, 4);
+        var Str = Yr + "-" + Mn + "-" + Dt;
+        return Str;
+    };
+    function current_dt() {
+
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETCURRENTDT";
+        reqobj["DateFormat"] = "D";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/getCurrentDate",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+                    debugger;
+                    if (d != "" && d != undefined && d != null) {
+                        //rowData = JSON.parse(d);
+                        rowData = JSON.parse(d);
+
+
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+        return rowData.CURR_DT;
+    }
+    function account_dt() {
+
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETACCOUNTDT";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/getAcountDate",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+                    debugger;
+                    if (d != "" && d != undefined && d != null) {
+                        //rowData = JSON.parse(d);
+                        rowData = JSON.parse(d);
+
+
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+        return rowData.Account_Dt;
+    }
+
+    function LoadCurrDet(vProperty) {
+        //debugger;
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETCURRFORMATDETAILS";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/GetCurrFormatDetails",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+                    debugger;
+                    if (d != "" && d != undefined && d != null) {
+                        //rowData = JSON.parse(d);
+                        rowData = JSON.parse(d);
+                        $("#CURRENCY_FORMAT").val(rowData.CURRENCY_DECIMLIMIT);
+                        $("#CURRENCY_DELIMIT").val(rowData.CURRENCY_DELIMIT);
+                        $("#CURRENCY_DECIMLIMIT").val(rowData.CURRENCY_DECIMLIMIT);
+
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+    };
+    function fnCurrFormat(value) {
+
+        var Currfrmt = $("#CURRENCY_FORMAT").val();
+        var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+        var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+        return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+    }
+    function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+
+
+        if (value == null) return "";
+
+        if (value.toString() != "") {
+
+
+            if (Currfrmt == "L") {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+                var afterPoint = '';
+                if (x.indexOf('.') > 0) {
+                    afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                    afterPoint = CurrDelimit + afterPoint
+                }
+
+
+
+                x = Math.floor(x);
+                x = x.toString();
+                var lastThree = x.substring(x.length - 3);
+                var otherNumbers = x.substring(0, x.length - 3);
+                if (otherNumbers != '' && otherNumbers != '-')
+                    lastThree = ',' + lastThree;
+                return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+            }
+            else {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+
+                //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                //var res = x.replace(/(\d{3})/g, "1,")
+                var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                if (res.indexOf('.') > 0) {
+
+                    res = res.replace(".", CurrDelimit)
+                }
+
+
+                return res;
+            }
+        }
+        else {
+            return value;
+        }
+    };
+    function  sidebarFn(val){
+        //var rowDatad = $$("dtChkIn").serialize();
+
+        //if ($$("dtChkIn"))
+        //    $$("dtChkIn").destructor();
+
+        //dtLoadReport();
+
+        //$$("dtChkIn").clearAll();
+        //$$("dtChkIn").parse(rowDatad);
+        $$("dtChkIn").resize();
+    }
+    $(document).on('shown.lte.pushmenu', function () {
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(1);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+      
+    }).on('collapsed.lte.pushmenu', function(){
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(2);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+    });
+    function dtLoadReport() {
+        webix.ui({
+            view: "treetable",
+            id: "dtChkIn",
+            select: 'row',
+            fixedRowHeight: false,
+            rowLineHeight: 23,
+            height: 450,
+            minWidth: 900,
+            spans: true,
+            autoConfig: true,
+            resizeColumn: true,
+            data: [],
+            css: "webix_header_border",
+            //rawValues: true,
+            container: "gridRptt",
+            columns: [
+                { header: "Date", id: "ARRIVAL_DT",css: { 'text-align': 'left ! important' } },
+                { header: "Room No", id: "ROOM_NO",  css: { 'text-align': 'left ! important' } },
+                     { header: "Bill No", id: "Bill_No", css: { 'text-align': 'left ! important' } },
+                { header: "Guest", id: "Guest1_nm", css: { 'text-align': 'left ! important' } },
+                { header: "Company", id: "Party_nm",css: { 'text-align': 'left ! important' } },
+                  { header: "Reservation Mode", id: "Resv_Mode_ID",  css: { 'text-align': 'left ! important' } },
+                 { header: "Narration", id: "A_REASON",  css: { 'text-align': 'left ! important' } },
+                { header: "Departure Dt", id: "O_CHECK_DT",  css: { 'text-align': 'left ! important' } },
+                { header: "Early Departure Dt", id: "N_CHECK_DT",  css: { 'text-align': 'left ! important' } },
+                 { header: "Extended Stay Dt", id: "N_CHECK_DT_Ext",  css: { 'text-align': 'left ! important' } },
+                { header: "Room Nights", id: "Room_Nights",  css: { 'text-align': 'left ! important' } },
+                {
+                    header: "Tariff", id: "TARIFF", width: 150, css: { 'text-align': 'right ! important' },
+                    format: function (value) {
+                        return fnCurrFormat(value);
+                    },
+                    exportType: "number",
+                    exportFormat: "#,##0.00",
+                },
+                   { header: "User", id: "DDT", width: 120, css: { 'text-align': 'left ! important' } },
+                 { header: "Trn Dt", id: "DBY", width: 120, css: { 'text-align': 'left ! important' } },
+
+            ],
+            scheme: {
+                $change: function (item) {
+                    if (item.N_CHECK_DT != "" && item.N_CHECK_DT != null || item.N_CHECK_DT_Ext !="" && item.N_CHECK_DT_Ext != null) {
+                        if (item.N_CHECK_DT == "Total" ||  item.N_CHECK_DT_Ext == "Total") {
+                            debugger;
+                            $$("dtChkIn").addSpan(item.id, "N_CHECK_DT", 1, 1, null, "GrpTot1");
+                            $$("dtChkIn").addSpan(item.id, "N_CHECK_DT_Ext", 1, 1, null, "GrpTot1");
+                            $$("dtChkIn").addSpan(item.id, "Room_Nights", 1, 1, null, "GrpTot1");
+                            $$("dtChkIn").addSpan(item.id, "TARIFF", 1, 1, null, "GrpTot1");
+
+                        }
+                    }
+                    if (item.Party_nm != "" && item.Party_nm != null) {
+                        if (item.Party_nm == "Date") {
+                            $$("dtChkIn").addSpan(item.id, "Party_nm", 1, 1, null, "GrpHead");
+                            $$("dtChkIn").addSpan(item.id, "A_REASON", 1, 1, null, "GrpHead");
+
+                        }
+                        if (item.Party_nm == "Total") {
+                            $$("dtChkIn").addSpan(item.id, "Party_nm", 1, 1, null, "GrpTot1");
+                            $$("dtChkIn").addSpan(item.id, "A_REASON", 1, 1, null, "GrpTot1");
+
+                        }
+                    }
+                },
+
+            },
+
+            on: {
+                onAfterLoad: function () {
+                    var rowId = this.getFirstId();
+                },
+
+                onBeforeClose: function () {
+                    return false;
+
+                },
+
+            },
+        });
+
+    }
+    function OptionShowClick() {
+        if ($$("ChkEarlyDep").getValue() == 1) {
+            $$("dtChkIn").showColumn("N_CHECK_DT");
+            $$("dtChkIn").hideColumn("N_CHECK_DT_Ext");
+
+        }
+        else {
+            $$("dtChkIn").hideColumn("N_CHECK_DT");
+            $$("dtChkIn").showColumn("N_CHECK_DT_Ext");
+
+        }
+        if ($$("ChkStay").getValue() == 1) {
+            $$("dtChkIn").hideColumn("N_CHECK_DT");
+            $$("dtChkIn").showColumn("N_CHECK_DT_Ext");
+        }
+        else {
+            $$("dtChkIn").showColumn("N_CHECK_DT");
+            $$("dtChkIn").hideColumn("N_CHECK_DT_Ext");
+
+
+        }
+
+    }
+
+    function fnbtnDisplay() {
+        debugger;
+        OptionShowClick();
+        $("#LoadDIv").show();
+        $$("dtChkIn").clearAll();
+        var reqobj = {};
+        var DispalyLedgerval = "";
+
+        if ($$("ToDt").getText() == "") {
+            webix.message({ type: 'warning', text: "To Date cann't be empty" });
+            return;
+        }
+
+        if ($$("FromDt").getText() == "") {
+            webix.message({ type: 'warning', text: "From Date cann't be empty" });
+            return;
+        }
+
+        if ($$("ddlproperty").getText() == "") {
+            webix.message({ type: 'warning', text: "Property cann't be empty" });
+            return;
+        }
+        //OptionShowClick();
+
+
+
+        reqobj["FromDt"] = $$("FromDt").getText();
+        reqobj["ToDt"] = $$("ToDt").getText();
+        reqobj["REQTYPE"] = "GET_FOEARLYDEPEXTSTAY";
+        if ($$("ChkStay").getValue() == 1)
+            reqobj["ChkStay"] = "1";
+        if ($$("ChkEarlyDep").getValue() == 1)
+            reqobj["ChkEarlyDep"] = "1";
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/FoTrans/fnDisplayEarlyDepExtStay",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+                debugger;
+                if (d != "" && d != undefined && d != null) {
+                    //rowData = JSON.parse(d);
+                    rowData = d;
+                    $$("dtChkIn").clearAll();
+                    $$("dtChkIn").parse(rowData);
+                    $$("dtChkIn").refresh();
+
+                }
+                else {
+                    AlertMessage("No records found");
+                }
+
+            },
+        });
+        $("#LoadDIv").hide();
+    }
+
+
+    function fnGridPrint() {
+        debugger;
+        var FileName = "";
+        if ($$("ChkEarlyDep").getValue() == 1)
+            FileName = "Early CheckIn";
+        else
+            FileName = "Late CheckOut";
+        var vHeader = FileName;
+        var FullData = "";
+
+        FullData = $$("dtChkIn").serialize();
+        var len = FullData.length;
+        if (len > 0) {
+            webix.print($$("dtChkIn"), {
+                docHeader: vHeader,
+                fontSize: 25,
+                mode: "landscape",
+                fit: "data"
+
+            });
+        }
+        else {
+            alert("Records not present in Report");
+        }
+
+    };
+    function DisplayExcel() {
+        debugger;
+        var FullData = "";
+        var len = 0;
+        var FileName = "";
+        if ($$("ChkEarlyDep").getValue() == 1)
+            FileName = "Early CheckIn";
+        else
+            FileName = "Late CheckOut";
+        FullData = $$("dtChkIn").serialize();
+        len = FullData.length;
+        if (len > 0) {
+            var data = $$("dtChkIn");
+            webix.toExcel($$("dtChkIn"), {
+
+                filename: FileName,
+                styles: false,
+                name: FileName,
+                rawValues: true,
+                spans: true,
+                filterHTML: true,
+                title:true,
+            });
+        }
+        else
+        {
+            alert("Records not present in Report");
+        }
+    }
+    function sessionReassign() {
+        var PropertyId = $$("ddlproperty").getValue();
+        $.ajax({
+            type: "POST",
+            url: "/FoTrans/PeopertySessionReAssign",
+            data: "PropertyId=" + PropertyId,
+            success: function (data) {
+                $$("dtChkIn").clearAll();
+            }
+        });
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "/Reports/GetCurrFormatDetails",
+            data: "CmpId=" + PropertyId,
+            success: function (d) {
+                return true;
+            }
+        });
+    }
+    function LoadProperty() {
+        debugger;
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GET_PROPERTYLOAD_WEBIX";
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: "/FoTrans/fnGetProperty",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+                debugger;
+                if (d != "" && d != undefined && d != null) {
+                    rowData = d;
+
+
+                }
+
+            },
+        });
+        return rowData;
+
+    }
+
+    function AlertMessage(Text) {
+        return webix.alert({
+            ok: "Ok",
+            width: 350,
+            title: "Alert Message",
+            text: Text,
+            modal: true,
+        });
+    }
+</script>
+<style>
+    .textaligntotal {
+        text-align: right;
+    }
+
+    .GrpTot1 {
+        color: red;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: right !important;
+    }
+
+    .GrpTot2 {
+        color: red;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: right !important;
+    }
+
+    .GrpHead {
+        color: #4894ca;
+        font-weight: Bold;
+        font-family: Arial !important;
+    }
+
+    .btnXX {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 1.5;
+    }
+
+    .webix_button {
+        background-color: #dad6d6 !important;
+        color: #454545 !important;
+    }
+
+
+    .webix_secondary .webix_button:focus, .webix_secondary .webix_button:hover {
+        color: #fff !important;
+        background-color: #1a388a !important;
+    }
+
+    webix_secondary .webix_button:active {
+        color: #fff !important;
+        background-color: #1a388a !important;
+    }
+
+    .new_hdr {
+        background: rgba(220, 239, 252,0.15);
+        -webkit-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        -moz-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        padding: 10px 0px 9px 10px;
+        margin-top: 40px !important;
+    }
+    .webix_dtable {
+        cursor: default;
+        position: relative;
+        z-index: 0;
+      
+    }
+
+</style>
+<link href="~/Content/sidemenu-custom.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 " ng-app="CashCollect" ng-controller="CashController" id="CashCollect">
+        <div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>
+        </div>
+        <div id="divPage">
+
+            <div class="container-fluid">
+
+                @*<div class="TopHdr">
+                <div class="logcnt">
+                    <img src="../../Images/Logo.png">
+                </div>
+                <div class="TextWidth" style="margin-left: 10px;margin-top:5px;" id="divPropbox">
+                </div>
+
+                <div class="TopHdrMod">
+                    <label style="color: black; font-weight: bold" id="lblRptCaption">Early Departure - Extended Stay</label>
+                </div>
+                <div class="HdrBtnBx">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class="btnXX"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+                <div class="row new_hdr">
+
+
+
+                    <div class="col-sm-3">
+                        <div class="TextWidth" style="margin-left: 10px;margin-top:5px;" id="divPropbox">
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-5 text-center">
+                        <label class="mt-1" style="color: black; font-weight: bold" id="lblRptCaption"><strong class="mt-1 wc_hdr_tlt">Early Departure - Extended Stay</strong></label>
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        <div class="mt-1">
+
+                            <div class=" float-right"><div id="divPrint" ></div></div>
+                            <div class=" float-right"><div id="divExcel" ></div></div>
+
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                @*<%--<div style="width:280px;float:left; height:100vh;">sidemenu</div>--%>*@
+
+                <div style="border:solid transparent;" class="row">
+                    <div class="col-xl-5 col-md-8 col-sm-5 pr-0">
+                        <div style="width:100%; float: left">
+                            <div id="divChkEarlyDep"></div>
+                            <div id="divChkExtStay"></div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-5 col-sm-3 ">
+                        <div class="row">
+                            <div class="col-xl-3 col-md-3 col-sm-3 ">
+                                <div id="divFrom"></div>
+                            </div>
+                            <div class="col-xl-6 col-md-7 col-sm-6">
+                                <div id="divFromDt"> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-3 col-sm-3 ">
+                                <div id="divTo"></div>
+                            </div>
+                            <div class="col-xl-6 col-md-7 col-sm-6 ">
+                                <div id="divToDt"> </div>
+                            </div>
+                            <div class="col-xl-2 col-md-2 col-sm-3  pr-0">
+                                <div id="divbtnDisp"></div>
+                            </div>
+                            @*<div class="col-xl-1 col-md-1 col-sm-1  pr-0" style=" float:left; " id="Div4">
+                            <div id="divAdvSrch"></div>
+                        </div>*@
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div id="gridRptt" style="width: 100%; height: 480px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    </div>
+    <input type="hidden" id="CURRENCY_FORMAT" />
+    <input type="hidden" id="CURRENCY_DELIMIT" />
+    <input type="hidden" id="CURRENCY_DECIMLIMIT" />
+

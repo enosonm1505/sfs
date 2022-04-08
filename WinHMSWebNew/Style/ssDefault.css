@@ -1,0 +1,7 @@
+﻿body {
+    background: url(/Images/page1.jpg); background-repeat:no-repeat;
+    background-size: 100% 677px;
+}
+#Panel1 input[type="image"]
+{ width:192px;margin-top:20px;margin-left:15px;
+}

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="~/Content/bower_components/bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bower_components/fontawesome-free-5.9.0-web/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-form.css" rel="stylesheet" />
+    <link href="~/Content/FOMVC_Style.css" rel="stylesheet" />
+    <link href="~/Content/FoMvc2.css" rel="stylesheet" />
+    <link href="~/Content/ThemeAlterCss.css" rel="stylesheet" />
+
+    <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/bower_components/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="~/Content/bower_components/fontawesome-free-5.9.0-web/js/fontawesome.min.js"></script>
+    <script src="~/Content/bower_components/fontawesome-free-5.9.0-web/js/all.min.js"></script>
+    <script src="~/Scripts/WebixCommon/angularWebix/angular.min.js"></script>
+    <script src="~/Scripts/WebixCommon/angularWebix/angular-route.min.js"></script>
+    <link href="~/WebixSource/webix-pro/skins/mini.min.css" rel="stylesheet" />
+    <script src="~/WebixSource/webix-pro/webix.min.js"></script>
+    <script src="~/WebixSource/webix-pro/index.js"></script>
+    <link href="~/Content/Home.css" rel="stylesheet" />
+    @*<link href="~/webixGrid/codebase/skins/compact.min.css" rel="stylesheet" />*@
+    @*<script src="~/Scripts/WebixCommon/Common/CommonJs.js"></script>*@
+    <script src="~/Scripts/WebixCommon/Common/CommonFOJs.js"></script>
+    <script src="~/Scripts/WebixCommon/Common/PopUpScript.js"></script>
+
+
+</head>
+<body style="overflow:hidden;">
+    @*<div id="cssmenu" style=" margin-top:0px;">
+            <div class="homebtnss" style="width:40px; margin-top:2px;">
+                <i class="fa fa-2x fa-home text-white" style="height: 20px !important; margin-top: 3px; margin-right:10px;"></i>
+            </div>
+            <ul id="ulMenus" class="leftwidth"></ul>
+        </div>
+        <div class="TopHdrName">
+            <div class="compnys">
+            </div>
+            <div class="usr">
+                <i class="fa fa-user text-white" style="height: 20px !important; margin-top: 6px; margin-right:10px;"></i>
+            </div>
+            <div class="dashbrd">
+                <i class="fa fa-2x fa-th-large text-white" style="height: 20px ! important; margin-top: 6px;"></i>
+            </div>
+        </div>
+        <div id="divContent">
+            <section class=" text-center">
+                <span style="color:white">.</span>
+            </section>
+            <section class="content" style="padding:3px;">*@
+    @*@Html.Partial("_HeaderMenuFoMaster")*@
+    @RenderBody()
+    @*</section>
+        </div>*@
+    <div id="LoadBar" style="display:none">
+        <div style="position:absolute; left:0px; top:0px; width:100%; height:100%; margin:0px; fit-position:100%; z-index:10000">
+            <img src="~/Content/b2b-loading.gif" width="80" style="position:absolute; left:45%; top:45%; " />
+        </div>
+    </div>
+
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $("#LoadBar").css("display", "none");
+
+    </script>
+    <style>
+        .svg-inline--fa.fa-w-14 {
+            width: 1.875em !important;
+        }
+
+        .ag-theme-blue .ag-row-selected {
+            background-color: #c0d08e !important;
+        }
+    </style>
+</body>
+</html>

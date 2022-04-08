@@ -1,0 +1,211 @@
+@charset "utf-8";
+/* CSS Document */
+.content-top-header{position:relative;padding:15px 15px 15px 15px; box-shadow:3px 0 8px rgba(0,0,0,0.125) }
+
+.btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* Boostrap Buttons Styling */
+
+.btn-red {
+  
+  font-size: 13px;
+  color: #dd4b39;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid #dd4b39;
+  border-radius: 40px;
+  background: #fff;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-red:hover {
+  color: #FFF;
+  background: #dd4b39;
+  border: 2px solid #dd4b39;
+	  box-shadow: 0 8px 6px -6px black;
+}
+
+.btn-blue {
+  
+  font-size: 13px;
+  color: #00c0ef;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid #00c0ef;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-blue:hover {
+  color: #FFF;
+  background: #00c0ef;
+  border: 2px solid #00c0ef	;
+	box-shadow: 0 8px 6px -6px black;
+}
+
+.btn-green {
+  
+  font-size: 13px;
+  color: #00a65a;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid #00a65a;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-green:hover {
+  color: #FFF;
+  background: #00a65a;
+  border: 2px solid #00a65a;
+	box-shadow: 0 8px 6px -6px black;
+}
+
+.btn-yellow {
+  
+  font-size: 13px;
+  color: #f39c12 ;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid #f39c12;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-yellow:hover {
+  color: #FFF;
+  background: #f39c12;
+  border: 2px solid #f39c12;
+	box-shadow: 0 8px 6px -6px black;
+}
+
+.btn-orange {
+  
+  font-size: 13px;
+  color: #c8520a;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid #c8520a;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-orange:hover {
+  color: #FFF;
+  background: #c8520a;
+  border: 2px solid #c8520a;
+	box-shadow: 0 8px 6px -6px black;
+}
+
+.btn-orange:active {
+  color: #FFF;
+  background: #c8520a;
+  border: 2px solid #c8520a;
+	box-shadow: 0 8px 6px -6px black;
+}
+.btn-purple {
+  
+  font-size: 13px;
+  color: #8f3dff;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid #8f3dff;
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-purple:hover {
+  color: #FFF;
+  background: #8f3dff;
+  border: 2px solid #8f3dff;
+	box-shadow: 0 8px 6px -6px black;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+	.wc-btn{width:auto;margin:2% auto; float:left;}
+/* STYLES GO HERE */
+}
+ 
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* STYLES GO HERE */
+}
+ 
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* STYLES GO HERE */
+}
+ 
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+	.wc-btn{width:50%;margin:1% auto; float:left;
+		
+	}
+	.hidden-md{display: none;}
+
+}
+ 
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+.wc-btn{width:50%;margin:1% auto; float:left;}
+}
+ 
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+/* STYLES GO HERE */
+}
+ 
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* STYLES GO HERE */
+}
+ 
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* STYLES GO HERE */
+}
+ 
+/* iPhone 5 (portrait &amp; landscape)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+/* STYLES GO HERE */
+}
+ 
+/* iPhone 5 (landscape)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : landscape) {
+/* STYLES GO HERE */
+}
+ 
+/* iPhone 5 (portrait)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : portrait) {
+/* STYLES GO HERE */
+}

@@ -1,0 +1,28 @@
+﻿
+@Html.Partial("~/Views/Shared/_MenuHdr.aspx")
+
+<div class="TopHdr1">
+    <div class="TopHdrMod">
+        <div class="logcnt">
+            <img src="../../Images/winhmslogo.png">
+        </div>
+        <div class="TextWidth" style="margin-left:20px; width:250px; float:left; top:10px; text-align:left;" id="divPropbox">
+        </div>
+        <div id="Divtit">
+            <label style="color: black; font-weight: bold; font-size:13px; margin-bottom:0px; margin-right: 300px;" id="Divtitle">
+                <i class="fa @ViewBag.Icon fa-lg"></i>   @ViewBag.Title
+            </label>
+        </div>
+    </div>
+
+    <div class="HdrBtnBx">
+        @*<button type="button" class="btn btn-custom" data-button="New" title="Add"><i class='fa fa fa-plus'></i> </button>
+            <button type="button" class="btn btn-custom" data-button="Amend" title="Amend"><i class='fa fa-search'></i> </button>
+            <button type="button" class="btn btn-custom" data-button="Save" title="Save"><i class='fa fa-save'></i> </button>*@
+        <button type="button" class="btn btn-custom" id="btnRefresh" data-button="Refresh" title="Refresh" id="REFRESH"><i class='glyphicon glyphicon-refresh'></i> </button>       
+        <button type="button" class="btn btn-custom" id="btnNew" data-button="New" title="Add"><i class='fa fa fa-plus'></i> </button>
+        <button type="button" class="btn btn-custom" id="btnopen" data-button="Open" title="Open"><i class='fa fa-search'></i> </button>
+        <button type="button" class="btn btn-custom" data-button="View" title="View" id="btnview"><i class='glyphicon glyphicon-eye-open'></i> </button>
+        <button type="button" class="btn btn-custom" id="btnsave" data-button="Save" title="Save"><i class='fa fa-save'></i> </button>
+    </div>
+</div>

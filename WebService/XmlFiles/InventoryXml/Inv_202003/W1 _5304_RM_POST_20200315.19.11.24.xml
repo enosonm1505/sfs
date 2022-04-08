@@ -1,0 +1,17 @@
+<?xml version='1.0' standalone='yes'?>
+<OTA_InvCountNotifRQ>
+  <Authentication>
+    <Username>pmshideout@bagahideout.com</Username>
+    <Password>PMSHideout@5304</Password>
+  </Authentication>
+  <OTA_HotelInvCountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" schemaLocation="http://www.opentravel.org/OTA/2003/05/OTA_HotelInvCountNotifRQ.xsd" Version="1.000" Target="Production">
+    <Inventories HotelCode="5304">
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-15" End="2020-03-15" />
+        <InvCounts>
+          <InvCount Count="4" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+    </Inventories>
+  </OTA_HotelInvCountNotifRQ>
+</OTA_InvCountNotifRQ>

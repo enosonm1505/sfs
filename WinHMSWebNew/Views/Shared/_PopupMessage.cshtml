@@ -1,0 +1,32 @@
+﻿
+<div class="modal fade" id="EPopup" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" style="overflow:hidden !important; padding:120px;">
+    <div class="modal-dialog">
+        <div class="modal-content" style="margin-left: -24px;  margin-right: -24px;">
+            <div class="modal-header success" >
+                <button id="btnpopclose" type="button" class="close" data-dissmiss="modal" aria-hidden="true">x</button>
+                <h4 class="modal-title" id="lblmodallabel"><i class="fa fa-exclamation-triangle"></i>  Messages</h4>
+            </div>
+            <div class="modal-body" style="height:auto; overflow-y:scroll">
+                <div class="container">
+                    <div style="width: 9%; float: left;">
+                        <img id="Img" style="display: none; height: 42px; float: left;" />
+                    </div>
+                    <div style="width:80%; float:left">
+                        <div id="alerttxt" style="font-weight:bold;">
+                            @*<label></label>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnpopcan" type="button" class="btn btn-warning" data-dissmiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#btnpopcan").click(function () {
+        $("#EPopup").modal('hide');
+    });
+</script>

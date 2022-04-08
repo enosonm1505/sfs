@@ -1,0 +1,71 @@
+﻿
+.YellowRowsPosPop {
+    background-color: #295d75;
+    color: #fff;
+    text-align: center;
+    font-family: Arial !important;    
+    height: 30px !important;
+    text-align: center !important;
+}
+
+.YellowRowsPosPop1 {
+    background-color: #67ddf8;
+    color: #000;
+    text-align: center;
+    font-family: Arial !important;
+    padding: 0px !important;
+}
+
+.VacantColorRmPos {
+    font-weight: bold;   
+}
+
+.HolyDaybgRmPosPop {
+    background-color: red !important;
+    color: White;
+    font-family: Arial !important;
+    text-align: center !important;
+}
+.EmptyHeaderRmPosPop {
+    background-color: #fff !important;
+    line-height: 30px !important;
+}
+
+.RoomPosGrid .webix_ss_header, .RoomPosGrid.webix_ss_header td, .RoomPosGrid.webix_ss_vscroll_header {
+    background-color: #fff !important;
+}
+
+.RoomPosGrid .webix_column > div:nth-child(2n) {
+     background-color: transparent ; 
+}
+
+.multiline {
+    line-height: 15px !important;
+    justify-content: center;
+    align-items: center;
+    content: 'x';
+    display: flex;                            
+} 
+
+.OccPerRowClrRmPos{
+    font-weight: bold;
+    background-color:#816c94 !important ;
+    color:white !important;        
+} 
+.RoomPosGrid .webix_ss_footer td, .RoomPosGrid .webix_ss_vscroll_footer {
+   font-weight: bold;
+    background-color:#816c94 !important ;
+    color:white !important; 
+    font-size: 12px !important;   
+    border-top: .5px solid whitesmoke;
+    border-left: .5px solid whitesmoke;
+}
+
+ .RoomPosGrid .GridFooterText {
+    text-align: left ! important;
+}
+
+.RmPosTemp .webix_template  {
+    padding: 0px 0px;
+}
+

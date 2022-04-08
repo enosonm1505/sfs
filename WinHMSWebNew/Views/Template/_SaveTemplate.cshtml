@@ -1,0 +1,76 @@
+﻿@(Html.Kendo().Window()
+    .Name("TemplateSave")
+    .Title(" <i class='fa fa-envelope fa-lg'></i>  Message")
+    .Visible(false)
+    .Content(@<text>
+   <div style="width:100%; margin-top:20px; margin-left:10px; z-index:20">
+    <div style="width:120px; float:left">
+      Document Name
+    </div>
+<div style="width:300px; float:left">
+     <input type="text" id="SaveTemplateName"  style="width:250px;" />
+    </div>
+           
+</div>
+<div style="text-align:right;  margin-top:70px; margin-right:50px;">
+    <button type="button" class="btn btn-default btn-popup" id="Tempsave" title="Close"><i class='fa fa-check-circle fa-lg'></i> Save </button>
+  <button type="button" class="btn btn-default btn-popup" id="TempCancel" title="Close"><i class='fa fa-times fa-lg'></i> Cancel </button>
+  </div>
+
+<script type="text/javascript">
+    $("#Tempsave").click(function (e) {
+        var editor = $("#editor").data("kendoEditor");
+       
+        var EditorContent = editor.value();
+
+        //var dataparam = {};       
+        //dataparam["MODULE_ID"] = "WSM";
+        //dataparam["TEMPLATE_TY_ID"] = "A";
+        //dataparam["TEMPLATE_ID"] = "";
+        //dataparam["TEMPLATE_NAME"] = $("#SaveTemplateName").val();
+        //dataparam["TEMPLATE_STRING"] = EditorContent;      
+    
+        //var DataVal = JSON.stringify(dataparam);
+        //$.ajax({
+        //    async: false,
+        //    url: "/Template/SAVE_TEMPLATE",
+        //    type: 'POST',
+        //    data: "request=" + DataVal,        
+        //    success: function (data) {
+              
+        //        var window = $("#TemplateSave");
+        //        var kWnd = window.data("kendoWindow");
+        //        kWnd.center().close();
+        //        document.location.reload(true);
+        //    },
+        //    error: function (request, status, error) {
+        //        console.log("Error Failrue");
+        //    }            
+        //});
+
+
+        var window = $("#TemplateSave");
+        var kWnd = window.data("kendoWindow");
+        kWnd.center().close();
+        document.location.reload(true);
+         });
+         $("#TempCancel").click(function (e) {
+             var window = $("#TemplateSave");
+             var kWnd = window.data("kendoWindow");
+             kWnd.center().close();
+             document.location.reload(true);
+         });
+
+</script>    
+    </text>)
+         .Visible(false)
+    .Modal(true)
+    .Draggable(false)
+    .Width(450)
+    .Height(150)
+           
+)
+
+
+
+

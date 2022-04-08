@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+
+<script>
+    $(document).ready(function () {
+        webix.ui({
+            view: "window",
+            close: true,
+            modal: true,
+            id: "RptSegmentTypeSrchPopUp",
+            head: "Segment Search",
+            position: "center",
+            css: "WebIxStyle",
+            height: 500,
+            width: 383,
+            move: true,
+            body: {
+                rows: [
+                   {
+                       view: "datatable",
+                       id: "SegmentTyid",
+                       select: 'row',
+                       //editable: true,
+                       css: "webix_header_border",
+                       scrollX: false,
+                       columns: [
+                               { id: "NM", header: ['Segment', { content: "textFilter", }], width: 335, css: { 'text-align': 'left ! important' }, },
+                               { id: "SegChk", editor: "Checkbox", header: [{ content: "masterCheckbox", checked: "on", css: { 'padding': '0px ! important' } }], width: 30, css: "check_box", template: "{common.checkbox()}" },
+                               { id: "ID", hidden: true },
+                       ],
+                       data: [],
+
+                   },
+
+                   {
+                       margin: 10,
+                       padding: { top: 5, bottom: 5, right: 5 },
+                       cols: [
+                           {
+                               view: "button",
+                               type: "icon",
+                               icon: "wxi-check",
+                               label: "Ok",
+                               inputWidth: 80,
+
+                               click: function () {
+                                   var vSegNm = "";
+                                   var vSegId = "";
+
+                                   $$("SegmentTyid").data.each(function (obj) {
+                                       debugger;
+                                       if (obj.SegChk) {
+                                           if (vSegNm != "") {
+                                               vSegNm = vSegNm + "," + obj.NM
+                                           }
+                                           else {
+                                               vSegNm = obj.NM
+                                           }
+
+                                           if (vSegId != "") {
+                                               vSegId = vSegId + ",'" + obj.ID + "'"
+                                           }
+                                           else {
+                                               vSegId = "'" + obj.ID + "'"
+                                           }
+                                       }
+                                   });
+
+
+
+                                   if (vSegId != "") {
+                                       $("#SegmntId").val(vSegId);
+                                       $$("RptSegmentTypeSrchPopUp").hide();
+
+                                   }
+
+                                   else {
+                                       webix.alert({ text: "Pelase Select any One. ", type: "alert-warning" });
+                                   }
+
+                               },
+                               align: "right"
+                           }
+                       ]
+                   }],
+            }
+        });
+
+    });
+
+</script>
+<style>
+    /*.animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 0.4s!important;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }*/
+</style>
+<script type="text/javascript">
+    //debugger;
+
+    function fnLoadSegmentPop(vCmpId, TYPETAG, SUBTYPE) {
+        debugger;
+        $$("SegmentTyid").clearAll();
+        var rowDatad = "";
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: "/Reports/fnLoadSearchAll",
+            data: "CmpId=" + vCmpId + "&TYPETAG=" + TYPETAG + "&SUBTYPE=" + SUBTYPE,
+
+
+            success: function (d) {
+                debugger;
+                if (d != "") {
+                    rowDatad = JSON.parse(d);
+
+                    var Sa = rowDatad;
+                    var Rows = [];
+
+                    $.each(Sa, function (key, value) {
+                        var set = {};
+                        set = { NM: value.value, SegChk: true, ID: value.id };
+                        Rows.push(set);
+                    });
+                    $$("SegmentTyid").getColumnConfig("SegChk").header[0].checked = true;
+                    $$("SegmentTyid").refreshColumns();
+
+                    $$("SegmentTyid").parse(Rows);
+                    $$("SegmentTyid").refresh();
+
+                }
+            }
+        });
+    }
+</script>
+

@@ -1,0 +1,100 @@
+﻿<div class="modal fade" id="ScrTermsCnt" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:70%; margin-left:20%;">
+           
+
+            <div class="modal-header">
+                <button id="btnclose" type="button" class="close" data-dissmiss="modal" aria-hidden="true">x</button>
+                <h4 class="modal-title" id="lblterms"><i id="earnicon" class="glyphicon glyphicon-file"></i>
+                    <span id="CmnHeading">PO Terms</span></h4>
+            </div>
+
+
+
+            <div class="modal-body">
+                <div class="row">
+                    <div id="GridScrTerm" style="height:320px" data-text="NM"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCnclTermscon" type="button" class="btn btn-warning" data-dissmiss="modal"><i class="fa fa-close (alias)"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+    $("#btnCnclTermscon,#btnclose").click(function () {
+        debugger;
+        $("#ScrTermsCnt").modal("hide");
+    }) 
+  
+   
+
+    function fntemscnt()
+    {
+        debugger;
+        var grid = $("#GridScrTerm").data("kendoGrid");
+        var data = grid.dataSource.data();   
+        $.each(data, function (i, row) {
+            var Result = "";
+           // debugger;
+            var select = $("input:checked", grid.tbody).closest("tr[data-uid='" + row.uid + "']")
+            if (select.length == "1") {            
+
+                if (row.PO_TERMS_ID != "") {
+                    debugger;
+                    var getchild = $("#GridTermsCond").data("kendoGrid").dataSource.data()[window.selindex1];
+                    getchild.PO_TERMS_ID = row.PO_TERMS_ID;
+                    getchild.PO_TERMS_TY_ID = row.PO_TERMS_TY_ID;
+                    getchild.TEXTBOX = row.PO_TERMS_1.replace("&", " and ");
+                    $("#GridTermsCond").data("kendoGrid").refresh();
+                    $("#btnCnclTermscon").click();
+                }
+            }
+        });
+    
+
+
+        //debugger;
+        //var row = {};
+        //var getparent = "";
+        //var Checked = this.checked;
+        //var grid = $("#GridScrTerm").data("kendoGrid");
+        // var row = $(this).closest("tr");
+        //var rowindx = grid.selectable.userEvents.currentTarget.rowIndex;
+        //var selectedItem = grid.dataItem(grid.select());      
+
+
+    
+        //var Cellindx = grid._current[0].cellIndex;
+
+       
+        
+        //if (selectedItem != null) {
+        //    debugger;
+        //    console.log(window.selindex1);
+           
+        //}
+        //else
+        //{
+        //    debugger;
+        //    console.log(window.selindex1);
+        //    var getchild = $("#GridTermsCond").data("kendoGrid").dataSource.data()[rowindx];
+
+
+        //    getchild.PO_TERMS_ID = selectedItem.PO_TERMS_ID;
+        //    getchild.PO_TERMS_TY_ID = selectedItem.PO_TERMS_TY_ID;
+        //    getchild.TEXTBOX = selectedItem.PO_TERMS_1.replace("&", " and ");
+
+        //    $("#GridTermsCond").data("kendoGrid").refresh();
+
+        //    $("#btnCnclTermscon").click();
+        //}
+        $("#GridTermsCond .k-grid-content").css('height', '100px')
+        $("#btnCnclTermscon").click();
+
+    };
+
+</script>

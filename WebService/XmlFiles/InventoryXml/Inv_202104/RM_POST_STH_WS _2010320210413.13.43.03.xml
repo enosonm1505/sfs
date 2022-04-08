@@ -1,0 +1,119 @@
+<?xml version='1.0' standalone='yes'?>
+<OTA_InvCountNotifRQ>
+  <Authentication>
+    <Username>20103.winhmscloud@staah.com</Username>
+    <Password>Whiritoa5321</Password>
+  </Authentication>
+  <OTA_HotelInvCountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" schemaLocation="http://www.opentravel.org/OTA/2003/05/OTA_HotelInvCountNotifRQ.xsd" Version="1.000" Target="Production">
+    <Inventories HotelCode="20103">
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-13" End="2021-04-13" />
+        <InvCounts>
+          <InvCount Count="4" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-14" End="2021-04-14" />
+        <InvCounts>
+          <InvCount Count="4" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-15" End="2021-04-15" />
+        <InvCounts>
+          <InvCount Count="4" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-16" End="2021-04-16" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-17" End="2021-04-17" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-18" End="2021-04-18" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-19" End="2021-04-19" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-20" End="2021-04-20" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-21" End="2021-04-21" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-22" End="2021-04-22" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-23" End="2021-04-23" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-24" End="2021-04-24" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-25" End="2021-04-25" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-26" End="2021-04-26" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-27" End="2021-04-27" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-28" End="2021-04-28" />
+        <InvCounts>
+          <InvCount Count="4" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-29" End="2021-04-29" />
+        <InvCounts>
+          <InvCount Count="4" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SF" Start="2021-04-30" End="2021-04-30" />
+        <InvCounts>
+          <InvCount Count="5" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+    </Inventories>
+  </OTA_HotelInvCountNotifRQ>
+</OTA_InvCountNotifRQ>

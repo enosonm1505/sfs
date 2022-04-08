@@ -1,0 +1,143 @@
+<?xml version='1.0' standalone='yes'?>
+<OTA_InvCountNotifRQ>
+  <Authentication>
+    <Username>pmshideout@bagahideout.com</Username>
+    <Password>PMSHideout@5304</Password>
+  </Authentication>
+  <OTA_HotelInvCountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" schemaLocation="http://www.opentravel.org/OTA/2003/05/OTA_HotelInvCountNotifRQ.xsd" Version="1.000" Target="Production">
+    <Inventories HotelCode="5304">
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-09" End="2020-03-09" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-10" End="2020-03-10" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-11" End="2020-03-11" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-12" End="2020-03-12" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-13" End="2020-03-13" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-14" End="2020-03-14" />
+        <InvCounts>
+          <InvCount Count="5" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-15" End="2020-03-15" />
+        <InvCounts>
+          <InvCount Count="11" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-16" End="2020-03-16" />
+        <InvCounts>
+          <InvCount Count="12" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-17" End="2020-03-17" />
+        <InvCounts>
+          <InvCount Count="11" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-18" End="2020-03-18" />
+        <InvCounts>
+          <InvCount Count="11" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-19" End="2020-03-19" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-20" End="2020-03-20" />
+        <InvCounts>
+          <InvCount Count="5" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-21" End="2020-03-21" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-22" End="2020-03-22" />
+        <InvCounts>
+          <InvCount Count="13" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-23" End="2020-03-23" />
+        <InvCounts>
+          <InvCount Count="12" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-24" End="2020-03-24" />
+        <InvCounts>
+          <InvCount Count="14" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-25" End="2020-03-25" />
+        <InvCounts>
+          <InvCount Count="16" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-26" End="2020-03-26" />
+        <InvCounts>
+          <InvCount Count="17" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-27" End="2020-03-27" />
+        <InvCounts>
+          <InvCount Count="16" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-28" End="2020-03-28" />
+        <InvCounts>
+          <InvCount Count="17" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-29" End="2020-03-29" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-30" End="2020-03-30" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+    </Inventories>
+  </OTA_HotelInvCountNotifRQ>
+</OTA_InvCountNotifRQ>

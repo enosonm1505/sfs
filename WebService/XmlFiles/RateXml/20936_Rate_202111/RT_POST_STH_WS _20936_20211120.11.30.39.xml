@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OTA_RateAmountNotifRQ>
+  <Authentication>
+    <Username>20936.winhmscloud@staah.com</Username>
+    <Password>Whiritoa5321</Password>
+  </Authentication>
+  <OTA_HotelRateAmountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" schemaLocation="http://www.opentravel.org/OTA/2003/05 OTA_HotelRateAmountNotifRQ.xsd" TimeStamp="2021-11-20T11:30:39" Target="Production" Version="1.000">
+    <RateAmountMessages HotelCode="20936">
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="DLX" RatePlanCode="AP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="5000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="5500.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="DLX" RatePlanCode="CP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="5000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="5500.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="DLX" RatePlanCode="EP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="5000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="5500.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="DLX" RatePlanCode="MAP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="5000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="5500.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SUP" RatePlanCode="AP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="5000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="5000.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SUP" RatePlanCode="CP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="5000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="5000.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SUP" RatePlanCode="EP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="5000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="5000.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SUP" RatePlanCode="MAP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="5000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="5000.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SUT" RatePlanCode="AP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="12000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="12000.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SUT" RatePlanCode="CP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="12000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="12000.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SUT" RatePlanCode="EP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="12000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="12000.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+      <RateAmountMessage>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="SUT" RatePlanCode="MAP">
+          <Rates>
+            <Rate Start="2021-11-20" End="2022-11-19" CurrencyCode="RS">
+              <BaseByGuestAmt NumberOfGuests="1" AmountAfterTax="18000.00" />
+              <BaseByGuestAmt NumberOfGuests="2" AmountAfterTax="18000.00" />
+            </Rate>
+          </Rates>
+        </StatusApplicationControl>
+      </RateAmountMessage>
+    </RateAmountMessages>
+  </OTA_HotelRateAmountNotifRQ>
+</OTA_RateAmountNotifRQ>

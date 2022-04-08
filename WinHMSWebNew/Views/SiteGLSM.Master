@@ -1,0 +1,168 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+
+       
+  <%if (ViewBag.PARTIAL == "" || ViewBag.PARTIAL == null )
+      {%>
+             <%@ Register TagName="MENUGL" TagPrefix="MN" Src="~/GL/GLMasterSMLOC.ascx" %>
+           <%--  <%@ Register TagName="MENUGL" TagPrefix="MN" Src="~/GL/GLMasterSMMVC.ascx" %>--%>
+  <%} %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="<%: Url.Content("~/favicon.ico") %>" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <%= Styles.Render("~/Bundle/TelerikCSS") %>
+
+    <link href="../../Content/MyDesign.css" rel="stylesheet" />
+    <link href="<%= Url.Content("~/Content/kendo.compatibility.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.common.min.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.mobile.all.min.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.default.min.css") %>" rel="stylesheet" type="text/css" />
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/jquery.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/jszip.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/kendo.all.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/kendo.aspnetmvc.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/jszip.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo.modernizr.custom.js") %>"></script>
+
+    <!--Siva Design-->
+    <link href="../../Content/bluetheme.css" rel="stylesheet" />
+    <link href="../../Content/Home.css" rel="stylesheet" />
+<%--    <link href="../../GL/dist/css/AdminLTE.min.css" rel="stylesheet" />--%>
+    <script src="../../Content/Scripts/angular.min.js"></script>
+    <link href="../../webix-pro/webix.min.css" rel="stylesheet" />
+     <link href="../../GL/CSS/BoostrapTables.css" rel="stylesheet" />
+    <link href="../../GL/CSS/sidemenu-custom.css" rel="stylesheet" />
+    <link href="../../GL/CSS/reservationcontol.css" rel="stylesheet" />
+<%--    <script src="../../GL/dist/js/adminlte.min.js"></script>--%>
+    <link href="../../webix-pro/webixCss.css" rel="stylesheet" />
+    <link href="../../Content/SMwebix/webixCss.css" rel="stylesheet" />
+    <script src="../../webix-pro/webix.min.js"></script>
+    <link href="../../Session/CSS/session-style.css" rel="stylesheet" />
+    <script src="../../Session/dist/jquery.userTimeout.js"></script>
+    <script src="../../webix-pro/index.js"></script>
+      <link href="../../webix-pro/skins/mini.min.css" rel="stylesheet" />
+    <link href="../../fonts/font-awesome.min.css" rel="stylesheet" />
+
+     <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="../../GL/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="../../GL/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../GL/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../../GL/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="../../GL/plugins/daterangepicker/daterangepicker.css">
+
+      <script src="../../GL/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="../../GL/plugins/jquery-ui/jquery-ui.min.js"></script>
+    
+    <!-- Bootstrap 4 -->
+    <script src="../../GL/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- daterangepicker -->
+    <script src="../../GL/plugins/moment/moment.min.js"></script>
+    <script src="../../GL/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="../../GL/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+
+    <!-- overlayScrollbars -->
+    <script src="../../GL/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../GL/dist/js/adminlte.js"></script>
+
+</head>
+<script type="text/javascript">
+
+    document.onkeypress = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-12');
+            return false;
+        }
+        if (event.keyCode == 222) {
+            //alert('No F-12');
+            return false;
+        }
+        if (event.keyCode == 186) {
+            //alert('No F-12');
+            return false;
+        }
+    }
+    document.onmousedown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-keys');
+            return false;
+        }
+        if (event.keyCode == 222) {
+            //alert('No F-12');
+            return false;
+        }
+        if (event.keyCode == 186) {
+            //alert('No F-12');
+            return false;
+        }
+    }
+    document.onkeydown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-keys');
+            return false;
+        }
+        if (event.keyCode == 222) {
+            //alert('No F-12');
+            return false;
+        }
+        if (event.keyCode == 186) {
+            //alert('No F-12');
+            return false;
+        }
+    }
+</script>
+<body style="overflow-y: scroll; overflow: auto;">
+    <div class="content-wrapper">
+          <%if (ViewBag.PARTIAL == "" || ViewBag.PARTIAL == null )
+      {%>
+        <div>
+            <MN:MENUGL ID="Menu" runat="server"></MN:MENUGL>
+        </div>
+        <%} %>
+
+       <%--  <div>
+            <MN:MENUGL ID="Menu" runat="server"></MN:MENUGL>
+        </div>--%>
+
+        <div class="divfield">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+          <%--  <div id="pageloaddiv" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>--%>
+        </div>
+
+        <div class="divfield1">
+            <div class="themedes" id="divthemedes">
+                <asp:ContentPlaceHolder ID="FeaturedContent" runat="server" />
+            </div>
+        </div>
+          <%: Html.Partial("_CommonMeaasgeWindow") %>
+        <asp:ContentPlaceHolder ID="ScriptsSection" runat="server" />
+        <script type="text/javascript">
+            $(window).load(function () {
+                $("#pageloaddiv").fadeOut(10);
+            });
+        </script>
+        <script src="../../Scripts/FTDateValidation.js"></script>
+    </div>
+</body>
+</html>

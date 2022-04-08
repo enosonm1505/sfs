@@ -1,0 +1,117 @@
+﻿
+.webix_dd_drag_column, .webix_ss_header, .webix_ss_header td, .webix_ss_vscroll_header {
+    /*background-color: #d9ecf5 !important;*/
+    border-bottom: 1px solid #fff !important;
+}
+
+.webix_dd_drag_column, .webix_ss_header, .webix_ss_header td, .webix_ss_vscroll_header {
+    /*background-color: #d9ecf5 !important;*/
+    border-bottom: 1px solid #fff !important;
+    border-right: 1px solid #fff !important;
+}
+
+.webix_dtable .webix_ss_body .webix_column > div, .webix_dtable .webix_ss_body .webix_table_cell {
+     border-left-color: #edeff0 !important;
+     border-right-color: #8fb2d8 !important;
+}
+
+.webix_column>div, .webix_table_cell {
+    border-bottom: 1px none #edeff0 !important;
+    border-right: 1px solid #edeff0 !important;
+    padding: 0 9pt;
+}
+
+.webix_column > div:nth-child(2n) {
+    background-color: transparent !important;
+}
+
+.webix_dtable_focused .webix_column > div.webix_column_select, .webix_dtable_focused .webix_column > div.webix_row_select {
+      background-color: transparent !important;
+}
+
+.VenueRow1 {
+    background-color: #e4f5ff !important;
+    font-weight:bold !important;
+}
+
+
+.Conf{
+    background-color:#43b947 !important;
+    color: #000 !important;
+    font-size: 11px !important;
+	border-radius:0px!important;
+    border-bottom:none
+}
+.Wait{
+    background-color:#ffd800 !important;
+    color: #000 !important;
+    font-size: 11px !important;
+	border-radius:0px!important;
+    border-bottom:1px solid #fff !important;
+}
+.Tent{
+    background-color:#4ebee8 ! important;
+    color: #000 !important;
+    font-size: 11px !important;
+	border-radius:0px!important;
+    border-bottom:none
+}
+.MBlock{
+    background-color:#F95423 !important;
+    color: black !important;
+    font-size: 11px !important;
+	border-radius:0px!important;
+     border-bottom:none
+}
+.MBlock4{
+    background-color:#F95423 !important;
+    color: black !important;
+    font-size: 11px !important;
+	border-radius:0px!important;
+    border-bottom:1px solid #fff !important;
+}
+
+.Comb{
+    background-color:#ccc7c7 !important;
+    color: black !important;
+    font-size: 11px !important;
+	border-radius:0px!important;
+    border-bottom:none
+}
+
+.Comb4{
+    background-color:#ccc7c7 !important;
+    color: black !important;
+    font-size: 11px !important;
+	border-radius:0px!important;
+border-bottom:1px solid #fff !important;
+}
+
+.FbConf{
+    background-color:#8080FF !important;
+    color: black !important;
+    font-size: 11px !important;
+	border-radius:0px!important;
+border-bottom:none;
+}
+
+.FbConf1{
+    background-color:#8080FF !important;
+    color: black !important;
+    font-size: 11px !important;
+	border-radius:0px!important;
+border-bottom:1px solid #fff !important;
+}
+
+ .RectBox {
+        width: 12px;
+        float: left;
+        height: 12px;
+        border: 1px solid #000;
+    }
+
+
+ 
+/*.VenueStyle {
+    background-color:#e4b648  !important;
+}*/

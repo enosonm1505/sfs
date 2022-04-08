@@ -1,0 +1,9 @@
+﻿
+@using Kendo.Mvc.UI
+
+@(Html.Kendo().DatePicker()
+                  .Name("_FODate")
+                      .Events(e => e.Change("FODatechange"))
+              .HtmlAttributes(new { style = "width:110px" })
+)
+

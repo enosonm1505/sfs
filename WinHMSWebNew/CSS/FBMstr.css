@@ -1,0 +1,51 @@
+﻿
+body {
+}
+      
+        .CRlbltxt {
+            width: 200px;
+            float: left;
+            text-align: left;
+        }
+
+        .Cotrowline {
+            width: 100%;
+            float: left;
+            margin: 0.5% 0% 0 1%;
+        }
+        #cssmenu .has-sub {
+  z-index: 1;
+}
+       
+        .CbyDt{font-size:10px;font-weight:bold;}
+        .CbyDt1{font-size:10px;}
+        .CRlbltxt {
+            width: 259px;
+            float: left;
+            text-align: left;
+        }
+
+        .Ctlbltxt {
+            width: 330px;
+            float: left;
+            text-align: left;
+        }
+
+        .CTrowline {
+            width: 100%;
+            float: left;
+            /*margin: 0.5% 0% 0 1%;*/
+        }
+    .FClbltxt{width:30px;float:left;margin-left:10px;}
+
+    .divMaincnt{width:100%;height:570px}
+    .wc_CRlbltxt {
+    width: 330px!important;
+    float: left!important;
+    text-align: left!important;
+}
+    .wc_CRlbltxt1 {
+    width: 120px;
+    float: left;
+    text-align: left;
+}

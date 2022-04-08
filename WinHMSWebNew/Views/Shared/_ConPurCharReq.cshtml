@@ -1,0 +1,102 @@
+﻿<div class="modal fade" id="PurchaReqSrc" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content" style="width:119%; margin-left:10%;">
+            <div class="modal-header">
+                <h4 class="modal-title" id="lblearndect"><i id="earnicon" class="fa fa-plus-circle"></i> <span id="CmnHeading">Purchase Requisition Search</span> </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div id="PurReqSrcGrd" style="height:380px" data-text="NM"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer" style="float:left;margin-left:460px">
+                <button id="PurbtnOk" type="button" class="btn btn-warning" data-dissmiss="modal"><i class="fa fa-close (alias)"></i> OK</button>
+            </div>
+            <div class="modal-footer">
+                <button id="PurbtnCncl" type="button" class="btn btn-warning" data-dissmiss="modal"><i class="fa fa-close (alias)"></i> Close</button>
+            </div>
+          
+
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #PurReqSrcGrd .k-grid-content {
+        height: 320px;
+    }
+</style>
+
+
+
+<script type="text/javascript">
+    $("#PurbtnCncl").click(function () {      
+        $("#PurchaReqSrc").modal("hide");
+    });
+
+    $("#PurbtnOk").click(function () {
+        window.hidprno = "";
+
+        GridPurmainpop();
+
+        var grid = $("#PurReqSrcGrd").data("kendoGrid");
+        debugger;
+
+        for (var i = 0; i < grid._data.length; i++) {
+            var uId = grid._data[i].uid;
+            var chk = "";
+            chk = $("#PurReqSrcGrd").find("tr[data-uid = '" + uId + "'] td:eq(3)")[0].childNodes['0'].checked;
+
+            //var chkCmp = document.getElementById(grid.rows[i].cells[3].getElementsByTagName('input')[0].id);
+            if (chk == true) {
+                if (hidprno == "")
+                    hidprno = grid.dataSource._data[i].INDENT_NO;
+                else
+                    hidprno = hidprno + "," + grid.dataSource._data[i].INDENT_NO;
+
+            }
+        }
+        debugger;
+        var reqobj = {};
+        reqobj["COMPID"] = COMPID;
+        reqobj["REQTYPE"] = "PURREQESTGRID";
+        reqobj["DDLUNIT"] = ddlunit
+        reqobj["DDLTYPE"] = ddlpoty
+        reqobj["HIDPRNO"] = hidprno;
+
+        var ParamVal = JSON.stringify(reqobj);
+        $.ajax({
+            async: false,
+            url: "/PurchaseQuote/API_CALL",
+            type: 'POST',
+            data: "request=" + ParamVal,
+            success: function (d) {
+                debugger;
+                var Detemp = JSON.parse(d);
+                var grid = $("#PurGrdReq").data("kendoGrid");
+                grid.dataSource.data(Detemp.GRID);
+
+                for (var i = 0; i < grid._data.length; i++) {
+                    var uId = grid._data[i].uid;
+                    var chk = "";
+                    chk = $("#PurGrdReq").find("tr[data-uid = '" + uId + "'] td:eq(4)")[0].childNodes['0'].checked = true;
+                    chk = true;
+                }
+
+                $("#chkcheckal")[0].checked = true;
+            },
+            error: function (request, status, error) {
+                console.log("Error Failrue");
+            }
+        });
+
+
+        $("#lblIndent").val(hidprno);
+
+        $("#PurchaReqSrc").modal("hide");
+    });
+    
+
+</script>

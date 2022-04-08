@@ -1,0 +1,389 @@
+﻿/* added by siva */
+body{overflow-y:hidden}
+.btnButton, .btnButton2{margin-left:3px}
+.container{background-color:#C3C3FF}
+.bolder{font-weight:bold}
+.pnlGrid{height:90px;border-style:inset;width:385px;overflow:auto;float:left;border:1px solid #5FBFD1;padding-left:4px;margin-left:7px}
+.themedes .fullwidth{margin-top:0;line-height:23px}
+.firstbox{width:99%;float:left;padding:0.5%;background-color:#EFEFEF}
+.secbox{width:99%;float:left;padding:0.5%}
+.fullwidth{width:100%;float:left;margin-top:5px}
+.wid300{width:300px;float:left}
+.wid330{width:330px;float:left}
+.wid100{width:100px;float:left}
+.wid200{width:200px; float:left}
+.wid480{width:480px;float:left}
+.wid50{width:50px;float:left}
+
+.rhtbx1{width:240px;float:left;line-height:18px;}
+.rhtbx2{width:240px;float:right;line-height:18px;}
+.rhtbx2 .ctrlbx{width:150px;float:left;text-align:left}
+.wid450{width:450px;float:left}
+.wid60{width:60px;float:left}
+.wid96{width:96px;float:left}
+.wid30{width:30px;float:left}
+.wid35{width:35px;float:left}
+.wid70{width:70px;float:left}
+.wid10{width:10px;float:left}
+.wid120{width:120px;float:left}
+.wid150{width:150px;float:left}
+.wid203{width:203px;float:left}
+.wid250{width:203px;float:left}
+.wid18{width:18px;float:left}
+.pnlUser{overflow:auto;float:left;border:1px solid #5FBFD1;padding-left:4px;margin-left:7px;height:200px;}
+
+.topbtnbox{width:550px;float:right;text-align:right;margin-right:5px}
+.boxb{width:49%;float:right;text-align:right}
+.rhtbox{width:51%;float:right;line-height:20px}
+.mardiv .rhtbox{width:51%;float:right;height:23px;line-height:23px}
+.mardiv .rhtbox1{line-height:23px}
+.btxtbx{width:51px;float:left;text-align:left;padding-right:5px}
+.bctrlbx{width:235px;float:left;text-align:left}
+.txtbx{width:85px;float:left;text-align:left;padding-right:5px}
+.ctrlbx{width:125px;float:left;text-align:left}
+.btnStyle{cursor:pointer;padding-left:2px;padding-right:2px}
+.BtnCalender{background-image:url('/Images/Calender.png');height:17px;width:17px;background-attachment:inherit;background-color:Transparent;background-repeat:no-repeat;border-style:none;border:none;cursor:pointer;border-style:none;vertical-align:middle}
+.threebox1{width:46%;float:left}
+.threebox2{width:53%;float:left}
+.threebox2 .btxtbx{width:14%;float:left;text-align:left;padding-right:5px}
+.threebox2 .bctrlbx{width:84%;float:left;text-align:left}
+.threebox3{width:100%;float:right}
+.threebox3 .btxtbx{width:75px}
+.threebox3 .bctrlbx{width:244px;float:right;text-align:left}
+.threebox3 textarea{width:216px;margin-left:4px}
+.btmflbx{width:100%;float:left;line-height:23px}
+.btmbtnbx{width:150px;float:right;text-align:right;padding-right:37px}
+.tabbx{width:655px;float:left}
+.tabrhtbx{width:250px;float:left}
+.btmrhtbx{width:100%;float:left}
+.usernm{width:200px;float:left;text-align:left}
+.topctrlbx{width:100%;float:left;line-height:28px}
+.btmlhsbox{width:650px;float:left}
+.btmrhsbox{width:331px;float:right}
+#PnlGridView1{float:left;height:135px;width:625px;overflow:auto}
+.srchbtn{background-image:url('../Images/Button_search1.png');background-attachment:inherit;cursor:pointer;
+         background-color:Transparent;background-repeat:no-repeat;border-style:none;width:16px;vertical-align:middle}
+.BtnRtSearch{background-image:url('../Images/btnFind.png');background-attachment:inherit;cursor:pointer;height:15px;
+             background-color:Transparent;background-repeat:no-repeat;border-style:none;width:14px;vertical-align:middle}
+.ddlPro{width:130px;margin-right:2px}
+.btnButton{padding:1px 5px}
+.btnButton:disabled{padding:1px 5px}
+.divSrch{height:510px;width:975Px}
+.wid3per{width:3%;float:left}
+.wid5per{width:5%;float:left}
+.wid12per{width:12%;float:left}
+.wid15per{width:15%;float:left}
+.wid25per{width:25%;float:left}
+.wid10per{width:10%;float:left}
+.wid100per{width:100%;float:left}
+.wid20per{width:20%;float:left}
+.popln1, .popln2{width:100%;float:left}
+.poplna1, .poplna2{width:100%;float:left;line-height:50px;text-align:center}
+.popln2{line-height:23px}
+.a{float:left;width:820px;display:block;height:400px;overflow:scroll;border:1px solid #8f8f8f}
+.DivTarEdit{width:850px;height:290px}
+.pnl{float:left;margin-top:10px}
+.divTrfEditLogReport{width:630px;height:280px}
+.grdTrfEditLogReport{ float:left;margin-top:10px}
+.divPro{width:230px;height: 300px}
+#pnlPromotion{float:left;margin-top:10px}
+.divAutoCharge{height: 375px; width: 800px;}
+.Panel2{ float:left;margin-top:10px}
+.GVAutoChrg{ float:left;margin-top:10px;}
+.divACrg{width: 350px; height: 320px;}
+.divAchLog{width:600px;height:270px;}
+.divAchLogGrd{width:600px;height:240px; float:left}
+.GVAutoChrgscrol{height:269px;width:100%; float:left; overflow-x:scroll}
+.DivOT{height: 180px; width: 350px}
+.divRev{height: 330px; width: 600px;}
+.wid50per{width:50%; float:left}
+.pnlRtSrch{ float:left;margin-top:10px;}
+.divGstSrch{height:406px;width:800px}
+.div3{width: 100%; float:left;}
+.divGstSearch{height: 300px; width: 100%; float:left;margin-top:5px;overflow:auto}
+.divGstAdvSrch{width: 310px; height: 250px;}
+.wid75per{width:75%; float:left}
+.DivDiscount{height: 130px; width: 350px;}
+.divExtTInfo{height: 270px; width: 350px;}
+.pnlNetTrf{float:left; margin-top:10px;}
+.divParty{height:350px;width:350px}
+.pnlAvRmTy{ float:left; margin-top:10px;}
+.pnlBlkNo{ float:left; margin-top:10px;}
+.pnlOvrBk{ float:left; margin-top:10px}
+.DivBlkNo{width: 650px; height: 450px;}
+.DivReptRes{width: 400px; height: 98px;}
+.PnlSplIns{ float:left; margin-top:10px;}
+.divOptions{width: 250px; height: 319px;}
+.divSrch1{height:520px;width:840px}
+.SrchMsg1{height:300px;width:100%;text-align:center;float:left}
+.a1{height: 400px; width: 100%; float:left;overflow: scroll;margin-top:10px;}
+#pnlGrids{height:400px;width:680px}
+#pnlLkDis{height:400px;width:680px}
+.DivStatus{height: 180px; width: 162px;}
+.DivRMUpGrd{height: 120px; width: 450px;}
+.divEnq_Denial{width: 990px; height: 520px;}
+.divData{height: 420px; width: 100%;overflow-y: scroll; overflow-x: scroll; float:left; margin-top:8px;}
+.divUpgRson{ height: 100px; width: 350px}
+.divInfant{width:385px;height:150px;}
+.divModalPopup{width:700px; height:530px}
+.tdNote{color:Blue;padding-left:5px;float:left}
+.modalbtnbx{width:100%; float:left; margin-top:5px; box-shadow:inset 3px -4px 0px -1px #6C6C6C; background-color:#fff}
+.tblViewPopup{width:680px}
+.divModalPopupTab .wid100, .divGstTran .wid100 {padding-left:5px;}
+.divOvrBkAlert{height: 470px; width: 350px}
+.wid33per{width:33%; float:left}
+.divConfirm{width:400px;height:410px}
+.divconfpad{width:98%;padding:1%; float:left}
+.divConfirm .wid250{float:right}
+.divRptLnk{height: 300px; width: 400px;}
+.divCancel{height: 150px; width: 430px}
+.divCNoshow{height: 120px; width: 400px}
+.divRmBlkAmd{height: 135px; width: 400px}
+.centtxt{ text-align:center;width:92%;padding:4%; float:left; margin-top:5px;}
+.divAdvAlert{height: 125px; width: 400px}
+.divGstTran{height: 210px; width: 810px}
+.divGstTran .BtnOption{vertical-align:middle;}
+.divGstType{height:75px; width: 275px;}
+.divGstNmCng{width: 456px; height: 136px;}
+.divGstNmCng .wid150{padding-left:5px}
+.divCmp{width: 450px;height:200px}
+.divTrfDesc{width: 250px; height: 150px;}
+.divCitySrch{width: 310px; height: 330px;}
+.divArrFlSrch{width: 390px; height: 300px;}
+.divDepFlSrch{width: 390px; height: 300px;}
+.divVoy{width: 700px; height: 280px; }
+.divTrfVyg{height: 130px; width: 370px;}
+.divAdvDet{height: 250px; width: 720px;}
+.GVAutoChrg tr{ display:table-row !important; text-align:left}
+#grdAgentSrch tr{display:table-row}
+.pad5{padding-left:5px;}
+.pnlOvrBk{width:100%; float:left;margin-top:10px;margin-left:8px;}
+.pnlBlkNo{width:490px; float:left;margin-left:8px;}
+.pnlAvRmTy{width:90px; float:left; margin-left:8px;}
+#divProgress{position:absolute;left:0px;top:0px;z-index:1000}
+.imgPrg{position:absolute;left:450px;top:250px;height:150px;width:150px}
+.clsIFrame{border-style:solid;position:absolute;z-index:10000;left:0px;top:0px;width:100%;filter:progid:dximagetransform.microsoft.alpha(opacity=20,finishopacity=0,style=0,startx=0,finishx=100,starty=0,finishy=100)}
+
+/* added by siva */
+.gvBlkRoomSrch{height:361px;overflow-y:scroll;overflow-x:hidden;float:left}
+
+.tblViewVisitsPopup{text-align:center;margin:0px 0px 0px 0px;border:0px;padding:0px;border-collapse:collapse;border-spacing:0px;width:95%}
+.tdNote{color:Blue;padding-left:5px;float:left}
+div{display:block}
+.ddlStyle{z-index:4000}
+.TextBoxStyle{height:12px}
+.TxtStyle{height:10px}
+.hide{display:none}
+.divSearch{border-color: #FF0000; display:none;}
+.pnlSearch{border:1px solid;width:800px;height:390px;}
+.dtslct .fltleft{padding:0 10px 0 10px}
+.GrdBackgroundbox{height: 150px; overflow: scroll;}
+.TarEditFont{color:#004088;float:left}
+
+.fontalCenter{text-align:center;padding:4px 0 4px 0}
+.fontacenter{text-align:center;}
+.div2{position: absolute; background-color: #FFFFF0; width: 630px;top: 20px; left: 0px; border-width: 1px;border-style: solid; overflow-y: scroll}
+.BtnTravel{background-image:url('../Images/btnTravel.png');background-attachment:inherit;width:14px;height:34px;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:0px 4px;cursor:pointer}
+.BtnUser{background-image:url('../Images/btnUser.png');background-attachment:inherit;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:0px 4px;width:14px;height:20px;cursor:pointer}
+.BtnSelect{background-image:url('../Images/UnChk.png');background-attachment:inherit;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:0px 0px;width:12px;height:15px}
+.ChkSelect{background-image:url('../Images/Chk.png');background-attachment:inherit;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:0px 0px;width:12px;height:15px}
+.BtnCtSearch{background-image:url('../Images/btnFind.png');background-attachment:inherit;border-style:none;background-color:Transparent;background-repeat:no-repeat;width:15px}
+.BtnShowOption{background-image:url('../Images/Show.png');background-attachment:inherit;cursor:pointer;height:16px;width:22px;background-color:Transparent;background-repeat:no-repeat;border-style:none}
+.BtnRtSearch{background-image:url('../Images/btnFind.png');background-attachment:inherit;cursor:pointer;height:15px;background-color:Transparent;background-repeat:no-repeat;border-style:none;width:14px}
+.BtnAdd{background-image:url('../Images/btnAdd.png');background-attachment:inherit;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:4px 4px;width:34px;height:34px;cursor:pointer}
+.BtnRemoveA{background-image:url('../Images/btnRemove.png');background-attachment:inherit;border-style:none;cursor:pointer;background-color:Transparent;background-repeat:no-repeat;background-position:4px 4px;width:34px;height:34px}
+.BtnRemove1{background-image:url('../Images/btnRemove.png');background-attachment:inherit;border-style:none;background-color:Transparent;background-repeat:no-repeat;cursor:pointer;height:14px;width:12px}
+.BtnClear{background-image:url('../Images/btnRefresh.png');background-attachment:inherit;width:34px;cursor:pointer;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:4px 4px}
+.btnEdit{background-image:url('../Images/btnEdit.png');background-attachment:inherit;width:34px;cursor:pointer;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:4px 4px}
+.btnEdtGstNm{background-image:url('../Images/btnEdtGstNm.png');background-attachment:inherit;width:34px;cursor:pointer;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:4px 4px}
+.btnEdtName{background-image:url('../Images/Adl.jpg');background-attachment:inherit;width:34px;cursor:pointer;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:4px 4px}
+ /*  BorderStyle="None"  */
+.BtnResAdd{background-image: url('../Images/btnAdd.png' );background-attachment: inherit;background-repeat: no-repeat;border-style: none;width: 50px;background-position: 0px 4px}
+.BtnResSavew{/*style="background-image:url(images/btnSave.png);border:0;height:17px;width:20px;"*/background-image: url('../Images/btnSave.png' );background-attachment: inherit;background-color: Transparent;background-repeat: no-repeat;border-style: none;width: 50px;background-position: 0px 4px}
+.BtnCalender{background-image:url('../Images/grid_icon.gif');height:17px;width:17px;background-attachment:inherit;background-color:Transparent;background-repeat:no-repeat;border-style:none;border:none;cursor:pointer;border-style:none}
+.tblHdr{width:100%;height:22px;display:block;margin:0px 0px 0px 0px;border:0px;padding:0px;border-collapse:collapse;border-spacing:0px}
+.lblHdrStyle{color:White;padding-left:2px;width:40%;float:left;border:0;text-align:left}
+.lblHdrStylea{position:absolute;left:400px;top:0;color:White}
+.lblHdrStyle2{color:White;padding-left:2px;width:20%;float:right}
+.tblStylea{float:left;visibility: hidden}
+.tblStyleb{float:right;width:50%;text-align:right;padding-right:10px}
+.tblstyle1a{width: 460px; vertical-align:top}
+.tblstyle1b{width:100%; text-align:right}
+.tblstyle1f{float:left;float:right}
+.tblstyle1c{width:100%;float:left;margin-top:5px}
+.fotab{display:block;float: left;width: 100%}
+.fotaba{float: left;display: block;width: 100%}
+.tblStyle1d{width:100%}
+.fullwidtha, .fullwidtha #tdUpg{width:100%}
+.lpad10{padding-left:10px}
+.fltleft{float:left}
+.fltright{float:right}
+.wid7per{width:7%}
+
+.wid40per{width:40%}
+.wid15pec{width:15%}
+
+.padlef10{padding-left:10px}
+.pad2{padding:2px;}
+.padrig10{padding-right:10px}
+.valigntop{vertical-align:top}
+.valignmid{vertical-align:middle}
+.borders{margin:8px 0 8px 0;width:100%;float:left}
+.bordersa{border-bottom:1px solid #A5A4A4;float:left;width:100%}
+.left10{padding-left:10px}
+.left20{padding-left:20px}
+.left30{padding-left:10px}
+.left100{padding-left:164px}
+.left130{padding-left:30px}
+.fulpgealign{width:98%;margin-left:1%}
+.width100per{width:100%}
+.top5{margin-top:5px}
+#imgFDt, #imgTDt, #btnSearch, #imgFrom, #imgDt{padding:2px}
+#UpdatePanel1{width:100%;float:left}
+
+.txtcolor{color:#000000}
+.divControls{height:50px;left:9px;top:45px;color:#d9d9ff;border:#004088 0px solid;}
+.divGstSrchtb{position: absolute;width: 800px}
+
+
+.divAdvAlert, .divRmBlkAmd{position: absolute; left: 300px; top: 158px;border: solid 1px Navy;width: 400px}
+.borderspace{border-spacing:0}
+.lblHdrStyle2inn{float:right}
+.height25{height:25px}
+.mar0{margin:0}
+.pad10{padding:10px}
+.wid90per{width:90%}
+.headh{width:100%;height:25px;line-height:25px; background-color:#000000;color:#ffffff}
+.tdUser{text-decoration:none;color:Silver; text-align:right}
+.aHomeLink{color: White;text-decoration: none;padding-left:5px;padding-right:5px}
+.tblStyle{width:100%;margin:0px 0px 0px 0px;border:0px;padding:0px;border-collapse:collapse;border-spacing:0px}
+.fontStyle{  }
+.a{height:400px;width:968px;left:9px;top:85px;color:#d9d9ff;border:#004088 1px solid;overflow:scroll}
+
+.fontRight{text-align:right}
+.fontRightTop{text-align:right;vertical-align:top}
+
+
+.lblDispNo{color:#660033;}
+.txtCrsNo{width:40px}
+.hrStyle{border:1px;width:100%;color:#004088}
+.tblStyle{padding:0px;border:0px;border-collapse:collapse;border-spacing:0px;width:100%;margin:0px 0px 0px 0px}
+.txtDtStyle{width:70px;height:12px}
+.lblAlert{color:Red;padding-left:10px}
+.fontCenter{height:12px;width:18px;text-align:center}
+
+.dropStyle{z-index:1;position:absolute;display:none}
+.lblTotal{color:Black; }
+.txtTotal{text-align:center;color:Black; border-width:0;width:50px}
+.lblDisplay{color:Black}
+.lblAdv{color:Maroon;}
+
+.tblInfant{color:#FFFFFF;background-color:Black;width:100%;text-align:center;float:left;line-height:24px}
+.pnlInfant{height:90px;border-style:none;width:374px}
+
+.tblCmpNar{width:100%;text-align:center}
+.divCmpinp{padding:10px 0 10px 0; text-align:center;width:100%}
+.lblCmpHdr{ Color:White;text-align:center}
+
+/*.tblModalPopup{padding:0px;border:0px;border-collapse:collapse;border-spacing:0px;margin:0px 0px 0px 0px}*/
+.innerTblModalPopup{height:40px;width:680px;vertical-align:top;padding:0px;border:0px;border-collapse:collapse;border-spacing:0px;width:500px;margin:0px 0px 0px 0px}
+
+
+/* style.css starts*/
+.heading{	color:Blue}
+.title{color:Purple;vertical-align:top}
+.gridview{font-style:normal;color:White;border-color:Black;vertical-align:top;padding-left:4px}
+.GridHeaderFreezing{position:relative;top:inherit;padding:0px;margin:0px;z-index:10}
+.textbox{border-color:Black;background-color:White}
+.textboxalign{/*direction:rtl;*/}
+.gtextbox{border-color:Black;background-color:#fffff6}
+.GridStyle2{border-style: Solid;color: #333333;border: solid 1px #EEEEEE;background-color: #FFF;overflow: scroll}
+.dropdown{border-color:Black;	background-color:White}
+.style1{color: #004088;height: 17px;}
+.Datetxtbox{background-color: Green;border:#cfd3e7 1px solid;height: 20px;width: 70px;}
+/* style-1.css starts*/
+.List{border:#004088 1px solid;color:#004088;}
+.top-link{color:#ffffff;text-decoration: none}
+.layer-link{color:#003399;text-decoration: none}
+/*a:hover{color: #8b0000; text-decoration: none}*/
+/*a:hover{color: #8b0000; text-decoration: none; background: none}*/
+.BOTTOM-LINE{border-right: black 0px solid;border-top: black 0px solid;border-left: black 0px solid;border-bottom: #666666 1px solid}
+.heading-1{color: #990000;}
+.layer-link-1{color: #000000;text-decoration: none}
+.cursor{cursor:nw-resize}
+.border{border:#000000 2px double}
+.TITLES{color: #ffff00;text-decoration: none}
+.small-font{}
+.cursor-1{cursor:pointer}
+.layeer-title{color: #000000;text-decoration: none}
+.layer-link-2{color: #000000;text-decoration: none}
+.back{background-position:left top;background-attachment: fixed;background-image: url(background.gif);background-repeat: no-repeat}
+/*.right{border-right:#004080 2px solid;border-top: black 0px solid;border-left: black 0px solid;border-bottom: #004080 2px solid}*/
+/*.right-border{border-right:#ffffff 2px solid;border-top: black 0px solid;border-left: black 0px solid;border-bottom: black 0px solid}*/
+.bottom{border:black 0px solid;}
+.logincontent{color: #000033;font-style: normal;text-decoration: none}
+.textstyle{color: #004088}
+.textstyle3{color: #000000}
+.textstyle1cancl{border:#dee3e0 1px solid;color: #dee3e0;background-color: Red;}
+.nEWtextstyle1{border:#004088 1px solid;color: #004088;}
+.forbutton{border-right:black 1px solid;width:200px}
+.forbutton1{border: black 1px solid;color: white;background-color: #004080;width:200px}
+.forsearchbutton{border: 0px solid;width:150px}
+.calbutts{width:auto;cursor:pointer;color:#bf485d;border-top-style:none;background-color: #6fa8cf}
+.texttitle1{color:#6f5140}
+.texttitle2{color:#6f5140}
+.textprinttitle{color:#000000}
+.textprintheadings{color:#000000}
+.textprintreports{color:#000000}
+.txtboxsmall{border:#FFFFFF 1px solid;width:79px;height: 20px;color: #004088;background-color: white}
+.txtboxbig{border:#FFFFFF 1px solid;width:65Px;height: 20px;color: #004088;background-color: white}
+.txtboxdays{border:#FFFFFF 1px solid;width:30px;height: 20px;color: #004088;background-color: white}
+.txtboxReddays{border:#FFFFFF 1px solid;width:30px;height: 20px;color: white;background-color: REd}
+.txtHIDDATE{border:#FFFFFF 1px solid;width: 56px;height: 20px;color: #004088;background-color: white}
+.txtboxhidRmsmall{border:#FFFFFF 1px solid;width: 27px;height: 20px;color: #004088;background-color: white}
+.txtboxequalierhidRmsmall{border:#FFFFFF 1px solid;width: 14px;height: 20px;color: #004088;background-color: white}
+.txtboxhidRmsmallRed{border:#FFFFFF 1px solid;width: 27px;height: 20px;color: red;background-color: white}
+.newcmbbox{border:#004088 1px solid;width:170px;height: 22px;background-color: white}
+.totaltext{font-style: normal;color:#6f5140}
+.bluebutten{border:1px solid #cfd3e7;vertical-align:top;cursor:pointer;color: #ffffff;background-color:#8b0000;text-align: center;margin-bottom: 0px}
+.butten{border:#004080 1px solid;vertical-align:top;cursor:pointer;color:#ffffff;height:20px;background-color: #004080;text-align: center}
+.RoomStatusocc{color:#004088;}
+.dateTxtBox{background-color:white;border-bottom:#004088 0px solid;border-left:#004088 0px solid;border-right:#004088 0px solid;border-top: #004088 0px solid;color: #004088;height: 17px;width: 75px}
+.textstyle1{border:#004088 1px solid;color:#004088;}
+
+.GrdSelect{background-color:#cccccc}
+.GrdFont{color: #004088;}
+.BtnRtSearch{background-image: url('../Images/btnFind.png');background-attachment:inherit;background-color:Transparent;background-repeat:no-repeat;border-style:none;/*background-position:4px 4px;*/width:14px;/*height:34px*/}
+.BtnRemove{background-image:url('Images/btnRemove.png');background-attachment:inherit;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:4px 4px;width:34px;height:34px}
+.bodyHdr{color:#ffffff;background-color:#2d2d2d;width:100%;height:22px;line-height:22px;text-align:center;}
+.divOvrBkAlert .bodyHdr{float:none}
+.divBg{background-color:#fbfcdf}
+.Hide{display:none}
+.hide{display:none}
+.width125{width:125px}
+.width60{width:60px}
+.fontleft{text-align:left}
+.BtnDelete{background-image: url('Images/btnRemove.png');background-attachment:inherit;background-color:Transparent;background-repeat:no-repeat;border-style:none;background-position:bottom;width:14px;height:34px;}
+.divAdd{position:absolute;left:180px;top:50px;border:solid 1px Navy;display:none;width:300px;background-color:#fbfcdf;}
+.divPkg{padding:5px 25px 5px 10px;position:absolute;background-color:#FFFFF0;width:350px;height:300px;visibility:hidden;top:33px;left:200px;border-width:1px;border-style:solid;overflow-y:scroll}
+.div1{background-color:#FFFFF0;width:683px;height:240px;top:20px;left:0px;border-width:1px;border-style:solid;overflow-y:scroll}
+.divPackageLogReport{position:absolute;background-color:#FFFFF0;width:685px;visibility:hidden;top:10px;left:10px;border-width:1px;border-style:solid;overflow-y:no-display}
+.DivRevGr{padding:5px 25px 5px 10px;position:absolute;width:300px;height: 330px;visibility:hidden;top:33px;left:200px;border-width:1px;border-style:solid;overflow-y: scroll}
+.DivRevRv{padding:5px 25px 5px 10px;position:absolute;width:300px;height:330px;visibility:hidden;top:33px;left:200px;border-width:1px;border-style:solid}
+.divMulti{position:absolute;width:200px;height:330px;visibility:hidden;top:33px;left:200px;border-width:1px;border-style:solid;overflow-y:scroll}
+.DivRes{padding:5px 25px 5px 10px;position:absolute;width:600px;height:330px;display:none;top:33px;left:100px;border-width:1px;border-style:solid;overflow-y:scroll}
+.DivPM{padding:5px 25px 5px 10px;position:absolute;width:200px;height:330px;visibility:hidden;top:33px;left:200px;border-width:1px;border-style:solid;overflow-y:scroll}
+.divAchLogReport{position:absolute;background-color:#FFFFF0;width:630px;height:280px;visibility:hidden;top:10px;left:10px;border-width:1px;border-style:solid;overflow-y:no-display}
+.div2a{background-color: #FFFFF0;width:630px;top:20px;left:0px;border-width:1px;border-style:solid; overflow-y: scroll}
+.wid615{width:582px;padding:10px}
+.wid615 input[type="text"]{width:125px}
+.wid810{width:810px;}
+.wid810 span{width:100px;float:left;padding-left:4px;}
+.BtnCity{background-image:url('../Images/btnSearch.png');background-attachment:inherit;cursor:pointer;height:15px;background-color:Transparent;background-repeat:no-repeat;border-style:none;width:14px}
+.HeaderStyle{background-color:Black;color:White;text-align:center}
+.atxtbx{width:105px;float:left;margin-top:2px}
+.atxtbx2{width:35px;float:left}
+.valbx{width:125px;float:left}
+.valbx2{width:160px;float:left}
+
+

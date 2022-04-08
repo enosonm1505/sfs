@@ -1,0 +1,191 @@
+﻿<style>
+    .approve{
+        color: black;
+    }
+    .unapprove{
+        color:blue;
+    }
+    .blacklist{
+        color:red;
+    }
+</style>
+
+<div class="modal fade" id="Companymod" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" aria-hidden="true">
+    <div class="modal-dialog" style="padding-top:20px; margin-left:470px;">
+        <div class="modal-content" style="width:70%">
+            <div class="modal-header success">
+                <button id="btncompAlertclose" type="button" class="close" data-dissmiss="modal" aria-hidden="true">x</button>
+                <h5 class="modal-title" id="lblmodallabel"><i class="fa fa-institution (alias) fa-lg"></i> Company </h5>
+            </div>
+            <div class="modal-body" style="padding: 10px 10px 0px 10px;">                                                   
+                     <div id="promptcompany" style="border: #6cb8c8 1px solid; box-shadow: 2px 4px 12px 0px black;"></div>                    
+                    <div class="row" style="margin-top:5px;">                     
+                    </div>                    
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0px;">
+                    <span style="float:left; margin:5px; width:90px;"><div style="height:10px; width:5px; border:1px solid black; background:black; padding-left: 12px; margin-right: 5px; border-radius: 4px;line-height:10px"> <label style="margin-left:5px;">  Approved </label></div> </span>
+                    <span style="float:left; margin:5px;  width:90px;"><div style="height:10px; width:5px; border:1px solid red; background:red; padding-left: 12px; margin-right: 5px; border-radius: 4px;line-height:10px"> <label style="margin-left:5px;"> Blacklist</label> </div></span>
+                    <span style="float:left; margin:5px;  width:100px;"><div style="height:10px; width:5px; border:1px solid blue; background:blue; padding-left: 12px; margin-right: 5px; border-radius: 4px;line-height:10px"><label style="margin-left:5px;"> UnApproved  </label> </div></span>
+                  </div>
+                @*<button id="btncompsubmit" type="button" class="btn btn-default btn-popup" title="Submit"><i class='fa fa-check-circle fa-lg'></i> Submit </button>*@
+                <button id="btncompcancel" type="button" class="btn btn-default btn-popup" title="Close"><i class='fa fa-times-circle fa-lg'></i> Close </button>                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="comp_addrss" style="visibility:hidden">
+    <span>
+    </span>
+</div>
+
+<div class="modal fade" id="ModalComp_Narration" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" aria-hidden="true">
+    <div class="modal-dialog" style="padding-top:80px; margin-left:450px;">
+        <div class="modal-content" style="width:80%">
+            <div class="modal-header success">
+                <button id="btnNarrationClose" type="button" class="close" data-dissmiss="modal" aria-hidden="true">x</button>
+                <h5 class="modal-title" id="lblmodallabel" ><i class="fa fa-comment fa-lg"></i> Narration </h5>
+            </div>
+            <div class="modal-body" style="padding: 10px 10px 0px 10px;">
+                        <textarea name="txtareanarra" rows="10" disabled style="width: 90% !important;  resize:none; border-radius: 5px; float:left;" id="txtareanarra"></textarea>
+            </div>
+            <div class="modal-footer" style="margin-top: 200px;">
+                @*<div class="col-lg-4 col-sm-4  col-md-4">
+                    <button id="btncompsubmit" type="button" class="btn btn-default btn-popup-left" title="Submit"><i class='fa fa-plane fa-lg'></i> Visits </button>
+                </div>
+                <div class="col-lg-4 col-sm-4  col-md-4">
+                    <button id="btncompsubmit" type="button" class="btn btn-default btn-popup" title="Submit"><i class='fa fa-book fa-lg'></i> Balance </button>
+                </div>*@
+                <div>
+                    <button type="button" id="NarrationpopExit" class="btn btn-default btn-popup" title="OK" data-dissmiss="ModalComp_Narration"><i class='fa fa-check-circle fa-lg'></i> Ok </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(window).load(function () {
+        CompanyPrompt();
+    });
+
+    $('#btncompAlertclose, #btncompcancel').click(function () {
+        $("#Companymod").modal('hide');
+    });
+
+    $("#btncompsubmit").click(function () {
+        $("#Companymod").modal('hide');
+    });
+
+    $("#Companymod").on('show.bs.modal', function () {
+        $(".filtertxt").val("");
+    });
+
+    $("#btnNarrationClose").click(function () {
+        $("#ModalComp_Narration").modal('hide');
+    });
+
+    $("#NarrationpopExit").click(function () {
+        $("#ModalComp_Narration").modal('hide');
+    });
+
+    $("#Companymod").on('shown.bs.modal', function () {
+        var grid = $("#promptcompany").data("kendoGrid");
+        grid.dataSource.filter([]);
+        grid.refresh();
+        grid.dataSource.pageSize(1000);
+    });
+
+    var CompanyPrompt = function () {
+                    prompt = {
+                        data: prompts.Company,
+                        schema: {
+                            model: {
+                                fields: {
+                                    PARTY_ID: { type: "string" },
+                                    PARTY_NM: { type: "string" },
+                                    BLACK_LIST_IND: { type: "string" },
+                                    PLACE: { type: "string" },
+                                    BLACK_LIST_REM: { type: "string" },
+                                    ADDRS_1: { type: "string" },
+                                    ADDRS_2: { type: "string" },
+                                    ADDRS_3: { type: "string" },
+                                    POSTAL_CODE: { type: "string" },
+                                    PHONE_NO: { type: "string" },
+                                    FAX_NO: { type: "string" },
+                                    TAX_NO: { type: "string" },
+                                    C_ID: { type: "string" },
+                                    D_ID: { type: "string" },
+                                    GT_ID: { type: "string" },
+                                    BI_ID: { type: "string" },
+                                    GS_ID: { type: "string" },
+                                    PM_ID: { type: "string" },
+                                    RM_ID: { type: "string" },
+                                }
+                            }
+                        },
+                        pageSize: 10
+                    };
+
+                    /*Telerik Grid Section*/
+                    var pgrid = $("#promptcompany").kendoGrid({
+                        dataSource: prompt,
+                        height: 470,
+                        ///resizable: true,
+                        filterable:
+                            {
+                                mode: "row"
+                            },
+                        scrollable: true,
+                        sortable: true,
+                        selectable: "row",                     
+                        columns:
+                        [{
+                            field: "PARTY_NM",
+                            width: 200,
+                            title: "Company Name",
+                            filterable: {
+                                cell: {
+                                    showOperators: false
+                                }
+                            }
+                        },
+                        {
+                            field: "PLACE",
+                            width: 100,
+                            title: "Place",
+                            filterable: {
+                                cell: {
+                                    showOperators: false
+                                }
+                            }
+                        },
+                        ],
+                        dataBound: OndataBound
+                    });
+                    var grid = $("#promptcompany").data("kendoGrid");
+                    grid.refresh();
+              }
+
+    var OndataBound = function () {
+        _grid = $("#promptcompany").data("kendoGrid");
+        var datasource = _grid.dataSource.data();
+      
+        $.each(datasource, function (i, row) {
+            var status = $.trim(row.BLACK_LIST_IND);
+            var cellcolor = _grid.table.find("tr[data-uid=" + row.uid + "]");
+            if (status == "A") {
+                $(cellcolor).addClass("approve");
+            }
+            else if (status == "1") {
+                $(cellcolor).addClass("blacklist");
+            }
+            else {
+                $(cellcolor).addClass("unapprove");
+            }
+        })
+      }
+
+</script>

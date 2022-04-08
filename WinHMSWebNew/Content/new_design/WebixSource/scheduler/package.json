@@ -1,0 +1,49 @@
+{
+  "_from": "@xbs/scheduler@7.0.1",
+  "_id": "@xbs/scheduler@7.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-MwGJX4pFIxLb7VGUiIFfixwbKEylPg4BH5poCqldW8oq/08VMq7KZM+OtOzNu0+9zQq5VUP+xxwc0Luid8Pwrg==",
+  "_location": "/@xbs/scheduler",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@xbs/scheduler@7.0.1",
+    "name": "@xbs/scheduler",
+    "escapedName": "@xbs%2fscheduler",
+    "scope": "@xbs",
+    "rawSpec": "7.0.1",
+    "saveSpec": null,
+    "fetchSpec": "7.0.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://npm.webix.com/@xbs%2fscheduler/-/scheduler-7.0.1.tgz",
+  "_shasum": "f16273303a50a39f9b84c54f72709430be2237d9",
+  "_spec": "@xbs/scheduler@7.0.1",
+  "_where": "C:\\Users\\Winsar-Presales",
+  "author": {
+    "name": "XB Software"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Webix UI",
+  "keywords": [
+    "webix",
+    "ui",
+    "widgets"
+  ],
+  "license": "SEE LICENSE IN license.text",
+  "main": "scheduler.js",
+  "name": "@xbs/scheduler",
+  "publishConfig": {
+    "registry": "https://npm.webix.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "types/scheduler.d.ts",
+  "version": "7.0.1"
+}

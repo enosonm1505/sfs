@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OTA_HotelInvCountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" schemaLocation="http://www.opentravel.org/2013A/OTA_HotelInvCountNotifRQ.xsd" EchoToken="20210423120339" TimeStamp="2021-04-23T12:03:39.000+05:30" Target="Production" Version="1.0">
+  <POS>
+    <Source>
+      <RequestorID ID="pms@winsarinfo.com" ID_Context="" MessagePassword="winsar$oft7070" />
+    </Source>
+  </POS>
+  <Inventories HotelCode="2435" />
+</OTA_HotelInvCountNotifRQ>

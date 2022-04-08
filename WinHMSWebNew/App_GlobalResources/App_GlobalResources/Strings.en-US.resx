@@ -1,0 +1,2764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Ason" xml:space="preserve">
+    <value>As on</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Costcenter" xml:space="preserve">
+    <value>Cost Center</value>
+  </data>
+  <data name="CostId" xml:space="preserve">
+    <value>Cost Id</value>
+  </data>
+  <data name="CostName" xml:space="preserve">
+    <value>Cost Name</value>
+  </data>
+  <data name="DeliveryTerms" xml:space="preserve">
+    <value>Delivery Terms</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="DepartmentName" xml:space="preserve">
+    <value>Department Name</value>
+  </data>
+  <data name="DisLn2ItmDes" xml:space="preserve">
+    <value>Display Line2 Item Description</value>
+  </data>
+  <data name="Display" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Expired" xml:space="preserve">
+    <value>Expired</value>
+  </data>
+  <data name="FromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+  <data name="GroupBy" xml:space="preserve">
+    <value>Group By</value>
+  </data>
+  <data name="GroupBy2" xml:space="preserve">
+    <value>Group By2</value>
+  </data>
+  <data name="IndentCreateBefFeb2012Release" xml:space="preserve">
+    <value>Indent Create Before Feb2012 Release</value>
+  </data>
+  <data name="Invtype" xml:space="preserve">
+    <value>Inv type</value>
+  </data>
+  <data name="MultiStore" xml:space="preserve">
+    <value>Multi Store</value>
+  </data>
+  <data name="MultiStoreId" xml:space="preserve">
+    <value>Multi Store Id</value>
+  </data>
+  <data name="Narration" xml:space="preserve">
+    <value>Internal Narration</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="PartyName" xml:space="preserve">
+    <value>Party Name</value>
+  </data>
+  <data name="PoCategory" xml:space="preserve">
+    <value>Po Category</value>
+  </data>
+  <data name="PoDt" xml:space="preserve">
+    <value>Po Dt</value>
+  </data>
+  <data name="PoNo" xml:space="preserve">
+    <value>Po No</value>
+  </data>
+  <data name="POTRNRateHistory" xml:space="preserve">
+    <value>P.O TRN Rate History</value>
+  </data>
+  <data name="POType" xml:space="preserve">
+    <value>PO Type</value>
+  </data>
+  <data name="PrNo" xml:space="preserve">
+    <value>PR No.</value>
+  </data>
+  <data name="ProdID" xml:space="preserve">
+    <value>Prod ID</value>
+  </data>
+  <data name="ProdName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="ProdNm2Lines" xml:space="preserve">
+    <value>Product Name 2 Lines</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="ProductGroup" xml:space="preserve">
+    <value>Product Group</value>
+  </data>
+  <data name="ProductSearch" xml:space="preserve">
+    <value>Product Search</value>
+  </data>
+  <data name="ProductSubGroup" xml:space="preserve">
+    <value>Product Sub Group</value>
+  </data>
+  <data name="ProductSubGroupName" xml:space="preserve">
+    <value>Product Sub Group Name</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="PurchaseOrderSearch" xml:space="preserve">
+    <value>Purchase Order Search</value>
+  </data>
+  <data name="ReportFilter" xml:space="preserve">
+    <value>Report Filter</value>
+  </data>
+  <data name="ReqDt" xml:space="preserve">
+    <value>Rq Dt.</value>
+  </data>
+  <data name="RequisitionSearch" xml:space="preserve">
+    <value>Requisition Search</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="ShowBillInfo" xml:space="preserve">
+    <value>Show Bill Info</value>
+  </data>
+  <data name="ShowItemDetails" xml:space="preserve">
+    <value>Show Item Details(Line 2)</value>
+  </data>
+  <data name="ShowLastIssueDate" xml:space="preserve">
+    <value>Show Last Issue Date</value>
+  </data>
+  <data name="ShowLastRecptDate" xml:space="preserve">
+    <value>Show Last Recpt Date</value>
+  </data>
+  <data name="ShowZeroStock" xml:space="preserve">
+    <value>Show Zero Stock</value>
+  </data>
+  <data name="ShwPrdId" xml:space="preserve">
+    <value>Show Product Id</value>
+  </data>
+  <data name="ShwShartclsandCanInfo" xml:space="preserve">
+    <value>Show Shart close and Cancel Info</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sort By</value>
+  </data>
+  <data name="Specific" xml:space="preserve">
+    <value>Specific</value>
+  </data>
+  <data name="SpecificRequisition" xml:space="preserve">
+    <value>Specific Requisition</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Store" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="StoreID" xml:space="preserve">
+    <value>Store ID</value>
+  </data>
+  <data name="StoreName" xml:space="preserve">
+    <value>Store Name</value>
+  </data>
+  <data name="Str" xml:space="preserve">
+    <value>Str</value>
+  </data>
+  <data name="SubGroupBreakup" xml:space="preserve">
+    <value>Sub Group Breakup</value>
+  </data>
+  <data name="SubGrpwiseProd" xml:space="preserve">
+    <value>SubGroupwise Product</value>
+  </data>
+  <data name="Supplier" xml:space="preserve">
+    <value>Supplier</value>
+  </data>
+  <data name="ToDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+  <data name="UnApporved" xml:space="preserve">
+    <value>UnApporved</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="Buyer" xml:space="preserve">
+    <value>Buyer</value>
+  </data>
+  <data name="DepartName" xml:space="preserve">
+    <value>Depart Name</value>
+  </data>
+  <data name="MSExcel" xml:space="preserve">
+    <value>MSExcel</value>
+  </data>
+  <data name="NoOfCopies" xml:space="preserve">
+    <value>No Of Copies</value>
+  </data>
+  <data name="OrderValue" xml:space="preserve">
+    <value>Order Value</value>
+  </data>
+  <data name="PDF" xml:space="preserve">
+    <value>PDF</value>
+  </data>
+  <data name="Po" xml:space="preserve">
+    <value>Po</value>
+  </data>
+  <data name="PoDate" xml:space="preserve">
+    <value>Po Date</value>
+  </data>
+  <data name="PoRange" xml:space="preserve">
+    <value>Po Range</value>
+  </data>
+  <data name="PreView" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="PrintStatus" xml:space="preserve">
+    <value>Print Status</value>
+  </data>
+  <data name="PurchaseType" xml:space="preserve">
+    <value>PurchaseType</value>
+  </data>
+  <data name="RequestDt" xml:space="preserve">
+    <value>Request Dt</value>
+  </data>
+  <data name="RequestNo" xml:space="preserve">
+    <value>Request No</value>
+  </data>
+  <data name="RequireDt" xml:space="preserve">
+    <value>Require Dt</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="AcceptProcessDetails" xml:space="preserve">
+    <value>Accept Process Details</value>
+  </data>
+  <data name="AcCode" xml:space="preserve">
+    <value>A/c Code</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="AccountSearch" xml:space="preserve">
+    <value>Account Search</value>
+  </data>
+  <data name="AccountType" xml:space="preserve">
+    <value>Account Type</value>
+  </data>
+  <data name="ActivePartyYes" xml:space="preserve">
+    <value>Active Party Yes</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ApporvedParty" xml:space="preserve">
+    <value>Apporved Party</value>
+  </data>
+  <data name="ApprovedDate" xml:space="preserve">
+    <value>Approved Date</value>
+  </data>
+  <data name="Audit" xml:space="preserve">
+    <value>Audit</value>
+  </data>
+  <data name="BankAccountNo" xml:space="preserve">
+    <value>Bank Account No</value>
+  </data>
+  <data name="BankIFSCCode" xml:space="preserve">
+    <value>Bank IFSC Code</value>
+  </data>
+  <data name="BaseUnit" xml:space="preserve">
+    <value>Base Unit</value>
+  </data>
+  <data name="BlackListDate" xml:space="preserve">
+    <value>Black List Date</value>
+  </data>
+  <data name="BlackListedParty" xml:space="preserve">
+    <value>Black Listed Party</value>
+  </data>
+  <data name="btmlblDuppartyNm" xml:space="preserve">
+    <value>Note: First Name is used for checking duplicates</value>
+  </data>
+  <data name="ChangeUom" xml:space="preserve">
+    <value>Change Uom</value>
+  </data>
+  <data name="CheckDuplicates" xml:space="preserve">
+    <value>Check Duplicates</value>
+  </data>
+  <data name="chkDuplicates" xml:space="preserve">
+    <value>Chk.Duplicates</value>
+  </data>
+  <data name="ChkId" xml:space="preserve">
+    <value>Chk.Id</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="CityCreationAmendment" xml:space="preserve">
+    <value>City Creation/Amendment</value>
+  </data>
+  <data name="CitySearch" xml:space="preserve">
+    <value>CitySearch</value>
+  </data>
+  <data name="ContactMobile" xml:space="preserve">
+    <value>Contact Mobile</value>
+  </data>
+  <data name="ContactPerson" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CreditDays" xml:space="preserve">
+    <value>Credit Days</value>
+  </data>
+  <data name="CreditLimit" xml:space="preserve">
+    <value>Credit Limit</value>
+  </data>
+  <data name="DefaultAcName" xml:space="preserve">
+    <value>Default Ac Name</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Designation" xml:space="preserve">
+    <value>Designation</value>
+  </data>
+  <data name="DetailsDescription" xml:space="preserve">
+    <value>Details Description</value>
+  </data>
+  <data name="DuplicateParties" xml:space="preserve">
+    <value>Duplicate Parties</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Email2" xml:space="preserve">
+    <value>Email 2</value>
+  </data>
+  <data name="ExpiryDtApplicable" xml:space="preserve">
+    <value>Expiry Dt Applicable</value>
+  </data>
+  <data name="FaxNo" xml:space="preserve">
+    <value>Fax No</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="GLAccount" xml:space="preserve">
+    <value>GL Account</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="GroupId" xml:space="preserve">
+    <value>Group Id</value>
+  </data>
+  <data name="GroupName" xml:space="preserve">
+    <value>Group Name</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="MasterProduct" xml:space="preserve">
+    <value>Master Product</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Nature" xml:space="preserve">
+    <value>Nature</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Notewsrch" xml:space="preserve">
+    <value>Note: Word search is made for both product Description lines.</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="PanNo" xml:space="preserve">
+    <value>Pan No</value>
+  </data>
+  <data name="PartyId" xml:space="preserve">
+    <value>Party Id</value>
+  </data>
+  <data name="PartySearch" xml:space="preserve">
+    <value>Party Search</value>
+  </data>
+  <data name="PartySubType" xml:space="preserve">
+    <value>Party Sub Type</value>
+  </data>
+  <data name="PhoneNo1" xml:space="preserve">
+    <value>Phone No1</value>
+  </data>
+  <data name="PhoneNo2" xml:space="preserve">
+    <value>Phone No2</value>
+  </data>
+  <data name="ProductCategory" xml:space="preserve">
+    <value>Product Category</value>
+  </data>
+  <data name="ProductCategoryId" xml:space="preserve">
+    <value>Product Category Id</value>
+  </data>
+  <data name="ProductCategoryName" xml:space="preserve">
+    <value>Product Category Name</value>
+  </data>
+  <data name="ProductGroupId" xml:space="preserve">
+    <value>Product Group Id</value>
+  </data>
+  <data name="ProductGroupName" xml:space="preserve">
+    <value>Product Group Name</value>
+  </data>
+  <data name="ProductId" xml:space="preserve">
+    <value>Product Id</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>ProductName</value>
+  </data>
+  <data name="ProductNature" xml:space="preserve">
+    <value>Product Nature</value>
+  </data>
+  <data name="ProductNatureId" xml:space="preserve">
+    <value>Product Nature Id</value>
+  </data>
+  <data name="ProductNatureName" xml:space="preserve">
+    <value>Product Nature Name</value>
+  </data>
+  <data name="ProductSubGroupId" xml:space="preserve">
+    <value>Product Sub Group Id</value>
+  </data>
+  <data name="ProductType" xml:space="preserve">
+    <value>Product Type</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="RequestCategory" xml:space="preserve">
+    <value>Request Category</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>Short Name</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="StPer" xml:space="preserve">
+    <value>St Per</value>
+  </data>
+  <data name="SubGroup" xml:space="preserve">
+    <value>Sub Group</value>
+  </data>
+  <data name="SubGroupId" xml:space="preserve">
+    <value>Sub Group Id</value>
+  </data>
+  <data name="SubGroupName" xml:space="preserve">
+    <value>Sub Group Name</value>
+  </data>
+  <data name="SubLedgerControlAc" xml:space="preserve">
+    <value>Sub Ledger Control A/c</value>
+  </data>
+  <data name="SupplierMaster" xml:space="preserve">
+    <value>Supplier Master</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="UnitOfMeasure" xml:space="preserve">
+    <value>Unit Of Measure</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="WebSite" xml:space="preserve">
+    <value>Web Site</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Youareviewingpage" xml:space="preserve">
+    <value>You are viewing page</value>
+  </data>
+  <data name="ZipCode" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="HotelManagementsystem" xml:space="preserve">
+    <value>Hotel Management System</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Poweredby" xml:space="preserve">
+    <value>Powered by</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="WinsarInfo" xml:space="preserve">
+    <value>Winsar Infosoft</value>
+  </data>
+  <data name="AcceptProcessDetails1" xml:space="preserve">
+    <value>Accept Process Details</value>
+  </data>
+  <data name="AcCode1" xml:space="preserve">
+    <value>A/c Code</value>
+  </data>
+  <data name="Accounts1" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="AccountSearch1" xml:space="preserve">
+    <value>Account Search</value>
+  </data>
+  <data name="AccountType1" xml:space="preserve">
+    <value>Account Type</value>
+  </data>
+  <data name="Active1" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="ActivePartyYes1" xml:space="preserve">
+    <value>Active Party Yes</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Add1" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Address1" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Address11" xml:space="preserve">
+    <value>Address 1</value>
+  </data>
+  <data name="Address2" xml:space="preserve">
+    <value>Address 2</value>
+  </data>
+  <data name="Address3" xml:space="preserve">
+    <value>Address 3</value>
+  </data>
+  <data name="AdjQty" xml:space="preserve">
+    <value>AdjQty</value>
+  </data>
+  <data name="AdjQty1" xml:space="preserve">
+    <value>AdjQty</value>
+  </data>
+  <data name="Agent" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="All1" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AmendDetails" xml:space="preserve">
+    <value>Amend Details</value>
+  </data>
+  <data name="AmendDetails1" xml:space="preserve">
+    <value>Amend Details</value>
+  </data>
+  <data name="AmendDt" xml:space="preserve">
+    <value>Amend Dt</value>
+  </data>
+  <data name="Amendment" xml:space="preserve">
+    <value>Amendment</value>
+  </data>
+  <data name="AmendNo" xml:space="preserve">
+    <value>Amend No</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="ApporvedParty1" xml:space="preserve">
+    <value>Apporved Party</value>
+  </data>
+  <data name="AppQty" xml:space="preserve">
+    <value>App. Qty</value>
+  </data>
+  <data name="AppQty1" xml:space="preserve">
+    <value>App. Qty</value>
+  </data>
+  <data name="ApprovalPORemarks" xml:space="preserve">
+    <value>Approval PO Remarks</value>
+  </data>
+  <data name="ApprovalPORemarks1" xml:space="preserve">
+    <value>Approval PO Remarks</value>
+  </data>
+  <data name="ApprovalRemark" xml:space="preserve">
+    <value>Approval Remark</value>
+  </data>
+  <data name="ApprovalRemark1" xml:space="preserve">
+    <value>Approval Remark</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Approve1" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="ApprovedDate1" xml:space="preserve">
+    <value>Approved Date</value>
+  </data>
+  <data name="ApprovedRate" xml:space="preserve">
+    <value>Approved Rate</value>
+  </data>
+  <data name="ApprovedSupplierProduct" xml:space="preserve">
+    <value>Approved Supplier Product</value>
+  </data>
+  <data name="ApproveItemRemarks" xml:space="preserve">
+    <value>Approve Item Remarks</value>
+  </data>
+  <data name="ApproveItemRemarks1" xml:space="preserve">
+    <value>Approve Item Remarks</value>
+  </data>
+  <data name="ApproveLevel" xml:space="preserve">
+    <value>Approve Level</value>
+  </data>
+  <data name="ApproveLevel1" xml:space="preserve">
+    <value>Approve Level</value>
+  </data>
+  <data name="ApproveQty" xml:space="preserve">
+    <value>Approve Qty</value>
+  </data>
+  <data name="ApproveQty1" xml:space="preserve">
+    <value>Approve Qty</value>
+  </data>
+  <data name="ApproveStatus" xml:space="preserve">
+    <value>Approve Status</value>
+  </data>
+  <data name="ApproveStatus1" xml:space="preserve">
+    <value>Approve Status</value>
+  </data>
+  <data name="ApprSupp" xml:space="preserve">
+    <value>Appr Supp</value>
+  </data>
+  <data name="Ason1" xml:space="preserve">
+    <value>As on</value>
+  </data>
+  <data name="Audit1" xml:space="preserve">
+    <value>Audit</value>
+  </data>
+  <data name="BankAccountNo1" xml:space="preserve">
+    <value>Bank Account No</value>
+  </data>
+  <data name="BankIFSCCode1" xml:space="preserve">
+    <value>Bank IFSC Code</value>
+  </data>
+  <data name="BaseUnit1" xml:space="preserve">
+    <value>Base Unit</value>
+  </data>
+  <data name="BInd" xml:space="preserve">
+    <value>BInd</value>
+  </data>
+  <data name="BInd1" xml:space="preserve">
+    <value>BInd</value>
+  </data>
+  <data name="BlackListDate1" xml:space="preserve">
+    <value>Black List Date</value>
+  </data>
+  <data name="BlackListedParty1" xml:space="preserve">
+    <value>Black Listed Party</value>
+  </data>
+  <data name="BlanketRate" xml:space="preserve">
+    <value>Blanket Rate</value>
+  </data>
+  <data name="btmlblDuppartyNm1" xml:space="preserve">
+    <value>Note: First Name is used for checking duplicates</value>
+  </data>
+  <data name="Buyer1" xml:space="preserve">
+    <value>Buyer</value>
+  </data>
+  <data name="Cancel1" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CancelDetails" xml:space="preserve">
+    <value>Cancel Details</value>
+  </data>
+  <data name="CancelPO" xml:space="preserve">
+    <value>Cancel PO</value>
+  </data>
+  <data name="CancelReason" xml:space="preserve">
+    <value>Cancel Reason</value>
+  </data>
+  <data name="CancelReason1" xml:space="preserve">
+    <value>Cancel Reason</value>
+  </data>
+  <data name="CaseMarketing" xml:space="preserve">
+    <value>Case Marketing</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Category1" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ChangeUom1" xml:space="preserve">
+    <value>Change Uom</value>
+  </data>
+  <data name="CheckAll" xml:space="preserve">
+    <value>Check All</value>
+  </data>
+  <data name="CheckDuplicates1" xml:space="preserve">
+    <value>Check Duplicates</value>
+  </data>
+  <data name="chkDuplicates1" xml:space="preserve">
+    <value>Chk.Duplicates</value>
+  </data>
+  <data name="ChkId1" xml:space="preserve">
+    <value>Chk.Id</value>
+  </data>
+  <data name="City1" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="CityCreationAmendment1" xml:space="preserve">
+    <value>City Creation/Amendment</value>
+  </data>
+  <data name="CitySearch1" xml:space="preserve">
+    <value>CitySearch</value>
+  </data>
+  <data name="Close1" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Company1" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="Compute" xml:space="preserve">
+    <value>Compute</value>
+  </data>
+  <data name="Compute1" xml:space="preserve">
+    <value>Compute</value>
+  </data>
+  <data name="ContactMobile1" xml:space="preserve">
+    <value>Contact Mobile</value>
+  </data>
+  <data name="ContactPerson1" xml:space="preserve">
+    <value>Contact Person</value>
+  </data>
+  <data name="ConvBase" xml:space="preserve">
+    <value>ConvBase</value>
+  </data>
+  <data name="ConvFactor" xml:space="preserve">
+    <value>Conv Factor</value>
+  </data>
+  <data name="ConvFactorhidd" xml:space="preserve">
+    <value>Conv Factor hidd</value>
+  </data>
+  <data name="CopyRequestQty" xml:space="preserve">
+    <value>Copy Request Qty</value>
+  </data>
+  <data name="CopyRequestQty1" xml:space="preserve">
+    <value>Copy Request Qty</value>
+  </data>
+  <data name="CorrespondenceAddressSearch" xml:space="preserve">
+    <value>Correspondence Address Search</value>
+  </data>
+  <data name="Costcenter1" xml:space="preserve">
+    <value>Cost Center</value>
+  </data>
+  <data name="CostId1" xml:space="preserve">
+    <value>Cost Id</value>
+  </data>
+  <data name="CostName1" xml:space="preserve">
+    <value>Cost Name</value>
+  </data>
+  <data name="Country1" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="CreatedBy1" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="CreatedDt" xml:space="preserve">
+    <value>Created Dt</value>
+  </data>
+  <data name="CreatedDt1" xml:space="preserve">
+    <value>Created Dt</value>
+  </data>
+  <data name="CreditDays1" xml:space="preserve">
+    <value>Credit Days</value>
+  </data>
+  <data name="CreditLimit1" xml:space="preserve">
+    <value>Credit Limit</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="CurrentStock" xml:space="preserve">
+    <value>Cur.Stk</value>
+  </data>
+  <data name="CurrentStock1" xml:space="preserve">
+    <value>Cur.Stk</value>
+  </data>
+  <data name="DefaultAcName1" xml:space="preserve">
+    <value>Default Ac Name</value>
+  </data>
+  <data name="DelDays" xml:space="preserve">
+    <value>DelDays</value>
+  </data>
+  <data name="DelDays1" xml:space="preserve">
+    <value>DelDays</value>
+  </data>
+  <data name="Delete1" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeliverBefore" xml:space="preserve">
+    <value>Deliver Before</value>
+  </data>
+  <data name="DeliveryDate" xml:space="preserve">
+    <value>Delivery Date</value>
+  </data>
+  <data name="DeliveryDate1" xml:space="preserve">
+    <value>Delivery Date</value>
+  </data>
+  <data name="DeliveryLocation" xml:space="preserve">
+    <value>Delivery Location</value>
+  </data>
+  <data name="DeliveryLocation1" xml:space="preserve">
+    <value>Delivery Location</value>
+  </data>
+  <data name="Deliverysch1" xml:space="preserve">
+    <value>Delivery sch1</value>
+  </data>
+  <data name="Deliverysch11" xml:space="preserve">
+    <value>Delivery sch1</value>
+  </data>
+  <data name="Deliverysch2" xml:space="preserve">
+    <value>Delivery sch2</value>
+  </data>
+  <data name="Deliverysch21" xml:space="preserve">
+    <value>Delivery sch2</value>
+  </data>
+  <data name="DeliveryTerms1" xml:space="preserve">
+    <value>Delivery Terms</value>
+  </data>
+  <data name="Department1" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="DepartmentName1" xml:space="preserve">
+    <value>Department Name</value>
+  </data>
+  <data name="DepartName1" xml:space="preserve">
+    <value>Depart Name</value>
+  </data>
+  <data name="Designation1" xml:space="preserve">
+    <value>Designation</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Details1" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="DetailsDescription1" xml:space="preserve">
+    <value>Details Description</value>
+  </data>
+  <data name="DiscInd" xml:space="preserve">
+    <value>Disc Ind</value>
+  </data>
+  <data name="DiscInd1" xml:space="preserve">
+    <value>Disc Ind</value>
+  </data>
+  <data name="DiscPer" xml:space="preserve">
+    <value>Disc Per</value>
+  </data>
+  <data name="DiscRate" xml:space="preserve">
+    <value>Disc Rate</value>
+  </data>
+  <data name="DisLn2ItmDes1" xml:space="preserve">
+    <value>Display Line2 Item Description</value>
+  </data>
+  <data name="Display1" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="DuplicateParties1" xml:space="preserve">
+    <value>Duplicate Parties</value>
+  </data>
+  <data name="Email1" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Email21" xml:space="preserve">
+    <value>Email 2</value>
+  </data>
+  <data name="EndDelivDt" xml:space="preserve">
+    <value>End Deliv Dt</value>
+  </data>
+  <data name="EndDelivDt1" xml:space="preserve">
+    <value>End Deliv Dt</value>
+  </data>
+  <data name="EnterPRTemplatetoCopy" xml:space="preserve">
+    <value>Enter PR Template to Copy</value>
+  </data>
+  <data name="EnterPRTemplatetoCopy1" xml:space="preserve">
+    <value>Enter PR Template to Copy</value>
+  </data>
+  <data name="EnterStartingOrderNo" xml:space="preserve">
+    <value>Enter Starting Order No</value>
+  </data>
+  <data name="EnterStartingOrderNo1" xml:space="preserve">
+    <value>Enter Starting Order No</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="GetPRRate" xml:space="preserve">
+    <value>Get PR Rate</value>
+  </data>
+  <data name="Hold" xml:space="preserve">
+    <value>Hold</value>
+  </data>
+  <data name="IndentNo" xml:space="preserve">
+    <value>Indent No</value>
+  </data>
+  <data name="IndentPending" xml:space="preserve">
+    <value>Indent Pending</value>
+  </data>
+  <data name="ItemDetails" xml:space="preserve">
+    <value>Item Details</value>
+  </data>
+  <data name="ItemID" xml:space="preserve">
+    <value>Item ID</value>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
+  <data name="ItemShipSearch" xml:space="preserve">
+    <value>Item Ship Search</value>
+  </data>
+  <data name="JustifyReason" xml:space="preserve">
+    <value>Justify Reason</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="LocationDetails" xml:space="preserve">
+    <value>Location Details</value>
+  </data>
+  <data name="LocationSearch" xml:space="preserve">
+    <value>Location Search</value>
+  </data>
+  <data name="NoRecordFound" xml:space="preserve">
+    <value>No Record Found</value>
+  </data>
+  <data name="OrderQty" xml:space="preserve">
+    <value>Order Qty</value>
+  </data>
+  <data name="Original" xml:space="preserve">
+    <value>Original</value>
+  </data>
+  <data name="OurRef" xml:space="preserve">
+    <value>Our Ref</value>
+  </data>
+  <data name="PendingPRQty" xml:space="preserve">
+    <value>Pending PR Qty</value>
+  </data>
+  <data name="PendQty" xml:space="preserve">
+    <value>Pend Qty</value>
+  </data>
+  <data name="Pincode" xml:space="preserve">
+    <value>Pincode</value>
+  </data>
+  <data name="POName" xml:space="preserve">
+    <value>PO Name</value>
+  </data>
+  <data name="PoQty" xml:space="preserve">
+    <value>PoQty</value>
+  </data>
+  <data name="PoRecptQty" xml:space="preserve">
+    <value>PoRecptQty</value>
+  </data>
+  <data name="PoTypeId" xml:space="preserve">
+    <value>PoType Id</value>
+  </data>
+  <data name="POValue" xml:space="preserve">
+    <value>PO Value</value>
+  </data>
+  <data name="PRDt" xml:space="preserve">
+    <value>PR Dt</value>
+  </data>
+  <data name="Prefix" xml:space="preserve">
+    <value>Prefix</value>
+  </data>
+  <data name="PrintPR" xml:space="preserve">
+    <value>Print PR</value>
+  </data>
+  <data name="ProdDet" xml:space="preserve">
+    <value>ProdDet</value>
+  </data>
+  <data name="ProductDetails" xml:space="preserve">
+    <value>Product Details</value>
+  </data>
+  <data name="ProdUom" xml:space="preserve">
+    <value>Prod Uom</value>
+  </data>
+  <data name="PRTemplate" xml:space="preserve">
+    <value>P.R Template</value>
+  </data>
+  <data name="PurchaseRequest" xml:space="preserve">
+    <value>Purchase Request</value>
+  </data>
+  <data name="PurchaseRequisitionApproval" xml:space="preserve">
+    <value>Purchase Requisition Approval</value>
+  </data>
+  <data name="PurchaseRequisitionList" xml:space="preserve">
+    <value>Purchase Requisition List</value>
+  </data>
+  <data name="PurchaseRequisitionSearch" xml:space="preserve">
+    <value>Purchase Requisition Search</value>
+  </data>
+  <data name="PurchaseSrNo" xml:space="preserve">
+    <value>Purchase Sr No</value>
+  </data>
+  <data name="Qty" xml:space="preserve">
+    <value>Qty</value>
+  </data>
+  <data name="RateInd" xml:space="preserve">
+    <value>Rate Ind</value>
+  </data>
+  <data name="RatePerId" xml:space="preserve">
+    <value>RatePerId</value>
+  </data>
+  <data name="RatePoBlnketPoNo" xml:space="preserve">
+    <value>RatePoBlnketPoNo</value>
+  </data>
+  <data name="RatePoBlnketPoTyId" xml:space="preserve">
+    <value>RatePoBlnketPoTyId</value>
+  </data>
+  <data name="ReApproval" xml:space="preserve">
+    <value>ReApproval</value>
+  </data>
+  <data name="RecptQty" xml:space="preserve">
+    <value>RecptQty</value>
+  </data>
+  <data name="ReqQty" xml:space="preserve">
+    <value>Req.Qty</value>
+  </data>
+  <data name="RequestBefore" xml:space="preserve">
+    <value>Request Before</value>
+  </data>
+  <data name="RequestIns" xml:space="preserve">
+    <value>Request Ins</value>
+  </data>
+  <data name="RequireBefore" xml:space="preserve">
+    <value>Require Before</value>
+  </data>
+  <data name="RequisitionDate" xml:space="preserve">
+    <value>Requisition Date</value>
+  </data>
+  <data name="RequisitionNo" xml:space="preserve">
+    <value>Requisition No</value>
+  </data>
+  <data name="ReserveInstruction" xml:space="preserve">
+    <value>Request Instruction</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="RI" xml:space="preserve">
+    <value>RI</value>
+  </data>
+  <data name="RoundOff" xml:space="preserve">
+    <value>RoundOff</value>
+  </data>
+  <data name="RoundOffId" xml:space="preserve">
+    <value>RoundOffId</value>
+  </data>
+  <data name="SelRow" xml:space="preserve">
+    <value>SelRow</value>
+  </data>
+  <data name="ShortCloseAllItems" xml:space="preserve">
+    <value>Short Close All Items</value>
+  </data>
+  <data name="Show2ndLineofItemDescription" xml:space="preserve">
+    <value>Show 2nd Line of Item Description</value>
+  </data>
+  <data name="ShowOnlyHoldPO" xml:space="preserve">
+    <value>Show Only Hold PO's</value>
+  </data>
+  <data name="SNo" xml:space="preserve">
+    <value>S.No</value>
+  </data>
+  <data name="SpecialTerm1" xml:space="preserve">
+    <value>Special Term1</value>
+  </data>
+  <data name="SRNo" xml:space="preserve">
+    <value>SR No</value>
+  </data>
+  <data name="StkQty" xml:space="preserve">
+    <value>Stk. Qty</value>
+  </data>
+  <data name="Suffix" xml:space="preserve">
+    <value>Suffix</value>
+  </data>
+  <data name="TaxAmt" xml:space="preserve">
+    <value>Tax Amt</value>
+  </data>
+  <data name="TaxIDHidd" xml:space="preserve">
+    <value>Tax ID Hidd</value>
+  </data>
+  <data name="TaxNm" xml:space="preserve">
+    <value>Tax Nm</value>
+  </data>
+  <data name="TaxPer" xml:space="preserve">
+    <value>Tax %</value>
+  </data>
+  <data name="TermsAndCondition" xml:space="preserve">
+    <value>Terms And Condition</value>
+  </data>
+  <data name="TermsId" xml:space="preserve">
+    <value>Terms Id</value>
+  </data>
+  <data name="TermsNarr" xml:space="preserve">
+    <value>Terms Narr</value>
+  </data>
+  <data name="TermsTyNm" xml:space="preserve">
+    <value>Terms Ty Nm</value>
+  </data>
+  <data name="TermTyId" xml:space="preserve">
+    <value>Term Ty Id</value>
+  </data>
+  <data name="TotalPendingApproval" xml:space="preserve">
+    <value>Total Pending Approval</value>
+  </data>
+  <data name="TotalValue" xml:space="preserve">
+    <value>Total Value</value>
+  </data>
+  <data name="UnInvCharge" xml:space="preserve">
+    <value>UnInvChrg</value>
+  </data>
+  <data name="UOM" xml:space="preserve">
+    <value>UOM</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="WordSearch" xml:space="preserve">
+    <value>Word Search</value>
+  </data>
+  <data name="YourRef" xml:space="preserve">
+    <value>Your Ref</value>
+  </data>
+  <data name="AccptQty" xml:space="preserve">
+    <value>Accpt Qty</value>
+  </data>
+  <data name="Applicable" xml:space="preserve">
+    <value>Applicable</value>
+  </data>
+  <data name="ApprovedPort" xml:space="preserve">
+    <value>ApprovedPort</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Asset</value>
+  </data>
+  <data name="AssetId" xml:space="preserve">
+    <value>Asset Id</value>
+  </data>
+  <data name="AutoSplit" xml:space="preserve">
+    <value>Auto Split</value>
+  </data>
+  <data name="AvgRate" xml:space="preserve">
+    <value>Avg Rate</value>
+  </data>
+  <data name="BaseRate" xml:space="preserve">
+    <value>Base Rate</value>
+  </data>
+  <data name="BasicRate" xml:space="preserve">
+    <value>Basic Rate</value>
+  </data>
+  <data name="BasicRate1" xml:space="preserve">
+    <value>Basic Rate1</value>
+  </data>
+  <data name="Basics" xml:space="preserve">
+    <value>Basics</value>
+  </data>
+  <data name="BillAmt" xml:space="preserve">
+    <value>Bill Amt</value>
+  </data>
+  <data name="BillAmtDec" xml:space="preserve">
+    <value>Bill_Amt_Dec</value>
+  </data>
+  <data name="BillDate" xml:space="preserve">
+    <value>Bill Date</value>
+  </data>
+  <data name="BillDCDt" xml:space="preserve">
+    <value>Bill/DC Dt</value>
+  </data>
+  <data name="BillDCNo" xml:space="preserve">
+    <value>Bill/DC No</value>
+  </data>
+  <data name="BillNo" xml:space="preserve">
+    <value>Bill No</value>
+  </data>
+  <data name="BillPassNo" xml:space="preserve">
+    <value>BillPass No</value>
+  </data>
+  <data name="BillStatus" xml:space="preserve">
+    <value>Bill Status</value>
+  </data>
+  <data name="BinLoc" xml:space="preserve">
+    <value>Bin Loc</value>
+  </data>
+  <data name="BinLocId" xml:space="preserve">
+    <value>Bin Loc Id</value>
+  </data>
+  <data name="BlanketAggrement" xml:space="preserve">
+    <value>Blanket Aggrement</value>
+  </data>
+  <data name="BlanketAgreement" xml:space="preserve">
+    <value>Blanket Agreement</value>
+  </data>
+  <data name="BlnktPoNo" xml:space="preserve">
+    <value>Blnkt Po No</value>
+  </data>
+  <data name="BlnktPoTy" xml:space="preserve">
+    <value>Blnk Po Ty</value>
+  </data>
+  <data name="BlnktSrNo" xml:space="preserve">
+    <value>Blnkt Sr No</value>
+  </data>
+  <data name="Caption" xml:space="preserve">
+    <value>Caption</value>
+  </data>
+  <data name="CCId" xml:space="preserve">
+    <value>CC Id</value>
+  </data>
+  <data name="ChangeProperty" xml:space="preserve">
+    <value>Change Property</value>
+  </data>
+  <data name="ChrgsSplit" xml:space="preserve">
+    <value>Chrgs Split</value>
+  </data>
+  <data name="ClickYestoSetitTodaysDate" xml:space="preserve">
+    <value>Click Yes to Set it Today's Date</value>
+  </data>
+  <data name="CompanyID" xml:space="preserve">
+    <value>Company ID</value>
+  </data>
+  <data name="Consign" xml:space="preserve">
+    <value>Consign#</value>
+  </data>
+  <data name="ConsignmentNo" xml:space="preserve">
+    <value>Consignment No</value>
+  </data>
+  <data name="ConvertionFactor" xml:space="preserve">
+    <value>Convertion Factor</value>
+  </data>
+  <data name="CostCenterId" xml:space="preserve">
+    <value>Cost Center Id</value>
+  </data>
+  <data name="CostCenterName" xml:space="preserve">
+    <value>Cost Center Name</value>
+  </data>
+  <data name="CostCenterSearch" xml:space="preserve">
+    <value>Cost Center Search</value>
+  </data>
+  <data name="CostGroup" xml:space="preserve">
+    <value>Cost Group</value>
+  </data>
+  <data name="CurId" xml:space="preserve">
+    <value>Cur Id</value>
+  </data>
+  <data name="CurrentStockDate" xml:space="preserve">
+    <value>Current Stock Date</value>
+  </data>
+  <data name="DatabaseName" xml:space="preserve">
+    <value>Database Name</value>
+  </data>
+  <data name="DepartmentId" xml:space="preserve">
+    <value>Department Id</value>
+  </data>
+  <data name="DepartmentIssue" xml:space="preserve">
+    <value>Department Issue</value>
+  </data>
+  <data name="DepartmentSearch" xml:space="preserve">
+    <value>Department Search</value>
+  </data>
+  <data name="Dept" xml:space="preserve">
+    <value>Dept</value>
+  </data>
+  <data name="DeptID" xml:space="preserve">
+    <value>DeptID</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="DispSrNo" xml:space="preserve">
+    <value>Disp Sr No</value>
+  </data>
+  <data name="DistrMode" xml:space="preserve">
+    <value>DistrMode</value>
+  </data>
+  <data name="DummyExcise" xml:space="preserve">
+    <value>Dummy Excise</value>
+  </data>
+  <data name="DummyLandRate" xml:space="preserve">
+    <value>Dummy Land Rate</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditInd" xml:space="preserve">
+    <value>Edit Ind</value>
+  </data>
+  <data name="EnterMRTemplatetoCopy" xml:space="preserve">
+    <value>Enter M.R. Template to Copy</value>
+  </data>
+  <data name="Exc" xml:space="preserve">
+    <value>Exc%</value>
+  </data>
+  <data name="Excise" xml:space="preserve">
+    <value>Excise</value>
+  </data>
+  <data name="ExpirtyDt" xml:space="preserve">
+    <value>Expirty Dt</value>
+  </data>
+  <data name="ExpiryDetails" xml:space="preserve">
+    <value>Expiry Details</value>
+  </data>
+  <data name="ExpiryDt" xml:space="preserve">
+    <value>Expiry Dt</value>
+  </data>
+  <data name="FreeQty" xml:space="preserve">
+    <value>Free Qty</value>
+  </data>
+  <data name="FreeQtyUom" xml:space="preserve">
+    <value>Free Qty Uom</value>
+  </data>
+  <data name="FromUom" xml:space="preserve">
+    <value>From Uom</value>
+  </data>
+  <data name="Indent" xml:space="preserve">
+    <value>Indent</value>
+  </data>
+  <data name="IndentMode" xml:space="preserve">
+    <value>Indent Mode</value>
+  </data>
+  <data name="IndentProdSno" xml:space="preserve">
+    <value>IndentProdSno</value>
+  </data>
+  <data name="InterIssueInd" xml:space="preserve">
+    <value>Inter Issue Ind</value>
+  </data>
+  <data name="IssueDate" xml:space="preserve">
+    <value>Issue Date</value>
+  </data>
+  <data name="IssueNo" xml:space="preserve">
+    <value>Issue No</value>
+  </data>
+  <data name="Issuepcs" xml:space="preserve">
+    <value>Issue pcs</value>
+  </data>
+  <data name="IssueQty" xml:space="preserve">
+    <value>Issue Qty</value>
+  </data>
+  <data name="IssueSearch" xml:space="preserve">
+    <value>Issue Search</value>
+  </data>
+  <data name="IssueTo" xml:space="preserve">
+    <value>Issue To</value>
+  </data>
+  <data name="IssueType" xml:space="preserve">
+    <value>Issue Type</value>
+  </data>
+  <data name="IssueValue" xml:space="preserve">
+    <value>Issue Value</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="ItemValue" xml:space="preserve">
+    <value>ItemValue</value>
+  </data>
+  <data name="ItemWiseCharges" xml:space="preserve">
+    <value>ItemWise Charges</value>
+  </data>
+  <data name="LandRate" xml:space="preserve">
+    <value>Land Rate</value>
+  </data>
+  <data name="LandRateBase" xml:space="preserve">
+    <value>Land Rate Base</value>
+  </data>
+  <data name="LandValue" xml:space="preserve">
+    <value>LandValue</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LineDiscountApplicableforvatcalculation" xml:space="preserve">
+    <value>Line Discount Applicable for vat calculation</value>
+  </data>
+  <data name="Lnkprodsno" xml:space="preserve">
+    <value>Lnkprodsno</value>
+  </data>
+  <data name="LstUpdDt" xml:space="preserve">
+    <value>Lst UpdDt</value>
+  </data>
+  <data name="MaterialIssue" xml:space="preserve">
+    <value>Material Issue</value>
+  </data>
+  <data name="MaterialReceipt" xml:space="preserve">
+    <value>Material Receipt</value>
+  </data>
+  <data name="MaterialReceiptSearch" xml:space="preserve">
+    <value>Material Receipt Search</value>
+  </data>
+  <data name="MaterialRequest" xml:space="preserve">
+    <value>Material Request</value>
+  </data>
+  <data name="MaterialRequestSearch" xml:space="preserve">
+    <value>Material Request Search</value>
+  </data>
+  <data name="MaterialRequisitionSearch" xml:space="preserve">
+    <value>Material Requisition Search</value>
+  </data>
+  <data name="MrDate" xml:space="preserve">
+    <value>MR Date</value>
+  </data>
+  <data name="MrNo" xml:space="preserve">
+    <value>MR No</value>
+  </data>
+  <data name="Mrprodsno" xml:space="preserve">
+    <value>MR_prod_sno</value>
+  </data>
+  <data name="MRQty" xml:space="preserve">
+    <value>MR Qty</value>
+  </data>
+  <data name="MRTemplate" xml:space="preserve">
+    <value>M.R. Template</value>
+  </data>
+  <data name="MultilingualDisplayCaption" xml:space="preserve">
+    <value>Multilingual Display Caption</value>
+  </data>
+  <data name="MultilingualMessageCaption" xml:space="preserve">
+    <value>Multilingual Message Caption</value>
+  </data>
+  <data name="Narr" xml:space="preserve">
+    <value>Narr</value>
+  </data>
+  <data name="nCol" xml:space="preserve">
+    <value>nCol</value>
+  </data>
+  <data name="NonInv" xml:space="preserve">
+    <value>NonInv</value>
+  </data>
+  <data name="NonInvAppl" xml:space="preserve">
+    <value>NonInvAppl</value>
+  </data>
+  <data name="NonInvChgs" xml:space="preserve">
+    <value>Non Inv Chgs</value>
+  </data>
+  <data name="NonInvChrgsRate" xml:space="preserve">
+    <value>Non Inv Chrgs Rate</value>
+  </data>
+  <data name="NonInventoryCharge" xml:space="preserve">
+    <value>Non Inventory Charge</value>
+  </data>
+  <data name="NoUse" xml:space="preserve">
+    <value>NoUse</value>
+  </data>
+  <data name="OMRQTY" xml:space="preserve">
+    <value>OMR QTY</value>
+  </data>
+  <data name="OriginalReceipt" xml:space="preserve">
+    <value>Original Receipt</value>
+  </data>
+  <data name="OrigPoNO" xml:space="preserve">
+    <value>Orig Po NO</value>
+  </data>
+  <data name="OtherCharge" xml:space="preserve">
+    <value>Other Charge</value>
+  </data>
+  <data name="OtherChgs" xml:space="preserve">
+    <value>Other Chgs</value>
+  </data>
+  <data name="OtherChrgsRate" xml:space="preserve">
+    <value>Other Chrgs Rate</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="PartyType" xml:space="preserve">
+    <value>Party Type</value>
+  </data>
+  <data name="Pcs" xml:space="preserve">
+    <value># Pcs</value>
+  </data>
+  <data name="POIndentMode" xml:space="preserve">
+    <value>PO/Indent Mode</value>
+  </data>
+  <data name="POIndentNo" xml:space="preserve">
+    <value>PO/Indent No</value>
+  </data>
+  <data name="POIndentTypeID" xml:space="preserve">
+    <value>PO_Indent_TypeID</value>
+  </data>
+  <data name="POReceipt" xml:space="preserve">
+    <value>PO Receipt</value>
+  </data>
+  <data name="POTYID" xml:space="preserve">
+    <value>PO_TYID</value>
+  </data>
+  <data name="PRITM" xml:space="preserve">
+    <value>PR_ITM</value>
+  </data>
+  <data name="Prod" xml:space="preserve">
+    <value>Prod</value>
+  </data>
+  <data name="ProdDesc" xml:space="preserve">
+    <value>ProdDesc</value>
+  </data>
+  <data name="ProdNm" xml:space="preserve">
+    <value>ProdNm</value>
+  </data>
+  <data name="ProdSNo" xml:space="preserve">
+    <value>ProdSNo</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>Purchase</value>
+  </data>
+  <data name="PurchaseOrder" xml:space="preserve">
+    <value>Purchase Order</value>
+  </data>
+  <data name="PurchaseRequistion" xml:space="preserve">
+    <value>Purchase Requistion</value>
+  </data>
+  <data name="Ratesource" xml:space="preserve">
+    <value>Ratesource</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="ReceiptDate" xml:space="preserve">
+    <value>Receipt Date</value>
+  </data>
+  <data name="ReceiptNo" xml:space="preserve">
+    <value>Receipt No</value>
+  </data>
+  <data name="ReceiptType" xml:space="preserve">
+    <value>Receipt Type</value>
+  </data>
+  <data name="RefNo" xml:space="preserve">
+    <value>Ref No</value>
+  </data>
+  <data name="Rej" xml:space="preserve">
+    <value>Rej</value>
+  </data>
+  <data name="RejId" xml:space="preserve">
+    <value>RejId</value>
+  </data>
+  <data name="RejQty" xml:space="preserve">
+    <value>Rej Qty</value>
+  </data>
+  <data name="Remote" xml:space="preserve">
+    <value>Remote</value>
+  </data>
+  <data name="RemoteCompanyID" xml:space="preserve">
+    <value>Remote Company ID</value>
+  </data>
+  <data name="RemoteLocationID" xml:space="preserve">
+    <value>Remote Location ID</value>
+  </data>
+  <data name="RemoteLocationName" xml:space="preserve">
+    <value>Remote Location Name</value>
+  </data>
+  <data name="RemotePropertyMaster" xml:space="preserve">
+    <value>Remote Property Master</value>
+  </data>
+  <data name="RemoteUserPrevileges" xml:space="preserve">
+    <value>Remote User Previleges</value>
+  </data>
+  <data name="ReportPath" xml:space="preserve">
+    <value>Report Path</value>
+  </data>
+  <data name="ReqNo" xml:space="preserve">
+    <value>Req. No</value>
+  </data>
+  <data name="ReserveStock" xml:space="preserve">
+    <value>Reserve Stock</value>
+  </data>
+  <data name="RmtUserID" xml:space="preserve">
+    <value>RmtUserID</value>
+  </data>
+  <data name="RowNo" xml:space="preserve">
+    <value>Row No</value>
+  </data>
+  <data name="SelectProperty" xml:space="preserve">
+    <value>Select Property</value>
+  </data>
+  <data name="SelectPropertyCompany" xml:space="preserve">
+    <value>Select Property/Company</value>
+  </data>
+  <data name="SelectRetnItems" xml:space="preserve">
+    <value>Select Retn Items</value>
+  </data>
+  <data name="ServerName" xml:space="preserve">
+    <value>Server Name</value>
+  </data>
+  <data name="ShortClose" xml:space="preserve">
+    <value>Short Close</value>
+  </data>
+  <data name="Split" xml:space="preserve">
+    <value>Split</value>
+  </data>
+  <data name="SplitBy" xml:space="preserve">
+    <value>Split By</value>
+  </data>
+  <data name="SplitOn" xml:space="preserve">
+    <value>Split On</value>
+  </data>
+  <data name="stditem" xml:space="preserve">
+    <value>std item</value>
+  </data>
+  <data name="Stock" xml:space="preserve">
+    <value>Stock</value>
+  </data>
+  <data name="StockCol" xml:space="preserve">
+    <value>Stock Col</value>
+  </data>
+  <data name="StockDate" xml:space="preserve">
+    <value>Stock Date</value>
+  </data>
+  <data name="StockItem" xml:space="preserve">
+    <value>Stock Item</value>
+  </data>
+  <data name="StockNotUpdated" xml:space="preserve">
+    <value>Stock Not Updated</value>
+  </data>
+  <data name="StockPostDate" xml:space="preserve">
+    <value>Stock Post Date</value>
+  </data>
+  <data name="StockPostDateAlert" xml:space="preserve">
+    <value>Stock Post Date Alert</value>
+  </data>
+  <data name="StockQty" xml:space="preserve">
+    <value>Stock Qty</value>
+  </data>
+  <data name="StockUpdated" xml:space="preserve">
+    <value>Stock Updated</value>
+  </data>
+  <data name="StockValue" xml:space="preserve">
+    <value>Stock Value</value>
+  </data>
+  <data name="Tax" xml:space="preserve">
+    <value>Tax</value>
+  </data>
+  <data name="TaxId" xml:space="preserve">
+    <value>Tax Id</value>
+  </data>
+  <data name="TaxSplit" xml:space="preserve">
+    <value>Tax Split</value>
+  </data>
+  <data name="TempNarr" xml:space="preserve">
+    <value>Temp Narr</value>
+  </data>
+  <data name="TINNO" xml:space="preserve">
+    <value>TIN NO</value>
+  </data>
+  <data name="Toll" xml:space="preserve">
+    <value>Toll %</value>
+  </data>
+  <data name="TollA" xml:space="preserve">
+    <value>TollA</value>
+  </data>
+  <data name="TotalExcise" xml:space="preserve">
+    <value>Total Excise</value>
+  </data>
+  <data name="TotalMRValue" xml:space="preserve">
+    <value>Total MR Value</value>
+  </data>
+  <data name="TOUOM" xml:space="preserve">
+    <value>TOUOM</value>
+  </data>
+  <data name="TransferRate" xml:space="preserve">
+    <value>Transfer Rate</value>
+  </data>
+  <data name="TransferType" xml:space="preserve">
+    <value>Transfer Type</value>
+  </data>
+  <data name="TrnStatus" xml:space="preserve">
+    <value>Trn Status</value>
+  </data>
+  <data name="UnitSearch" xml:space="preserve">
+    <value>Unit Search</value>
+  </data>
+  <data name="UpdateDt" xml:space="preserve">
+    <value>Update Dt</value>
+  </data>
+  <data name="UpdateStock" xml:space="preserve">
+    <value>Update Stock</value>
+  </data>
+  <data name="UserID" xml:space="preserve">
+    <value>User ID</value>
+  </data>
+  <data name="ValueAdjustmentSplit" xml:space="preserve">
+    <value>Value Adjustment Split</value>
+  </data>
+  <data name="VAT" xml:space="preserve">
+    <value>VAT</value>
+  </data>
+  <data name="Vatable" xml:space="preserve">
+    <value>Vatable</value>
+  </data>
+  <data name="VatableCharge" xml:space="preserve">
+    <value>Vatable Charge</value>
+  </data>
+  <data name="VatableChrges" xml:space="preserve">
+    <value>VatableChrges</value>
+  </data>
+  <data name="VatableRate" xml:space="preserve">
+    <value>VatableRate</value>
+  </data>
+  <data name="VatAmt" xml:space="preserve">
+    <value>Vat Amt</value>
+  </data>
+  <data name="VATAvailedItemsDisplayedinRedColor" xml:space="preserve">
+    <value>VAT Availed Items Displayed in Red Color</value>
+  </data>
+  <data name="VatAvailInd" xml:space="preserve">
+    <value>Vat_Avail_Ind</value>
+  </data>
+  <data name="VatExmp" xml:space="preserve">
+    <value>Vat Exmp</value>
+  </data>
+  <data name="Vatper" xml:space="preserve">
+    <value>Vat %</value>
+  </data>
+  <data name="VoucherNo" xml:space="preserve">
+    <value>Voucher No</value>
+  </data>
+  <data name="Wastage" xml:space="preserve">
+    <value>Wastage</value>
+  </data>
+  <data name="DashBoardImageFO" xml:space="preserve">
+    <value>/DashBoardImage/fo1.jpg</value>
+  </data>
+  <data name="DashBoardImageMT" xml:space="preserve">
+    <value>/DashBoardImage/mm1.jpg</value>
+  </data>
+  <data name="DashBoardImagePO" xml:space="preserve">
+    <value>/DashBoardImage/pm1.jpg</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Masters" xml:space="preserve">
+    <value>Masters</value>
+  </data>
+  <data name="Queries" xml:space="preserve">
+    <value>Queries</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Transactions" xml:space="preserve">
+    <value>Transactions</value>
+  </data>
+  <data name="ApprRmrk1" xml:space="preserve">
+    <value>ApprRmrk1</value>
+  </data>
+  <data name="ApprRmrk2" xml:space="preserve">
+    <value>ApprRmrk2</value>
+  </data>
+  <data name="ApprRmrk3" xml:space="preserve">
+    <value>ApprRmrk3</value>
+  </data>
+  <data name="ApprRmrk4" xml:space="preserve">
+    <value>ApprRmrk4</value>
+  </data>
+  <data name="ApprRmrk5" xml:space="preserve">
+    <value>ApprRmrk5</value>
+  </data>
+  <data name="ApprRmrk6" xml:space="preserve">
+    <value>ApprRmrk6</value>
+  </data>
+  <data name="PurchaseNotes" xml:space="preserve">
+    <value>Purchase Notes</value>
+  </data>
+  <data name="UOMIdBase" xml:space="preserve">
+    <value>UOM ID Base</value>
+  </data>
+  <data name="MRNoSearch" xml:space="preserve">
+    <value>MR NoSearch</value>
+  </data>
+  <data name="PendingMRProd" xml:space="preserve">
+    <value>Pending MR Product</value>
+  </data>
+  <data name="ExpDtDet" xml:space="preserve">
+    <value>Product Expirty Details</value>
+  </data>
+  <data name="MrValue" xml:space="preserve">
+    <value>Total MR Value</value>
+  </data>
+  <data name="ApproverRemark" xml:space="preserve">
+    <value>Approver Remarks</value>
+  </data>
+  <data name="MatRecptDel" xml:space="preserve">
+    <value>Material Receipt Deletion</value>
+  </data>
+  <data name="ReceiptNoSrch" xml:space="preserve">
+    <value>Receipt Search</value>
+  </data>
+  <data name="THILLAI" xml:space="preserve">
+    <value>THILLAI</value>
+  </data>
+  <data name="BillPassing" xml:space="preserve">
+    <value>Bill Passing</value>
+  </data>
+  <data name="CallMonitoring" xml:space="preserve">
+    <value>Call Monitoring</value>
+  </data>
+  <data name="FrontOffice" xml:space="preserve">
+    <value>Front Office</value>
+  </data>
+  <data name="GatePass" xml:space="preserve">
+    <value>Gate Pass</value>
+  </data>
+  <data name="GeneralLedger" xml:space="preserve">
+    <value>General Ledger</value>
+  </data>
+  <data name="HouseKeeping" xml:space="preserve">
+    <value>House Keeping</value>
+  </data>
+  <data name="MaterialManagement" xml:space="preserve">
+    <value>Material Management</value>
+  </data>
+  <data name="PointOfSale" xml:space="preserve">
+    <value>Point Of Sale</value>
+  </data>
+  <data name="PurchaseOrdr" xml:space="preserve">
+    <value>Purchase Order</value>
+  </data>
+  <data name="SPA" xml:space="preserve">
+    <value>SPA</value>
+  </data>
+  <data name="Temp" xml:space="preserve">
+    <value>Enter PR Template to Copy</value>
+  </data>
+  <data name="AvblQty" xml:space="preserve">
+    <value>Avbl Qty</value>
+  </data>
+  <data name="InputCat" xml:space="preserve">
+    <value>Input Cat</value>
+  </data>
+  <data name="POS" xml:space="preserve">
+    <value>POS</value>
+  </data>
+  <data name="StateNm" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="StateSrch" xml:space="preserve">
+    <value>State Search</value>
+  </data>
+  <data name="GSTCategory" xml:space="preserve">
+    <value>GST Category</value>
+  </data>
+  <data name="TaxClass" xml:space="preserve">
+    <value>Tax Class</value>
+  </data>
+  <data name="TaxCode" xml:space="preserve">
+    <value>Tax Code</value>
+  </data>
+  <data name="GSTBulkUpd" xml:space="preserve">
+    <value>GST Tax Bulk Update</value>
+  </data>
+  <data name="GstIn" xml:space="preserve">
+    <value>GstIn</value>
+  </data>
+  <data name="RegTy" xml:space="preserve">
+    <value>RegTy</value>
+  </data>
+  <data name="CESSAmt" xml:space="preserve">
+    <value>CESS Amt</value>
+  </data>
+  <data name="CESSId" xml:space="preserve">
+    <value>CESSId</value>
+  </data>
+  <data name="CESSInd" xml:space="preserve">
+    <value>CESSInd</value>
+  </data>
+  <data name="CESSPer" xml:space="preserve">
+    <value>CESS %</value>
+  </data>
+  <data name="CGSTAmt" xml:space="preserve">
+    <value>CGST Amt</value>
+  </data>
+  <data name="CGSTId" xml:space="preserve">
+    <value>CGSTId</value>
+  </data>
+  <data name="CGSTInd" xml:space="preserve">
+    <value>CGSTInd</value>
+  </data>
+  <data name="CGSTPer" xml:space="preserve">
+    <value>CGST %</value>
+  </data>
+  <data name="IGSTAmt" xml:space="preserve">
+    <value>IGST Amt</value>
+  </data>
+  <data name="IGSTId" xml:space="preserve">
+    <value>IGSTId</value>
+  </data>
+  <data name="IGSTInd" xml:space="preserve">
+    <value>IGSTInd</value>
+  </data>
+  <data name="IGSTInd1" xml:space="preserve">
+    <value>IGSTInd</value>
+  </data>
+  <data name="IGSTPer" xml:space="preserve">
+    <value>IGST %</value>
+  </data>
+  <data name="SGSTAmt" xml:space="preserve">
+    <value>SGST Amt</value>
+  </data>
+  <data name="SGSTId" xml:space="preserve">
+    <value>SGSTId</value>
+  </data>
+  <data name="SGSTInd" xml:space="preserve">
+    <value>SGSTInd</value>
+  </data>
+  <data name="SGSTPer" xml:space="preserve">
+    <value>SGST %</value>
+  </data>
+  <data name="TaxCcId" xml:space="preserve">
+    <value>TaxCcId</value>
+  </data>
+  <data name="TaxCompInd" xml:space="preserve">
+    <value>TaxCompInd</value>
+  </data>
+  <data name="GST" xml:space="preserve">
+    <value>GST</value>
+  </data>
+  <data name="GSTTax" xml:space="preserve">
+    <value>GST Tax</value>
+  </data>
+  <data name="BRIndtNo" xml:space="preserve">
+    <value>Br Req No</value>
+  </data>
+  <data name="BRUnit" xml:space="preserve">
+    <value>Br Unit</value>
+  </data>
+  <data name="AppDets" xml:space="preserve">
+    <value>Approval Details</value>
+  </data>
+  <data name="AppItemRmks" xml:space="preserve">
+    <value>Approver Item Remarks</value>
+  </data>
+  <data name="ItemInfo" xml:space="preserve">
+    <value>Item Information</value>
+  </data>
+  <data name="Qry" xml:space="preserve">
+    <value>Query</value>
+  </data>
+  <data name="SuppNarr" xml:space="preserve">
+    <value>Supplier PO Narration</value>
+  </data>
+  <data name="CentralStkInf" xml:space="preserve">
+    <value>Central Stock Qty</value>
+  </data>
+  <data name="CentralStkInfo" xml:space="preserve">
+    <value>Central Stock Info</value>
+  </data>
+  <data name="AuditLog" xml:space="preserve">
+    <value>Audit Log</value>
+  </data>
+  <data name="ShowOnlyHoldPR" xml:space="preserve">
+    <value>Show Only Hold PR's</value>
+  </data>
+  <data name="roo" xml:space="preserve">
+    <value>Account Date</value>
+  </data>
+  <data name="Adv" xml:space="preserve">
+    <value>Advance</value>
+  </data>
+  <data name="Agreement" xml:space="preserve">
+    <value>Agreement</value>
+  </data>
+  <data name="Alert" xml:space="preserve">
+    <value>Alert</value>
+  </data>
+  <data name="AmendCCardNo" xml:space="preserve">
+    <value>Amend C.Card No.</value>
+  </data>
+  <data name="ArrDt" xml:space="preserve">
+    <value>Arr Dt</value>
+  </data>
+  <data name="ArrivalDate" xml:space="preserve">
+    <value>Arrival Date</value>
+  </data>
+  <data name="ArrivalDt" xml:space="preserve">
+    <value>Arrival Dt</value>
+  </data>
+  <data name="Authorization" xml:space="preserve">
+    <value>Authorization</value>
+  </data>
+  <data name="AvailableAdvance" xml:space="preserve">
+    <value>Available Advance</value>
+  </data>
+  <data name="BankNameSearch" xml:space="preserve">
+    <value>Bank Name Search</value>
+  </data>
+  <data name="CCCompany" xml:space="preserve">
+    <value>C.C Company</value>
+  </data>
+  <data name="CCNo" xml:space="preserve">
+    <value>C.C No</value>
+  </data>
+  <data name="ChargeToSplit" xml:space="preserve">
+    <value>Charge To Split</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="Confirm_No" xml:space="preserve">
+    <value>Confirm_No</value>
+  </data>
+  <data name="ConvRate" xml:space="preserve">
+    <value>Conv. Rate</value>
+  </data>
+  <data name="CreditCardNo" xml:space="preserve">
+    <value>Credit Card No.</value>
+  </data>
+  <data name="CRSAdvance" xml:space="preserve">
+    <value>CRS Advance</value>
+  </data>
+  <data name="CurrencyType" xml:space="preserve">
+    <value>Currency Type</value>
+  </data>
+  <data name="Denomination" xml:space="preserve">
+    <value>Denomination</value>
+  </data>
+  <data name="DepartDate" xml:space="preserve">
+    <value>Depart Date</value>
+  </data>
+  <data name="DepDt" xml:space="preserve">
+    <value>Dep Dt</value>
+  </data>
+  <data name="DepositDate" xml:space="preserve">
+    <value>Deposit Date</value>
+  </data>
+  <data name="Depositor" xml:space="preserve">
+    <value>Depositor</value>
+  </data>
+  <data name="DeptDt" xml:space="preserve">
+    <value>Dept Dt</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>Expiry Date</value>
+  </data>
+  <data name="ForeignAmount" xml:space="preserve">
+    <value>Foreign Amount</value>
+  </data>
+  <data name="GroupReservation" xml:space="preserve">
+    <value>Group Reservation</value>
+  </data>
+  <data name="GstState" xml:space="preserve">
+    <value>Gst State</value>
+  </data>
+  <data name="GstStatus" xml:space="preserve">
+    <value>GstStatus</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="GuestId" xml:space="preserve">
+    <value>GuestId</value>
+  </data>
+  <data name="GuestName" xml:space="preserve">
+    <value>Guest Name</value>
+  </data>
+  <data name="GuestNameTemp" xml:space="preserve">
+    <value>Guest Name Temp</value>
+  </data>
+  <data name="GuestQuery" xml:space="preserve">
+    <value>Guest Query</value>
+  </data>
+  <data name="HSNSACSearch" xml:space="preserve">
+    <value>HSN/SAC Search</value>
+  </data>
+  <data name="InHouse" xml:space="preserve">
+    <value>In House</value>
+  </data>
+  <data name="MobileNo" xml:space="preserve">
+    <value>Mobile No</value>
+  </data>
+  <data name="NetTariff" xml:space="preserve">
+    <value>Net Tariff</value>
+  </data>
+  <data name="NoofNotes" xml:space="preserve">
+    <value>No. of Notes</value>
+  </data>
+  <data name="OriginalReservation" xml:space="preserve">
+    <value>Original Reservation</value>
+  </data>
+  <data name="Pax" xml:space="preserve">
+    <value>Pax</value>
+  </data>
+  <data name="PayBillCompany" xml:space="preserve">
+    <value>Pay Bill Company</value>
+  </data>
+  <data name="PaymentMode" xml:space="preserve">
+    <value>Payment Mode</value>
+  </data>
+  <data name="ResAdv" xml:space="preserve">
+    <value>Reservation Advance</value>
+  </data>
+  <data name="Reservation" xml:space="preserve">
+    <value>Reservation</value>
+  </data>
+  <data name="ReservNo" xml:space="preserve">
+    <value>Reservation No</value>
+  </data>
+  <data name="ReservationSearch" xml:space="preserve">
+    <value>Reservation Search</value>
+  </data>
+  <data name="ReserveDate" xml:space="preserve">
+    <value>Reserve Date</value>
+  </data>
+  <data name="ReserveNo" xml:space="preserve">
+    <value>Reserve No</value>
+  </data>
+  <data name="Reversal" xml:space="preserve">
+    <value>Reversal</value>
+  </data>
+  <data name="ReversalEntry" xml:space="preserve">
+    <value>Reversal Entry</value>
+  </data>
+  <data name="Rms" xml:space="preserve">
+    <value>Rms</value>
+  </data>
+  <data name="Room" xml:space="preserve">
+    <value>Room</value>
+  </data>
+  <data name="SAC" xml:space="preserve">
+    <value>SAC</value>
+  </data>
+  <data name="SACCode" xml:space="preserve">
+    <value>SAC Code</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Shr" xml:space="preserve">
+    <value>Shr</value>
+  </data>
+  <data name="SimpleNarration" xml:space="preserve">
+    <value>Narration</value>
+  </data>
+  <data name="StateName" xml:space="preserve">
+    <value>State Name</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="TransactionID" xml:space="preserve">
+    <value>Transaction ID</value>
+  </data>
+  <data name="TransactionType" xml:space="preserve">
+    <value>Transaction Type</value>
+  </data>
+  <data name="TravelAgent" xml:space="preserve">
+    <value>Travel Agent</value>
+  </data>
+  <data name="TrnNo" xml:space="preserve">
+    <value>Trn No</value>
+  </data>
+  <data name="Deposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="ACNo" xml:space="preserve">
+    <value>A/C No</value>
+  </data>
+  <data name="AgreementNo" xml:space="preserve">
+    <value>Agreement No</value>
+  </data>
+  <data name="AvailableDeposit" xml:space="preserve">
+    <value>Available Deposit</value>
+  </data>
+  <data name="BankName" xml:space="preserve">
+    <value>Bank Name</value>
+  </data>
+  <data name="ChequeDt" xml:space="preserve">
+    <value>Cheque Dt</value>
+  </data>
+  <data name="ChequeNo" xml:space="preserve">
+    <value>Cheque No</value>
+  </data>
+  <data name="DepositDt" xml:space="preserve">
+    <value>Deposit Dt</value>
+  </data>
+  <data name="lblAlertPop" xml:space="preserve">
+    <value>Reservation No Cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop1" xml:space="preserve">
+    <value>SAC Code cannot be empty.</value>
+  </data>
+  <data name="lblAlertPop10" xml:space="preserve">
+    <value>Expiry Date Cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop11" xml:space="preserve">
+    <value>Expiry Date must be greater than current Date.</value>
+  </data>
+  <data name="lblAlertPop12" xml:space="preserve">
+    <value>Bank Name cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop13" xml:space="preserve">
+    <value>Cheque No cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop14" xml:space="preserve">
+    <value>Cheque Date cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop15" xml:space="preserve">
+    <value>Ac No cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop16" xml:space="preserve">
+    <value>Date cannot be Empty</value>
+  </data>
+  <data name="lblAlertPop17" xml:space="preserve">
+    <value>Voucher No Cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop2" xml:space="preserve">
+    <value>Tax Class cannot be empty.</value>
+  </data>
+  <data name="lblAlertPop3" xml:space="preserve">
+    <value>Amount cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop4" xml:space="preserve">
+    <value>Amount less than balance Advance Amount.</value>
+  </data>
+  <data name="lblAlertPop5" xml:space="preserve">
+    <value>Reservation Advance is Not Applicable</value>
+  </data>
+  <data name="lblAlertPop6" xml:space="preserve">
+    <value>Revenue is not defined for this transaction.</value>
+  </data>
+  <data name="lblAlertPop7" xml:space="preserve">
+    <value>CC Company Name cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop8" xml:space="preserve">
+    <value>CC No cannot be Empty.</value>
+  </data>
+  <data name="lblAlertPop9" xml:space="preserve">
+    <value>CC Date cannot be Empty.</value>
+  </data>
+  <data name="lblSaveMsg" xml:space="preserve">
+    <value>Created Successfully</value>
+  </data>
+  <data name="lblSaveMsg1" xml:space="preserve">
+    <value>Transaction modified by another user</value>
+  </data>
+  <data name="lblSaveMsg2" xml:space="preserve">
+    <value>Save Failed</value>
+  </data>
+  <data name="lblSaveMsg3" xml:space="preserve">
+    <value>Deleted Successfully</value>
+  </data>
+  <data name="lblSaveMsg4" xml:space="preserve">
+    <value>Deletion Failed</value>
+  </data>
+  <data name="RoomNo" xml:space="preserve">
+    <value>Room No</value>
+  </data>
+  <data name="AllGuest" xml:space="preserve">
+    <value>All Guest</value>
+  </data>
+  <data name="Erase_Check_In" xml:space="preserve">
+    <value>Erase Check-In</value>
+  </data>
+  <data name="Outlet" xml:space="preserve">
+    <value>Outlet</value>
+  </data>
+  <data name="PM" xml:space="preserve">
+    <value>P.M</value>
+  </data>
+  <data name="Reg" xml:space="preserve">
+    <value>Reg#</value>
+  </data>
+  <data name="ResvNo" xml:space="preserve">
+    <value>ResvNo</value>
+  </data>
+  <data name="RevenueName" xml:space="preserve">
+    <value>Revenue Name</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="RefundAmount" xml:space="preserve">
+    <value>Refund Amount</value>
+  </data>
+  <data name="ReservationAdvanceRefund" xml:space="preserve">
+    <value>Reservation Advance Refund</value>
+  </data>
+  <data name="RetentionCharge" xml:space="preserve">
+    <value>Retention Charge</value>
+  </data>
+  <data name="RetentionType" xml:space="preserve">
+    <value>Retention Type</value>
+  </data>
+  <data name="AmendGuest" xml:space="preserve">
+    <value>Amend Guest</value>
+  </data>
+  <data name="bill_re_settlement" xml:space="preserve">
+    <value>Bill ReSettlement</value>
+  </data>
+  <data name="GuestBal" xml:space="preserve">
+    <value>Guest Balance</value>
+  </data>
+  <data name="Telephone" xml:space="preserve">
+    <value>Telephone</value>
+  </data>
+  <data name="SelectAnyComplaint" xml:space="preserve">
+    <value>Please Select Any Complaint</value>
+  </data>
+  <data name="SelectAnyMessage" xml:space="preserve">
+    <value>Please Select Any Message</value>
+  </data>
+  <data name="SelectAnyRequest" xml:space="preserve">
+    <value>Please Select Any Request</value>
+  </data>
+  <data name="SpOut" xml:space="preserve">
+    <value>SpOut</value>
+  </data>
+  <data name="SplitPer" xml:space="preserve">
+    <value>Split</value>
+  </data>
+  <data name="MergeAmount" xml:space="preserve">
+    <value>Merge  Amt</value>
+  </data>
+  <data name="SplitAmount" xml:space="preserve">
+    <value>Split Amt</value>
+  </data>
+  <data name="BillTemplate" xml:space="preserve">
+    <value>Bill Template</value>
+  </data>
+  <data name="FilterNonActiveParties" xml:space="preserve">
+    <value>Filter Non Active Parties</value>
+  </data>
+  <data name="LinkAccount" xml:space="preserve">
+    <value>Link Account</value>
+  </data>
+  <data name="GSTNo" xml:space="preserve">
+    <value>GST No</value>
+  </data>
+  <data name="DFC_short" xml:space="preserve">
+    <value>Dis fgn cur</value>
+  </data>
+  <data name="NFC_short" xml:space="preserve">
+    <value>Net fgn cur</value>
+  </data>
+  <data name="TFC_short" xml:space="preserve">
+    <value>In fgn cur</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="DepartTime" xml:space="preserve">
+    <value>Departure Time</value>
+  </data>
+  <data name="DepartureTimeAlert" xml:space="preserve">
+    <value>Departure Time should be Valid</value>
+  </data>
+  <data name="AutoChrg" xml:space="preserve">
+    <value>Auto Chrg</value>
+  </data>
+  <data name="RmBLKUserAlert" xml:space="preserve">
+    <value>DNC block. User Don't have Privilage to modify this Block</value>
+  </data>
+  <data name="DOBMandatory" xml:space="preserve">
+    <value>Date of Birth Mandatory for checkin</value>
+  </data>
+  <data name="ENTRYPortMandatory" xml:space="preserve">
+    <value>Entry Port mandatory for checkin. Please give it in Reservation Amendment</value>
+  </data>
+  <data name="selectedamount" xml:space="preserve">
+    <value>Selected Amount</value>
+  </data>
+  <data name="SplRelAmount" xml:space="preserve">
+    <value>Split Related Taxes</value>
+  </data>
+  <data name="MovetoSpl" xml:space="preserve">
+    <value>Move to Split</value>
+  </data>
+  <data name="CashierShift" xml:space="preserve">
+    <value>Cashier Shift</value>
+  </data>
+  <data name="PlantobeConsider" xml:space="preserve">
+    <value>Plan not to be considered for Pax :</value>
+  </data>
+  <data name="CCSaveCredit" xml:space="preserve">
+    <value>Card No Updated Successfully</value>
+  </data>
+  <data name="TransactionTypeAlert" xml:space="preserve">
+    <value>Transaction Type to be accepted and mandatory</value>
+  </data>
+  <data name="cannot" xml:space="preserve">
+    <value>No cannot be empty</value>
+  </data>
+  <data name="RateEdit" xml:space="preserve">
+    <value>Rate Edit</value>
+  </data>
+  <data name="FRRoomNo" xml:space="preserve">
+    <value>From Room No</value>
+  </data>
+  <data name="CCGstCCNoAlert" xml:space="preserve">
+    <value>Move Guest preauthorized credit card no.</value>
+  </data>
+  <data name="PostingFailed" xml:space="preserve">
+    <value>Posted Failed.</value>
+  </data>
+  <data name="PostingSuccessfully" xml:space="preserve">
+    <value>Posted Successfully</value>
+  </data>
+  <data name="SurCharges" xml:space="preserve">
+    <value>Sur Charges</value>
+  </data>
+  <data name="SurChargeAmt" xml:space="preserve">
+    <value>SurCharge Amt.</value>
+  </data>
+  <data name="Refer" xml:space="preserve">
+    <value>Ref#</value>
+  </data>
+  <data name="ADR" xml:space="preserve">
+    <value>ADR</value>
+  </data>
+  <data name="LongStay" xml:space="preserve">
+    <value>Long Stay</value>
+  </data>
+  <data name="LongStayPax" xml:space="preserve">
+    <value>Long Stay Pax</value>
+  </data>
+  <data name="LongStayRooms" xml:space="preserve">
+    <value>Long Stay Rooms</value>
+  </data>
+  <data name="LongStayGuest" xml:space="preserve">
+    <value>Long Stay Guest</value>
+  </data>
+  <data name="Note_JS_100" xml:space="preserve">
+    <value>Drop charge cannot be empty</value>
+  </data>
+  <data name="TobeCharged" xml:space="preserve">
+    <value>To be charged</value>
+  </data>
+  <data name="Charges" xml:space="preserve">
+    <value>Charges</value>
+  </data>
+  <data name="GuestGSTIN" xml:space="preserve">
+    <value>Guest GSTIN</value>
+  </data>
+  <data name="CardName" xml:space="preserve">
+    <value>Card Name</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="EntireStayAlert" xml:space="preserve">
+    <value>Change Routing definition as per extended stay</value>
+  </data>
+  <data name="note_fotrans_1" xml:space="preserve">
+    <value>Part settlement (late checkout) will permit printing and settlement of the bill without checking out the guest</value>
+  </data>
+  <data name="PaidoutSelection" xml:space="preserve">
+    <value>Paidout Selection</value>
+  </data>
+  <data name="OverBooking" xml:space="preserve">
+    <value>OverBooking%</value>
+  </data>
+  <data name="BF" xml:space="preserve">
+    <value>Late arrival, BF plan on Departure</value>
+  </data>
+  <data name="LN" xml:space="preserve">
+    <value>Late arrival, LN plan on Departure</value>
+  </data>
+  <data name="ToRoomRefundValidation" xml:space="preserve">
+    <value>To Room settlement applicable only for deposit</value>
+  </data>
+  <data name="FolioNoCannot" xml:space="preserve">
+    <value>Folio No cannot be empty</value>
+  </data>
+  <data name="FolioNarration" xml:space="preserve">
+    <value>Narration</value>
+  </data>
+  <data name="FolioNarrempty" xml:space="preserve">
+    <value>TempFolio Narration cannot be empty</value>
+  </data>
+  <data name="FolioNo" xml:space="preserve">
+    <value>Folio No</value>
+  </data>
+  <data name="FolioNoCannot1" xml:space="preserve">
+    <value>Folio No cannot be empty</value>
+  </data>
+  <data name="DetailBill" xml:space="preserve">
+    <value>Detail Bill</value>
+  </data>
+  <data name="ProvisionalBill" xml:space="preserve">
+    <value>Provisional Bill</value>
+  </data>
+  <data name="ProvisionalBillPrint" xml:space="preserve">
+    <value>Provisional Bill Printing</value>
+  </data>
+  <data name="ERT" xml:space="preserve">
+    <value>Upgrade From</value>
+  </data>
+  <data name="SRT" xml:space="preserve">
+    <value>Upgrade To</value>
+  </data>
+  <data name="RoomUpgrade" xml:space="preserve">
+    <value>Room Upgrade Alert</value>
+  </data>
+  <data name="ChangeTariff" xml:space="preserve">
+    <value>Upgrade &amp; Change Tariff</value>
+  </data>
+  <data name="RetainTariff" xml:space="preserve">
+    <value>Upgrade &amp; Retain Tariff</value>
+  </data>
+  <data name="AccDate" xml:space="preserve">
+    <value>Account Date</value>
+  </data>
+  <data name="AccDate1" xml:space="preserve">
+    <value>Account Date</value>
+  </data>
+  <data name="AccDt" xml:space="preserve">
+    <value>Acc Dt:</value>
+  </data>
+  <data name="Ac_Dt" xml:space="preserve">
+    <value>Ac Dt</value>
+  </data>
+  <data name="Ac_Dt1" xml:space="preserve">
+    <value>Ac Dt</value>
+  </data>
+  <data name="ExtendDays" xml:space="preserve">
+    <value>ExtendDays</value>
+  </data>
+  <data name="GLR" xml:space="preserve">
+    <value>InHouse Amendment Audit Report</value>
+  </data>
+  <data name="DeptDay" xml:space="preserve">
+    <value>Departure Day</value>
+  </data>
+  <data name="ExtendTo" xml:space="preserve">
+    <value>Extend To</value>
+  </data>
+  <data name="ChargeTransAlert" xml:space="preserve">
+    <value>Charge Transfer Alert</value>
+  </data>
+  <data name="TransferTariff" xml:space="preserve">
+    <value>Transfer Tariff Charges</value>
+  </data>
+  <data name="TrasnferAuto" xml:space="preserve">
+    <value>Transfer Auto Charges</value>
+  </data>
+  <data name="TrasnferPkge" xml:space="preserve">
+    <value>Transfer Package Charges</value>
+  </data>
+  <data name="TrasnferPln" xml:space="preserve">
+    <value>Transfer Plan Charges</value>
+  </data>
+  <data name="BulkExtend" xml:space="preserve">
+    <value>Bulk Extend</value>
+  </data>
+  <data name="BulkExtendStay" xml:space="preserve">
+    <value>Bulk Extend Stay</value>
+  </data>
+  <data name="Extend" xml:space="preserve">
+    <value>Extend</value>
+  </data>
+  <data name="Departed" xml:space="preserve">
+    <value>Departed</value>
+  </data>
+  <data name="GIA" xml:space="preserve">
+    <value>In House Guest Amend</value>
+  </data>
+  <data name="AdvanceDt" xml:space="preserve">
+    <value>Advance Dt</value>
+    <comment>A</comment>
+  </data>
+  <data name="AdvanceNo" xml:space="preserve">
+    <value>Advance No</value>
+  </data>
+  <data name="RefundThaiOpenValidation" xml:space="preserve">
+    <value>Refund not allowed in Open mode.</value>
+  </data>
+  <data name="RefundThaiValidation" xml:space="preserve">
+    <value>Refund Amount should not greater than balance amount</value>
+  </data>
+  <data name="AdvanceOpenModeValidation" xml:space="preserve">
+    <value>Refund made against this advance. First cancel refund for amendment.</value>
+  </data>
+  <data name="RefundAdvanceAlert" xml:space="preserve">
+    <value>Advance mandatory for Thai Refund</value>
+  </data>
+</root>

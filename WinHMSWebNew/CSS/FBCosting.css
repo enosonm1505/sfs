@@ -1,0 +1,17 @@
+﻿body {}
+/*Progress Img*/
+.updPrg{width:100%;}
+.divProgress{position: absolute; width: 90%; z-index: 100;}
+.imgprog{margin: 0 auto; width: 90px; height: 90px; margin-top: 250px;}
+
+.txtbxcon {width:100%;float:left;line-height:30px;}
+/* FB Costing */
+.Fbrowline{width:98%;float:left;margin:0.6% 0% 0 1.5%;}
+.Fbrowline1{width:98%;float:left;margin:3% 0% 0 1.5%;}
+.Fblbl1{width:80px;float:left;}
+.Fblbl2{width:125px;float:left;}
+.Fbtxt2{width:430px;float:left;}
+
+
+
+

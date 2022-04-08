@@ -1,0 +1,1123 @@
+﻿@{
+    ViewBag.Title = "Temp Folio Ledger";
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+
+}
+
+<div class="content-wrapper" id="ContWrap">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <link href="../../Content/Contribute.css" rel="stylesheet" />
+        <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+        <link href="~/FO/CSS/sidemenu-custom.css" rel="stylesheet" />
+        <div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>
+        </div>
+        <div id="divPage">
+            <div class="container-fluid">
+                <div class="row new_hdr">
+                    @*<div class="logcnt">
+                            <img src="../../Images/Logo.png">
+                        </div>*@
+                    <div class="col-sm-3">
+                        <div class="TextWidth" id="divPropbox">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-center">
+                        <label class="wc_hdr_tlt" id="lblRptCaption">@ViewBag.Title</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="card-tools text-right">
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class=" btnXX"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div style="border:solid transparent;" class="row">
+                    <div class=" col-xl-4 col-lg-4 col-md-5 col-sm-3">
+                        <div id="divTempFolio"></div>
+                    </div>
+                    <div class="col-xl-4  col-md-5 col-sm-3 ">
+                        <div class="row">
+                            <div class="col-md-7  pr-0" style="max-width:190px">
+                                <div id="divFrom"></div>
+                            </div>                            
+                            <div class="col-md-3  pr-0 pl-1">
+                                <div id="divbtnDisp"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7 pr-0" style="max-width:190px">
+                                <div id="divTo"></div>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <div class="col-lg-3 col-md-4 col-sm-5 col-xs-11" style="max-width: 250px !important;">
+                        <fieldset class="MyFieldset">
+                            <div id="divStatus"></div>
+                        </fieldset>
+                    </div>                       
+                    
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="gridRptt" style="width: 100%; "></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <input type="hidden" id="Log" />
+
+        <input type="hidden" id="COMPID" />
+        <input type="hidden" id="CURRENCY_FORMAT" />
+        <input type="hidden" id="CURRENCY_DELIMIT" />
+        <input type="hidden" id="CURRENCY_DECIMLIMIT" />
+        <input type="hidden" id="HdnCurrDt" />
+        <input type="hidden" id="HdnCurrMnth" />
+        <input type="hidden" id="HdnAccDt" />
+        <input type="hidden" id="HdnToAccDt" />
+        <input type="hidden" id="HdnAccMnth" />
+        <input type="hidden" id="HdnFrmMnth" />
+        <input type="hidden" id="HdnToMnth" />
+        <input type="hidden" id="HdnYrFrmMnth" />
+        <input type="hidden" id="HdnYrToMnth" />
+
+
+        <style>
+            .Pagefalse {
+                pointer-events: none;
+                opacity: 0.6;
+            }
+
+            .multiline {
+                line-height: 17px !important;
+                position: relative;
+            }
+
+            .MyFieldset .webix_radio_option {
+                height: 23px;
+                margin-right: 10px;
+            }
+
+            .MyFieldset {
+                display: block;
+                margin-inline-start: 2px;
+                margin-inline-end: 2px;
+                padding-block-start: 0.10em;
+                padding-inline-start: 0.35em;
+                padding-inline-end: 0.35em;
+                min-inline-size: min-content;
+                border-width: 2px;
+                border-style: groove;
+                border-color: #e1e1e1;
+                border-image: initial;
+                max-width:150px;
+                margin-top:5px;
+            }
+
+            
+
+            .MyFieldset legend {
+                display: block;
+                width: auto;
+                padding: 0;
+                margin-bottom: 1px !important;
+                font-size: 14px;
+                line-height: inherit;
+                color: #333333;
+                border: 0;
+                border-bottom: 0px solid #e5e5e5;
+            }
+
+            .MyFieldset > fieldset {
+                padding: 2px 8px !important;
+            }
+
+            .MyFieldset .webix_fieldset_label {
+                text-transform: none;
+            }
+
+            .MyText input {
+                padding: 0px 5px !important;
+            }
+        </style>
+
+        <script>
+
+            var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+            var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+
+            $(document).ready(function () {
+                debugger;
+                $("#LoadDIv").hide();
+
+                $("#MenuName").val('FOMNUREP2PAYMSTLDGR');
+                $("#MenuLvl").val('FOMNUQU');
+                $("#MenuLvl1").val('');
+
+                if (!webix.env.touch && webix.env.scrollSize)  webix.CustomScroll.init(); 
+                
+                webix.UIManager.addHotKey("esc", function(view){
+                    if (view){
+                        var top = view.getTopParentView();
+                        if (top && top.setPosition)
+                            top.hide();
+                    }
+                });
+
+
+
+                webix.ready(function () {
+                    GridDesign();
+                    //loadOptionPopWindow();
+
+                    TempFolioSrchWindowLoad();
+
+                    webix.ui({
+                        view: "button", id: "Print", value: "Print",width: 30, container: "divPrint", label: Print, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnGridPrint();
+                            }
+                        }
+
+                    });
+
+                    webix.ui({
+                        view: "button", id: "Excel", value: "Excel", width: 30, container: "divExcel", label: excel, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnExcelExport();
+                            }
+                        }
+                    });
+
+
+                    webix.ui({
+                        container: "divTempFolio", label: "Temp Folio", maxWidth: 500, labelWidth: 100, view: "search",id: "txtTempFolio", readonly: true, placeholder: "",
+                        on: {
+                            onSearchIconClick: function () {
+                                debugger;
+                                fnTempFolioSrchBtnClick();                       
+                            },                            
+                        }
+
+                    });
+
+                    webix.ui({view: "text",id: "txtTempFolioId", hiddden: true,});
+                    webix.ui({view: "text",id: "txtTempFolioNo", hiddden: true,});                                      
+
+                    webix.ui({
+                        container: "divFrom", view: "datepicker", label: "From",maxWidth: 175, labelWidth: 50, name: "FromDt", id: "FromDt", format: "%d/%m/%Y", stringResult: true,hidden: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();
+                                SMFromDateChange();
+                            }
+                        }
+                    });
+
+
+                    webix.ui({
+                        container: "divTo", view: "datepicker", label: "To",maxWidth: 175, labelWidth: 50, name: "ToDt", id: "ToDt", format: "%d/%m/%Y", stringResult: true,hidden: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();
+                                SMToDateChange();
+                            }
+                        }
+                    });
+
+                    webix.ui({ container: "divbtnDisp", css:"webix_primary",  view: "button", id: "btnDisplay", icon: "wxi-check", label: "Display", inputWidth: 60, width: 60, click: function () { fnbtnDisplay(); } }),
+                    
+
+                    webix.ui({ container: "divStatus", view: "radio", id: "OptStatus", customRadio:false, click: function () {fnStatusClick(); },
+                        options:[
+                            { value:"Current", id:"1" },
+                            { value:"Closed", id:"2" },                        
+                        ],vertical:true,value:"1",
+                    }); 
+
+                    webix.ui({
+                        container: "divPropbox", view: "richselect", id: "Property",//width: 220,//autowidth:true,
+
+                        on: {
+                            onChange: function (NewVal, OldVal) {
+                                if (NewVal != "") {
+                                    debugger;
+                                    $$("gridRpt").clearAll();
+                                    LoadCompChange(NewVal);
+                                }
+                            }
+                        }
+
+                    });
+                    //debugger;
+                    var cmpid= @Html.Raw(Json.Encode(ViewBag.COMP));
+
+                    LoadProperty(cmpid);
+
+                    var propchk = @Html.Raw(Json.Encode(ViewBag.MLTPROPHISHIND));                    
+                    if (propchk == "1") $("#divPropbox").show();
+                    else if (propchk == "0") $("#divPropbox").hide();
+
+                    gridResize();
+
+                });
+
+                webix.event(window, "resize", function () {
+                    gridResize();
+                })
+
+            });
+
+            function gridResize(){
+                var vheight = window.innerHeight
+                       || document.documentElement.clientHeight
+                       || document.body.clientHeight;
+                var offset =  $("#gridRptt").offset();
+                $$("gridRpt").define("height", ((vheight - offset.top-10)));
+                $$("gridRpt").adjust();
+            }
+
+            function LoadProperty(cmpid) {
+                debugger;
+                Request = {
+                    REQTYPE: "GET_PROPERTYLOAD",
+                    COMPID: cmpid,
+                }
+                Prop_Id = cmpid;
+                var rowData = [];
+                var options =[];
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            $$("Property").define("options",rowData);
+                            $$("Property").refresh();
+                            $$("Property").setValue(Prop_Id);
+
+                        }
+                    },
+                });
+            };
+            function LoadDate(cmpid) {
+                debugger;
+
+                Request = {
+                    REQTYPE: "GET_FRMMNTHTOMNTH",
+                    COMPID: cmpid,
+                }
+
+                var DataVal = JSON.stringify(Request);
+
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+
+                    success: function (data) {
+                        debugger;
+                        var data1 = JSON.parse(data);
+                        var vCurrDt = data1[0].CURRDT.toString().trim();
+                        var vAccDt = data1[0].ACC_DT2.toString().trim();
+                        var vToAccDt = data1[0].TO_ACC_DT2.toString().trim();
+                        var vAccMnth = data1[0].ACC_MNTH.toString().trim();
+                        var vFromMnth = data1[0].FRMMNTH.toString().trim();
+                        var vToMnth = data1[0].TOMNTH.toString().trim();
+
+                        $("#HdnCurrDt").val(vCurrDt);
+                        $("#HdnAccDt").val(vAccDt);
+                        $("#HdnToAccDt").val(vToAccDt);
+                        $("#HdnAccMnth").val(vAccMnth);
+                        $("#HdnFrmMnth").val(vFromMnth);
+                        $("#HdnToMnth").val(vToMnth);
+
+                        //var vFromDt = formatDate1(vCurrDt);
+                        //var vToDt = formatDate1(vCurrDt);
+                        //$$("FromDt").setValue(vFromDt);
+                        //$$("ToDt").setValue(vToDt);
+                        //$$("AsOn").setValue(vFromDt);
+
+                    },
+                });
+            };
+            function fnCurrDtTime() {
+                var vDate = "";
+                var vTime = "";
+                var rowData = [];
+                var CompId = $$("Property").getValue();
+                Request = {
+                    REQTYPE: "GET_FNLOADCURRDTTM",
+                    COMPID: CompId,
+                }
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            vDate = rowData.GDate;
+                            vTime = rowData.GTime;
+
+                            //var vFromDt = formatDate1(vDate);
+                            //var vToDt = formatDate1(vDate);
+                            //$$("FromDt").setValue(vFromDt);
+                            //$$("ToDt").setValue(vToDt);
+                            //$$("AsOn").setValue(vFromDt);
+                            //$$("lblAsOn").setValue(vDate);
+                            //$$("lblAsOnTm").setValue(vTime);
+                        }
+                    },
+                });
+
+                return [vDate, vTime];
+
+            };
+            function formatDate1(StrDt) {
+                debugger;
+                var Parts = StrDt.split("/");
+                var Dt = Parts[0];
+                var Mn = Parts[1];
+                var Yr = Parts[2].substring(0, 4);
+                var Str = Yr + "-" + Mn + "-" + Dt;
+                return Str;
+            };
+            function LoadCompChange(CompId) {
+                $$("txtTempFolio").setValue("");
+                $$("txtTempFolioId").setValue("");
+                $$("txtTempFolioNo").setValue("");
+                $$("OptStatus").setValue("1");                
+
+                LoadControl(CompId);
+                //LoadDate(CompId);
+                //fnCurrDtTime();
+                var values = fnCurrDtTime();
+                var vDate = values[0];
+                var vTm = values[1];
+                var vFromDt = formatDate1(vDate);
+                var vToDt = formatDate1(vDate);
+                $$("FromDt").setValue(vFromDt);
+                $$("ToDt").setValue(vToDt);
+                fnStatusClick();               
+
+                //fnShowColumn();
+            };
+            function LoadCurrDet(vProperty) {
+                //debugger;
+                var rowDatad = [];
+                try {
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/Reports/GetCurrFormatDetails",
+                        data: "CmpId=" + vProperty,
+                        success: function (d) {
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+                                $("#CURRENCY_FORMAT").val(rowDatad.CURRENCY_FORMAT);
+                                $("#CURRENCY_DELIMIT").val(rowDatad.CURRENCY_DELIMIT);
+                                $("#CURRENCY_DECIMLIMIT").val(rowDatad.CURRENCY_DECIMLIMIT);
+                            }
+                        }
+                    });
+
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            function LoadControl(CompId) {
+                //debugger;
+                var rowDatad = [];
+                try {
+                    Request = {
+                        REQTYPE: "GET_FNGETLOADCONT",
+                        COMPID: CompId,
+                    }
+
+                    var rowData = [];
+                    var options =[];
+                    var dataparam = JSON.stringify(Request);
+
+
+
+                    $.ajax({
+                        async: false,
+                        url: "/Reports/FOAPI_CALL",
+                        type: 'POST',
+                        data: "request=" + dataparam,
+                        success: function (d) {
+                            debugger;
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+
+
+                                $("#CURRENCY_FORMAT").val(rowDatad.RA[0].CURRENCY_FORMAT);
+                                $("#CURRENCY_DELIMIT").val(rowDatad.RA[0].CURRENCY_DELIMIT);
+                                $("#CURRENCY_DECIMLIMIT").val(rowDatad.RA[0].CURRENCY_DECIMLIMIT);
+
+
+
+                            }
+                        }
+                    });
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            
+            function GridDesign() {
+                webix.ui({
+                    id: "gridRpt",
+                    container: "gridRptt",
+                    select: 'row',
+                    view: "datatable",
+                    fixedRowHeight: false,
+                    rowLineHeight: 23,
+                    autoConfig: true,
+                    resizeColumn: true,
+                    resizeRow: true,
+                    //height: 460,
+                    position: "flex",
+                    css: "webix_header_border",
+                    data: [],
+                    columns: [
+                            { id: "ixDate",header: 'Date',  width: 80,  css: { 'text-align': 'center ! important' } },
+                            { id: "ixRefNo", header: "Ref No.", width: 100, css: { 'text-align': 'left ! important' }   },
+                            { id: "ixDesc", header: "Particulars", width: 270, css: { 'text-align': 'left ! important' }   },                           
+                            { id: "ixDrAmt", header: "DR Amt", width: 100, css: { 'text-align': 'right ! important' } , exportType: "number", exportFormat: "#,##0.00",   },
+                            { id: "ixCrAmt", header: "CR Amt", width: 100, css: { 'text-align': 'right ! important' } , exportType: "number", exportFormat: "#,##0.00",   },
+                            { id: "ixBal", header: "Balance", width: 100, css: { 'text-align': 'right ! important' } , exportType: "number", exportFormat: "#,##0.00",   },
+                            { id: "ixRefTy", header: "Settle By", width: 90, css: { 'text-align': 'left ! important' },hidden:true   },
+                            { id: "ixRefBill", header: "Settle Dt", width: 75, css: { 'text-align': 'center ! important' } ,hidden:true  },
+                            { id: "ixRegNo", header: "Settle Tm", width: 75, css: { 'text-align': 'center ! important' } ,hidden:true  },                            
+                            { id: "CLR", hidden: true },
+                    ],
+
+                    scheme: {
+                        $init: function (item) {
+                            if (item.CLR != "" && item.CLR != null) {
+                                item.$css = item.CLR;
+                            }
+                        },
+                        $export: function (obj) {
+                            debugger;
+                            var item = webix.copy(obj);
+                            var vAmt = item.ixDrAmt;
+                            if (vAmt != null && vAmt != undefined) {
+                                var vAmt1 = vAmt.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = parseFloat(vAmt1);
+                                item.ixDrAmt = vAmt1;
+                            }
+                            vAmt = item.ixCrAmt;
+                            if (vAmt != null && vAmt != undefined) {
+                                var vAmt1 = vAmt.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = parseFloat(vAmt1);
+                                item.ixCrAmt = vAmt1;
+                            }
+                            vAmt = item.ixCrLmt;
+                            if (vAmt != null && vAmt != undefined) {
+                                var vAmt1 = vAmt.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = parseFloat(vAmt1);
+                                item.ixCrLmt = vAmt1;
+                            }
+
+                            vAmt = item.ixBal;
+                            if (vAmt != null && vAmt != undefined) {
+                                var vAmt1 = vAmt.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = parseFloat(vAmt1);
+                                item.ixBal = vAmt1;
+                            }
+                            return item;
+
+                        },
+                    },
+
+                    on: {
+                        onBeforeClose: function () {
+                            return false;
+                        },
+                        onAfterload: function () {
+                        }
+                    },
+                });
+            };                        
+            function fnTempFolioSrchBtnClick () {
+                debugger;
+                //var bVal = fnIsValidDt();
+                //if (bVal == false) return;
+                if (fnChkSessVal() == false) return;
+                //fnClearCont();
+
+                //$$("chkInAct").setValue("0");
+
+                var vCompId = $$("Property").getValue();
+                //var ACC_DT = $$("txtBillDt").getValue();
+                var vData = fnTempFolioSrchLoadData(vCompId);
+                $$("PayMstSrchPop").show();
+                //$$("BillSrchPop").show();
+
+            };
+            var fnTempFolioSrchLoadData = function (CompId, ACC_DT, PAGEIND) {
+                debugger; 
+    
+                var sSql = "";
+                //var AccDt = $$("txtBillDt").getValue();
+
+                //var chkInAct = $$("chkInAct").getValue();
+
+                var OptStatus = $$("OptStatus").getValue();
+
+                if (OptStatus == "1")
+                {
+                    sSql = " Select T_N,PM_NM,PM_NO,RG_N From FO_PM_C Where Company_Id = '" + CompId + "'  And   Chr_Amt  <> 0  And   Status = 1 ";  
+                }
+                else
+                {
+                    sSql = " Select T_N,PM_NM,PM_NO,RG_N From FO_PM_C Where Company_Id = '" + CompId + "'  And   Chr_Amt  <> 0  And   Setl_Dt is not null";
+                }
+                
+                $$("gridPayMstSrch").clearAll();
+                $$("gridPayMstSrch").eachColumn(function (id, col) {
+                    var filter = this.getFilter(id);
+                    if (filter) {
+                        if (filter.setValue) filter.setValue("");
+                        else filter.value = "";
+                    }
+                });
+                CompId = $$("Property").getValue();
+                Request = {
+                    REQTYPE: "FNLOADPAYMASTER",
+                    COMPID: CompId,
+                    Qry: sSql,
+                }
+                var rowData = [];
+                requestData = JSON.stringify(Request);
+                requestData = encodeURIComponent(requestData);
+                $.ajax({
+                    async: false,
+                    url: "/TravelAgentBlock/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + requestData,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            rowData = JSON.parse(data);
+                            if (rowData.length > 0) {
+                                var Rows = [];
+                                $.each(rowData, function (key, value) {
+                                    debugger;
+                                    var set = {};
+                                    var vPmNm = "";
+                                    var vReason = "";
+                                    var vPmId = "";
+                                    var vPmNo = "";
+                                    var vCreateBy = "";
+                                    var vCreateDt = "";
+                                    var vUDt = "";
+                                    var vAmt = "";
+                                    var vRegNo = "";
+                                    var bVal = false;
+                                    if (value.PM_NO != null && value.PM_NO != undefined) vPmId = value.PM_NO.toString().trim();  
+                                    if (value.T_N != null && value.T_N != undefined) vPmNo = value.T_N.toString().trim();
+                                    if (value.PM_NM != null && value.PM_NM != undefined) vPmNm = value.PM_NM.toString().trim();                                                                        
+                                    if (value.RG_N != null && value.RG_N != undefined) vRegNo = value.RG_N.toString().trim();
+
+                                    set = {
+                                        ixPmNo: vPmNo, ixPmNm: vPmNm,ixPmId: vPmId, ixRegNo: vRegNo
+                                    };
+                                    Rows.push(set);
+
+                                });
+                                $$("gridPayMstSrch").parse(Rows);
+                                $$("gridPayMstSrch").refresh();
+                                if ($$("gridPayMstSrch").count()) {
+                                    $$("gridPayMstSrch").select($$("gridPayMstSrch").getFirstId());
+                                    //$$("gridPayMstSrch").adjustRowHeight("ixReason", true);
+                                }
+                                $$("gridPayMstSrch").refresh();
+                                webix.UIManager.setFocus($$("gridPayMstSrch"));
+
+
+                            }
+                        }
+                    },
+                    error: function (request, status, error) {
+                        console.log("Error Failrue");
+                    }
+                });
+    
+            };
+            var TempFolioSrchRet = function (RowId) {
+                debugger;
+                var selRow = $$("gridPayMstSrch").getItem(RowId);
+                var vPmId = "";
+                var vPmNm = "";
+                var vAmt = "";
+                var vReason = "";
+                var vPmNo = "";
+                var vRegNo = "";
+                var vCBy = "";
+                var vCDt = "";
+                var vUdt = "";
+
+                ClearGrid();
+
+                if(selRow.ixPmId !=null && selRow.ixPmId !="") vPmId = selRow.ixPmId;
+                if(selRow.ixPmNm != null && selRow.ixPmNm != "") vPmNm = selRow.ixPmNm;                
+                if(selRow.ixPmNo != null && selRow.ixPmNo != "") vPmNo = selRow.ixPmNo;
+                if (selRow.ixRegNo != null && selRow.ixRegNo != "") vRegNo = selRow.ixRegNo;                                
+                
+                $$("txtTempFolio").setValue(vPmNm);
+                $$("txtTempFolioId").setValue(vPmId);
+                $$("txtTempFolioNo").setValue(vPmNo);
+    
+                
+            }
+
+            var TempFolioSrchWindowLoad = function () {
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "PayMstSrchPop",
+                    head: " Temp Folio Search",
+                    position: "center",
+                    css: "WebIxStyle",
+                    height: 450,
+                    width: 400,
+                    move: true,
+                    body: {
+                        rows: [                           
+                            {
+                                view: "datatable",
+                                id: "gridPayMstSrch",
+                                select: 'row',
+                                //editable: true,
+                                css: "webix_header_border",
+                                //scrollX: false,
+                                columns: [
+                                        { id: "ixPmNo", header: ['Folio No.', { content: "textFilter" }], width: 80, css: { 'text-align': 'center ! important' }, },
+                                        { id: "ixPmNm", header: ['Temp Folio Name', { content: "textFilter" }], width: 300,fillspace:true, css: { 'text-align': 'left ! important' }, },                                        
+                                        { id: "ixPmId", header: 'PmId', hidden: true },
+                                        { id: "ixRegNo", header: 'RegNo', hidden: true },                                        
+                            
+                                ],
+                                data: [],
+                                on: {
+
+                                    'onItemDblClick': function (id) {
+                                        debugger;
+                                        TempFolioSrchRet(id);
+                                        $$("PayMstSrchPop").hide();
+                                    },
+                                },
+                            },
+                        ],
+                    }
+                });
+            };        
+            
+
+            function fnChkSessVal() {
+                debugger;
+                var bVal = "0";
+                $.ajax({
+                    async: false,
+                    url: "/TravelAgentBlock/fnChkSessionval",
+                    type: 'POST',
+                    success: function (data) {
+                        debugger;
+                        if (data == "1") {
+                            bVal = "1";
+                        }
+                    },
+                    error: function (request, status, error) {
+                        bVal = "0";
+                    }
+                });
+                if (bVal == "1") return true;
+                else {
+                    debugger;
+                    var Host = window.location.host;
+                    var LoadingUrl = "http://" + Host + "/Login.aspx";
+                    window.location.href = LoadingUrl;
+                }
+
+            };
+
+            function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+                //debugger;
+                if (value == null || value == undefined) return "";
+                if (isNaN(value)) return "";
+
+                if (value.toString() != "") {
+                    if (Currfrmt == "L") {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+                        x = x.toString();
+                        var afterPoint = '';
+                        if (x.indexOf('.') > 0) {
+                            ////afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                            ////afterPoint = CurrDelimit + afterPoint
+                            var vArr = x.split('.');
+                            x = vArr[0].toString().trim();
+                            afterPoint = vArr[1].toString().trim();
+                            afterPoint = CurrDelimit + afterPoint
+                        }
+                        //x = Math.floor(x);                   
+
+                        x = x.toString();
+                        var lastThree = x.substring(x.length - 3);
+                        var otherNumbers = x.substring(0, x.length - 3);
+                        if (otherNumbers != '' && otherNumbers != '-')
+                            lastThree = ',' + lastThree;
+                        if (afterPoint != "") return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                        else return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+                    }
+                    else {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+
+                        x = x.toString();
+
+                        //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                        //var res = x.replace(/(\d{3})/g, "1,")
+                        var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                        if (res.indexOf('.') > 0) {
+
+                            res = res.replace(".", CurrDelimit)
+                        }
+
+
+                        return res;
+                    }
+                }
+                else {
+                    return value;
+                }
+            };
+            function fnCurrFormat(value) {
+
+                var Currfrmt = window.CURRENCY_FORMAT;
+                var CurrDelimit = window.CURRENCY_DELIMIT;
+                var CurrDecimal = window.CURRENCY_DECIMLIMIT;
+                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+            };
+
+            function fnStatusClick(){
+                if (fnChkSessVal() == false) return;
+                ClearGrid();
+                $$("txtTempFolio").setValue("");
+                $$("txtTempFolioId").setValue("");
+                $$("txtTempFolioNo").setValue("");
+                var OptStatus = $$("OptStatus").getValue();                
+                if (OptStatus == "1")                {
+                    $$("FromDt").show();
+                    $$("ToDt").show();
+                }
+                else
+                {
+                    $$("FromDt").hide();
+                    $$("ToDt").hide();
+                } 
+            }
+
+        </script>
+
+
+        <script type="text/javascript">
+
+
+            $(document).on('shown.lte.pushmenu', function () {
+                debugger;
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                //$("#MenuName").val('');
+                //$("#MenuLvl").val('');
+                //$("#MenuLvl1").val('');
+
+                function resizeAction() {
+                    sidebarFn(1);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+
+            }).on('collapsed.lte.pushmenu', function () {
+                debugger;
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(2);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+            });
+            function sidebarFn(){
+                debugger;
+                //$$("gridRpt").adjust();
+                $$("gridRpt").resize();
+                //$$("FromDt").resize();
+                //$$("ToDt").resize();
+            };
+
+            function fnExcelExport() {
+                debugger;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+
+                FullData = $$("gridRpt").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.toExcel($$("gridRpt"), {
+                        filename: vHeader,
+                        styles: true,
+                        name: vHeader,
+                        docHeader: vHeader,
+                        rawValues: true,
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+            };
+            function fnGridPrint() {
+                debugger;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+
+                FullData = $$("gridRpt").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.print($$("gridRpt"), {
+                        docHeader: { text: vHeader, fontSize: 25 },
+                        fit: "page",
+                        scroll: false,
+                        mode: "landscape"
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+
+            };           
+
+            
+            function ClearGrid() {
+                $$("gridRpt").clearAll();
+            };
+            function fnbtnDisplay() {
+                debugger;
+                if (fnChkSessVal() == false) return;
+                $("#LoadDIv").show();
+                ClearGrid();
+                var OPTSTATUS = $$("OptStatus").getValue();             
+
+                var FROMDT = $$("FromDt").getText();
+                var TODT = $$("ToDt").getText();
+
+                var TemFolioId =  $$("txtTempFolioId").getValue("");
+                
+                if(OPTSTATUS == "1"){ 
+                    if (FROMDT == "") {
+                        webix.message("From Date can't be empty", "warning");
+                        $("#LoadDIv").hide();
+                        return;
+                    }
+                    if (TODT == "") {
+                        webix.message("To Date can't be empty", "warning");
+                        $("#LoadDIv").hide();
+                        return;
+                    }
+                }               
+
+                var bSucc = "1";
+                var comp = $$("Property").getValue();
+                if (comp == "") {
+                    webix.message("Property can't be empty", "warning");
+                    $("#LoadDIv").hide();
+                    return;
+                }
+
+                var TempFolio = $$("txtTempFolio").getValue();
+                if (TempFolio == "") {
+                    webix.message("Temp Folio can't be empty", "warning");
+                    $("#LoadDIv").hide();
+                    return;
+                }
+
+
+                var Request = {
+                    REQTYPE: "GET_LOADTEMPFOLIOLED",
+                    COMPID: comp,
+                    FROMDT:FROMDT,
+                    TODT:TODT,                    
+                    OPTSTATUS : OPTSTATUS,
+                    TEMPFOLIO : TemFolioId
+                }
+
+                var dataparam = JSON.stringify(Request);
+                $.ajax({
+                    async: true,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + dataparam,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            var rowDatad = JSON.parse(data);
+                            $$("gridRpt").clearAll();
+                            $$("gridRpt").parse(rowDatad);
+                        }
+
+                    },
+                    error: function (err) {
+                        $("#LoadDIv").hide();
+                    },
+                    complete: function () {
+                        debugger;
+                        $("#LoadDIv").hide();
+                    }
+                });
+            };
+            function formatDate(StrDt) {
+                //debugger;
+                var Parts = StrDt.split(" ");
+                var MN = FnRetMonth(Parts[0]);
+                var YR = Parts[1];
+                var Str = "01" + "/" + MN + "/" + YR;
+                return Str;
+            };
+            function ExcelFormat() {
+                debugger;
+                return //"#,##0.00",
+            };
+
+            function SMFromDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+                var sFrmDt = $$("FromDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                if (frmdate == "" && todate == "") return false;
+
+                var bSucc = "1";               
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("ToMthDate").setValue(FrmMnth);
+                            var vToDt = formatDate1(sFrmDt);
+                            $$("ToDt").setValue(new Date(vToDt));
+                            bSucc = "0";
+                        }
+                    }
+                });
+                if(bSucc=="0") return false;               
+
+
+            };
+            function SMToDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+                var sFrmDt = $$("ToDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                if (frmdate == "" || todate == "") return false;
+
+                var bSucc = "1";               
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("ToMthDate").setValue(FrmMnth);
+                            var vToDt = formatDate1(sFrmDt);
+                            $$("FromDt").setValue(new Date(vToDt));
+                            //bSucc = "0";
+                        }
+                    }
+                });
+
+                
+
+            };
+            
+
+        </script>
+    </section>
+</div>>
+

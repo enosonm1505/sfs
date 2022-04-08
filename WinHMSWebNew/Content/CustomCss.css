@@ -1,0 +1,440 @@
+﻿.card {
+    margin-top: 25% !important;
+    padding: 50px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+  
+ .popup01
+ 
+{
+    width:1024px!important;
+    height:400px!important;
+ }
+
+
+/*Added By MS*/
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+.popup01
+ 
+{
+    width:100%!important;
+    height:auto!important;
+ }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+.popup01
+ 
+{
+    width:1024px!important;
+    height:400px!important;
+ }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+.popup01
+ 
+{
+    width:100%!important;
+    height:auto!important;
+ }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+.popup01
+ 
+{
+    width:100%!important;
+    height:auto!important;
+ }
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+.popup01
+ 
+{
+    width:100%!important;
+    height:auto!important;
+ } */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+.popup01
+ 
+{
+    width:100%!important;
+    height:auto!important;
+ }
+
+}
+/**********
+iPad 3
+**********/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+.popup01
+ 
+{
+    width:100%!important;
+    height:auto!important;
+ }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+.popup01
+ 
+{
+    width:100%!important;
+    height:auto!important;
+ }
+}
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+   .popup01
+ 
+{
+    width:100%!important;
+    height:auto!important;
+ }
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+/* Styles */
+}
+
+
+/* iPhone 4 ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+/* iPhone 5 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+/* iPhone 6, 7, 8 ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+/* iPhone 6+, 7+, 8+ ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+/* iPhone X ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+/* iPhone XS Max, XR ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-height: 896px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+/* Samsung Galaxy S3 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+/* Samsung Galaxy S4 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+/* Samsung Galaxy S5 ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+
+ /*16.12.19 editted by sathish*/
+ .ContainerPage{
+     margin-top:20px;
+ }
+
+    .classPop {
+        width: 300px !important;
+        min-height: 650px !important;
+        border-width: 1px !important;
+        /*top: 42px !important;*/
+        right:0 !important;
+        left:unset !important;
+    }
+
+     @media only screen  and  (min-device-width : 1601px) and (max-device-width : 1920px)   {
+        .outstd_grd{
+                width:85.5% !important; 
+            }
+    }
+    @media only screen and (min-device-width : 320px) and (max-device-width : 359px) {
+        .classPop {  right:8px!important;   }
+    }
+      
+    .cst_btn{width:auto!important;}
+
+   
+  /*16.12.19 editted by sathish*/
+
+
+  /*20.12.19 editted by sathish*/
+  
+  .okbtn {
+      width:100%;
+      float:left;
+      bottom:5%;
+      position:fixed;
+  }
+  .okbtn .webix_button{
+      font-weight:bold !important;
+  }
+  .okbtn :hover{
+      background-color:#0798af !important;
+      border-radius:5px !important;
+  }
+
+   /*20.12.19 editted by sathish*/
+
+   /*21.12.19 editted by sathish*/
+
+
+.credit-lbl{
+    /*border: solid 1px #ff000047;*/
+    padding: 1% 15% 0% 15%; 
+    vertical-align: middle;
+    color: #ff0000;
+    font-size: 12px;
+    /*background-color: #ff6a6a3b;*/
+    font-weight: 400;
+    border-radius: 5px;
+    margin-top:3px;
+}
+.sample-panel {
+    background-color: #fff;
+    padding: 1%;
+    margin: 2% 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.sample-panel-header{
+    margin:0;
+    border-bottom:1px solid #ccc;
+}
+.sample-panel-body{
+    padding:1.5% 0;
+    margin: 0;
+    border-bottom:1px solid #ccc;
+}
+.sample-panel-footer{
+    padding:1%;
+    height:30px;
+}
+
+
+    @media(max-width: 375px){
+        .hdn{
+            display:none;
+        }
+    }
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1440px){
+        .mx-grid{
+            max-width:40% !important;
+            margin:2% 6px;
+        }
+    }
+
+    @media only screen and (min-device-width : 1601px) and (max-device-width : 1920px){ }
+    @media only screen and (min-device-width : 1441px) and (max-device-width : 1600px){ }
+    @media only screen and (min-device-width : 1367px) and (max-device-width : 1440px){ }
+    @media only screen and (min-device-width : 1281px) and (max-device-width : 1366px){ }
+    @media only screen and (min-device-width : 1025px) and (max-device-width : 1280px){ }
+    @media only screen and (min-device-width : 992px)  and (max-device-width : 1024px){ }
+    @media only screen and (min-device-width : 769px)  and (max-device-width : 991px) { }
+    @media only screen and (min-device-width : 641px)  and (max-device-width : 768px) { }
+    @media only screen and (min-device-width : 421px)  and (max-device-width : 640px) {
+        .mbl_pl{
+            padding-left:0 !important;
+        }
+        .mbl_pr{
+            padding-right:0 !important;
+        }
+    }
+    @media only screen and (min-device-width : 360px)  and (max-device-width : 420px) {
+        .mbl_center{
+            text-align:center !important;
+        }
+        .mbl_alg{
+            text-align:center !important;
+            float:none !important;
+        }
+        .mbl-panel{
+            padding:0 !important;
+        }
+        .mbl_pb{
+            padding-bottom:10px !important
+        }
+        .mbl_pl{
+            padding-left:15px !important;
+        }
+        .card {
+            margin-top: 25% !important;
+            padding: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+        .mbl_pd{
+            padding:0 !important;
+        }
+    }
+    @media only screen and (min-device-width : 320px)  and (max-device-width : 359px) 
+    {
+        .mbl_center{
+            text-align:center !important;
+        }
+        .mbl_alg{
+            text-align:center !important;
+            float:none !important;
+        }
+        .mbl-panel{
+            padding:0 !important;
+        }
+        .mbl_pb{
+            padding-bottom:10px !important
+        }
+        .mbl_pl{
+            padding-left:15px !important;
+        }
+        .card {
+            margin-top: 25% !important;
+            padding: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+        .mbl_pd{
+            padding:0 !important;
+        }
+        .ason_lbl .webix_inp_label {
+            width:70px !important;
+        }
+        .ason_lbl .wxi-calendar{
+            padding-right:15px;
+        }
+        .ason_lbl .webix_inp_static{
+            width:110px !important;
+        }
+        .mbl_pr{
+            padding-right:0 !important;
+        }
+    }
+    /*21.12.19 editted by sathish*/
+
+
+    /*Side Template Top Header Overwrite Styles Starts*/
+.sidemenu_icn {
+    text-align: center;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin-top: -17px;
+    font-size: 1.5rem;
+    opacity: .3;
+    transition: color 300ms;
+}
+
+.sidemenu_down {
+    text-align: center;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin-top: -17px;
+    font-size: 16px;
+    opacity: .3;
+    transition: color 300ms;
+}
+
+.vertical-nav-menu .sidemenu_down {
+    transition: transform 300ms;
+    left: auto;
+    right: 10px;
+}
+
+.vertical-nav-menu li.mm-active > a .sidemenu_down {
+    transform: rotate(-180deg);
+}
+
+.app-sidebar.sidebar-text-light .vertical-nav-menu li a .sidemenu_icn {
+    opacity: .5;
+}
+
+.app-sidebar.sidebar-text-light .vertical-nav-menu li a:hover .sidemenu_icn {
+    opacity: .75;
+}
+
+.app-sidebar.sidebar-text-light .vertical-nav-menu li a .sidemenu_down {
+    opacity: .5;
+}
+
+.app-sidebar.sidebar-text-light .vertical-nav-menu li a:hover .sidemenu_down {
+    opacity: .75;
+}
+
+
+
+
+
+/*Side Menu Styles Ends*/

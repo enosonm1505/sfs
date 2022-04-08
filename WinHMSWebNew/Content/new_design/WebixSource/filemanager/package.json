@@ -1,0 +1,49 @@
+{
+  "_from": "@xbs/filemanager@7.0.1",
+  "_id": "@xbs/filemanager@7.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-ju/bCO0qDGfXNtV+M85YGXBM6EB1Lskn2vtDaI3brZBH0aZHnpmr0/DRwJCeW8lPwbkSc/w0Kp6ps8CMg8Gxmg==",
+  "_location": "/@xbs/filemanager",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@xbs/filemanager@7.0.1",
+    "name": "@xbs/filemanager",
+    "escapedName": "@xbs%2ffilemanager",
+    "scope": "@xbs",
+    "rawSpec": "7.0.1",
+    "saveSpec": null,
+    "fetchSpec": "7.0.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://npm.webix.com/@xbs%2ffilemanager/-/filemanager-7.0.1.tgz",
+  "_shasum": "d05de9c2403c0a7d79e5c7b946d4f84310d79dcd",
+  "_spec": "@xbs/filemanager@7.0.1",
+  "_where": "C:\\Users\\Winsar-Presales",
+  "author": {
+    "name": "XB Software"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Webix UI",
+  "keywords": [
+    "webix",
+    "ui",
+    "widgets"
+  ],
+  "license": "SEE LICENSE IN license.text",
+  "main": "filemanager.js",
+  "name": "@xbs/filemanager",
+  "publishConfig": {
+    "registry": "https://npm.webix.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "types/filemanager.d.ts",
+  "version": "7.0.1"
+}

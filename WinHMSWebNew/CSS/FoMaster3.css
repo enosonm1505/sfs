@@ -1,0 +1,402 @@
+﻿/*///////////////////////////////////////////////////////////////////////////////////////
+////                                Commmon Designs                                 ////
+/////////////////////////////////////////////////////////////////////////////////////*/
+body{}
+/*Progress Img*/
+
+.updPrg{width:100%;}
+.divProgress{position: absolute; width: 90%; z-index: 100;}
+.imgprog{margin: 0 auto; width: 90px; height: 90px; margin-top: 250px;}
+
+/*.popbot{width:98%;background-color:#cccccc;padding:1%;text-align:right; }*/
+
+.lbltxt {width:70px;float:left;padding-left:20px;}
+.inbox{width:250px;float:left;}
+.lbltxt1{width:60px;float:left;line-height: 20px;}
+.txtdate{width:110px;float:left;}
+.lbltxt2 {width:30px;float:left;line-height: 20px;}
+.inbox1{width:190px;float:left;}
+/*.controlbox{padding: 5px 0px 5px 0px;background-color:#eeeeee;width:100%;float:left; }*/
+/*font-family:inherit; font-size:inherit*/
+.RPthemedes {height: 565px;}
+.RProwline{width:100%;float:left;margin:12px 0 0 12px;}
+/*PopUp*/
+.closebtn{float:right;margin-top:-50px;margin-right:-20px}
+.popupMain{background-color: rgba(0, 0, 0, 0.63);display: none; width:100%;position:absolute;left:0;top:0;height:100%;z-index:85}
+.popupTitle{width:100%;float:left;color: White;text-align:center;background-color:#072769;height: 30px;line-height: 30px;border-bottom: 4px solid #FFBE17}
+/*font-size:13px;font-weight: bold;*/
+.popupSrch{float:left;height:30px;line-height:30px;color: White;width:100%;background-color:#072769;text-align:center;padding:0px 0px 0px 0px;float:left;text-align:left}
+/*font-weight: bold;*/
+.popupSrchTxt{float:left;height:20px;line-height:20px;padding-right:5px}
+.divOptMaina{ width: 190px; height:490px; margin:0 auto;border:5px solid #E0DFF0;margin-top: 110px;background-color:#ffffff}
+.divOptInner{width:185px;margin-top:10px;overflow-y:scroll;overflow-x:hidden;float:left;height:400px}
+.divTariffMaina{width: 942px; height:575px; margin:0 auto;border:5px solid #E0DFF0;margin-top: 45px;background-color:#ffffff}
+.divTariffInner{width:940px;height:470px;overflow-y:scroll;overflow-x:hidden;float:left;margin-top:32px}
+
+/*.Gridcls{width:640px;background-color: #E8E8E8;border-color: Black;border-style: solid;border-width: 1px;color: black;font-family:  Arial, Helvetica, sans-serif;font-size: 10px;font-weight: normal}*/
+/*.GridHeader{background-color: #086FA0;color: White;cursor:default;font-size:13px;font-weight:bold;height:20px;line-height:20px;white-space:nowrap}*/
+/*.GridRow{background-color:#fff;height:16px;line-height:20px;font-size:11px;cursor:pointer;}*/
+
+.Gridcls{width:640px;background-color: #E8E8E8;border-color: Black;border-style: solid;border-width: 1px;color: black;}
+.GridHeader{background-color: #086FA0;color: White;cursor:default;height:20px;line-height:20px;white-space:nowrap}
+.GridRow{background-color:#fff;height:16px;line-height:20px;cursor:pointer;}
+.GridRow:hover {background-color:rgb(241, 200, 69)}
+.divGrd{width:750px;float:left;height:400px;margin-top:180px;padding-left:30px;width:93%;position:absolute}
+
+.error{box-shadow: 0 0 0px 2px #F00C0C;-moz-box-shadow:0 0 0px 2px #F00C0C}
+
+/*Masters*/
+.Proprowline{width:98%;float:left;margin:0.5% 2% 2% 3%;}
+.Mstrowline1{width:184%;
+float:left;margin:0.8% 0% 0 0%;}
+
+/*.Mastable{width:98%;float:left;}*/
+.Tatable{width:68%;float:left;}
+
+
+/*.Mstrowline{width:100%;float:left;margin:0.5% 0% 0 3%;}*/
+.MstGrowline{width:100%;float:left;margin:1% 0% 0 3%;}
+/*.minbox{width:330px;float:left;}*/
+.minbox1{width:230px;float:left;}
+/*.lblmtxt{width:150px;float:left;}*/
+.lblGtxt{width:110px;float:left;}
+.lblBtxt{width:120px;float:left;}
+
+
+
+/*Outlet*/
+.Outrowline{width:100%;float:left;margin:0.5% 0% 0 0%;}
+.Outrowline1{width:100%;float:left;margin:0.5% 0% 0 15%;}
+.lblOtxt{width:300px;float:left;text-align:right;}
+.Oinbox{width:120px;float:left;}
+.lblO1txt{width:140px;float:left;text-align:right;}
+.O1inbox{width:200px;float:left;}
+.Mstcontrolbox{margin: 15% 20% 20% 25%;background-color:#eeeeee;width:46%;height:200px;border-radius:5px; float:left; }
+/*font-family:inherit; font-size:inherit*/
+
+.MSrowline{width:100%;float:left;margin:9px 0 0 12px;}
+.auto-style1 {color: #CC0000;width:19px;}
+/*.divMSPSearch{width: 100%;  display: none; position: absolute;}*/
+.divMSPSearch{background-color: rgba(0, 0, 0, 0.63);display: none; width:100%;position:absolute;left:0;top:0;height:100%;z-index:85}
+
+.divSPSearch1{width:70%;height:340px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.GVSPSearch1{overflow: auto; width: 98.5%; height:225px; background-color: white; margin-left: 5px;}
+
+
+.divSPSearch{width:50%;height:401px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.divRvSearch{width:30%;height:401px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.divGrpSearch{width:50%;height:401px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.divBkrSearch{width:55%;height:410px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+
+.pophdr{width:98%; line-height:20px;padding-left:10px;}
+.popbtn{width:98%;line-height:30px;float:left;text-align:left;padding-left:5px;margin-top:7px;}
+.GVSPSearch{overflow: auto; width: 96%; height: 295px; background-color: white; margin-left: 5px;}
+
+
+
+/*@media (min-width:1024px)
+{
+input[type="text"]{height:18px;font-size:11px;font-family:Verdana;border: 1px solid #787878;border-radius: 2px;vertical-align:middle;margin-left:4px}
+input[type="number"]{height:13px;font-size:10px;text-align:center;border: 1px solid #787878;border-radius: 2px;vertical-align:middle;margin-left:4px}
+input[type="checkbox"]{vertical-align:middle;cursor:pointer;}
+textarea{font-size:10px;font-family:Verdana;border: 1px solid #787878;border-radius: 2px;vertical-align:middle;margin-left:4px}
+input[type="radio"]{height:14px;font-size:25px;text-align:center;cursor:pointer}
+input[type="image"]{vertical-align:middle}
+img{vertical-align:middle;cursor:pointer;height:19px}
+span{font-family:Verdana,Arial,sans-serif;font-size:11px}
+label{font-size:11px}
+select{height:19px;font-size:10px;font-family:Verdana;border: 1px solid #787878;border-radius: 3px;margin-left:3px}
+}*/
+/*.headertitle{float:left;width:15%;text-align:right;font-size:13px;font-family:Verdana;font-weight:bold;color:white}
+.headertitle{width: 100%;line-height:30px;background-color:#072769;float:left;border-bottom:4px solid #FFBE17}*/
+
+.headertitle a:hover{background-color: #fff;color: #DB2072;text-transform:none;text-decoration:none;border-radius: 2px;-moz-border-radius:2px;height:25px;}
+.headertitle:hover{background-color: #fff; color: #DB2072;text-transform:none;text-decoration:none;text-align:center; border-radius: 2px;-moz-border-radius:2px;height:25px;}
+
+
+.divBookerRptMaina{width: 910px; height:580px; margin:0 auto;border:5px solid #E0DFF0;margin-top: 45px;background-color:#ffffff}
+.divBookerRptInner{width:100%;height:480px;overflow:hidden;float:left;margin-top:32px}
+
+.GridStyle2
+{
+	border-style: Solid;
+	/*font-family: Verdana;
+	font-size: x-small;
+	font-weight: normal; By Balaji on 04022016*/
+	color: #333333;
+	border: solid 1px #EEEEEE;
+	background-color: #FFF;
+	overflow: scroll;
+}
+
+
+
+.HeaderFix {
+    /*font-weight:bold;By Balaji on 04022016*/ 
+    position:absolute;
+    color:#fff;
+    height:25px;
+    top:
+        expression(Sys.UI.DomElement.getBounds(document.getElementById("pnlTarif")).y-100);
+}
+
+
+
+/*Applicable Guest Charge*/
+.Applbltxt{width:100px;float:left;margin-left:30px;}
+
+
+/*Tariff*/
+.TProprowline{width:98%;float:left;margin:0.5% 2% 2% 0%;}
+.TRowline1 {width:98%;float:left;margin:1.8% 0% 0 0%;}
+.lblTtxt{width:90px;float:left;}
+.lblTtxt1{width:115px;float:left;}
+lblTtxt2{width:50px;float:left;}
+.Tinbox {width:185px;float:left;}
+.Tinbox2{width:125px;float:left;text-align:right;}
+/*Room master*/
+.lblRMtxt{width:125px;float:left;}
+.Rminbox{width:330px;float:left;
+    height: 18px;
+}
+.Mstrowline{width:100%;float:left;margin:0.8% 0% 0 0%;}
+
+
+
+/*Fo Transaction*/
+.Trlbltxt{width:150px;float:left;}
+
+/*Plan Charge*/
+.Plbltxt{width:130px;float:left;margin-left:30px;}
+.Pinbox{width:330px;float:left;}
+.P1inbox{width:150px;float:left;}
+.P2inbox{width:120px;float:left;}
+
+.P1lbltxt{width:60px;float:left;}
+
+
+/*commonStyle Using*/ 
+
+/*Create/Update Panel*/
+.CbyDt{font-size:9px;font-weight:bold;}
+.CbyDt1{font-size:9px;}
+.lblctxt{width:auto;float:left;}
+/*PopupWindows*/
+.PopUpWindow{background-color: rgba(0, 0, 0, 0.63);display: none; width:100%;position:absolute;left:0;top:0;height:100%;z-index:85}
+
+.divWindow1{width:30%;height:421px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.divWindow2{width:38%;height:385px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.GridDisp1{overflow: auto; width: 96%; height: 315px; background-color: white; margin-left: 5px;}
+/*company masters*/
+
+.divWindow3{width:35%;height:450px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+
+
+/*Tax Master*/
+.lblTatxt{width:160px;float:left;}
+.Tainbox{width:330px;float:left;}
+.lblTa1txt{width:200px;float:left;}
+
+/*Staff Master*/
+.SRowline{width:98%;float:left;margin:0.8% 0% 0 0%;}
+.Slbltxt{width:150px;float:left;}
+.Sinbox{width:330px;float:left;}
+
+/*RoomType*/
+.lblRTtxt{width:170px;float:left;}
+
+/*RoomRateType*/
+.lblRtxt{width:120px;float:left;margin-left:30px}
+.Rinbox{width:330px;float:left;}
+
+/*Room Feature*/
+.RFlbltxt{width:130px;float:left;margin-left:10px;}
+.RFinbox{width:200px;float:left;}
+
+/*Room Category*/
+.lblRctxt{width:120px;float:left;margin-left:27px;}
+.Rcinbox{width:200px;float:left;}
+
+/*Building*/
+.lblBtxt{width:130px;float:left;margin-left:27px;}
+.Binbox{width:200px;float:left;}
+
+/*Revenue*/
+.lblRvtxt{width:160px;float:left;}
+.lblRv1txt{width:230px;float:left;}
+.Rvinbox{width:330px;float:left;}
+.MRvrowline{width:65%;
+float:left;margin:0.5% 0% 0 0%;
+}
+.MRv1rowline{width:100%;float:left;margin:3% 0% 0 0%;}
+
+/*ChargeType*/
+.lblTatxt{width:160px;float:left;margin-left:30px}
+
+.MyGrid {
+    border-spacing: 4px;
+}
+/*All Room Selection*/
+.ARlbltxt{width:60px;float:left;}
+.Rcinbox{width:150px;float:left;}
+.AllRrowline{width:100%;float:left;margin:0.5% 0% 0 0%;}
+.AllRoomsFont {
+    font-size:11px;
+}
+.AllRoomsFont1{font-size:10px;color:#80006A;}
+.AllRoomsFon{font-size:10px;}
+/*Room Selection*/
+.AllRoomsFont {
+    font-size:11px;
+}
+
+/*//Group Master*/
+.lblGtxt{width:150px;float:left;margin-left:25px;}
+.lblGtxt1{width:100px;float:left;margin-left:25px;}
+.Growline{width:100%;float:left;margin:1% 0% 0 -1%;}
+
+/*GroupType Master*/
+.lblGttxt{width:160px;float:left;margin-left:30px;}
+
+
+/*Supplier Master*/
+.Cminbox{width:380px;float:left;}
+
+/*Supplier Master*/
+.SMmythemedes {height: 550px;}
+.Cmptable{width:100%;float:left;}
+.Crowline{width:100%;float:left;margin:8px 0 0 12px;}
+.lblCmtxt{width:100px;float:left;line-height:20px;}
+.lblCmtxtR{width:75px;float:left;line-height:20px;}
+.Cmrowline{width:100%;float:left;margin:8px 0 0 12px;}
+.lblCmtxt1{width:150px;float:left;line-height:20px;}
+.Cminbox1{width:250px;float:left;}
+.Cminbox{width:200px;float:left;}
+
+.Suprowline{width:100%;float:left;margin:3px 0 0 12px;}
+.lblmstxt0{width:70px;float:left;line-height:20px;}
+.sminbox0{width:180px;float:left;}
+
+
+
+.sminbox1{width:550px;float:left;}
+
+.cvinbox{width:30px;float:left;}
+.pophdr{width:98%; line-height:20px;padding-left:10px;}
+.popbtn{width:100%;line-height:30px;float:left;text-align:left;padding-left:7px;margin-top:7px;}
+.popbtn1{width:100%;line-height:30px;float:left;text-align:left;margin-top:7px;}
+.popbot{width:98%;background-color:#cccccc;padding:0.5%;text-align:right; }
+
+.divPartyDuplicate,.divMCitySrch,.divMPartySearch,.divMCitySave,.divMCountry,.divMPartyDupId,.divMprodduplList,.divMAccountsrch,
+.divMProdSubDubList,.divMproductSearch,.divMProdDuplicate,.DivMCostDupli,.DivMUsers{width: 100%;  display: none; position: absolute;}
+.DivUsers{width:33%;height:425px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;box-shadow:0px 0px 8px #3C3C3C}
+.divPartySrch{width:35%;height:425px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.divProdDuplicate{width:41%;height:384px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.DivPartyDup{width:41%;height:390px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+
+.divproductSearch{width:50%;height:475px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+
+.divAccountsrch{width:30%;height:365px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.DivCostDupli,.divprodduplList,.divProdSubDubList{width:30%;height:348px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.divPartyDupId {width:35%;height:400px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.divCitySave{width:32%;height:135px;z-index: auto;margin:0 auto;margin-top:200px;background-color: White;border:4px solid #dddddd;}
+.divCountry{width:30%;height:380px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.divCitySrch{width:30%;height:400px;z-index: auto;margin:0 auto;margin-top:100px;background-color: White;border:4px solid #dddddd;}
+.GVPartyDup{overflow: auto; width: 98%; height: 320px; background-color: white; margin-left: 5px;}
+.GvPartysrch{overflow: auto; width: 98%; height: 315px; background-color: white; margin-left: 5px;}
+.GVDivPartyId{overflow: auto; width: 98%; height: 330px; background-color: white; margin-left: 5px;}
+.GVDivCountry,.DivGvAccSrch{overflow: auto; width: 98%; height: 280px; background-color: white; margin-left: 5px;}
+.GVProdDup,.divGVProdSubDup{overflow: auto; width: 98%; height: 280px; background-color: white; margin-left: 5px;}
+.GVCitySrch{overflow: auto; width: 98%; height: 277px; background-color: white; margin-left: 5px;}
+.Gvprodsrch,.GVdivProdDup{overflow: auto; width: 98%; height: 308px; background-color: white; margin-left: 5px;}
+.GvUserGrd{overflow: auto; width: 98%; height: 318px; background-color: white; margin-left: 5px;}
+
+.Mastable{width:100%;float:left;}
+.AppStrtable{width:100%;float:left;margin-top:20px;}
+
+.lblmtxt{width:150px;float:left;}
+.lblmctxt{width:100px;float:left;}
+.lblmtxt2{width:145px;float:left;line-height:20px;}
+.minbox2{width:455px;float:left;}
+.pminbox{width:420px;float:left;}
+.minbox{width:200px;float:left;}
+.MLeftfilter {width:45%;float:left;}
+.MRightfilter {width:50%;float:right;}
+.myrowline{width:100%;float:left;margin:0px 0 0 12px;}
+.Costrowline{width:95%;float:left;margin:8px 0 0 12px;}
+.divControlItem{margin:40px 0px 0px 50px;}
+.leftmprod {float:left;width:57%;
+}
+.Rightmprod {float:left;width:43%;
+}
+.leftline{width:100%;float:left;margin:12px 0 0 0;}
+
+.MstCostBox{margin: 0% 20% 20% 25%;background-color:#eeeeee;width:48%;height:570px;border-radius:2px; float:left; }
+            /*font-family:inherit; font-size:inherit} by balaji 04022016 */
+.divHeading { width: 100%;background-color: #005794;float: left;height: 20px;color: white;height: 25px;}
+.color {background-color:#3585ae !important;}
+.divTop {width: 70%;margin: 0 auto;background-color: white;border: 1px solid black;height: 595px;}
+.MstpopuppMsg{	position: absolute;	overflow-x: none;overflow-y: none;clear:both;border-collapse:collapse;}
+
+/*Fo Control*/
+.FOCtable{width:100%;float:left;}
+.Cotrowline{width:100%;float:left;margin:1% 0% 0 3%;}
+
+
+.Cotrowline1{width:100%;float:left;margin:1% 0% 0 0%;}
+.Ctlbltxt {width:330px;float:left;text-align:right}
+.FClbltxt{width:30px;float:left;margin-left:10px;}
+.CRlbltxt {width:200px;float:left;text-align:right}
+.CRddls {width:300px;float:left;}
+
+
+
+
+/*Bill*/
+.Cblbltxt {width:260px;float:left;text-align:right}
+.Cblbltxt1 {width:245px;float:left;text-align:right}
+.Cblbltxt2 {width:240px;float:left;text-align:right}
+
+/*Audit*/
+.CAlbltxt{width:390px;float:left;text-align:right}
+
+
+/*Night Audit*/
+.NAlbltxt{width:280px;float:left;text-align:right}
+
+/*CheckinReserve*/
+.CCRbltxt{width:375px;float:left;text-align:right}
+.CSLbltxt{width:350px;float:left;text-align:right}
+/*Others*/
+.COtlbltxt{width:420px;float:left;text-align:right}
+.COtlbltxt1{width:280px;float:left;text-align:right}
+.COtlbltxt2{width:420px;float:left;text-align:right}
+.Cotrowline2{width:100%;float:left;margin:0.2% 0% 0 3%;}
+
+/*Accounts*/
+.CAclbltxt{width:380px;float:left;text-align:right}
+.CAclbltxt2{width:335px;float:left;text-align:right}
+.CAclbltxt1{width:280px;float:left;text-align:right}
+.CAcrowline{width:100%;float:left;margin:1% 0% 0 0%;}
+
+
+.Flbltxt1{width:280px;float:left;text-align:right}
+.Fc1lbltxt{width:100px;float:left;}
+
+
+/*////////////////////////////Fo Controls/////////////////////////////////////*/
+
+.CTrowline{width:100%;float:left;margin:2% 0% 0 3%;}
+
+
+
+/*guest ref Type*/
+
+.Refrowline{width:100%;float:left;margin:2% 0% 0 0%;}
+.Refrowline1{width:100%;float:left;margin:2% 0% 0 3%;}
+.Reflbltxt{width:150px;float:left;text-align:right;margin-right:5px;}
+
+
+.blubx{margin-left:1%;width:29%;background-color:#fff;float:left;border-radius:5px;box-shadow:0 0 0 5px #6dd3ef;padding:1%}
+.blubx2{width:63%;margin-left:2%;background-color:#fff;float:left;border-radius:5px;box-shadow:0 0 0 5px #6dd3ef;padding:1%}
+.grhdrstl{background-color:#43BCC7;height:26px;line-height:26px;color:#fff; text-align:center; width:100%;float:left}

@@ -1,0 +1,605 @@
+.win fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+}
+
+.win legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+.win label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+     padding-top:10px;
+    
+}
+
+.win input[type="search"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.win input[type="radio"],
+.win input[type="checkbox"] {
+    margin: 4px 0 0;
+    margin-top: 1px \9;
+    line-height: normal;
+}
+
+.win input[type="file"] {
+    display: block;
+}
+
+.win input[type="range"] {
+    display: block;
+    width: 100%;
+}
+
+.win select[multiple],
+.win select[size] {
+    height: auto;
+}
+
+.win input[type="file"]:focus,
+.win input[type="radio"]:focus,
+.win input[type="checkbox"]:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.win output {
+    display: block;
+    padding-top: 7px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+}
+
+.win .form-control {
+    display: block;
+    width: 100%;
+    height: 14px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius:3px!important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.win .form-control:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.win .form-control::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+.win .form-control:-ms-input-placeholder {
+    color: #999;
+}
+
+.win .form-control::-webkit-input-placeholder {
+    color: #999;
+}
+
+.win .form-control::-ms-expand {
+    border: 0;
+    background-color: transparent;
+}
+
+.win .form-control[disabled], .win .form-control[readonly], fieldset[disabled] .win .form-control {
+    background-color: #eeeeee;
+    opacity: 1;
+}
+
+.win .form-control[disabled], fieldset[disabled] .win .form-control {
+    cursor: not-allowed;
+}
+
+.win textarea.form-control {
+    height: auto;
+}
+
+.win input[type="search"] {
+    -webkit-appearance: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .win input[type="date"].form-control,
+    .win input[type="time"].form-control,
+    .win input[type="datetime-local"].form-control,
+    .win input[type="month"].form-control {
+        line-height: 34px;
+    }
+
+    .win input[type="date"].input-sm, .input-group-sm .win input[type="date"],
+    .win input[type="time"].input-sm, .input-group-sm
+    .win input[type="time"],
+    .win input[type="datetime-local"].input-sm, .input-group-sm
+    .win input[type="datetime-local"],
+    .win input[type="month"].input-sm, .input-group-sm
+    .win input[type="month"] {
+        line-height: 30px;
+    }
+
+    .win input[type="date"].input-lg, .input-group-lg .win input[type="date"],
+    .win input[type="time"].input-lg, .input-group-lg
+    .win input[type="time"],
+    .win input[type="datetime-local"].input-lg, .input-group-lg
+    .win input[type="datetime-local"],
+    .win input[type="month"].input-lg, .input-group-lg
+    .win input[type="month"] {
+        line-height: 46px;
+    }
+}
+
+.win .form-group {
+    margin-bottom: 15px;
+}
+
+.win .radio,
+.win .checkbox {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.win .radio label,
+.win .checkbox label {
+    min-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.win .radio input[type="radio"],
+.win .radio-inline input[type="radio"],
+.win .checkbox input[type="checkbox"],
+.win .checkbox-inline input[type="checkbox"] {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 4px \9;
+}
+
+.win .radio + .radio,
+.win .checkbox + .checkbox {
+    margin-top: -5px;
+}
+
+.win .radio-inline,
+.win .checkbox-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.win .radio-inline + .radio-inline,
+.win .checkbox-inline + .checkbox-inline {
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+.win input[type="radio"][disabled], .win input[type="radio"].disabled, fieldset[disabled] .win input[type="radio"],
+.win input[type="checkbox"][disabled],
+.win input[type="checkbox"].disabled, fieldset[disabled]
+.win input[type="checkbox"] {
+    cursor: not-allowed;
+}
+
+.win .radio-inline.disabled, fieldset[disabled] .win .radio-inline,
+.win .checkbox-inline.disabled, fieldset[disabled]
+.win .checkbox-inline {
+    cursor: not-allowed;
+}
+
+.win .radio.disabled label, fieldset[disabled] .win .radio label,
+.win .checkbox.disabled label, fieldset[disabled]
+.win .checkbox label {
+    cursor: not-allowed;
+}
+
+.win .form-control-static {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-bottom: 0;
+    min-height: 34px;
+}
+
+.win .form-control-static.input-lg, .win .form-control-static.input-sm {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.win .input-sm {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.win select.input-sm {
+    height: 30px;
+    line-height: 30px;
+}
+
+.win textarea.input-sm,
+.win select[multiple].input-sm {
+    height: auto;
+}
+
+.win .form-group-sm .form-control {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.win .form-group-sm select.form-control {
+    height: 30px;
+    line-height: 30px;
+}
+
+.win .form-group-sm textarea.form-control,
+.win .form-group-sm select[multiple].form-control {
+    height: auto;
+}
+
+.win .form-group-sm .form-control-static {
+    height: 30px;
+    min-height: 32px;
+    padding: 6px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.win .input-lg {
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33333;
+    border-radius: 6px;
+}
+
+.win select.input-lg {
+    height: 46px;
+    line-height: 46px;
+}
+
+.win textarea.input-lg,
+.win select[multiple].input-lg {
+    height: auto;
+}
+
+.win .form-group-lg .form-control {
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33333;
+    border-radius: 6px;
+}
+
+.win .form-group-lg select.form-control {
+    height: 46px;
+    line-height: 46px;
+}
+
+.win .form-group-lg textarea.form-control,
+.win .form-group-lg select[multiple].form-control {
+    height: auto;
+}
+
+.win .form-group-lg .form-control-static {
+    height: 46px;
+    min-height: 38px;
+    padding: 11px 16px;
+    font-size: 18px;
+    line-height: 1.33333;
+}
+
+.win .has-feedback {
+    position: relative;
+}
+
+.win .has-feedback .form-control {
+    padding-right: 42.5px;
+}
+
+.win .form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.win .input-lg + .form-control-feedback,
+.win .input-group-lg + .form-control-feedback,
+.win .form-group-lg .form-control + .form-control-feedback {
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+}
+
+.win .input-sm + .form-control-feedback,
+.win .input-group-sm + .form-control-feedback,
+.win .form-group-sm .form-control + .form-control-feedback {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.win .has-success .help-block,
+.win .has-success .control-label,
+.win .has-success .radio,
+.win .has-success .checkbox,
+.win .has-success .radio-inline,
+.win .has-success .checkbox-inline, .win .has-success.radio label, .win .has-success.checkbox label, .win .has-success.radio-inline label, .win .has-success.checkbox-inline label {
+    color: #3c763d;
+}
+
+.win .has-success .form-control {
+    border-color: #3c763d;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.win .has-success .form-control:focus {
+    border-color: #2b542c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+}
+
+.win .has-success .input-group-addon {
+    color: #3c763d;
+    border-color: #3c763d;
+    background-color: #dff0d8;
+}
+
+.win .has-success .form-control-feedback {
+    color: #3c763d;
+}
+
+.win .has-warning .help-block,
+.win .has-warning .control-label,
+.win .has-warning .radio,
+.win .has-warning .checkbox,
+.win .has-warning .radio-inline,
+.win .has-warning .checkbox-inline, .win .has-warning.radio label, .win .has-warning.checkbox label, .win .has-warning.radio-inline label, .win .has-warning.checkbox-inline label {
+    color: #8a6d3b;
+}
+
+.win .has-warning .form-control {
+    border-color: #8a6d3b;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.win .has-warning .form-control:focus {
+    border-color: #66512c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+}
+
+.win .has-warning .input-group-addon {
+    color: #8a6d3b;
+    border-color: #8a6d3b;
+    background-color: #fcf8e3;
+}
+
+.win .has-warning .form-control-feedback {
+    color: #8a6d3b;
+}
+
+.win .has-error .help-block,
+.win .has-error .control-label,
+.win .has-error .radio,
+.win .has-error .checkbox,
+.win .has-error .radio-inline,
+.win .has-error .checkbox-inline, .win .has-error.radio label, .win .has-error.checkbox label, .win .has-error.radio-inline label, .win .has-error.checkbox-inline label {
+    color: #a94442;
+}
+
+.win .has-error .form-control {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.win .has-error .form-control:focus {
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+
+.win .has-error .input-group-addon {
+    color: #a94442;
+    border-color: #a94442;
+    background-color: #f2dede;
+}
+
+.win .has-error .form-control-feedback {
+    color: #a94442;
+}
+
+.win .has-feedback label ~ .form-control-feedback {
+    top: 25px;
+}
+
+.win .has-feedback label.sr-only ~ .form-control-feedback {
+    top: 0;
+}
+
+.win .help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
+}
+
+@media (min-width: 768px) {
+    .win .form-inline .form-group {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+    }
+
+    .win .form-inline .form-control {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+    }
+
+    .win .form-inline .form-control-static {
+        display: inline-block;
+    }
+
+    .win .form-inline .input-group {
+        display: inline-table;
+        vertical-align: middle;
+    }
+
+    .win .form-inline .input-group .input-group-addon,
+    .win .form-inline .input-group .input-group-btn,
+    .win .form-inline .input-group .form-control {
+        width: auto;
+    }
+
+    .win .form-inline .input-group > .form-control {
+        width: 100%;
+    }
+
+    .win .form-inline .control-label {
+        margin-bottom: 0;
+        vertical-align: middle;
+    }
+
+    .win .form-inline .radio,
+    .win .form-inline .checkbox {
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
+        vertical-align: middle;
+    }
+
+    .win .form-inline .radio label,
+    .win .form-inline .checkbox label {
+        padding-left: 0;
+    }
+
+    .win .form-inline .radio input[type="radio"],
+    .win .form-inline .checkbox input[type="checkbox"] {
+        position: relative;
+        margin-left: 0;
+    }
+
+    .win .form-inline .has-feedback .form-control-feedback {
+        top: 0;
+    }
+}
+
+.win .form-horizontal .radio,
+.win .form-horizontal .checkbox,
+.win .form-horizontal .radio-inline,
+.win .form-horizontal .checkbox-inline {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 7px;
+}
+
+.win .form-horizontal .radio,
+.win .form-horizontal .checkbox {
+    min-height: 27px;
+}
+
+.win .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.win .form-horizontal .form-group:before, .win .form-horizontal .form-group:after {
+    content: " ";
+    display: table;
+}
+
+.win .form-horizontal .form-group:after {
+    clear: both;
+}
+
+@media (min-width: 768px) {
+    .win .form-horizontal .control-label {
+        text-align: right;
+        margin-bottom: 0;
+        padding-top: 7px;
+    }
+}
+
+.win .form-horizontal .has-feedback .form-control-feedback {
+    right: 15px;
+}
+
+@media (min-width: 768px) {
+    .win .form-horizontal .form-group-lg .control-label {
+        padding-top: 11px;
+        font-size: 18px;
+    }
+     .input-group-sm>.form-control, .input-group-sm>.input-group-addon, .input-group-sm>.input-group-btn>.btn {
+    height: 30px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px !important;
+}
+}
+
+@media (min-width: 768px) {
+    .win .form-horizontal .form-group-sm .control-label {
+        padding-top: 6px;
+        font-size: 12px;
+    }
+}
+
+.win > .form-group 
+{
+
+    margin-bottom:5px !important;
+
+}

@@ -1,0 +1,37 @@
+12/27/2021 5:17:18 PM
+D:\Hosted\FO_Standalone\WebAPI\/Logfile/FOTelerik.txt
+Enter Request
+Date :12/27/2021 5:17:18 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:18 PM
+Enter RequestDate :12/27/2021 5:17:18 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:18 PM
+Enter RequestDate :12/27/2021 5:17:19 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:19 PM
+Enter RequestDate :12/27/2021 5:17:19 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:19 PM
+Enter RequestDate :12/27/2021 5:17:19 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:19 PM
+Enter RequestDate :12/27/2021 5:17:19 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:19 PM
+Enter RequestDate :12/27/2021 5:17:27 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:27 PM
+Enter RequestDate :12/27/2021 5:17:27 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:27 PM
+Enter RequestDate :12/27/2021 5:17:27 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:27 PM
+Enter RequestDate :12/27/2021 5:17:27 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:27 PM
+Enter RequestDate :12/27/2021 5:17:27 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:27 PM
+Enter RequestDate :12/27/2021 5:17:49 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:49 PM
+Enter RequestDate :12/27/2021 5:17:49 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:49 PM
+Enter RequestDate :12/27/2021 5:17:49 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:49 PM
+Enter RequestDate :12/27/2021 5:17:49 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:49 PM
+Enter RequestDate :12/27/2021 5:17:49 PM
+after GMTCurTmHHMMSSDate :12/27/2021 5:17:49 PM
+Enter RequestDate :12/27/2021 5:17:49 PM
+after GMTCurTmHHMMSS

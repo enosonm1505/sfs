@@ -1,0 +1,1811 @@
+<?xml version='1.0' standalone='yes'?>
+<OTA_InvCountNotifRQ>
+  <Authentication>
+    <Username>pmshideout@bagahideout.com</Username>
+    <Password>PMSHideout@5304</Password>
+  </Authentication>
+  <OTA_HotelInvCountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" schemaLocation="http://www.opentravel.org/OTA/2003/05/OTA_HotelInvCountNotifRQ.xsd" Version="1.000" Target="Production">
+    <Inventories HotelCode="5304">
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-19" End="2020-03-19" />
+        <InvCounts>
+          <InvCount Count="15" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-20" End="2020-03-20" />
+        <InvCounts>
+          <InvCount Count="15" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-21" End="2020-03-21" />
+        <InvCounts>
+          <InvCount Count="16" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-22" End="2020-03-22" />
+        <InvCounts>
+          <InvCount Count="16" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-23" End="2020-03-23" />
+        <InvCounts>
+          <InvCount Count="16" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-24" End="2020-03-24" />
+        <InvCounts>
+          <InvCount Count="15" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-25" End="2020-03-25" />
+        <InvCounts>
+          <InvCount Count="17" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-26" End="2020-03-26" />
+        <InvCounts>
+          <InvCount Count="16" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-27" End="2020-03-27" />
+        <InvCounts>
+          <InvCount Count="17" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-28" End="2020-03-28" />
+        <InvCounts>
+          <InvCount Count="17" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-29" End="2020-03-29" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-30" End="2020-03-30" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-03-31" End="2020-03-31" />
+        <InvCounts>
+          <InvCount Count="16" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-01" End="2020-04-01" />
+        <InvCounts>
+          <InvCount Count="15" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-02" End="2020-04-02" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-03" End="2020-04-03" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-04" End="2020-04-04" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-05" End="2020-04-05" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-06" End="2020-04-06" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-07" End="2020-04-07" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-08" End="2020-04-08" />
+        <InvCounts>
+          <InvCount Count="18" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-09" End="2020-04-09" />
+        <InvCounts>
+          <InvCount Count="11" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-10" End="2020-04-10" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-11" End="2020-04-11" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-12" End="2020-04-12" />
+        <InvCounts>
+          <InvCount Count="18" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-13" End="2020-04-13" />
+        <InvCounts>
+          <InvCount Count="18" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-14" End="2020-04-14" />
+        <InvCounts>
+          <InvCount Count="14" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-15" End="2020-04-15" />
+        <InvCounts>
+          <InvCount Count="16" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-16" End="2020-04-16" />
+        <InvCounts>
+          <InvCount Count="16" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-17" End="2020-04-17" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-18" End="2020-04-18" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-19" End="2020-04-19" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-20" End="2020-04-20" />
+        <InvCounts>
+          <InvCount Count="17" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-21" End="2020-04-21" />
+        <InvCounts>
+          <InvCount Count="14" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-22" End="2020-04-22" />
+        <InvCounts>
+          <InvCount Count="14" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-23" End="2020-04-23" />
+        <InvCounts>
+          <InvCount Count="18" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-24" End="2020-04-24" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-25" End="2020-04-25" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-26" End="2020-04-26" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-27" End="2020-04-27" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-28" End="2020-04-28" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-29" End="2020-04-29" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-04-30" End="2020-04-30" />
+        <InvCounts>
+          <InvCount Count="18" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-01" End="2020-05-01" />
+        <InvCounts>
+          <InvCount Count="11" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-02" End="2020-05-02" />
+        <InvCounts>
+          <InvCount Count="12" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-03" End="2020-05-03" />
+        <InvCounts>
+          <InvCount Count="13" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-04" End="2020-05-04" />
+        <InvCounts>
+          <InvCount Count="17" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-05" End="2020-05-05" />
+        <InvCounts>
+          <InvCount Count="17" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-06" End="2020-05-06" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-07" End="2020-05-07" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-08" End="2020-05-08" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-09" End="2020-05-09" />
+        <InvCounts>
+          <InvCount Count="18" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-10" End="2020-05-10" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-11" End="2020-05-11" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-12" End="2020-05-12" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-13" End="2020-05-13" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-14" End="2020-05-14" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-15" End="2020-05-15" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-16" End="2020-05-16" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-17" End="2020-05-17" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-18" End="2020-05-18" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-19" End="2020-05-19" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-20" End="2020-05-20" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-21" End="2020-05-21" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-22" End="2020-05-22" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-23" End="2020-05-23" />
+        <InvCounts>
+          <InvCount Count="18" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-24" End="2020-05-24" />
+        <InvCounts>
+          <InvCount Count="18" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-25" End="2020-05-25" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-26" End="2020-05-26" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-27" End="2020-05-27" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-28" End="2020-05-28" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-29" End="2020-05-29" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-30" End="2020-05-30" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-05-31" End="2020-05-31" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-01" End="2020-06-01" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-02" End="2020-06-02" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-03" End="2020-06-03" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-04" End="2020-06-04" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-05" End="2020-06-05" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-06" End="2020-06-06" />
+        <InvCounts>
+          <InvCount Count="19" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-07" End="2020-06-07" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-08" End="2020-06-08" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-09" End="2020-06-09" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-10" End="2020-06-10" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-11" End="2020-06-11" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-12" End="2020-06-12" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-13" End="2020-06-13" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-14" End="2020-06-14" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-15" End="2020-06-15" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-16" End="2020-06-16" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-17" End="2020-06-17" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-18" End="2020-06-18" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-19" End="2020-06-19" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-20" End="2020-06-20" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-21" End="2020-06-21" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-22" End="2020-06-22" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-23" End="2020-06-23" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-24" End="2020-06-24" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-25" End="2020-06-25" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="34550" Start="2020-06-26" End="2020-06-26" />
+        <InvCounts>
+          <InvCount Count="20" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-19" End="2020-03-19" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-20" End="2020-03-20" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-21" End="2020-03-21" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-22" End="2020-03-22" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-23" End="2020-03-23" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-24" End="2020-03-24" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-25" End="2020-03-25" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-26" End="2020-03-26" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-27" End="2020-03-27" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-28" End="2020-03-28" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-29" End="2020-03-29" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-30" End="2020-03-30" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-03-31" End="2020-03-31" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-01" End="2020-04-01" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-02" End="2020-04-02" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-03" End="2020-04-03" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-04" End="2020-04-04" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-05" End="2020-04-05" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-06" End="2020-04-06" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-07" End="2020-04-07" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-08" End="2020-04-08" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-09" End="2020-04-09" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-10" End="2020-04-10" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-11" End="2020-04-11" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-12" End="2020-04-12" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-13" End="2020-04-13" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-14" End="2020-04-14" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-15" End="2020-04-15" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-16" End="2020-04-16" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-17" End="2020-04-17" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-18" End="2020-04-18" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-19" End="2020-04-19" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-20" End="2020-04-20" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-21" End="2020-04-21" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-22" End="2020-04-22" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-23" End="2020-04-23" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-24" End="2020-04-24" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-25" End="2020-04-25" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-26" End="2020-04-26" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-27" End="2020-04-27" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-28" End="2020-04-28" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-29" End="2020-04-29" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-04-30" End="2020-04-30" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-01" End="2020-05-01" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-02" End="2020-05-02" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-03" End="2020-05-03" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-04" End="2020-05-04" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-05" End="2020-05-05" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-06" End="2020-05-06" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-07" End="2020-05-07" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-08" End="2020-05-08" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-09" End="2020-05-09" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-10" End="2020-05-10" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-11" End="2020-05-11" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-12" End="2020-05-12" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-13" End="2020-05-13" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-14" End="2020-05-14" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-15" End="2020-05-15" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-16" End="2020-05-16" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-17" End="2020-05-17" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-18" End="2020-05-18" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-19" End="2020-05-19" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-20" End="2020-05-20" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-21" End="2020-05-21" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-22" End="2020-05-22" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-23" End="2020-05-23" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-24" End="2020-05-24" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-25" End="2020-05-25" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-26" End="2020-05-26" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-27" End="2020-05-27" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-28" End="2020-05-28" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-29" End="2020-05-29" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-30" End="2020-05-30" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-05-31" End="2020-05-31" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-01" End="2020-06-01" />
+        <InvCounts>
+          <InvCount Count="1" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-02" End="2020-06-02" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-03" End="2020-06-03" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-04" End="2020-06-04" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-05" End="2020-06-05" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-06" End="2020-06-06" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-07" End="2020-06-07" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-08" End="2020-06-08" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-09" End="2020-06-09" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-10" End="2020-06-10" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-11" End="2020-06-11" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-12" End="2020-06-12" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-13" End="2020-06-13" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-14" End="2020-06-14" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-15" End="2020-06-15" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-16" End="2020-06-16" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-17" End="2020-06-17" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-18" End="2020-06-18" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-19" End="2020-06-19" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-20" End="2020-06-20" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-21" End="2020-06-21" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-22" End="2020-06-22" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-23" End="2020-06-23" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-24" End="2020-06-24" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-25" End="2020-06-25" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21803" Start="2020-06-26" End="2020-06-26" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-19" End="2020-03-19" />
+        <InvCounts>
+          <InvCount Count="7" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-20" End="2020-03-20" />
+        <InvCounts>
+          <InvCount Count="7" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-21" End="2020-03-21" />
+        <InvCounts>
+          <InvCount Count="7" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-22" End="2020-03-22" />
+        <InvCounts>
+          <InvCount Count="5" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-23" End="2020-03-23" />
+        <InvCounts>
+          <InvCount Count="6" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-24" End="2020-03-24" />
+        <InvCounts>
+          <InvCount Count="4" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-25" End="2020-03-25" />
+        <InvCounts>
+          <InvCount Count="6" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-26" End="2020-03-26" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-27" End="2020-03-27" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-28" End="2020-03-28" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-29" End="2020-03-29" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-30" End="2020-03-30" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-03-31" End="2020-03-31" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-01" End="2020-04-01" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-02" End="2020-04-02" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-03" End="2020-04-03" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-04" End="2020-04-04" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-05" End="2020-04-05" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-06" End="2020-04-06" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-07" End="2020-04-07" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-08" End="2020-04-08" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-09" End="2020-04-09" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-10" End="2020-04-10" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-11" End="2020-04-11" />
+        <InvCounts>
+          <InvCount Count="0" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-12" End="2020-04-12" />
+        <InvCounts>
+          <InvCount Count="2" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-13" End="2020-04-13" />
+        <InvCounts>
+          <InvCount Count="3" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-14" End="2020-04-14" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-15" End="2020-04-15" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-16" End="2020-04-16" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-17" End="2020-04-17" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-18" End="2020-04-18" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-19" End="2020-04-19" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-20" End="2020-04-20" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-21" End="2020-04-21" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-22" End="2020-04-22" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-23" End="2020-04-23" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-24" End="2020-04-24" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-25" End="2020-04-25" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-26" End="2020-04-26" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-27" End="2020-04-27" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-28" End="2020-04-28" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-29" End="2020-04-29" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-04-30" End="2020-04-30" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-01" End="2020-05-01" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-02" End="2020-05-02" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-03" End="2020-05-03" />
+        <InvCounts>
+          <InvCount Count="8" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-04" End="2020-05-04" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-05" End="2020-05-05" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-06" End="2020-05-06" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-07" End="2020-05-07" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-08" End="2020-05-08" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-09" End="2020-05-09" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-10" End="2020-05-10" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-11" End="2020-05-11" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-12" End="2020-05-12" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-13" End="2020-05-13" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-14" End="2020-05-14" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-15" End="2020-05-15" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-16" End="2020-05-16" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-17" End="2020-05-17" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-18" End="2020-05-18" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-19" End="2020-05-19" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-20" End="2020-05-20" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-21" End="2020-05-21" />
+        <InvCounts>
+          <InvCount Count="6" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-22" End="2020-05-22" />
+        <InvCounts>
+          <InvCount Count="6" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-23" End="2020-05-23" />
+        <InvCounts>
+          <InvCount Count="6" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-24" End="2020-05-24" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-25" End="2020-05-25" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-26" End="2020-05-26" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-27" End="2020-05-27" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-28" End="2020-05-28" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-29" End="2020-05-29" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-30" End="2020-05-30" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-05-31" End="2020-05-31" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-01" End="2020-06-01" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-02" End="2020-06-02" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-03" End="2020-06-03" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-04" End="2020-06-04" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-05" End="2020-06-05" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-06" End="2020-06-06" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-07" End="2020-06-07" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-08" End="2020-06-08" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-09" End="2020-06-09" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-10" End="2020-06-10" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-11" End="2020-06-11" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-12" End="2020-06-12" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-13" End="2020-06-13" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-14" End="2020-06-14" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-15" End="2020-06-15" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-16" End="2020-06-16" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-17" End="2020-06-17" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-18" End="2020-06-18" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-19" End="2020-06-19" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-20" End="2020-06-20" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-21" End="2020-06-21" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-22" End="2020-06-22" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-23" End="2020-06-23" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-24" End="2020-06-24" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-25" End="2020-06-25" />
+        <InvCounts>
+          <InvCount Count="9" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+      <Inventory>
+        <StatusApplicationControl InvCodeApplication="InvCode" InvTypeCode="21801" Start="2020-06-26" End="2020-06-26" />
+        <InvCounts>
+          <InvCount Count="10" ActionType="Allocation" />
+        </InvCounts>
+      </Inventory>
+    </Inventories>
+  </OTA_HotelInvCountNotifRQ>
+</OTA_InvCountNotifRQ>

@@ -1,0 +1,797 @@
+﻿@{
+    ViewBag.Title = "FoRptCashTransaction";
+    if (ViewBag.VMD == "2") { Layout = "~/Views/Shared/Layout/FO_QueriesLayoutSM.cshtml"; }
+    else { Layout = "~/Views/Shared/Layout/FO_QueriesLayout.cshtml"; }
+}
+<script>
+    $(document).ready(function () {
+        webix.ready(function () {
+            $("#LoadDIv").hide();
+
+            var Prop_Id =  @Html.Raw(Json.Encode(ViewBag.COMP));
+            var defClos="<--ALL-->";
+            var newdt=new Date();
+            var Propertyload = LoadProperty();
+            var AccountDt = account_dt();
+            var vFromDt = formatDate1(AccountDt);
+            var CurrDt = current_dt();
+            var CurrDt = current_dt();
+            var vToDt=formatDate1(CurrDt);
+            
+
+            webix.ui({
+                container: "divPropbox", view: "richselect", id: "ddlproperty", options: Propertyload,
+                on: {
+                    onChange: function (newv, oldv) {
+                        sessionReassign();
+                        LoadCurrDet(newv);
+                    }
+
+                }
+            });
+
+
+            webix.ui({
+                view: "button", id: "Excel", value: "Excel", width: 70, container: "divExcel",
+                on: {
+                    onItemClick: function () {
+                        DisplayExcel();
+
+                    }
+
+                }
+
+            });
+
+
+            webix.ui({
+                container: "divMisc", view: "checkbox", id: "ChkMisc", labelWidth: 5, labelRight: "Include Miscellaneous Sales", customCheckbox: false,
+                click: function () {
+                   
+                },
+                on: {
+                    onChange: function (newv, oldv) {
+
+                    }
+                }
+            }),
+
+             webix.ui({
+                 container: "divUser", view: "checkbox", id: "ChkUser", labelWidth: 5, labelRight: "User All", customCheckbox: false,value:"1",
+                
+                 on: {
+                     onChange: function (newv, oldv) {
+                         if($$("ChkUser").getValue == "1")
+                             $$("ImgUser").hide();
+                         else
+                             $$("ImgUser").show();
+                     }
+                 }
+             }),
+
+             webix.ui({
+                 container: "divImgUser", view: "button", id: "ImgUser", type:"icon",icon: 'wxi-search',
+                 click: function () {
+                     UserLoadfn();
+                 },
+             }),
+           
+            webix.ui({ container: "divFrom", view: "label", id: "lblAson", label: "As on",});
+            webix.ui({
+                container: "divFromDt", view: "datepicker", name: "AsOn", id: "AsOn", format: "%d/%m/%Y", stringResult: true, value: vToDt,
+                on: {
+                    onChange: function (newv, oldv) {
+                        var AsOn=$$("AsOn").getText();
+                        $$("dtTrans").clearAll();
+                    }
+                }
+            });
+
+            webix.ui({ container: "divbtnDisp", view: "button", id: "btnDisplay", icon: "wxi-check", label: "Display", inputWidth: 80, width: 80, 
+                click: function () { fnbtnDisplay(); } }),
+            webix.ui({
+                view: "button", id: "Print", value: "Print", width: 70, container: "divPrint",
+                on: {
+                    onItemClick: function () {
+                        fnGridPrint();
+                    }
+                }
+
+            });
+
+            $$("ddlproperty").setValue(Prop_Id);
+            LoadCurrDet(Prop_Id);
+            $$("ImgUser").hide();
+            dtLoadReport();
+        });
+    });
+    function dtLoadReport() {
+        webix.ui({
+            view: "treetable",
+            id: "dtTrans",
+            select: 'row',
+            fixedRowHeight: false,
+            rowLineHeight: 23,
+            height: 485,
+            width: 1300,
+            spans: true,
+            autoConfig: true,
+            resizeColumn: true,
+            data: [],
+            css: "webix_header_border",
+            container: "gridRptt",
+            columns: [
+                { header: "Vouch No", id: "VouchNo", width: 90, css: { 'text-align': 'left ! important' } },
+                { header: "Room No", id: "Room", width: 90, css: { 'text-align': 'left ! important' } },
+                { header: "Guest Name", id: "Guest", width: 220, css: { 'text-align': 'left ! important' } },
+                { header: "Trn Type", id: "Trn_type", width: 250, css: { 'text-align': 'left ! important' } },
+                { header: "Revenue", id: "Revenue", width: 120, css: { 'text-align': 'left ! important' } },
+                {
+                    header: "Amt Received", id: "Receive_Id", width: 150, css: { 'text-align': 'right ! important' },
+                    format: function (value) {
+                        return fnCurrFormat(value);
+                    },
+                    exportType: "number",
+                    exportFormat: "#,##0.00",
+                },
+
+                {
+                    header: "Amt Paid", id: "Pay", width: 150, css: { 'text-align': 'right ! important' },
+                    format: function (value) {
+                        return fnCurrFormat(value);
+                    },
+                    exportType: "number",
+                    exportFormat: "#,##0.00",
+                },
+                   {
+                       header: "Bal Amt", id: "Bal", width: 220, css: { 'text-align': 'right ! important' },
+                       format: function (value) {
+                           return fnCurrFormat(value);
+                       },
+                       exportType: "number",
+                       exportFormat: "#,##0.00",
+                   },
+                   { header: "Paid Out", id: "PaidOut", width: 150, css: { 'text-align': 'left ! important' } },
+                   { header: "Narration", id: "Narration", width: 200, css: { 'text-align': 'left ! important' } },
+
+                    { header: "User", id: "User", width: 120, css: { 'text-align': 'left ! important' } },
+
+            ],
+            scheme: {
+                $change: function (item) {
+
+                    //if (item.Tm != "" && item.Tm != null) {
+
+                    //    if (item.Tm.substring(0,7) == "Cashier") {
+
+                    //        $$("dtTrans").addSpan(item.id, "Tm", 10, 1, null, "GrpHead");
+                    //    }
+                    //    if(item.Tm.substring(0,1) == "C" || item.Tm.substring(0,1) == "T" || item.Tm.substring(0,1) == "~" ){
+                    //        item.Tm = item.Tm.replace("~","");
+                    //        $$("dtTrans").addSpan(item.id, "Tm", 10, 1, null, "GrpHead");
+                    //    }
+
+                    //}
+
+                    if (item.Guest != "" && item.Guest != null) {
+
+                        if (item.Guest.substring(0,5) == "Total") {
+                            debugger;
+                            $$("dtTrans").addSpan(item.id, "Guest", 1, 1, null, "GrpTot1");
+                            $$("dtTrans").addSpan(item.id, "Receive_Id", 1, 1, null, "GrpTot1");
+                            $$("dtTrans").addSpan(item.id, "Pay", 1, 1, null, "GrpTot1");
+                            $$("dtTrans").addSpan(item.id, "Bal", 1, 1, null, "GrpTot1");
+                        }
+
+
+                    }
+                },
+
+            },
+
+            on: {
+                onAfterLoad: function () {
+                    var rowId = this.getFirstId();
+                },
+
+                onBeforeClose: function () {
+                    return false;
+
+                },
+
+            },
+        });
+
+    }
+    
+    function formatDate1(StrDt) {
+
+        var Parts = StrDt.split("/");
+        var Dt = Parts[0];
+        var Mn = Parts[1];
+        var Yr = Parts[2].substring(0, 4);
+        var Str = Yr + "-" + Mn + "-" + Dt;
+        return Str;
+    };
+    function current_dt() {
+
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETCURRENTDT";
+        reqobj["DateFormat"] = "DTM";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/getCurrentDate",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+
+                    if (d != "" && d != undefined && d != null) {
+                        //rowData = JSON.parse(d);
+                        rowData = JSON.parse(d);
+
+
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+        return rowData.CURR_DT;
+    }
+    function account_dt() {
+
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETACCOUNTDT";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/getAcountDate",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+
+                    if (d != "" && d != undefined && d != null) {
+                        //rowData = JSON.parse(d);
+                        rowData = JSON.parse(d);
+
+
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+        return rowData.Account_Dt;
+    }
+
+    function LoadCurrDet(vProperty) {
+        //debugger;
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GETCURRFORMATDETAILS";
+        var rowDatad = [];
+        try {
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: "/FoTrans/GetCurrFormatDetails",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+
+                    if (d != "" && d != undefined && d != null) {
+                        //rowData = JSON.parse(d);
+                        rowData = JSON.parse(d);
+                        $("#CURRENCY_FORMAT").val(rowData.CURRENCY_DECIMLIMIT);
+                        $("#CURRENCY_DELIMIT").val(rowData.CURRENCY_DELIMIT);
+                        $("#CURRENCY_DECIMLIMIT").val(rowData.CURRENCY_DECIMLIMIT);
+
+                    }
+
+
+                },
+            });
+
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+    };
+    function fnCurrFormat(value) {
+
+        var Currfrmt = $("#CURRENCY_FORMAT").val();
+        var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+        var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+        return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+    }
+    function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+
+
+        if (value == null) return "";
+
+        if (value.toString() != "") {
+
+
+            if (Currfrmt == "L") {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+                var afterPoint = '';
+                if (x.indexOf('.') > 0) {
+                    afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                    afterPoint = CurrDelimit + afterPoint
+                }
+
+
+
+                x = Math.floor(x);
+                x = x.toString();
+                var lastThree = x.substring(x.length - 3);
+                var otherNumbers = x.substring(0, x.length - 3);
+                if (otherNumbers != '' && otherNumbers != '-')
+                    lastThree = ',' + lastThree;
+                return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+            }
+            else {
+                var x = parseFloat(value).toFixed(CurrDecimal);
+                var neg = false;
+                if (value < 0) {
+                    neg = true;
+                    //x = math.abs(x);
+                }
+
+                x = x.toString();
+
+                //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                //var res = x.replace(/(\d{3})/g, "1,")
+                var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                if (res.indexOf('.') > 0) {
+
+                    res = res.replace(".", CurrDelimit)
+                }
+
+
+                return res;
+            }
+        }
+        else {
+            return value;
+        }
+    };
+    function LoadProperty() {
+
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GET_PROPERTYLOAD_WEBIX";
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: false,
+            url: "/FoTrans/fnGetProperty",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+
+                if (d != "" && d != undefined && d != null) {
+                    rowData = d;
+
+
+                }
+
+            },
+        });
+        return rowData;
+
+    }
+    function sessionReassign() {
+        var PropertyId = $$("ddlproperty").getValue();
+        $.ajax({
+            type: "POST",
+            url: "/FoTrans/PeopertySessionReAssign",
+            data: "PropertyId=" + PropertyId,
+            success: function (data) {
+                
+            }
+        });
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "/Reports/GetCurrFormatDetails",
+            data: "CmpId=" + PropertyId,
+            success: function (d) {
+                return true;
+            }
+        });
+    }
+    
+    function fnGridPrint() {
+        debugger;
+        var FileName = "";
+        var len ="";
+        FileName = "Cash Transaction ";
+        var vHeader = FileName;
+        var FullData = "";
+        FullData = $$("dtTrans").serialize();
+        len = FullData.length;
+        if (len > 0) {
+            webix.print($$("dtTrans"), {
+                docHeader: vHeader,
+                fontSize: 25,
+                mode: "landscape",
+                fit: "data"
+
+            });
+        }
+        else {
+            alert("Records not present in Report");
+        }
+
+    };
+    function DisplayExcel() {
+        debugger;
+        var FileName = "";
+        var FullData = "";
+        var len = 0;
+        FileName = "Cash Transaction ";
+        FullData = $$("dtTrans").serialize();
+            len = FullData.length;
+            if (len > 0) {
+                var data = $$("dtTrans");
+                webix.toExcel($$("dtTrans"), {
+
+                    filename: FileName,
+                    styles: false,
+                    name: FileName,
+                    rawValues: true,
+                    spans: true,
+                    filterHTML: true,
+                    title:true,
+                });
+            }
+            else
+            {
+                alert("Records not present in Report");
+            }
+    }
+    function fnbtnDisplay() {
+
+
+        $("#LoadDIv").show();
+        //$$("dtChkIn").clearAll();
+        var reqobj = {};
+        var DispalyLedgerval = "";
+
+        if ($$("AsOn").getText() == "") {
+            webix.message({ type: 'warning', text: "AsOn Date cann't be empty" });
+            return;
+        }
+
+        if ($$("ddlproperty").getText() == "") {
+            webix.message({ type: 'warning', text: "Property cann't be empty" });
+            return;
+        }
+        reqobj["AsOn"] = $$("AsOn").getText();
+        reqobj["ChkMisc"] =$$("ChkMisc").getValue();
+        if($$("ChkUser").getValue() == "0")
+            reqobj["StrFilUser"] = $("#User_Id").val();
+        else
+            reqobj["StrFilUser"] = "";
+        reqobj["ToMin"] = "";
+        reqobj["REQTYPE"] = "GET_FOCASHTRANASACTIONONLY";
+        
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/FoTrans/fnCashOnly",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+
+                if (d != "" && d != undefined && d != null) {
+                    rowData = d;
+                    $$("dtTrans").clearAll();
+                    $$("dtTrans").parse(rowData);
+                    $$("dtTrans").refresh();
+
+                }
+                else {
+                    AlertMessage("No records found");
+                }
+
+            },
+        });
+        $("#LoadDIv").hide();
+    }
+
+    function UserLoadfn() {
+        webix.skin.mini.barHeight = 29; webix.skin.mini.tabbarHeight = 34; webix.skin.mini.rowHeight = 28; webix.skin.mini.listItemHeight = 28; webix.skin.mini.inputHeight = 30; webix.skin.mini.layoutMargin.wide = 5; webix.skin.mini.layoutMargin.space = 5; webix.skin.mini.layoutPadding.space = 5;
+        webix.skin.set('mini');
+        webix.ui({
+            view: "window",
+            move: true,
+            position: "center",
+            head: "User Search",
+            id: 'UserPOP',
+            modal: true,
+            width: 300,
+            close: true,
+            body: {
+                rows: [
+                    {
+                        id:"UserSearch",
+                        select: 'row',
+                        view: "datatable",
+                        columns: [
+                                { id: "USER_NM", header: 'User Name', width: 200, css: { 'text-align': 'left ! important' } },
+                                { header: { content: "masterCheckbox", css: { 'padding': '0px ! important' } }, id: "Select", template: "{common.checkbox()}", width: 80, css: { 'text-align': 'center ! important', 'padding': '0px ! important' } },
+                                { id: "USER_ID", hidden: true },
+                        ],
+                        scroll: "y",
+                        height: 350,
+                        data: [],
+                        on: {
+                        },
+                    },
+                    {
+                        view: 'form',
+                        elements:[
+                            {
+                                cols: [
+                                    {
+                                        view: 'label',
+                                        label: ' ',
+                                        name: 'label1',
+                                        id: 'label1',
+                                        labelWidth: 100,
+                                    },
+                                    {
+                                        cols: [
+                                            {
+                                                view: 'button',
+                                                type: "icon",
+                                                icon: "wxi-file",
+                                                label: 'Ok',
+                                                width: 100,
+                                                align: "right",
+                                                on: {
+                                                    onItemClick: function () {
+                                                        var data = $$("UserSearch").serialize();
+                                                        var lenval = data.length;
+                                                        var UserId = '';
+                                                        if (lenval != 0) {
+                                                            for (i = 0; i < lenval; i++) {
+                                                                debugger;
+                                                                if (data[i].Select == "1") {
+                                                                    if (UserId == "") {
+                                                                        UserId += "'"+ $.trim(data[i].USER_ID)+"'";
+                                                                    }
+                                                                    else {
+                                                                        UserId += ",'" + $.trim(data[i].USER_ID)+"'";
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        $("#User_Id").val(UserId);
+                                                        $$("UserPOP").hide();
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                view: 'button',
+                                                type: "icon",
+                                                icon: "wxi-close",
+                                                label: 'Cancel',
+                                                minWidth: 100,
+                                                align: "right",
+                                                on: {
+                                                    onItemClick: function () {
+                                                        $$("UserPOP").hide();
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }).show();
+        var dataval = UserSearchloadfn();
+    }
+
+    function UserSearchloadfn()
+    {
+        var reqobj = {};
+        reqobj["REQTYPE"] = "GET_USERSRCH";
+        var dataparam = JSON.stringify(reqobj);
+        $.ajax({
+            type: "POST",
+            async: true,
+            url: "/FoTrans/fnUserSerach",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ request: dataparam }),
+            dataType: "json",
+            acceptType: "application/json;charset=utf-8",
+            success: function (d) {
+
+                if (d != "" && d != undefined && d != null) {
+                    rowData = d;
+                    $$("UserSearch").clearAll();
+                    $$("UserSearch").parse(rowData);
+                    $$("UserSearch").refresh();
+
+                }
+                
+            },
+        });
+    }
+
+    
+
+    function AlertMessage(Text) {
+        return webix.alert({
+            ok: "Ok",
+            width: 350,
+            title: "Alert Message",
+            text: Text,
+            modal: true,
+        });
+    }
+</script>
+<style>
+    .textaligntotal {
+        text-align: right;
+    }
+
+    .ColColor {
+        color: #28a745;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: left !important;
+    }
+
+    .GrpTot1 {
+        color: red;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: right !important;
+    }
+
+    .GrpTot2 {
+        color: red;
+        font-weight: Bold;
+        font-family: Arial !important;
+        text-align: right !important;
+    }
+
+    .GrpHead {
+        color: #4894ca;
+        font-weight: Bold;
+        font-family: Arial !important;
+    }
+
+    .btnXX {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 1.5;
+    }
+</style>
+<section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 " ng-app="CashCollect" ng-controller="CashController" id="CashCollect">
+
+    <div id="divPage">
+
+        <div class="container-fluid">
+
+            <div class="TopHdr">
+                <div class="logcnt">
+                    <img src="../../Images/Logo.png">
+                </div>
+                <div class="TextWidth" style="margin-left: 10px;margin-top:5px;" id="divPropbox">
+                </div>
+
+                <div class="TopHdrMod">
+                    <label style="color: black; font-weight: bold" id="lblRptCaption">Cash Transaction Report</label>
+                </div>
+                <div class="HdrBtnBx">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class="btnXX"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border:solid transparent;" class="row">
+                <div class="col-xl-2 col-md-8 col-sm-2 pr-0">
+                    <div style="width:100%; float: left">
+                        <div id="divMisc" style="width:100%;"></div>
+
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-8 col-sm-2 pr-0">
+                    <div style="width:40%; float: left">
+                        <div id="divUser" style="width:100%;"></div>
+
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-8 col-sm-2 pr-0">
+                    <div style="width:20%; float: left">
+                        <div id="divImgUser" style="width:100%;"></div>
+
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-5 col-sm-3 ">
+                    <div class="row">
+                        <div class="col-xl-3 col-md-3 col-sm-3 ">
+                            <div id="divFrom"></div>
+                        </div>
+                        <div class="col-xl-6 col-md-7 col-sm-6">
+                            <div id="divFromDt"> </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-md-3 col-sm-3 ">
+                        <div id="divbtnDisp"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="gridRptt" style="width: 100%; height: 480px"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+</section>
+<input type="hidden" id="CURRENCY_FORMAT" />
+<input type="hidden" id="CURRENCY_DELIMIT" />
+<input type="hidden" id="CURRENCY_DECIMLIMIT" />
+<input type="hidden" id="NA_POS_POST_IND" />
+<input type="hidden" id="NA_FACL_POST_IND" />
+<input type="hidden" id="NA_BNQ_POST_IND" />
+<input type="hidden" id="NA_SPA_POST_IND" />
+<input type="hidden" id="User_Id" />

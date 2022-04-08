@@ -1,0 +1,170 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+
+
+/*width Style*/
+
+.w-10{width:10%;float:left;}
+.w-20{width:20%;float:left;}
+.w-30{width:30%;float:left;}
+.w-40{width:40%;float:left;}
+.w-50{width:50%;float:left;}
+.w-60{width:60%;float:left;}
+.w-70{width:70%;float:left;}
+.w-80{width:80%;float:left;}
+
+
+/*Font Style*/
+
+.po_fnt9{font-size:9px!important}
+.po_fnt10{font-size:10px!important}
+.po_fnt11{font-size:11px!important}
+.po_fnt12{font-size:12px!important}
+.po_fnt13{font-size:13px!important}
+.po_fnt14{font-size:14px!important}
+.po_fnt15{font-size:15px!important}
+.po_fnt16{font-size:16px!important}
+.po_fnt17{font-size:17px!important}
+.po_fnt18{font-size:18px!important}
+
+
+
+
+
+/* Buttons Style*/
+
+/* Icons button Style*/
+.mp_iconbtn .webix_button:focus, .mp_iconbtn .webix_button:hover {
+    color: #fff !important;
+    background-color: #7f97d8!important;
+}
+.mp_iconbtn .webix_secondary .webix_button .webix_icon, .webix_secondary .webix_button .webix_img_btn_text, .webix_secondary .webix_button .webix_icon_btn {
+    background-color: #7f97d8!important;
+    color: #fff!important;
+}
+
+
+
+/* Icons active button Style*/
+
+.webix_secondary .webix_button .webix_icon, .webix_secondary .webix_button .webix_img_btn_text, .webix_secondary .webix_button .webix_icon_btn {
+    color: #1CA1C1;
+}
+
+
+/* Text button Style*/
+.mp_txtbtn .webix_button {
+    background-color: white !important;
+    color: #7f97d8 !important;
+    font-size: 13px !important;
+    border: none!important;
+    border-radius: 5px !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    line-height: 20px;
+    border: none!important;
+    margin-bottom: 5px !important;
+    font-weight: normal;
+    text-decoration: none;
+}
+.mp_txtbtn {color: #7f97d8 !important;}
+
+/* Text active button Style*/
+
+.mp_btn .webix_button:focus, .mp_btn .webix_button:hover {
+    color: #fff !important;
+    background-color: #607abf !important;
+
+}
+
+.mp_btn .webix_button:focus, .mp_btn .webix_button:hover {
+    color: #fff !important;
+    background-color: #607abf !important;
+}
+
+.mp_actbtn .webix_button {
+    color: #fff !important;
+    background-color: #607abf !important;
+}
+
+
+/*.mp_actbtn .webix_button:focus, .webix_button:hover {
+    color: #fff !important;
+    background-color: #607abf !important;
+}*/
+.mp_actbtn.webix_secondary .webix_button:focus, .webix_secondary .webix_button:hover {
+   color: #fff !important;
+    background-color: #607abf !important;
+}
+
+
+.webix_list_item {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 2px 12px;
+        line-height: 31px;
+        cursor: pointer;
+        border-bottom: 1px solid #fff;
+        text-align: left;
+        border-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+        margin:2px 5px;
+    }
+
+        .webix_list_item.webix_selected 
+        {
+           background: #7f97d8 !important;
+           color: #fff !important;
+           border-radius: 5px;
+
+        }
+    .fixed-bottom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 33!important;
+}
+          /*font style starts*/        
+          .pr_fnt11{font-size:11px!important;}
+          .pr_fnt12{font-size:12px!important;}
+          .pr_fnt13{font-size:13px!important;}
+          .pr_fnt14{font-size:14px!important;}
+          .pr_fnt15{font-size:15px!important;}
+          .pr_fnt16{font-size:16px!important;}
+          /*font style starts*/
+          
+.po_notetxt > .webix_el_box{font-size:10px!important;color:#ae2222;font-weight:Normal!important;}
+.po_btmlbltxt > .webix_inp_bottom_label{font-size:9px!important;color:#ae2222; font-weight:normal!important;}
+
+.webix_fieldset_label {
+    color: #2679ea;
+    font-size: 12px;
+    padding: 0px 8px;
+    font-weight:bold;
+    text-transform: uppercase;
+}
+.webix_fieldset > fieldset {
+    padding: 0px 5px !important;
+    margin-right: 10px;
+}
+
+.addinfohdrtlt.webix_header > div {
+    line-height: 21px !important;
+    color: #fff;
+    font-size: 14px !important;
+    background-color: #e3ebff;
+    font-weight: bold;
+    text-align:center;
+}
+.webix_section > .webix_template {
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #607abf;
+    letter-spacing: 0.2px;
+}

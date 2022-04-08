@@ -1,0 +1,268 @@
+﻿@{
+    ViewBag.Title = "Flash";
+    Layout = "~/Views/Shared/_FoComLayout.cshtml";
+}
+<link href="~/Content/FoCss/FlashTool.css" rel="stylesheet" />
+<script src="~/Scripts/JSFoCommon/FoFlashTools.js"></script>
+<script src="~/Scripts/JSFoCommon/FlashToolFun.js"></script>
+
+<input type="hidden" id="hdnCompId" />
+<input type="hidden" id="hdnColCodeInd" />
+<input type="hidden" id="hdnAccountDt" />
+<input type="hidden" id="hdnCurrentDt" />
+<input type="hidden" id="RmPosViewId" />
+<input type="hidden" id="hdnClkBtnId" />
+
+<div ng-app="FOTApp" ng-controller="FoCommonController" id="FOFlash">
+    <div class="app-page-title text-left">
+        <div class="page-title-wrapper">
+            <div class="col-xl-12">
+                <div class="row">
+                    <div class="col-xl-4 col-sm-5 col-md-4 mbl_pb">
+                        <div webix-ui="ddlProperty"></div>
+                    </div>
+                    <div class="col-xl-3 col-sm-3 col-md-3 pl-3 mbl_alg mbl_pb mbl_pl mbl_pr text-center">
+                        <i id="LayOutImg" style="width:35px;" class="ViewBag.Icon"></i> <span id="LayoutText" style="font-weight:bold; font-size: 18px;"></span>
+                    </div>
+
+                    <div class="col-xl-5 col-sm-5 col-md-5 text-right mbl_alg">
+                        <div class="text-right mbl_center">
+                            <button type="button" class="btn btn-box-tool hdr_active" style="width:100px !important" title="InHouse Guest" id="btnInHouseGst">InHouse Guest</button>
+                            <button type="button" class="btn btn-box-tool hdr_active" style="width:100px !important" title="Room Status" id="btnRoomSts">Room Status</button>
+                            <button type="button" class="btn btn-box-tool hdr_active" style="width:100px !important" title="Room Position" id="btnRoomPos">Room Position</button>
+                            <button type="button" class="btn btn-box-tool hdr_active" style="width:100px !important" title="Exp.Arrival" id="btnExpArr">Exp.Arrival</button>
+                            <button type="button" class="btn btn-box-tool hdr_active" style="width:100px !important" title="Exp.Depart" id="btnExpDepart">Exp.Depart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div id="ContRmStatusInfo" style="float:left;width:100%;padding-top:10px;">
+                <div style="width:55%;float:left">
+                    <div style="float:left;width:300px;">&nbsp;</div>
+                    <div style="float:left;width:100px;">
+                        <div webix-ui="ChkPM1"></div>
+                    </div>
+                    <div style="float:left;width:100px;">
+                        <div webix-ui="ChkSequence"></div>
+                    </div>
+                </div>
+                <div style="width:45%;float:left">
+                    <table style="width:100%;height:27px;">
+                        <tr style="height:30px !important">
+                            <td style="width:120px !important">
+                                <div id="divOcc" class="RectBox"></div>
+                                <div style="float: left; margin-left: 3px;line-height:16px;">
+                                    (<label id="lblOccupation"></label>)Occupied
+                                </div>
+                            </td>
+                            <td style="width:120px !important">
+                                <div id="divDiry" class="RectBox"></div>
+                                <div style="float: left; margin-left: 3px;line-height:16px;">
+                                    (<label id="lblDirty"></label>)Dirty
+                                </div>
+
+                            </td>
+                            <td style="width:130px !important">
+                                <div id="divBMT" class="RectBox"></div>
+                                <div style="float: left; margin-left: 3px;line-height:16px;">
+                                    (<label id="lblBlckMnt"></label>)Block Maint
+                                </div>
+
+                            </td>
+                            <td style="width:110px !important">
+                                <div style="display:none" id="DispInsp">
+                                    <div id="divInsp" class="RectBox"></div>
+                                    <div style="float: left; margin-left: 3px;line-height:16px;">
+                                        (<label id="lblInsp"></label>)To be Inspected
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="width:120px !important">
+                                <div style="display:none" id="DispInsp">
+                                    <div id="divMaid" class="RectBox"></div>
+                                    <div style="float: left; margin-left: 3px;line-height:16px;">
+                                        (<label id="lblMaid"></label>)Vacant MaidIn
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="divVacant" class="RectBox"></div>
+                                <div style="float: left; margin-left: 3px;line-height:16px;">
+                                    (<label id="lblVacant"></label>)Vacant
+                                </div>
+                            </td>
+                            <td>
+                                <div id="divBG" class="RectBox"></div>
+                                <div style="float: left; margin-left: 3px;line-height:16px;">
+                                    (<label id="lblBGst"></label>)Block Gst
+                                </div>
+                            </td>
+                            <td>
+                                <div id="divBMG" class="RectBox"></div>
+                                <div style="float: left; margin-left: 3px;line-height:16px;">
+                                    (<label id="lblBlckMng"></label>)Block Mng
+                                </div>
+
+                            </td>
+                            <td>
+                                <div style="display:none" id="DispInsp">
+                                    <div id="divOccupDity" class="RectBox"></div>
+                                    <div style="float: left; margin-left: 3px;line-height:16px;">
+                                        (<label id="lblOcpDirty"></label>)OcpDirty
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div webix-ui="grdExpDepart" style="height:100%;width: 100%;"></div>
+            <div webix-ui="grdInHouseGst" style="height:100%;width: 100%;"></div>
+            <div webix-ui="grdRoomStatus" style="height:100%;width: 100%;"></div>
+            <div webix-ui="grdExpArrial" style="height:100%;width: 100%;"></div>
+            <div id="grdMnthRmPosition" style="height:380px;width:100%;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#LayoutText").text("Flash");
+        $("#btnRoomSts").click();
+    });
+
+    $("#btnInHouseGst").click(function () {
+        $('#hdnClkBtnId').val("1");
+        $('#ContRmStatusInfo').hide();
+        fnLoadData();
+        $("#btnInHouseGst").addClass("ClickBtn");
+
+        $$("grdRoomStatusfrm").hide();
+        $$("grdExpDepartfrm").hide();
+        $$("grdExpArrialfrm").hide();
+
+        if ($$("grdMnthRmPosition"))
+            $$("grdMnthRmPosition").destructor();
+
+        $$("grdInHouseGstfrm").show();
+
+        fnLoadInHouseGuest();
+    });
+
+    $("#btnRoomSts").click(function () {
+        $('#hdnClkBtnId').val("2");
+        fnLoadData();
+        $("#btnRoomSts").addClass("ClickBtn");
+        $$("grdInHouseGstfrm").hide();
+        $$("grdExpDepartfrm").hide();
+        $$("grdExpArrialfrm").hide();
+
+        $$("grdRoomStatusfrm").show();
+
+        if ($$("grdMnthRmPosition"))
+            $$("grdMnthRmPosition").destructor();
+
+        fnRoomStausLoad();
+        $('#ContRmStatusInfo').show();
+    });
+
+    $("#btnRoomPos").click(function () {
+        $('#hdnClkBtnId').val("3");
+        $('#ContRmStatusInfo').hide();
+
+        fnLoadData();
+        $("#btnRoomPos").addClass("ClickBtn");
+        $$("grdInHouseGstfrm").hide();
+        $$("grdRoomStatusfrm").hide();
+        $$("grdExpDepartfrm").hide();
+        $$("grdExpArrialfrm").hide();
+
+        if ($$("grdMnthRmPosition"))
+            $$("grdMnthRmPosition").destructor();
+
+        fnMonthLoadRoomSts();
+    });
+
+    $("#btnExpArr").click(function () {
+
+        $('#hdnClkBtnId').val("4");
+        $('#ContRmStatusInfo').hide();
+        fnLoadData();
+        $("#btnExpArr").addClass("ClickBtn");
+        $$("grdInHouseGstfrm").hide();
+        $$("grdRoomStatusfrm").hide();
+        $$("grdExpDepartfrm").hide();
+
+        $$("grdExpArrialfrm").show();
+
+        if ($$("grdMnthRmPosition"))
+            $$("grdMnthRmPosition").destructor();
+
+
+        fnLoadExpArrival();
+    });
+
+    $("#btnExpDepart").click(function () {
+        $('#hdnClkBtnId').val("5");
+        $('#ContRmStatusInfo').hide();
+        fnLoadData();
+        $("#btnExpDepart").addClass("ClickBtn");
+        $$("grdInHouseGstfrm").hide();
+        $$("grdRoomStatusfrm").hide();
+
+        $$("grdExpArrialfrm").hide();
+
+        if ($$("grdMnthRmPosition"))
+            $$("grdMnthRmPosition").destructor();
+
+        $$("grdExpDepartfrm").show();
+
+        fnLoadExpDepart();
+
+    });
+
+    function fnLoadData() {
+        //debugger;
+        $("#btnInHouseGst").removeClass("ClickBtn");
+        $("#btnRoomSts").removeClass("ClickBtn");
+        $("#btnRoomPos").removeClass("ClickBtn");
+        $("#btnExpArr").removeClass("ClickBtn");
+        $("#btnExpDepart").removeClass("ClickBtn");
+    }
+
+</script>
+
+<style>
+    .webix_column > div.webix_cell_select, .webix_column > div.webix_column_select, .webix_column > div.webix_row_select .ClickBtn {
+        background-color: #c4adad !important;
+        color: #000 !important;
+    }
+
+    .RightTemplate {
+        background-color: #fff !important;
+        border-radius: 0 10px 10px 0;
+        color: #000 !important;
+    }
+
+    .DivStaus {
+        background-color: red;
+        height: 30px;
+        width: 20px;
+    }
+
+    .RectBox {
+        width: 15px;
+        float: left;
+        height: 15px;
+        border: 1px solid #000;
+    }
+</style>

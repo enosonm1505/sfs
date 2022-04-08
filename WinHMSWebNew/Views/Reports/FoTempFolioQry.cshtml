@@ -1,0 +1,1630 @@
+﻿@{
+    ViewBag.Title = "Temp Folio Query";
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+    
+}
+
+<div class="content-wrapper" id="ContWrap">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <link href="../../Content/Contribute.css" rel="stylesheet" />
+        <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+        <link href="~/FO/CSS/sidemenu-custom.css" rel="stylesheet" />
+        <div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>
+        </div>
+        <div id="divPage">
+            <div class="container-fluid">
+                <div class="row new_hdr">
+                    @*<div class="logcnt">
+                            <img src="../../Images/Logo.png">
+                        </div>*@
+                    <div class="col-sm-3">
+                        <div class="TextWidth" id="divPropbox">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-center">
+                        <label class="wc_hdr_tlt" id="lblRptCaption">@ViewBag.Title</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="card-tools text-right">                            
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class=" btnXX"></div>                            
+                        </div>
+                    </div>
+
+                </div>
+
+                
+
+                <div style="border:solid transparent;" class="row">
+                    <div class=" col-xl-4 col-lg-4 col-md-5 col-sm-3">
+                    </div>
+                    <div class="col-xl-4  col-md-5 col-sm-3 ">
+                        <div class="row">
+                            <div class="col-xl-7  col-md-7  pr-0 " style="max-width:200px">
+                                <div id="divFrom"></div>
+                            </div>
+                            <div class="col-xl-2  col-md-2  pr-0 pl-1" id="divTm">
+                                <div id="divAsOnTm"></div>
+                            </div>
+                            <div class="col-md-3  pr-0 pl-1">
+                                <div id="divbtnDisp"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7 pr-0" style="max-width:190px">
+                                <div id="divTo"></div>
+                            </div>                            
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-1 col-md-2 col-lg-1 col-sm-3">
+                        <div id="divbtnoptions"></div>                        
+                    </div>
+                    
+                    <div class="col-xl-3 col-md-5 col-sm-3 ">
+                        <div class="row">
+                            <label id="lblAsOn" class=" control-label " style=" float:left; font-size:x-small !important;color:brown"> Double Click to view Folio details </label>
+                        </div>
+                    </div>                   
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="gridRptt" style="width: 100%; "></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <input type="hidden" id="Log" />
+
+        <input type="hidden" id="COMPID" />
+        <input type="hidden" id="CURRENCY_FORMAT" />
+        <input type="hidden" id="CURRENCY_DELIMIT" />
+        <input type="hidden" id="CURRENCY_DECIMLIMIT" />
+        <input type="hidden" id="HdnCurrDt" />
+        <input type="hidden" id="HdnCurrMnth" />
+        <input type="hidden" id="HdnAccDt" />
+        <input type="hidden" id="HdnToAccDt" />
+        <input type="hidden" id="HdnAccMnth" />
+        <input type="hidden" id="HdnFrmMnth" />
+        <input type="hidden" id="HdnToMnth" />
+        <input type="hidden" id="HdnYrFrmMnth" />
+        <input type="hidden" id="HdnYrToMnth" />
+
+        
+        <style>
+            .Pagefalse {
+                pointer-events: none;
+                opacity: 0.6;
+            }
+
+            .multiline {
+                line-height: 17px !important;
+                position: relative;
+            }
+
+            .MyFieldset .webix_radio_option {
+                height: 23px;
+                margin-right: 10px;
+            }
+            .MyFieldset legend {
+                display: block;
+                width: auto;
+                padding: 0;
+                margin-bottom: 1px !important;
+                font-size: 14px;
+                line-height: inherit;
+                color: #333333;
+                border: 0;
+                border-bottom: 0px solid #e5e5e5;
+            }
+
+            .MyFieldset > fieldset {
+                padding: 2px 8px !important;
+            }
+
+            .MyFieldset .webix_fieldset_label {               
+                text-transform: none;
+            }
+
+            .MyText input {
+                padding:0px 5px !important;
+            }           
+
+            .DOCHDR {
+                text-align: center !important;
+                font-weight: Bold;
+                font-family: Arial !important;
+                white-space: normal;
+                width: 860px;
+            }
+
+            .FSTGRDHDR {
+                text-align: center !important;
+                font-weight: Bold;
+                font-family: Arial !important;
+                white-space: normal;               
+            }
+
+            .FSTGRDROW {
+                text-align: center !important;                
+                font-family: Arial !important;
+                white-space: normal;                
+            }
+
+            .SECONDGRDHDR {
+                text-align: center !important;
+                font-weight: Bold;
+                font-family: Arial !important;
+                white-space: normal;
+
+            }
+
+
+
+            
+
+            .PopGrid .webix_column > div:nth-child(2n) {
+                background-color: #fff;
+            }
+            .THIRDGRDHDR {
+                text-align: center !important;
+                font-weight: Bold;
+                font-family: Arial !important;
+                white-space: normal;
+            }
+
+            .FSTGRDROW {
+                text-align: left !important;
+                font-family: Arial !important;
+                white-space: normal;
+            }
+
+        </style>
+
+        <script>
+
+            var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+            var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+
+            $(document).ready(function () {
+                debugger;
+                $("#LoadDIv").hide();
+
+                $("#MenuName").val('FOMNUREP2PAYMSTQRY');
+                $("#MenuLvl").val('FOMNUQU');
+                $("#MenuLvl1").val('');
+
+                if (!webix.env.touch && webix.env.scrollSize)  webix.CustomScroll.init(); 
+                
+                webix.UIManager.addHotKey("esc", function(view){
+                    if (view){
+                        var top = view.getTopParentView();
+                        if (top && top.setPosition)
+                            top.hide();
+                    }
+                });
+
+
+                webix.ready(function () {
+                    GridDesign();
+                    loadOptionPopWindow();
+                    fnPMDetPrvwWindowLoad();
+
+                    webix.ui({
+                        view: "button", id: "Print", value: "Print",width: 30, container: "divPrint", label: Print, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnGridPrint();
+                            }
+                        }
+
+                    });
+
+                    webix.ui({
+                        view: "button", id: "Excel", value: "Excel", width: 30, container: "divExcel", label: excel, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnExcelExport();
+
+                            }
+                        }
+                    });
+
+                    webix.ui({
+                        container: "divFrom", view: "datepicker", label: "AsOn",maxWidth: 190, labelWidth: 70,hidden:true, name: "AsOn", id: "AsOn", format: "%d/%m/%Y", stringResult: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();                                
+                                //SMAsOnChange();
+                            }
+                        }
+                    });
+
+                    webix.ui({ container: "divFrom", view: "text", id: "lblAsOn",maxWidth: 175, labelWidth: 50, label: "AsOn", readonly: true,inputAlign:"center" });
+                    webix.ui({ container: "divAsOnTm", view: "text", id: "lblAsOnTm",maxWidth: 90, labelWidth: 0, label: "", readonly: true,css:"MyText",inputAlign:"center" });
+
+                    
+
+                    webix.ui({
+                        container: "divFrom", view: "datepicker", label: "From",maxWidth: 175, labelWidth: 50, name: "FromDt", id: "FromDt", format: "%d/%m/%Y", stringResult: true,hidden: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();                               
+                                 SMFromDateChange();
+                            }
+                        }
+                    });
+
+
+                    webix.ui({
+                        container: "divTo", view: "datepicker", label: "To",maxWidth: 175, labelWidth: 50, name: "ToDt", id: "ToDt", format: "%d/%m/%Y", stringResult: true,hidden: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();                                                                
+                                SMToDateChange();
+                            }
+                        }
+                    });
+
+                    webix.ui({ container: "divbtnDisp", css:"webix_primary",  view: "button", id: "btnDisplay", icon: "wxi-check", label: "Display", inputWidth: 60, width: 60, click: function () { fnbtnDisplay(); } }),
+
+
+                    webix.ui({
+                        view: "button", id: "btnOptions",css: "webix_primary",  value: "Options", width: 30,label:'<span class="fa fa-list"></span>', container: "divbtnoptions", tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                btnOptionClick();
+                            }
+                        }
+                    });
+                    
+                    webix.ui({
+                        container: "divPropbox", view: "richselect", id: "Property",//width: 220,//autowidth:true,
+
+                        on: {
+                            onChange: function (NewVal, OldVal) {
+                                if (NewVal != "") {
+                                    debugger;
+                                    $$("gridRpt").clearAll();
+                                    LoadCompChange(NewVal);
+                                }
+                            }
+                        }
+
+                    });
+                    //debugger;
+                    var cmpid= @Html.Raw(Json.Encode(ViewBag.COMP));
+
+                    LoadProperty(cmpid); 
+                    var propchk = @Html.Raw(Json.Encode(ViewBag.MLTPROPHISHIND));                    
+                    if (propchk == "1") $("#divPropbox").show();
+                    else if (propchk == "0") $("#divPropbox").hide();
+
+                    gridResize();
+
+
+
+                });
+
+                webix.event(window, "resize", function () {
+                    gridResize(); 
+                })
+
+            });
+
+            function gridResize(){
+                var vheight = window.innerHeight
+                       || document.documentElement.clientHeight
+                       || document.body.clientHeight;
+                var offset =  $("#gridRptt").offset();
+                $$("gridRpt").define("height", ((vheight - offset.top-10)));
+                $$("gridRpt").adjust();
+            }
+
+            function LoadProperty(cmpid) {
+                debugger;
+                Request = {
+                    REQTYPE: "GET_PROPERTYLOAD",
+                    COMPID: cmpid,
+                }
+                Prop_Id = cmpid;
+                var rowData = [];
+                var options =[];
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            $$("Property").define("options",rowData);
+                            $$("Property").refresh();
+                            $$("Property").setValue(Prop_Id);
+
+                        }
+                    },
+                });
+            };
+            function LoadDate(cmpid) {
+                debugger;
+
+                Request = {
+                    REQTYPE: "GET_FRMMNTHTOMNTH",
+                    COMPID: cmpid,
+                }
+
+                var DataVal = JSON.stringify(Request);
+
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+
+                    success: function (data) {
+                        debugger;
+                        var data1 = JSON.parse(data);
+                        var vCurrDt = data1[0].CURRDT.toString().trim();
+                        var vAccDt = data1[0].ACC_DT2.toString().trim();
+                        var vToAccDt = data1[0].TO_ACC_DT2.toString().trim();
+                        var vAccMnth = data1[0].ACC_MNTH.toString().trim();
+                        var vFromMnth = data1[0].FRMMNTH.toString().trim();
+                        var vToMnth = data1[0].TOMNTH.toString().trim();
+
+                        $("#HdnCurrDt").val(vCurrDt);
+                        $("#HdnAccDt").val(vAccDt);
+                        $("#HdnToAccDt").val(vToAccDt);
+                        $("#HdnAccMnth").val(vAccMnth);
+                        $("#HdnFrmMnth").val(vFromMnth);
+                        $("#HdnToMnth").val(vToMnth);
+
+                        //var vFromDt = formatDate1(vCurrDt);
+                        //var vToDt = formatDate1(vCurrDt);
+                        //$$("FromDt").setValue(vFromDt);
+                        //$$("ToDt").setValue(vToDt);
+                        //$$("AsOn").setValue(vFromDt);
+
+                    },
+                });
+            };
+            function fnCurrDtTime() {
+                var vDate = "";
+                var vTime = "";
+                var rowData = [];
+                var CompId = $$("Property").getValue();
+                Request = {
+                    REQTYPE: "GET_FNLOADCURRDTTM",
+                    COMPID: CompId,
+                }
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            vDate = rowData.GDate;
+                            vTime = rowData.GTime;
+
+                            //var vFromDt = formatDate1(vDate);
+                            //var vToDt = formatDate1(vDate);
+                            //$$("FromDt").setValue(vFromDt);
+                            //$$("ToDt").setValue(vToDt);
+                            //$$("AsOn").setValue(vFromDt);
+                            //$$("lblAsOn").setValue(vDate);
+                            //$$("lblAsOnTm").setValue(vTime);
+                        }
+                    },
+                });
+
+                return [vDate, vTime];
+
+            };
+            function formatDate1(StrDt) {
+                debugger;
+                var Parts = StrDt.split("/");
+                var Dt = Parts[0];
+                var Mn = Parts[1];
+                var Yr = Parts[2].substring(0, 4);
+                var Str = Yr + "-" + Mn + "-" + Dt;
+                return Str;
+            };
+            function LoadCompChange(CompId) {
+
+                $$("txtOptions").setValue("1");    
+                $$("txtSpecificDt").setValue("0");
+                $$("txtSetlDet").setValue("0"); 
+
+                $$("txtCreLimit").setValue("0");  
+                $$("txtSkip").setValue("1");  
+                $$("txtSort").setValue("1");   
+
+                LoadControl(CompId);
+                //LoadDate(CompId);
+                //fnCurrDtTime();
+                var values = fnCurrDtTime();
+                var vDate = values[0];
+                var vTm = values[1];
+
+                var vFromDt = formatDate1(vDate);
+                var vToDt = formatDate1(vDate);
+                $$("FromDt").setValue(vFromDt);
+                $$("ToDt").setValue(vToDt);
+                $$("AsOn").setValue(vFromDt);
+                $$("lblAsOn").setValue(vDate);
+                $$("lblAsOnTm").setValue(vTm);
+                
+
+                fnShowColumn();
+            };
+            function LoadCurrDet(vProperty) {
+                //debugger;
+                var rowDatad = [];
+                try {
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/Reports/GetCurrFormatDetails",
+                        data: "CmpId=" + vProperty,
+                        success: function (d) {
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+                                $("#CURRENCY_FORMAT").val(rowDatad.CURRENCY_FORMAT);
+                                $("#CURRENCY_DELIMIT").val(rowDatad.CURRENCY_DELIMIT);
+                                $("#CURRENCY_DECIMLIMIT").val(rowDatad.CURRENCY_DECIMLIMIT);
+                            }
+                        }
+                    });
+
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            function LoadControl(CompId) {
+                //debugger;
+                var rowDatad = [];
+                try {
+                    Request = {
+                        REQTYPE: "GET_FNGETLOADCONT",
+                        COMPID: CompId,
+                    }
+
+                    var rowData = [];
+                    var options =[];
+                    var dataparam = JSON.stringify(Request);
+
+
+
+                    $.ajax({
+                        async: false,
+                        url: "/Reports/FOAPI_CALL",
+                        type: 'POST',
+                        data: "request=" + dataparam,
+                        success: function (d) {
+                            debugger;
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+
+
+                                $("#CURRENCY_FORMAT").val(rowDatad.RA[0].CURRENCY_FORMAT);
+                                $("#CURRENCY_DELIMIT").val(rowDatad.RA[0].CURRENCY_DELIMIT);
+                                $("#CURRENCY_DECIMLIMIT").val(rowDatad.RA[0].CURRENCY_DECIMLIMIT);
+
+
+
+                            }
+                        }
+                    });
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            function GridDesign() {
+                webix.ui({
+                    id: "gridRpt",
+                    container: "gridRptt",
+                    select: 'row',
+                    view: "datatable",
+                    fixedRowHeight: false,
+                    rowLineHeight: 23,
+                    autoConfig: true,
+                    resizeColumn: true,
+                    resizeRow: true,
+                    editable:true,
+                    navigation:true,                    
+                    //height: 460,
+                    position: "flex",
+                    css: "webix_header_border",
+                    data: [],
+                    columns: [
+                            { id: "ixPmNm",header: 'Folio Name',  width: 250,  css: { 'text-align': 'left ! important' } },
+                            { id: "ixNar", header: "Narration", width: 100, css: { 'text-align': 'left ! important' }   },
+                            { id: "ixBillNo", header: "Bill No", width: 65, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixValUpto", header: "Valid Upto", width: 80, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixCBy", header: "Create By", width: 90, css: { 'text-align': 'left ! important' }   },
+                            { id: "ixCDt", header: "Create Dt", width: 90, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixChrDt", header: "Charge Dt", width: 75, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixChrAmt", header: "Charge Amount", width: 110, css: { 'text-align': 'right ! important' } , exportType: "number", exportFormat: "#,##0.00",   },
+                            { id: "ixSBy", header: "Settle By", width: 90, css: { 'text-align': 'left ! important' }   },
+                            { id: "ixSDt", header: "Settle Dt", width: 80, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixSTm", header: "Settle Tm", width: 80, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixPmSno", header: "PM Sno", width: 75, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixPyMd", header: "Pay Mode", width: 115, css: { 'text-align': 'left ! important' }   },
+                            { id: "ixAmt", header: "Amount", width: 100, css: { 'text-align': 'right ! important' } , exportType: "number", exportFormat: "#,##0.00",   },
+                            { id: "ixCrLmt", header: "Credit Limit", width: 100, css: { 'text-align': 'right ! important' }, exportType: "number", exportFormat: "#,##0.00",    },
+                            { id: "ixExAmt", header: "Excess Amount", width: 100, css: { 'text-align': 'right ! important' } , exportType: "number", exportFormat: "#,##0.00",   },
+                            { id: "ixExpDt", header: "Expiry Dt", width: 80, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixHdPmNo", hidden:true,header: { text: "PMNo", },  },
+                            { id: "CLR", hidden: true },
+                    ],
+
+                    scheme: {
+                        $init: function (item) {
+                            if (item.CLR != "" && item.CLR != null) {
+
+                                item.$css = item.CLR;
+                            }
+                        },
+                        $export: function (obj) {
+                            debugger;
+                            var item = webix.copy(obj);
+                            var vAmt = item.ixChrAmt;
+                            if (vAmt != null && vAmt != undefined) {
+                                var vAmt1 = vAmt.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = parseFloat(vAmt1);
+                                item.ixChrAmt = vAmt1;
+                            }
+                            vAmt = item.ixAmt;
+                            if (vAmt != null && vAmt != undefined) {
+                                var vAmt1 = vAmt.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = parseFloat(vAmt1);
+                                item.ixAmt = vAmt1;
+                            }       
+                            vAmt = item.ixCrLmt;
+                            if (vAmt != null && vAmt != undefined) {
+                                var vAmt1 = vAmt.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = parseFloat(vAmt1);
+                                item.ixCrLmt = vAmt1;
+                            }  
+                        
+                            vAmt = item.ixExAmt;
+                            if (vAmt != null && vAmt != undefined) {
+                                var vAmt1 = vAmt.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = vAmt1.replace(",", ""); vAmt1 = vAmt1.replace(",", "");
+                                vAmt1 = parseFloat(vAmt1);
+                                item.ixExAmt = vAmt1;
+                            } 
+                            return item;
+                        
+                        },
+                    },                   
+
+                    on: {
+                        'onItemDblClick': function (id) {
+                            debugger;
+                            fnRowDblClick(id);                
+                        },
+                        onBeforeClose: function () {
+                            return false;
+                        },
+                        onAfterload: function () {
+                        }
+                    },
+                });
+            };
+            function fnCurrFormat(value) {
+
+                var Currfrmt = $("#CURRENCY_FORMAT").val();
+                var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+                var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+            }
+            function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+                // debugger;
+
+                if (value == null) return "";
+
+                if (value.toString() != "") {
+
+
+                    if (Currfrmt == "L") {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+
+                        x = x.toString();
+                        var afterPoint = '';
+                        if (x.indexOf('.') > 0) {
+                            afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                            afterPoint = CurrDelimit + afterPoint
+                        }
+
+
+
+                        x = Math.floor(x);
+                        x = x.toString();
+                        var lastThree = x.substring(x.length - 3);
+                        var otherNumbers = x.substring(0, x.length - 3);
+                        if (otherNumbers != '' && otherNumbers != '-')
+                            lastThree = ',' + lastThree;
+                        return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                    }
+                    else {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+
+                        x = x.toString();
+
+                        //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                        //var res = x.replace(/(\d{3})/g, "1,")
+                        var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                        if (res.indexOf('.') > 0) {
+
+                            res = res.replace(".", CurrDelimit)
+                        }
+
+
+                        return res;
+                    }
+                }
+                else {
+                    return value;
+                }
+            };
+            function loadOptionPopWindow() {
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "RptOptionsNew",
+                    head: "Option",
+                    position: "center",
+                    css: "WebIxStyle",
+                    height: 450,
+                    width: 300,
+                    move: true,
+                    
+                    body: {
+                        rows: [
+                                {
+                                    view: "scrollview", scroll: "y", height: 350, width: 300, body: {
+                                        padding: { top: 10, left: 20, bottom: 10, right: 10 },
+                                        rows: [
+                                            {
+                                                view: "fieldset", label: "Options",css:"MyFieldset",
+                                                body: {
+                                                    rows: [
+                                                        {
+                                                            padding: { top: 0, left: 0, bottom: 0, right: 0 },
+                                                            view: "radio", id: "OptOptions", customRadio:false,  click: function () {fnOptionClick();},
+                                                            options:[
+                                                                { value:"Pending Temp Folio", id:"1" },
+                                                                { value:"Charged Temp Folio", id:"2" },
+                                                                { value:"Settled Temp Folio", id:"3" },
+                                                                { value:"Temp Folio Expiry", id:"4" }
+
+                                                            ],vertical:true,value:"1",
+                                                        },
+                                                    ]
+                                                }
+                                            },
+
+                                            { view: "checkbox", id: "chkSpecificDt", labelWidth: 5, labelRight: "Specific Date", customCheckbox: false,  },
+                                            { view: "checkbox", id: "chkSetlDet", labelWidth: 5, labelRight: "Settlement Details", customCheckbox: false, hidden: true,  },                                          
+                                            { view: "checkbox", id: "chkCreLimit", labelWidth: 5, labelRight: "Credit Limit", customCheckbox: false,  },
+                                            { view: "checkbox", id: "chkSkip", labelWidth: 5, labelRight: "Skip Zero Charge Amount", customCheckbox: false,  },
+                                           
+                                            {
+                                                view: "fieldset", label: "Sort",css:"MyFieldset",
+                                                body: {
+                                                    rows: [
+                                                        {
+                                                            cols:[
+                                                                {
+                                                                    padding: { top: 0, left: 0, bottom: 0, right: 0 },
+                                                                    view: "radio", id: "OptSort", customRadio:false,  click: function () { },
+                                                                    options:[
+                                                                        { value:"Create Dt", id:"1" },
+                                                                        { value:"Create By", id:"2" },
+                                                                        { value:"Folio Name", id:"3" },                                                                
+
+                                                                    ],vertical:true,value:"1",
+                                                                },
+                                                                
+                                                            ]
+                                                        },
+                                                    ]
+                                                }
+                                            },
+
+                                            { view: "text", id: "txtSpecificDt", hidden: true, },                                
+                                            { view: "text", id: "txtOptions", hidden: true, },
+                                            { view: "text", id: "txtSetlDet", hidden: true, }, 
+                                            { view: "text", id: "txtCreLimit", hidden: true, },
+                                            { view: "text", id: "txtSkip", hidden: true, }, 
+                                            { view: "text", id: "txtSort", hidden: true, }, 
+                                            
+                                            
+                                        ]
+                                    }
+                                },
+                                { cols: [{}, { view: "button",css:"webix_primary", id: "Okoptions", label: "OK", inputWidth: 70, width: 70, click: function () { btnOkOptionClick(); } }], }
+                        ]
+
+                    }
+                });
+            };
+            function btnOkOptionClick() {
+                debugger;
+                $$("txtOptions").setValue($$("OptOptions").getValue());    
+                $$("txtSpecificDt").setValue($$("chkSpecificDt").getValue());
+                $$("txtSetlDet").setValue($$("chkSetlDet").getValue());  
+                $$("txtCreLimit").setValue($$("chkCreLimit").getValue());  
+                $$("txtSkip").setValue($$("chkSkip").getValue());  
+                $$("txtSort").setValue($$("OptSort").getValue());    
+                fnShowColumn();
+                $$("RptOptionsNew").hide();
+            };
+            function btnOptionClick() {
+                if (fnChkSessVal() == false) return;
+
+                $$("OptOptions").setValue($$("txtOptions").getValue());    
+                $$("chkSpecificDt").setValue($$("txtSpecificDt").getValue());
+                $$("chkSetlDet").setValue($$("txtSetlDet").getValue());
+
+                $$("chkCreLimit").setValue($$("txtCreLimit").getValue());  
+                $$("chkSkip").setValue($$("txtSkip").getValue());  
+                $$("OptSort").setValue($$("txtSort").getValue()); 
+                
+                fnOptionClick();
+
+                $$("RptOptionsNew").show();
+            };
+
+            function fnRowDblClick(RowId) {               
+                //debugger;
+                if (fnChkSessVal() == false) return;
+                var selRow = $$("gridRpt").getItem(RowId);
+                var FiscYr = window.FiscalYear;
+                var CompId = $$("Property").getValue();    
+                var PM_NO = selRow.ixHdPmNo; 
+                
+                if(PM_NO != null  && PM_NO != "")
+                {
+                    fnLoadTmpFolioDet(PM_NO);                    
+                    $$("RptTempFolioDet").show();
+                }                 
+            };
+
+            function fnLoadTmpFolioDet(PmId) {
+                //debugger;
+                var CompId = $$("Property").getValue();
+                $$("PmGrid").clearAll();
+                var rowDatad = "";                
+
+                Request = {
+                    REQTYPE: "GET_LOADTEMPFOLIOPRNTPRVW",
+                    COMPID: CompId,
+                    TEMPFOLIO:PmId
+                }
+
+                var rowData = [];
+                var options =[];
+                var dataparam = JSON.stringify(Request);
+
+
+                $.ajax({            
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + dataparam,
+                    success: function (d) {
+                        //debugger;
+                        if (d != "") {
+                            rowDatad = JSON.parse(d);
+                            var Sa = rowDatad;                         
+
+                            $$("PmGrid").parse(rowDatad);                          
+                            $$("PmGrid").refresh();
+
+                            //$$("PmGrid").adjustRowHeight("ixCrAmt",true);                               
+                            //$$("PmGrid").refresh();
+
+                            //$$("PmGrid").adjustRowHeight("ixBal",true);   
+                            //$$("PmGrid").refresh();
+
+
+
+                        }
+                    }
+                });
+            }            
+
+            function fnPMDetPrvwWindowLoad(){
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "RptTempFolioDet",
+                    head: "Temp Folio",
+                    position: "center",
+                    css: "WebIxStyle PopGrid",
+                    height: 400,
+                    width: 650,
+                    move: true,         
+                    body: {
+                        rows: [
+                            {
+                                margin: 10,
+                                padding: { top: 0, bottom: 0, right: 5 },
+                                cols: [
+                                    {width:250},
+                                    {width:250},
+                                    {view: "button", label:Print,inputWidth: 30, click: function () {fnGridPrint1();},align: "right"},
+                                    {view: "button", label:excel,inputWidth: 30, click: function () {fnExcelExport1();align: "right"}}                                      
+                                    
+                                ]
+                            },
+
+                           {
+                               view: "datatable",
+                               id: "PmGrid",
+                               select: 'row',
+                               spans: true,
+                               header:false,
+                               fixedRowHeight:false,
+                               topSplit:5,
+                               //scroll:"native-xy",
+                               //editable: true,
+                               //height:"auto",
+                               //width:"auto",
+                               css: "webix_header_border",                               
+                               columns: [
+                                       { id: "ixDate",header: 'Date',  width: 80,  css: { 'text-align': 'center ! important' } },
+                                       { id: "ixRefNo", header: "Ref No.", width: 60, css: { 'text-align': 'left ! important' }   },
+                                       { id: "ixDesc", header: "Particulars", width: 200, css: { 'text-align': 'left ! important' },   },                           
+                                       { id: "ixDrAmt", header: "DR Amt", width: 100, css: { 'text-align': 'right ! important' } , exportType: "number", exportFormat: "#,##0.00", },
+                                       { id: "ixCrAmt", header: "CR Amt", width: 100, css: { 'text-align': 'right ! important' } , exportType: "number", exportFormat: "#,##0.00", },
+                                       { id: "ixBal", header: "Balance", width: 100, css: { 'text-align': 'right ! important' } , exportType: "number", exportFormat: "#,##0.00",   },                                       
+                                       { id: "CLR", hidden: true },                            
+                               ],
+                               data: [],
+                               on:{
+                                   "onresize" : function(){
+                                       //checkScroll();
+                                   }
+                               },
+
+                               scheme: {
+                                   $change: function (item) {
+
+                                       if (item.CLR != "" && item.CLR != null) {
+                                           //debugger;
+                                           var Columns = $$('PmGrid').config.columns;
+                                           var ColCnt = Columns.length;
+                                           var rowid = item.id;
+                                           if (item.CLR == "DOCHDR" ) {
+                                               //debugger;
+                                               //$$("PmGrid").freezeRow(rowid, true);
+                                               $$("PmGrid").refresh();
+                                               $$("PmGrid").addSpan(item.id, "ixDate", ColCnt, 1, null, "DOCHDR");
+                                               $$("PmGrid").refresh();
+                                               
+                                           }
+                                           else if (item.CLR == "LNBRK" ) {
+                                               //$$("PmGrid").freezeRow(rowid, true);
+                                               $$("PmGrid").refresh();
+                                               $$("PmGrid").addSpan(item.id, "ixDate", ColCnt, 1, null, "");
+                                               $$("PmGrid").refresh();
+
+                                           }
+                                           else if (item.CLR == "FSTGRDHDR" || item.CLR == "FSTGRDROW" ){  
+                                               //$$("PmGrid").freezeRow(rowid, true);
+                                               $$("PmGrid").refresh();
+                                               fnRetCss(item);
+                                           }
+                                           else if (item.CLR == "SECONDGRDHDR" ){  
+
+                                               //$$("PmGrid").freezeRow(rowid, true);
+                                               $$("PmGrid").refresh();
+
+                                               item.$css = item.CLR;
+                                           }
+                                           else if(item.CLR == "THIRDGRDHDR" || item.CLR == "THIRDGRDROW"){
+                                               fnRetCss(item);
+                                           }
+                                           else {
+                                               //debugger;
+                                               item.$css = item.CLR;
+                                           }
+                                       }
+                                   },
+                               }
+
+                           },
+                        ],
+                    }
+                });
+            };           
+
+            //function checkScroll(){
+            //    webix.delay(function(){
+            //        debugger;
+            //        var table = document.getElementsByClassName("webix_header_border")[0];
+            //        var scroll = table.getElementsByClassName("webix_vscroll_y")[0];
+            //        var center = table.getElementsByClassName("webix_ss_center")[0];
+            //        var top = table.getElementsByClassName("webix_ss_header")[0];
+            //        scroll.style.height = center.style.height - 150;
+            //        scroll.style["margin-top"] = "150px";
+            //        $$("PmGrid").refresh();
+            //    })
+            //}
+
+
+            function fnRetCss(Item) {
+                //debugger;
+                var rowid = 0;
+                var vDate = "";
+                var ColId = "";
+                var vMnth = "";
+                var vYear = "";
+                var vDay = "";
+                var vCSS = Item.CLR;
+                var i = 0;
+                rowid = Item.id;
+                var Columns = $$('PmGrid').config.columns;
+                var ColCnt = Columns.length;
+                $.each(Item, function (k, v) {
+                    i = i + 1;
+                    //debugger;
+                    if(vCSS == "FSTGRDHDR"){
+                        if(k=="ixDate"){
+                            $$("PmGrid").addSpan(rowid, "ixDate", 3, 1, null, "FSTGRDHDR");
+                           
+                        }
+                        else if(k=="ixDrAmt"){
+                            $$("PmGrid").addCellCss(rowid, "ixDrAmt", "FSTGRDHDR");
+
+                        }
+                        else if(k=="ixCrAmt"){
+                            $$("PmGrid").addCellCss(rowid, "ixCrAmt", "FSTGRDHDR");
+
+                        }
+                        else if(k=="ixBal"){
+                            $$("PmGrid").addCellCss(rowid, "ixBal", "FSTGRDHDR");
+
+                        }
+                        $$("PmGrid").refresh();
+                    }
+                    else if(vCSS == "FSTGRDROW"){
+                        if(k=="ixDate"){
+                            $$("PmGrid").addSpan(rowid, "ixDate", 3, 1, null, "FSTGRDROW");
+                            $$("PmGrid").refresh();
+                        }
+                        else if(k=="ixDrAmt"){
+                            $$("PmGrid").addCellCss(rowid, "ixDrAmt", "text-center");
+
+                        }
+                        else if(k=="ixCrAmt"){
+                            $$("PmGrid").addCellCss(rowid, "ixCrAmt", "text-center");
+
+                        }
+                        else if(k=="ixBal"){
+                            $$("PmGrid").addCellCss(rowid, "ixBal", "text-center");
+
+                        }
+                    }
+                    else if(vCSS == "THIRDGRDHDR"){
+                        if(k=="ixDate"){
+                            $$("PmGrid").addSpan(rowid, "ixDate", 3, 1, null, "THIRDGRDHDR");
+                            $$("PmGrid").refresh();
+                        }
+                        else if(k=="ixDrAmt"){
+                            $$("PmGrid").addCellCss(rowid, "ixDrAmt", "THIRDGRDHDR");
+
+                        }
+                        else if(k=="ixCrAmt"){
+                            
+                            $$("PmGrid").addSpan(rowid, "ixCrAmt", 2, 1, null, "THIRDGRDHDR");
+                            $$("PmGrid").refresh();
+
+                        }                       
+
+                    }
+                    else if(vCSS == "THIRDGRDROW"){
+                        if(k=="ixDate"){
+                            $$("PmGrid").addSpan(rowid, "ixDate", 3, 1, null, "THIRDGRDROW");
+                            $$("PmGrid").refresh();
+                        }
+                        else if(k=="ixDrAmt"){
+                            $$("PmGrid").addCellCss(rowid, "ixDrAmt", "text-right");
+
+                        }
+                        else if(k=="ixCrAmt"){
+                            
+                            $$("PmGrid").addSpan(rowid, "ixCrAmt", 2, 1, null, "THIRDGRDROW");
+                            $$("PmGrid").refresh();                            
+
+                        }   
+                        else if(k=="ixBal"){                            
+                            $$("PmGrid").addCellCss(rowid, "ixDrAmt", "text-left");
+                        }   
+
+                    }
+                });
+
+            }
+
+        </script>
+
+
+        <script type="text/javascript">
+
+
+            $(document).on('shown.lte.pushmenu', function () {
+                debugger;
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                //$("#MenuName").val('');
+                //$("#MenuLvl").val('');
+                //$("#MenuLvl1").val('');
+
+                function resizeAction() {
+                    sidebarFn(1);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+
+            }).on('collapsed.lte.pushmenu', function () {
+                debugger;
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(2);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+            });
+            function sidebarFn(){
+                debugger;
+                //$$("gridRpt").adjust();
+                $$("gridRpt").resize();
+                //$$("FromDt").resize();
+                //$$("ToDt").resize();
+            };
+
+            function fnExcelExport() {
+                debugger;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+
+                FullData = $$("gridRpt").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.toExcel($$("gridRpt"), {
+                        filename: vHeader,
+                        styles: true,
+                        name: vHeader,
+                        docHeader: vHeader,
+                        rawValues: true,
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+            };
+            function fnGridPrint() {
+                debugger;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+
+                FullData = $$("gridRpt").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.print($$("gridRpt"), {
+                        docHeader: { text: vHeader, fontSize: 25 },
+                        fit: "page",
+                        scroll: false,
+                        mode: "landscape"
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+
+            };
+            function fnGridPrint1() {
+                debugger;
+                var vHeader = "Temp Folio";
+                var FullData = "";
+
+                FullData = $$("PmGrid").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.print($$("PmGrid"), {                        
+                        fit: "page",
+                        scroll: false,                        
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+
+            };
+            function fnExcelExport1() {
+                debugger;
+                var vHeader = "Temp Folio Preview";
+                var FullData = "";
+
+                FullData = $$("PmGrid").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.toExcel($$("PmGrid"), {
+                        filename: vHeader,
+                        styles: true,
+                        spans:true,
+                        name: vHeader,
+                        docHeader: vHeader,
+                        rawValues: true,
+                        header:false
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+            };
+
+
+            function fnOptionClick()
+            {  
+                
+                var vOptVal = $$("OptOptions").getValue();
+                if(vOptVal == "1")
+                {
+                    $$("chkSpecificDt").show(); 
+                    $$("chkSetlDet").setValue("0");
+                    $$("chkSetlDet").hide();                
+                    $$("chkCreLimit").show();  
+                }
+                else if(vOptVal == "2")
+                {
+                    $$("chkSpecificDt").hide(); 
+                    $$("chkSpecificDt").setValue("0");
+                    $$("chkSetlDet").show();                
+                    $$("chkCreLimit").hide(); 
+                    $$("chkCreLimit").setValue("0");
+
+                }
+                else if(vOptVal == "3")
+                {
+                    $$("chkSpecificDt").hide(); 
+                    $$("chkSpecificDt").setValue("0");
+                    $$("chkSetlDet").show();                
+                    $$("chkCreLimit").hide(); 
+                    $$("chkCreLimit").setValue("0");
+
+                }
+                else if(vOptVal == "4")
+                {
+                    $$("chkSpecificDt").hide(); 
+                    $$("chkSpecificDt").setValue("0");
+                    $$("chkSetlDet").setValue("0");
+                    $$("chkSetlDet").hide();                      
+                    $$("chkCreLimit").hide(); 
+                    $$("chkCreLimit").setValue("0");
+
+                }
+    
+            };
+            function fnShowColumn() {
+                debugger;
+                ClearGrid();
+                
+                $$("gridRpt").hideColumn("ixValUpto");
+                $$("gridRpt").hideColumn("ixChrDt");
+                $$("gridRpt").hideColumn("ixSBy");
+                $$("gridRpt").hideColumn("ixSDt");
+                $$("gridRpt").hideColumn("ixSTm");
+                $$("gridRpt").hideColumn("ixPmSno");
+                $$("gridRpt").hideColumn("ixPyMd");
+                $$("gridRpt").hideColumn("ixAmt");
+                $$("gridRpt").hideColumn("ixCrLmt");
+                $$("gridRpt").hideColumn("ixExAmt");
+                $$("gridRpt").hideColumn("ixExpDt");
+                $("#divTm").hide();
+                var vOptVal = $$("txtOptions").getValue();
+                if(vOptVal == "1")
+                {
+                    $$("FromDt").hide();
+                    $$("ToDt").hide();
+                    if($$("txtSpecificDt").getValue()=="1")
+                    {
+                        $$("AsOn").show();
+                        $$("lblAsOn").hide();
+                        $$("lblAsOnTm").hide(); 
+                        $$("AsOn").config.label = "AsOn";
+                        $$("AsOn").refresh();
+                    }
+                    else{
+                        $$("AsOn").hide();
+                        $$("lblAsOn").show();
+                        $("#divTm").show();
+                        $$("lblAsOnTm").show();                      
+                        
+
+                        var values = fnCurrDtTime();
+                        var vDate = values[0];
+                        var vTm = values[1];
+                        var vFromDt = formatDate1(vDate);
+                        var vToDt = formatDate1(vDate);                        
+                        $$("lblAsOn").setValue(vDate);
+                        $$("lblAsOnTm").setValue(vTm);
+
+
+                    }
+                }
+                else if(vOptVal == "2")
+                {
+                    $$("FromDt").show();
+                    $$("ToDt").show();
+                    $$("AsOn").hide();
+                    $$("lblAsOn").hide();
+                    $$("lblAsOnTm").hide(); 
+                }
+                else if(vOptVal == "3")
+                {
+                    $$("FromDt").show();
+                    $$("ToDt").show();
+                    $$("AsOn").hide();
+                    $$("lblAsOn").hide();
+                    $$("lblAsOnTm").hide(); 
+                }
+                else if(vOptVal == "4")
+                {
+                    $$("FromDt").hide();
+                    $$("ToDt").hide();
+                    $$("AsOn").show();
+                    $$("lblAsOn").hide();
+                    $$("lblAsOnTm").hide();
+                    $$("gridRpt").showColumn("ixExpDt");
+                    $$("AsOn").config.label = "Expiry Upto";
+                    $$("AsOn").refresh();
+                }
+                
+                if ($$("txtSetlDet").getValue() == "1"){
+                    $$("gridRpt").showColumn("ixSBy");
+                    $$("gridRpt").showColumn("ixSDt");
+                    $$("gridRpt").showColumn("ixSTm");
+                    $$("gridRpt").showColumn("ixPmSno");
+                    $$("gridRpt").showColumn("ixPyMd");
+                    $$("gridRpt").showColumn("ixAmt");
+                }
+                if($$("txtCreLimit").getValue()=="1"){
+                    $$("gridRpt").showColumn("ixCrLmt");
+                    $$("gridRpt").showColumn("ixExAmt");
+                }  
+                gridResize();
+
+            };
+            function ClearGrid() {
+                $$("gridRpt").clearAll();
+            };
+            function fnbtnDisplay() {
+                debugger;
+                if (fnChkSessVal() == false) return;
+                $("#LoadDIv").show();
+                var frmdate = "";
+                var todate = "";
+                var REPTYPE = "";
+                var CHKCOMPLHU = "";
+                ClearGrid();
+
+                var OPTIONS = $$("OptOptions").getValue();
+                var OPTSORT = $$("OptSort").getValue();
+                var chkSpecificDt = $$("txtSpecificDt").getValue();
+                var chkSetlDet = $$("txtSetlDet").getValue();
+                var chkSkip = $$("txtSkip").getValue();
+
+                var FROMDT = $$("FromDt").getText();
+                var TODT = $$("ToDt").getText();
+                var ASON = $$("AsOn").getText();
+
+                if(OPTIONS == "1"){
+                    if(chkSpecificDt =="1"){
+                        if(ASON == ""){
+                            webix.message("AsOn can't be empty", "warning");
+                            $("#LoadDIv").hide();
+                            return false;
+                        }
+                    }
+
+                }
+                else if(OPTIONS == "2" || OPTIONS == "3"){
+                
+                    if (FROMDT == "") {
+                        webix.message("From Date can't be empty", "warning");
+                        $("#LoadDIv").hide();
+                        return;
+                    }
+
+                    if (TODT == "") {
+                        webix.message("To Date can't be empty", "warning");
+                        $("#LoadDIv").hide();
+                        return;
+                    }
+
+                }
+                else if(OPTIONS == "4"){
+                    if(ASON == ""){
+                        webix.message("Expiry Upto can't be empty", "warning");
+                        $("#LoadDIv").hide();
+                        return false;
+                    }
+                }
+
+                var bSucc = "1";
+                var comp = $$("Property").getValue();
+                if (comp == "") {
+                    webix.message("Property can't be empty", "warning");
+                    $("#LoadDIv").hide();
+                    return;
+                }
+                var Request = {
+                    REQTYPE: "GET_LOADTEMPFOLIOQRY",
+                    COMPID: comp,
+                    FROMDT:FROMDT,
+                    TODT:TODT,
+                    ASON:ASON,
+                    OPTIONS : OPTIONS,
+                    OPTSORT:OPTSORT,
+                    chkSpecificDt:chkSpecificDt,
+                    chkSetlDet:chkSetlDet,
+                    chkSkip:chkSkip,
+
+                }
+                                
+                var dataparam = JSON.stringify(Request);
+                $.ajax({
+                    async: true,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + dataparam,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            var rowDatad = JSON.parse(data);
+                            $$("gridRpt").clearAll();
+                            $$("gridRpt").parse(rowDatad);
+                        }
+
+                    },
+                    error: function (err) {
+                        $("#LoadDIv").hide();
+                    },
+                    complete: function () {
+                        debugger;
+                        $("#LoadDIv").hide();
+                    }
+                });
+            };
+            function formatDate(StrDt) {
+                //debugger;
+                var Parts = StrDt.split(" ");
+                var MN = FnRetMonth(Parts[0]);
+                var YR = Parts[1];
+                var Str = "01" + "/" + MN + "/" + YR;
+                return Str;
+            };
+
+
+            
+
+
+            function ExcelFormat() {
+                debugger;
+                return //"#,##0.00",
+            };
+
+            function SMFromDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+                var sFrmDt = $$("FromDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                if (frmdate == "" && todate == "") return false;
+
+                var bSucc = "1";               
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("ToMthDate").setValue(FrmMnth);
+                            var vToDt = formatDate1(sFrmDt);
+                            $$("ToDt").setValue(new Date(vToDt));
+                            bSucc = "0";
+                        }
+                    }
+                });
+                if(bSucc=="0") return false;               
+
+
+            };
+            function SMToDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+                var sFrmDt = $$("ToDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                if (frmdate == "" || todate == "") return false;
+
+                var bSucc = "1";               
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("ToMthDate").setValue(FrmMnth);
+                            var vToDt = formatDate1(sFrmDt);
+                            $$("FromDt").setValue(new Date(vToDt));
+                            //bSucc = "0";
+                        }
+                    }
+                });
+
+
+                //$.ajax({
+                //    type: "POST",
+                //    url: "/Reports/FTDateValidation",
+                //    cache: false,
+                //    async: false,
+                //    charset: 'utf-8',
+                //    data: "F=" + todate  + "&T=" + vAccDt,
+                //    success: function (data) {
+                //        if (data.d != "") {
+                //            debugger;
+                //            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                //            $("#LoadDIv").hide();
+                //            //$$("FromDt").setValue(vAccDt);
+                //            var vFromDt = formatDate1(vAccDt);
+                //            $$("ToDt").setValue(new Date(vFromDt));
+
+
+                //            //bSucc = "0";
+                //        }
+                //    }
+                //});
+
+
+            };
+            function SMAsOnChange(e) {
+                debugger;
+                var frmdate = $$("AsOn").getText();
+                ///var todate = $$("ToDt").getText();
+                var sFrmDt = $$("FromDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                if (frmdate == "") return false;
+
+                var bSucc = "1";              
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate  + "&T=" +  vAccDt,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("FromDt").setValue(vAccDt);
+                            var vFromDt = formatDate1(vAccDt);
+                            $$("FromDt").setValue(new Date(vFromDt));
+
+
+                            //bSucc = "0";
+                        }
+                    }
+                });
+
+            };
+
+            function fnChkSessVal() {
+                debugger;
+                var bVal = "0";
+                $.ajax({
+                    async: false,
+                    url: "/TravelAgentBlock/fnChkSessionval",
+                    type: 'POST',
+                    success: function (data) {
+                        debugger;
+                        if (data == "1") {
+                            bVal = "1";
+                        }
+                    },
+                    error: function (request, status, error) {
+                        bVal = "0";
+                    }
+                });
+                if (bVal == "1") return true;
+                else {
+                    debugger;
+                    var Host = window.location.host;
+                    var LoadingUrl = "http://" + Host + "/Login.aspx";
+                    window.location.href = LoadingUrl;
+                }
+
+            };
+
+
+        </script>
+    </section>
+</div>>
+

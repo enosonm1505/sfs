@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WinCloud</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/Content/bower_components/bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bower_components/fontawesome-free-5.9.0-web/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/bower_components/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-form.css" rel="stylesheet" />
+
+    @*<link href="~/Content/FOMVC_Style.css" rel="stylesheet" />
+        <link href="~/Content/FoMvc2.css" rel="stylesheet" />*@
+    <link href="~/Content/ThemeAlterCss.css" rel="stylesheet" />
+
+    <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/bower_components/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="~/Content/bower_components/fontawesome-free-5.9.0-web/js/fontawesome.min.js"></script>
+    <script src="~/Content/bower_components/fontawesome-free-5.9.0-web/js/all.min.js"></script>
+    <script src="~/Scripts/WebixCommon/angularWebix/angular.min.js"></script>
+    <script src="~/Scripts/WebixCommon/angularWebix/angular-route.min.js"></script>
+    <link href="~/WebixSource/webix-pro/skins/mini.min.css" rel="stylesheet" />
+    <script src="~/WebixSource/webix-pro/webix.min.js"></script>
+    <script src="~/WebixSource/webix-pro/index.js"></script>
+    <link href="~/Content/Home.css" rel="stylesheet" />
+    @*<link href="~/webixGrid/codebase/skins/compact.min.css" rel="stylesheet" />*@
+    @*<script src="~/Scripts/WebixCommon/Common/CommonJs.js"></script>*@
+    <script src="~/Scripts/WebixCommon/Common/CommonFOJs.js"></script>
+    <script src="~/Scripts/WebixCommon/Common/PopUpScript.js"></script>
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <style>
+
+            .nav-link {
+                display: block;
+                /*padding:3px 3px 3px 0px!important;*/
+            }
+            /*.nav-sidebar{font-size:14px;}*/
+            .nav-sidebar .nav-treeview > .nav-item > .nav-link > .nav-icon {
+                width: 10px;
+                /*font-size:11px;
+        font-size: 7px;*/
+            }
+
+            .nav-sidebar > .nav-item {
+                margin-bottom: 0;
+                width: 235px;
+            }
+
+            .nav-sidebar .nav-link > .right, .nav-sidebar .nav-link > p > .right {
+                position: absolute;
+                right: 1rem;
+                top: 0.7rem;
+            }
+
+            .nav-sidebar .nav-treeview > .nav-item > .nav-link > .nav-icon {
+                width: 1.6rem;
+            }
+
+            .nav-sidebar {
+                font-size: inherit;
+            }
+
+            .nav-link {
+                display: block;
+                padding: .5rem .5rem;
+            }
+
+            .nav-sidebar .nav-link > .right, .nav-sidebar .nav-link > p > .right {
+                position: absolute;
+                right: 1rem;
+                top: 0.5rem;
+            }
+
+            .nav-sidebar > .nav-item .nav-icon {
+                margin-left: .05rem !important;
+                font-size: 1.2rem !important;
+                margin-right: .2rem !important;
+                text-align: center !important;
+                width: 1.6rem !important;
+            }
+
+            .nav-sidebar {
+                font-size: 16 !important;
+            }
+
+            .nav-link {
+                display: block;
+                padding: .5rem 1rem !important;
+            }
+    </style>
+    <style>
+        .Urowline {
+            line-height: 27px;
+            font-size: 13px;
+            display: -webkit-inline-box;
+            margin-right: 30px;
+        }
+
+        .Pagefalse {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .btnButton {
+            margin-right: 15px !important;
+            margin-left: 0 !important;
+            margin-bottom: 2px !important;
+            border: 1px solid #8BCADE !important;
+            background-color: #C0EAF7 !important;
+            font-weight: normal !important;
+        }
+
+        .col-md-offset-3 {
+            margin-left: 25%;
+        }
+
+        .icon {
+            font-style: normal !important;
+            font-weight: bold;
+        }
+
+        input[type=checkbox] {
+            vertical-align: sub;
+        }
+
+        body; {
+            /*font-size: 14px;*/
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div>
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light fixed-top text-sm" style="background-color: #bec7e0;">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="col-sm-12 mt-1">
+                    <asp:Label runat="server" ID="lblprop" Style="font-size: 13px; font-weight: 700;" CssClass=""></asp:Label>
+                </li>
+
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+
+                    </a>
+
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+
+                    </a>
+
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item" style="margin-left: 20px;">
+                    <asp:HyperLink ID="HlkDash" runat="server" ToolTip="Dashboard" NavigateUrl="~/Dashboard.aspx" Style="float: right; padding-right: 5px;margin-right: 10px;"><img src="../Images/dashboard.png" width="18" height="18" alt="Dashboard" ToolTip="Dashboard"></asp:HyperLink>
+                    <asp:HyperLink ID="hlkChart" runat="server" ToolTip="Chart" NavigateUrl="/FO/FoQ2HouseStatus.aspx" Style="float: right; padding-right: 5px;margin-right: 10px;"><img src="../Images/chart.png" width="18" id="imgChart" runat="server" height="18" alt="Dashboard" ToolTip="Dashboard"></asp:HyperLink>
+                    <asp:HyperLink ID="hlkImg" runat="server" ToolTip="Favorites" NavigateUrl="/FO/FAVfaovarites.aspx" Style="float: right; padding-right: 5px;margin-right: 10px;"><img src="../Images/favoriteadd2.png" width="18" height="18" alt="Favorites" ToolTip="Favorites"></asp:HyperLink>
+                    <asp:HyperLink ID="hlkLnk" runat="server" ToolTip="Flash" NavigateUrl="/FoTrans/FOFlashTools" Style="float: right; padding-right: 5px;margin-right: 10px;"><img src="../Images/flash.png" width="18" height="18" alt="Flash" ToolTip="Flash"></asp:HyperLink>
+
+
+                </li>
+                <li class="nav-item">
+                    <a href="../Logout.aspx" class="nav-link active">
+                        <i class="fas fa-sign-out-alt pl-1" title="Logout"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="../FO/FoHome.aspx" class="brand-link">
+                <img src="../dist/img/winhmslogonew.png" alt="WINCLOUD" class="brand-image elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">WINCLOUD</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">
+                            <asp:Label runat="server" ID="lblUId" CssClass=""></asp:Label>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent nav-compact" data-widget="treeview" id="DynMenuLoad" role="menu" data-accordion="false"></ul>
+
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+
+    </div>
+    @RenderBody()
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+     @*<script src="../plugins/jquery/jquery.min.js"></script>*@
+    <!-- jQuery UI 1.11.4 -->
+     @*<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>*@
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    
+    <!-- Bootstrap 4 -->
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+    <!-- daterangepicker -->
+    <script src="../plugins/moment/moment.min.js"></script>
+    <script src="../plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <!-- overlayScrollbars -->
+    <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    @*<script src="../Scripts/jquery-1.7.1.js"></script>*@
+
+    <input type="hidden" id="MenuName" />
+    <input type="hidden" id="MenuLvl" />
+    <input type="hidden" id="MnSel" />
+    <script>
+
+        $(document).ready(function () {
+            debugger;
+            var Menu = GetMenuValueFn();
+            //DynMenuLoadFn();
+            var UserId = '@Request.RequestContext.HttpContext.Session["UNM"]';
+            var Property = '@Request.RequestContext.HttpContext.Session["COMPANPID"]';
+            $('#lblUId').text(UserId);
+            $('#lblprop').text(Property);
+        });
+
+        function MenuHDClick(id, level) {
+            debugger;
+            var menusel = $("#MnSel").val();
+            if (menusel != "1") {
+                var node = document.getElementsByName('MenuHeader');
+                for (i = 0; i < node.length; i++) {
+                    if (id == node[i].id) {
+                        var idval = node[i].id;
+                        // $('#' + idval).removeClass('menu-open');
+
+                    }
+                }
+                var node1 = document.getElementsByName('MenuHeaderUL');
+                var node2 = document.getElementsByName('MenuHeaderUL1');
+                if (node2.length > 0 && id != 'FOMNUMST1') {
+                    for (j = 0; j < node1.length; j++) {
+                        if (id != node1[j].id) {
+                            document.getElementsByName('MenuHeaderUL')[j].style.display = "none";
+                        }
+                    }
+                }
+                else {
+                    document.getElementsByName('MenuHeaderUL')[j].style.display = "block";
+                }
+                //var node2 = document.getElementsByName('MenuHeaderUL1');
+
+                //for (j = 0; j < node1.length; j++) {
+                //    if (id != node1[j].children) {
+                //        document.getElementsByName('MenuHeaderUL')[j].style.display = "none";
+                //    }
+                //}
+
+
+            }
+            $("#MnSel").val("");
+        }
+
+        function MenuHDClick1(id, level) {
+            debugger;
+
+            var node = document.getElementsByName('MenuHeader1');
+            for (i = 0; i < node.length; i++) {
+                if (id == node[i].id) {
+                    // $("#MnSel").val("1");
+                    // var idval = node[i].id;
+                    // $('#' + idval).removeClass('menu-open');
+                }
+            }
+            var node1 = document.getElementsByName('MenuHeaderUL1');
+            for (j = 0; j < node1.length; j++) {
+                if (id != node1[j].id) {
+                    document.getElementsByName('MenuHeaderUL1')[j].style.display = "none";
+
+                }
+            }
+        }
+
+        function GetMenuValueFn() {
+            debugger;
+
+            var rowDatad = [];
+            var reqobj = {};
+
+            var dataparam = JSON.stringify(reqobj);
+            $.ajax({
+                type: "POST",
+                url: "/FoTrans/API_CALLSM",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ request: dataparam }),
+                dataType: "json",
+                acceptType: "application/json;charset=utf-8",
+                success: function (d) {
+                    debugger;
+                    if (d != "") {
+                        rowDatad = JSON.parse(d);
+                        var div = 'Loadmenu';
+                        LoadMenuFn(rowDatad, div);
+                        debugger;
+                        if ($("#MenuName").val() != "") {
+                            $("#" + $.trim($("#MenuName").val())).addClass("active");
+
+                            $("#FOMNURSV").addClass("mm-collapse mm-show");
+
+                        }
+
+                        //$("#FOMNURSV").addClass("mm-active");
+                        //$("#FOMNURSVMAKERSV").addClass("mm-active");
+                        //$("#FOMNURSV1").addClass("mm-collapse mm-show");
+                        //$("#FOMNURSVMAKERSV1").addClass("mm-collapse mm-show");
+
+                        if ($("#MenuLvl").val() != "") {
+                            $("#" + $.trim($("#MenuLvl").val())).addClass("menu-open");
+                            // $("#" + $.trim($("#MenuLvl").val())).addClass("nav-link active");
+                            $("#" + $.trim($("#MenuLvl").val())).addClass("Menu_lvl");
+                        }
+                    }
+                }
+            });
+            return rowDatad;
+        }
+
+        var LoadMenuFn = function (Menu, Div) {
+            var lphide = "";
+            var menu = Menu;
+
+            debugger;
+            $("#DynMenuLoad").find("li").remove();
+            if (menu.length > 0) {
+                var sno = "";
+                var sno1 = "";
+                var NODE_KEY1 = "";
+                var NODE_KEY2 = "";
+
+                for (x in menu) {
+                    if (menu[x].MENU_LEVEL == "1" && menu[x].PARENT_SEQ_NO == "0") {
+                        sno = menu[x].SEQ_NO;
+                        NODE_KEY1 = menu[x].NODE_KEY;
+                        var li1 = $("<li />").appendTo($("#DynMenuLoad"));
+                        li1.attr("class", "nav-item has-treeview");
+                        li1.attr("name", "MenuHeader");
+                        li1.attr("id", menu[x].PROGRAM_LINK_ID + '1');
+                        $("#MnSel").val("");
+                        li1.attr("onclick", 'MenuHDClick(this.id),' + menu[x].MENU_LEVEL + '');
+                        var a1 = $("<a />").appendTo(li1);
+                        a1.attr("class", "nav-link");
+                        a1.attr("href", "#");
+                        var i1 = $("<i />").appendTo(a1);
+                        // i1.attr("class", "nav-icon fas fa-user-tie");
+                        i1.attr("class", menu[x].MENU_ICON);
+                        var p1 = $("<p />").appendTo(a1).text($.trim(menu[x].MENU_NM));
+                        var i2 = $("<i />").appendTo(p1);
+                        i2.attr("class", "right fas fa-angle-left");
+                        var ul1 = $("<ul/>").appendTo(li1);
+                        ul1.attr("class", "nav nav-treeview");
+                        ul1.attr("name", "MenuHeaderUL");
+
+                        for (x1 in menu) {
+                            if (sno == menu[x1].PARENT_SEQ_NO) {
+                                lphide = "";
+                                if (menu[x1].MENU_LEVEL != "1" && NODE_KEY1 == menu[x1].PARENT_KEY && menu[x1].PARENT_SEQ_NO != "0") {
+                                    sno1 = menu[x1].SEQ_NO;
+                                    NODE_KEY2 = menu[x1].NODE_KEY;
+                                    // if (sno == menu[x1].S_NO) {
+                                    // NODE_KEY2 = menu[x1].NODE_KEY;
+
+                                    if (menu[x1].W_LINK != null) {
+                                        var li2 = $("<li />").appendTo(ul1);
+                                        li2.attr("class", "nav-item");
+                                        var a2 = $("<a />").appendTo(li2);
+                                        a2.attr("class", "nav-link");
+                                        a2.attr("href", $.trim(menu[x1].W_LINK));
+                                        var i3 = $("<i />").appendTo(a2);
+                                        i3.attr("class", "fas fa-circle nav-icon");
+                                        var p1 = $("<p />").appendTo(a2).text($.trim(menu[x1].MENU_NM));
+                                    }
+                                    else {
+
+                                        var li2 = $("<li />").appendTo(ul1);
+                                        li2.attr("class", "nav-item has-treeview");
+                                        li2.attr("name", "MenuHeader1");
+                                        li2.attr("id", menu[x1].PROGRAM_LINK_ID + '1');
+                                        li2.attr("onclick", 'MenuHDClick1(this.id,' + menu[x1].MENU_LEVEL + ')');
+                                        var a2 = $("<a />").appendTo(li2);
+                                        a2.attr("class", "nav-link");
+                                        a2.attr("href", "#");
+                                        var i2 = $("<i />").appendTo(a2);
+                                        // i2.attr("class", "nav-icon fas fa-user-tie");
+                                        i2.attr("class", "fas fa-circle nav-icon");
+                                        var p1 = $("<p />").appendTo(a2).text($.trim(menu[x1].MENU_NM));
+                                        var i3 = $("<i />").appendTo(p1);
+                                        i3.attr("class", "right fas fa-angle-left");
+                                        var ul2 = $("<ul/>").appendTo(li2);
+                                        ul2.attr("class", "nav nav-treeview");
+                                        ul2.attr("name", "MenuHeaderUL1");
+
+                                    }
+
+                                    for (x2 in menu) {
+                                        if (sno1 == menu[x2].PARENT_SEQ_NO) {
+
+                                            if (menu[x2].MENU_LEVEL == "3" && NODE_KEY2 == menu[x2].PARENT_KEY && menu[x2].PARENT_SEQ_NO != "0") {
+
+                                                var li3 = $("<li />").appendTo(ul2);
+                                                li3.attr("class", "nav-item");
+                                                var a3 = $("<a />").appendTo(li3);
+                                                a3.attr("class", "nav-link ");
+                                                a3.attr("href", $.trim(menu[x2].W_LINK));
+                                                var i4 = $("<i />").appendTo(a3);
+                                                i4.attr("class", "far fa-circle nav-icon");
+                                                var p1 = $("<p />").appendTo(a3).text($.trim(menu[x2].MENU_NM));
+
+                                            }
+                                        }
+                                    }
+
+
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+                                //var LoadMenuFn = function (Menu, Div) {
+                                //    var lphide = "";
+                                //    var menu = Menu;
+                                //    debugger;
+                                //    $("#" + Div).find("ul").remove();
+                                //    if (menu.length > 0) {
+                                //        var sno = "";
+                                //        var sno1 = "";
+                                //        var NODE_KEY1 = "";
+                                //        var NODE_KEY2 = "";
+                                //        ul = $("<ul />").appendTo($("#" + Div));
+                                //        ul.attr("class", "vertical-nav-menu");
+                                //        for (x in menu) {
+                                //            if (menu[x].MENU_LEVEL == "1" && menu[x].PARENT_SEQ_NO == "0") {
+                                //                sno = menu[x].SEQ_NO;
+                                //                NODE_KEY1 = menu[x].NODE_KEY;
+                                //                var li = $("<li />").appendTo(ul);
+                                //                var a = $("<a />", { href: '#' }).appendTo(li);
+                                //                var i1 = $("<i />").addClass("metismenu-icon pe-7s-diamond").appendTo(a);
+                                //                var i2 = $("<i />").addClass("metismenu-state-icon pe-7s-angle-down caret-left").appendTo(a);
+                                //                var s1 = $("<span />").appendTo(a).text($.trim(menu[x].MENU_NM));
+
+                                //                var ul1 = $("<ul />").appendTo(li);
+                                //                li.attr("id", menu[x].PROGRAM_LINK_ID);
+                                //                ul1.attr("id", menu[x].PROGRAM_LINK_ID + "1");
+                                //                for (x1 in menu) {
+                                //                    if (sno == menu[x1].PARENT_SEQ_NO) {
+                                //                        lphide = "";
+                                //                        if (menu[x1].MENU_LEVEL != "1" && NODE_KEY1 == menu[x1].PARENT_KEY && menu[x1].PARENT_SEQ_NO != "0") {
+                                //                            sno1 = menu[x1].SEQ_NO;
+                                //                            NODE_KEY2 = menu[x1].NODE_KEY;
+                                //                            var li1 = $("<li />").appendTo(ul1);
+                                //                            var a1 = $("<a />", { href: $.trim(menu[x1].W_LINK) }).appendTo(li1);
+                                //                            var i3 = $("<i />").addClass("pe-7s-diamond").appendTo(a1);
+                                //                            var s2 = $("<span />").appendTo(a1).text($.trim(menu[x1].MENU_NM)).addClass('Span_Menu');
+                                //                            li1.attr("id", menu[x1].PROGRAM_LINK_ID);
+                                //                            for (x2 in menu) {
+                                //                                if (sno1 == menu[x2].PARENT_SEQ_NO) {
+                                //                                    if (menu[x2].MENU_LEVEL == "3" && NODE_KEY2 == menu[x2].PARENT_KEY && menu[x2].PARENT_SEQ_NO != "0") {
+                                //                                        if (lphide=="") {
+                                //                                            var ul2 = $("<ul />").appendTo(li1);
+                                //                                            ul2.attr("id", menu[x1].PROGRAM_LINK_ID + '1');
+                                //                                            lphide = 1;
+                                //                                        }
+                                //                                        var i4 = $("<i />").addClass("metismenu-state-icon pe-7s-angle-down caret-left").appendTo(a1);
+                                //                                        var li2 = $("<li />").appendTo(ul2);
+                                //                                        var a2 = $("<a />", { href: $.trim(menu[x2].W_LINK) }).appendTo(li2);
+                                //                                        var i5 = $("<i />").addClass("pe-7s-diamond").appendTo(a2);
+                                //                                        var s3 = $("<span />").appendTo(a2).text($.trim(menu[x2].MENU_NM)).addClass('Span_Menu');
+
+                                //                                    }
+                                //                                }
+
+                                //                            }
+                                //                        }
+                                //                    }
+                                //                }
+                                //            }
+                                //        }
+                                //    }
+                                //}
+    </script>
+
+</body>
+</html>

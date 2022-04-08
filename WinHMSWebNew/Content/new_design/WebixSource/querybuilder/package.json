@@ -1,0 +1,49 @@
+{
+  "_from": "@xbs/querybuilder@7.0.1",
+  "_id": "@xbs/querybuilder@7.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-N4INvgNB9/m4oKJQnEhKJVGS+ZNYOfS4RybVwbYmxcRkHIOS7eK0WywCiJwwe/wP6c/qozYlDVkPfFnSTSjA3A==",
+  "_location": "/@xbs/querybuilder",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@xbs/querybuilder@7.0.1",
+    "name": "@xbs/querybuilder",
+    "escapedName": "@xbs%2fquerybuilder",
+    "scope": "@xbs",
+    "rawSpec": "7.0.1",
+    "saveSpec": null,
+    "fetchSpec": "7.0.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://npm.webix.com/@xbs%2fquerybuilder/-/querybuilder-7.0.1.tgz",
+  "_shasum": "04c1d1b06bbd48f4ba1d5744f4622c77805e1ede",
+  "_spec": "@xbs/querybuilder@7.0.1",
+  "_where": "C:\\Users\\Winsar-Presales",
+  "author": {
+    "name": "XB Software"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Webix UI",
+  "keywords": [
+    "webix",
+    "ui",
+    "widgets"
+  ],
+  "license": "SEE LICENSE IN license.text",
+  "main": "querybuilder.js",
+  "name": "@xbs/querybuilder",
+  "publishConfig": {
+    "registry": "https://npm.webix.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "types/querybuilder.d.ts",
+  "version": "7.0.1"
+}

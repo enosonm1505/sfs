@@ -1,0 +1,5 @@
+12/23/2021 5:19:56 PM
+D:\Hosted\FO_Standalone\WebService\\LogFile\FoTrans.txt
+Error converting data type varchar to numeric.
+Date :12/23/2021 5:19:56 PM
+Error converting data type varchar to numeric.

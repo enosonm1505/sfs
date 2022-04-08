@@ -1,0 +1,49 @@
+{
+  "_from": "@xbs/webix-pro@7.0.1",
+  "_id": "@xbs/webix-pro@7.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-TMMSJ2vZ4pP6VKvGmcf4Yoxs2aW9KB4/OM9XSgxCUQ7JrnJnz/o9NeuzHw+H3cu3PIGg8k9fyFqMvNR3lodgqw==",
+  "_location": "/@xbs/webix-pro",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@xbs/webix-pro@7.0.1",
+    "name": "@xbs/webix-pro",
+    "escapedName": "@xbs%2fwebix-pro",
+    "scope": "@xbs",
+    "rawSpec": "7.0.1",
+    "saveSpec": null,
+    "fetchSpec": "7.0.1"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://npm.webix.com/@xbs%2fwebix-pro/-/webix-pro-7.0.1.tgz",
+  "_shasum": "608e9abb562f42e5fe6576b116cb0cb7606a5f1a",
+  "_spec": "@xbs/webix-pro@7.0.1",
+  "_where": "C:\\Users\\Winsar-Presales",
+  "author": {
+    "name": "XB Software"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Webix UI",
+  "keywords": [
+    "webix",
+    "ui",
+    "widgets"
+  ],
+  "license": "SEE LICENSE IN license.text",
+  "main": "webix.js",
+  "name": "@xbs/webix-pro",
+  "publishConfig": {
+    "registry": "https://npm.webix.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "types/webix.d.ts",
+  "version": "7.0.1"
+}

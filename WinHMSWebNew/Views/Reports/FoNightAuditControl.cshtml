@@ -1,0 +1,767 @@
+﻿@{
+    ViewBag.Title = "Night Audit Control";
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+    //if (ViewBag.VMD == "2") { Layout = "~/Views/Shared/Layout/Fo_ReportLayoutSM.cshtml"; }
+    //else { Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml"; }
+}
+@*<style>
+
+
+
+    .webix_secondary .webix_button:focus, .webix_secondary .webix_button:hover {
+        background-color: #e1e1e1 !important;
+        color: #fff !important;
+    }
+
+    .webix_secondary .webix_button:focus, wc-webixbtn, .webix_secondary .webix_button:hover.wc-webixbtn > webix_button {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+</style>*@
+<div class="content-wrapper" id="ContWrap">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <link href="../../Content/Contribute.css" rel="stylesheet" />
+        <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+        <link href="~/FO/CSS/sidemenu-custom.css" rel="stylesheet" />
+        <div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>
+        </div>
+        <div id="divPage">
+            <div class="container-fluid">
+                <div class="row new_hdr">
+                    @*<div class="logcnt">
+                            <img src="../../Images/Logo.png">
+                        </div>*@
+                    <div class="col-sm-3">
+                        <div class="TextWidth"  id="divPropbox">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-center">
+                        
+                        <label class="wc_hdr_tlt" id="lblRptCaption">Night Audit Control</label>
+                        
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="card-tools text-right">
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class="btnXX"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="border:solid transparent;" class="row">
+                    <div class=" col-xl-4 col-lg-4 col-md-5 col-sm-3">
+
+                    </div>
+
+                    <div class="col-xl-3  col-md-5 col-sm-3 ">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div id="divFrom"></div>
+                            </div>
+                            <div class="col-md-3  pr-0">
+                                <div id="divbtnDisp"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div class="col-xl-3 col-md-4 col-sm-6 pr-0">
+                            <div class="col-md-12">
+                                <div id="dvChkInHouse"></div>
+                                <div id="dvCheckedout"></div>
+                            </div>
+                        </div>*@
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="gridRptt" style="width: 100%; height: 480px"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <input type="hidden" id="Log" />
+
+        <input type="hidden" id="COMPID" />
+        <input type="hidden" id="CURRENCY_FORMAT" />
+        <input type="hidden" id="CURRENCY_DELIMIT" />
+        <input type="hidden" id="CURRENCY_DECIMLIMIT" />
+        <input type="hidden" id="HdnCurrDt" />
+        <input type="hidden" id="HdnCurrMnth" />
+        <input type="hidden" id="HdnAccDt" />
+        <input type="hidden" id="HdnToAccDt" />
+        <input type="hidden" id="HdnAccMnth" />
+        <input type="hidden" id="HdnFrmMnth" />
+        <input type="hidden" id="HdnToMnth" />
+        <input type="hidden" id="HdnYrFrmMnth" />
+        <input type="hidden" id="HdnYrToMnth" />
+               
+        @*Topmenu Style ends*@
+        <style>
+            .Pagefalse {
+                pointer-events: none;
+                opacity: 0.6;
+            }                        
+            .multiline {
+                line-height: 17px !important;
+                position: relative;
+            }
+            
+           
+        </style>
+
+        <script>
+
+            var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+            var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+
+            $(document).ready(function () {
+                debugger;
+                $("#LoadDIv").hide();
+
+                $("#MenuName").val('FOMNUNANGHTCNTROL');   
+                $("#MenuLvl").val('FOMNUNA');	      
+                $("#MenuLvl1").val('');	
+
+
+                webix.ready(function () {
+                    GridDesign();
+
+                    webix.ui({
+                        view: "button", id: "Print", value: "Print", width: 70, container: "divPrint", label: Print, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnGridPrint();
+                            }
+                        }
+
+                    });
+
+                    webix.ui({
+                        view: "button", id: "Excel", value: "Excel", width: 70, container: "divExcel", label: excel, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnExcelExport();
+
+                            }
+                        }
+                    });
+
+
+                    webix.ui({
+                        container: "divFrom", view: "datepicker", label: "For", labelWidth: 50, name: "FromDt", id: "FromDt", format: "%d/%m/%Y", stringResult: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();
+                                var frmdate = $$("FromDt").getValue();
+                                //var todate = $$("ToDt").getValue();
+                                if (frmdate != "") SMFromDateChange();
+                            }
+                        }
+                    });
+
+                    webix.ui({ container: "divbtnDisp", css:"webix_primary",  view: "button", id: "btnDisplay", icon: "wxi-check", label: "Display", inputWidth: 60, width: 60, click: function () { fnbtnDisplay(); } }),
+                    //webix.ui({ container: "dvCheckedout", view: "checkbox", id: "chkCheckedout", labelWidth: 5, labelRight: "Checked Out", customCheckbox: false, click: function () { fnChkComplHUClick(); } }),
+                    //webix.ui({ container: "dvChkInHouse", view: "checkbox", id: "chkInHouse",  labelWidth: 5, labelRight: "InHouse", customCheckbox: false, click: function () { fnChkDtwsClick(); } }),
+
+                    webix.ui({
+                        container: "divPropbox", view: "richselect", id: "Property",//width: 220,//autowidth:true,
+
+                        on: {
+                            onChange: function (NewVal, OldVal) {
+                                if (NewVal != "") {
+                                    debugger;
+                                    $$("gridRpt").clearAll();
+                                    LoadCompChange(NewVal);
+                                }
+                            }
+                        }
+
+                    });
+                    //debugger;
+                    var cmpid= @Html.Raw(Json.Encode(ViewBag.COMP));
+
+                    LoadProperty(cmpid);
+                    $("#gridRptt").show();
+
+                    var propchk = @Html.Raw(Json.Encode(ViewBag.MLTPROPHISHIND));                    
+                    if (propchk == "1") $("#divPropbox").show();
+                    else if (propchk == "0") $("#divPropbox").hide();
+
+
+                });
+
+            });
+
+
+
+            function LoadProperty(cmpid) {
+                debugger;
+                Request = {
+                    REQTYPE: "GET_PROPERTYLOAD",
+                    COMPID: cmpid,
+                }
+                Prop_Id = cmpid;
+                var rowData = [];
+                var options =[];
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            $$("Property").define("options",rowData);
+                            $$("Property").refresh();
+                            $$("Property").setValue(Prop_Id);
+
+                        }
+                    },
+                });
+            };
+
+            function LoadDate(cmpid) {
+                debugger;
+
+                Request = {
+                    REQTYPE: "GET_FRMMNTHTOMNTH",
+                    COMPID: cmpid,
+                }
+
+                var DataVal = JSON.stringify(Request);
+
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+
+                    success: function (data) {
+                        debugger;
+                        var data1 = JSON.parse(data);
+                        var vCurrDt = data1[0].CURRDT.toString().trim();
+                        var vAccDt = data1[0].ACC_DT2.toString().trim();
+                        var vToAccDt = data1[0].TO_ACC_DT2.toString().trim();
+                        var vAccMnth = data1[0].ACC_MNTH.toString().trim();
+                        var vFromMnth = data1[0].FRMMNTH.toString().trim();
+                        var vToMnth = data1[0].TOMNTH.toString().trim();
+
+                        $("#HdnCurrDt").val(vCurrDt);
+                        $("#HdnAccDt").val(vAccDt);
+                        $("#HdnToAccDt").val(vToAccDt);
+                        $("#HdnAccMnth").val(vAccMnth);
+                        $("#HdnFrmMnth").val(vFromMnth);
+                        $("#HdnToMnth").val(vToMnth);
+
+                        var vFromDt = formatDate1(vAccDt);
+                        var vToDt = formatDate1(vToAccDt);
+                        $$("FromDt").setValue(new Date(vFromDt));
+                        //$$("ToDt").setValue(new Date(vToDt));
+
+                    },
+                });
+            };
+            function formatDate1(StrDt) {
+                debugger;
+                var Parts = StrDt.split("/");
+                var Dt = Parts[0];
+                var Mn = Parts[1];
+                var Yr = Parts[2].substring(0, 4);
+                var Str = Yr + "-" + Mn + "-" + Dt;
+                return Str;
+            };
+            function LoadCompChange(CompId) {
+
+                LoadControl(CompId);
+                LoadDate(CompId);
+
+
+            };
+            function LoadCurrDet(vProperty) {
+                //debugger;
+                var rowDatad = [];
+                try {
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/Reports/GetCurrFormatDetails",
+                        data: "CmpId=" + vProperty,
+                        success: function (d) {
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+                                $("#CURRENCY_FORMAT").val(rowDatad.CURRENCY_FORMAT);
+                                $("#CURRENCY_DELIMIT").val(rowDatad.CURRENCY_DELIMIT);
+                                $("#CURRENCY_DECIMLIMIT").val(rowDatad.CURRENCY_DECIMLIMIT);
+                            }
+                        }
+                    });
+
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            function LoadControl(CompId) {
+                //debugger;
+                var rowDatad = [];
+                try {
+                    Request = {
+                        REQTYPE: "GET_FNGETLOADCONT",
+                        COMPID: CompId,
+                    }
+
+                    var rowData = [];
+                    var options =[];
+                    var dataparam = JSON.stringify(Request);
+
+
+
+                    $.ajax({
+                        async: false,
+                        url: "/Reports/FOAPI_CALL",
+                        type: 'POST',
+                        data: "request=" + dataparam,
+                        success: function (d) {
+                            debugger;
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+
+
+                                $("#CURRENCY_FORMAT").val(rowDatad.RA[0].CURRENCY_FORMAT);
+                                $("#CURRENCY_DELIMIT").val(rowDatad.RA[0].CURRENCY_DELIMIT);
+                                $("#CURRENCY_DECIMLIMIT").val(rowDatad.RA[0].CURRENCY_DECIMLIMIT);
+
+
+
+                            }
+                        }
+                    });
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+
+            function GridDesign() {
+                webix.ui({
+                    id: "gridRpt",
+                    container: "gridRptt",
+                    select: 'row',
+                    view: "treetable",
+                    fixedRowHeight: false,
+                    rowLineHeight: 23,
+                    autoConfig: true,
+                    resizeColumn: true,
+                    resizeRow: true,
+                    //height: 460,
+                    position: "flex",
+                    css: "webix_header_border",
+                    data: [],
+                    columns: [
+                            { id: "ixGroup",header: [{text:'',}],  width: 250,  css: { 'text-align': 'left ! important' } },
+                            { id: "ixTrans", header: { text: "Transaction", }, width: 250, css: { 'text-align': 'left ! important' }   },                            
+                            { id: "ixAmt", header: { text: "Amount", }, width: 200, css: { 'text-align': 'right ! important' }   },                            
+                            { id: "ixID", hidden:true,header: { text: "tt", },  },
+                            { id: "CLR", hidden: true },
+                    ],
+
+                    scheme: {
+                        $init: function (item) {
+                            if (item.CLR != "" && item.CLR != null) {
+                                item.$css = item.CLR;
+                            }
+                        },
+                    },
+
+                    on: {
+                        onBeforeClose: function () {
+                            return false;
+                        },
+                        onAfterload: function () {
+                        }
+                    },
+                });
+            };
+
+            function fnCurrFormat(value) {
+
+                var Currfrmt = $("#CURRENCY_FORMAT").val();
+                var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+                var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+            }
+            function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+                // debugger;
+
+                if (value == null) return "";
+
+                if (value.toString() != "") {
+
+
+                    if (Currfrmt == "L") {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+
+                        x = x.toString();
+                        var afterPoint = '';
+                        if (x.indexOf('.') > 0) {
+                            afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                            afterPoint = CurrDelimit + afterPoint
+                        }
+
+
+
+                        x = Math.floor(x);
+                        x = x.toString();
+                        var lastThree = x.substring(x.length - 3);
+                        var otherNumbers = x.substring(0, x.length - 3);
+                        if (otherNumbers != '' && otherNumbers != '-')
+                            lastThree = ',' + lastThree;
+                        return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                    }
+                    else {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+
+                        x = x.toString();
+
+                        //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                        //var res = x.replace(/(\d{3})/g, "1,")
+                        var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                        if (res.indexOf('.') > 0) {
+
+                            res = res.replace(".", CurrDelimit)
+                        }
+
+
+                        return res;
+                    }
+                }
+                else {
+                    return value;
+                }
+            };
+
+        </script>
+
+
+        <script type="text/javascript">  
+            
+            $(document).on('shown.lte.pushmenu', function () {
+                debugger;
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+                    
+                //$("#MenuName").val('');
+                //$("#MenuLvl").val('');
+                //$("#MenuLvl1").val('');
+
+                function resizeAction() {
+                    sidebarFn(1);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+
+            }).on('collapsed.lte.pushmenu', function () {
+                debugger;
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(2);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+            });   
+            function sidebarFn(){
+                debugger;
+                //$$("gridRpt").adjust();
+                $$("gridRpt").resize();
+                //$$("FromDt").resize();
+                //$$("ToDt").resize();
+            };
+
+            function fnExcelExport() {
+                debugger;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+
+                FullData = $$("gridRpt").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.toExcel($$("gridRpt"), {
+                        filename: vHeader,
+                        styles: true,
+                        name: vHeader,
+                        docHeader: vHeader,
+                        rawValues: true,
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+            };
+            function fnGridPrint() {
+                debugger;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+
+                FullData = $$("gridRpt").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.print($$("gridRpt"), {
+                        docHeader: { text: vHeader, fontSize: 25 },
+                        fit: "page",
+                        scroll: false,
+                        mode: "landscape"
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+
+            };
+
+            function fnChkComplHUClick() {
+                ClearGrid();
+            };
+            function fnChkDtwsClick() {
+                ClearGrid();
+
+            };
+
+            function ClearGrid() {
+                $$("gridRpt").clearAll();
+            };
+            function fnbtnDisplay() {
+                debugger;
+                $("#LoadDIv").show();
+                var frmdate = "";
+                var todate = "";
+                var REPTYPE = "";
+                var CHKCOMPLHU = "";
+                ClearGrid();
+
+                var frmdate = $$("FromDt").getText();
+
+                if (frmdate == "") {
+                    webix.message("For Date can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }
+
+
+                var bSucc = "1";
+                var comp = $$("Property").getValue();
+
+
+                if (comp == "") {
+                    webix.message("Property can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }
+                var Request = {
+                    REQTYPE: "GET_FNNIGHTAUDITCONT",
+                    COMPID: comp,
+                    FRMDT:frmdate,
+                    TODT:todate,
+                    ChkCompHU : CHKCOMPLHU,
+                    REPTYPE:REPTYPE
+
+                }
+                var Currfrmt = $("#CURRENCY_FORMAT").val();
+                var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+                var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+                var dataparam = JSON.stringify(Request);
+                $.ajax({
+                    async: true,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + dataparam,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            var rowDatad = JSON.parse(data);
+                            $$("gridRpt").clearAll();
+                            $$("gridRpt").parse(rowDatad);
+                        }
+
+                    },
+                    error: function (err) {
+                        $("#LoadDIv").hide();
+                    },
+                    complete: function () {
+                        debugger;
+                        $("#LoadDIv").hide();
+                    }
+                });
+            };
+            function formatDate(StrDt) {
+                //debugger;
+                var Parts = StrDt.split(" ");
+                var MN = FnRetMonth(Parts[0]);
+                var YR = Parts[1];
+                var Str = "01" + "/" + MN + "/" + YR;
+                return Str;
+            };
+
+            function ExcelFormat() {
+                debugger;
+                return //"#,##0.00",
+            };
+
+            
+
+            function SMToDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+                var sFrmDt = $$("ToDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                var bSucc = "1";
+
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+
+
+                if (todate == "") {
+                    webix.message("To Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("ToMthDate").setValue(FrmMnth);
+                            var vToDt = formatDate1(sFrmDt);
+                            $$("FromDt").setValue(new Date(vToDt));
+                            //bSucc = "0";
+                        }
+                    }
+                });
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + todate  + "&T=" + vAccDt,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("FromDt").setValue(vAccDt);
+                            var vFromDt = formatDate1(vAccDt);
+                            $$("ToDt").setValue(new Date(vFromDt));
+
+
+                            //bSucc = "0";
+                        }
+                    }
+                });
+
+                
+            };
+
+
+            function SMFromDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getText();
+                ///var todate = $$("ToDt").getText();
+                var sFrmDt = $$("FromDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                var bSucc = "1";
+
+                if (frmdate == "") {
+                    webix.message("For Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate  + "&T=" +  vAccDt,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("FromDt").setValue(vAccDt);
+                            var vFromDt = formatDate1(vAccDt);
+                            $$("FromDt").setValue(new Date(vFromDt));
+
+
+                            //bSucc = "0";
+                        }
+                    }
+                });                
+
+            };
+
+
+        </script>
+    </section>
+</div>>
+

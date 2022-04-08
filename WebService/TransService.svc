@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SPAService.TransService" CodeBehind="TransService.svc.cs" %>

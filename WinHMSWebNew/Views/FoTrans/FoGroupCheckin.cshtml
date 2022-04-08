@@ -1,0 +1,707 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_FoComLayout.cshtml";
+}
+<style>
+    .webix_button {
+        background-color: #dad6d6 !important;
+        color: #454545 !important;
+    }
+
+
+    .webix_secondary .webix_button:focus, .webix_secondary .webix_button:hover {
+        color: #fff !important;
+        background-color: #1a388a !important;
+    }
+
+    webix_secondary .webix_button:active {
+        color: #fff !important;
+        background-color: #1a388a !important;
+    }
+
+    .new_hdr {
+        background: rgba(220, 239, 252,0.15);
+        -webkit-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        -moz-box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        box-shadow: 0px 10px 5px -9px rgba(0,0,0,0.25);
+        padding: 10px 0px 9px 10px;
+        margin-top: 40px !important;
+    }
+
+    label:not(.form-check-label):not(.custom-file-label) {
+        font-weight:normal;
+    }
+    .webix_el_label .webix_el_box, .webix_inp_label, .webix_inp_top_label, legend.webix_forminput_label {
+        color: #313131;
+        font-family: Roboto,sans-serif;
+        font-size: 9pt;
+        font-weight: 500;
+        letter-spacing: .2px;
+    }
+
+    .btn {
+        border-radius: 5px !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid #cecece !important;
+        margin-bottom: 5px !important;
+        width: 35px !important;
+    }
+
+    .btn-box-tool {
+        padding: 2px !important;
+        font-size: 14px !important;
+        background: transparent !important;
+        color: #4993a9 !important;
+    }
+
+</style>
+<link href="~/Content/sidemenu-custom.css" rel="stylesheet" />
+<script src="~/Scripts/WebixCommon/Common/GroupResJs.js"></script>
+<div class="content-wrapper">
+    <section class="container-fluid" style="margin-top: 10px;" ng-app="GrupChkIn" ng-controller="CheckinController" id="GrupChkin">
+
+        <div class="row new_hdr">
+
+
+
+            <div class="col-sm-3"><div webix-ui="ddlProperty"></div></div>
+            <div class="col-sm-5 text-center">
+                <label class="mt-1" style="color: black; font-weight: bold;" id="lblgrupCaption"><strong class="mt-1 wc_hdr_tlt">Group Checkin </strong></label>
+            </div>
+            <div class="col-sm-4 text-right">
+                <button type="button" class="btn btnButton" style="display:none;" data-toggle="tooltip" title="New" id="btnAdd">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button type="button" class="btn btnButton" data-toggle="tooltip" title="Open" id="btnModify">
+                    <span class="far fa-folder-open"></span>
+                </button>
+                <button type="button" class="btn btnButton" style="display:none;" data-toggle="tooltip" title="View" id="btnView">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <button type="button" style="display:none;" class="btn btnButton" data-toggle="tooltip" title="Delete" id="btnDelete">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+                <button type="button" class="btn btnButton" data-toggle="tooltip" title="Save" id="btnSave">
+                    <span class="far fa-save"></span>
+                </button>
+                <button type="button" class="btn btnButton" data-toggle="tooltip" title="Refresh" id="btnrefresh">
+                    <span class="fas fa-sync-alt"></span>
+                </button>
+                <button type="button" class="btn btnButton" style="display:none;" data-toggle="tooltip" title="Refresh" id="btnRmSave">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+
+
+            <div class="col-sm-12">
+                                            <div class="">
+                                                <div style="border:solid transparent" class="row">
+                                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 pr-0">
+                                                        <div class="row">
+                                                            <div class="col-auto p-0">
+                                                                <label class="control-label">Group</label>
+                                                            </div>
+                                                            <div class="col-md-8 pr-0">
+                                                                <div style="width:160px;" webix-ui="txtGroup" id="WebixtxtGroup"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 pr-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6 p-0">
+                                                                <label class="control-label" style="width: 86px;text-align: right;">Res No</label>
+                                                            </div>
+                                                            <div class="col-md-6 p-0">
+                                                                <div style="width:70px;" webix-ui="txtResNo" id="WebixtxtResNo"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="row">
+                                                            <div class="col-6 pr-0">
+                                                                <label class ="control-label">Arrival Date</label>
+                                                            </div>
+                                                            <div class="col-6 p-0">
+                                                                <div  webix-ui="txtArrDt" id="WebixtxtArrDt"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 pr-0">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <label class="control-label" style="width:70px;">Time</label>
+                                                            </div>
+                                                            <div class="col-md-6 p-0 ">
+                                                                <div style="width:80px;" webix-ui="txtArrTm" id="WebixtxtArrTm"></div>
+
+                                                            </div>
+                                                            <div class="col-md-3 p-0 ">
+                                                                <img src="~/Images/filter.png" style="height: 25px;margin-top: 3px;" class="btn btn-box-tool" alt="Filter" title="Filter" id="btnfilter">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 pl-0">
+                                                        <div class="row">
+                                                            <div class="col-md-6 ">
+
+                                                                <label class="control-label" style="margin-top: 20px;">Total Room</label>
+
+                                                            </div>
+
+
+                                                            <div class="col-md-3 pl-0 pr-0">
+                                                                <label class="control-label" style="font-size: 10px;">Reserved#</label>
+                                                                <div style="margin-top: -8px;" webix-ui="txtResTotRm" id="WebixtxtResTotRm"></div>
+
+
+                                                            </div>
+
+                                                            <div class="col-md-3 pl-1 pr-0">
+
+                                                                <label class="control-label" style="font-size: 10px;">Alloted#</label>
+                                                                <div style="margin-top: -8px;" webix-ui="txtAlTotRm" id="WebixtxtAlTotRm"></div>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12  ">
+                                                        <div class="row">
+                                                            <div class="col-md-6 ">
+
+
+                                                                <label class="pl-1 control-label" style="margin-top: 20px;">Total Pax</label>
+                                                            </div>
+
+
+                                                            <div class="col-md-3 pl-0 pr-0">
+                                                                <label class="control-label" style="font-size: 10px;">Reserved#</label>
+
+                                                                <div style="margin-top: -8px;" webix-ui="txtResTotPax" id="WebixtxtResTotPax"></div>
+                                                            </div>
+
+                                                            <div class="col-md-3 pl-1 pr-0">
+
+                                                                <label class="control-label" style="font-size: 10px;">Alloted#</label>
+
+                                                                <div style="margin-top: -8px;" webix-ui="txtAlTotPax" id="WebixtxtAlTotPax"></div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12  bg-white p-3">
+                                                        <div class="tab-content " id="myTabContent">
+                                                            <div class="tab-pane fade show active" id="Details" role="tabpanel" aria-labelledby="home-tab">
+                                                                <div class="row">
+                                                                    <div class="col-md-12 col-lg-12">
+                                                                        <div style="height: 100%">
+                                                                            <div id="GvGrupChkin" style="height: 480px; width: 100%;"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div style="display:none;">
+                                                        <div webix-ui="GvGrupChkinTemp" style="height:250px;width: 100%;"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal fade" id="Divfilter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+                                                    <div class="modal-dialog model-sm">
+                                                        <div class="modal-content" >
+                                                            <div class="modal-header">
+                                                                <h6 class="modal-title col-md-11 col-lg-11 text-center text-bold " id="myModalLabel">Filter</h6>
+                                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">close</span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-4">
+                                                                        <label class="control-label">Guest Name</label>
+                                                                    </div>
+                                                                    <div class="col-md-2 ">
+                                                                        <input type="text" class="form-control" id="txtGstFilter" data-id="" style="width: 200px; margin-left: 5px;" placeholder="Guest Name">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4" style="margin-left: 80%;">
+                                                                <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Ok" id="btnok">
+                                                                    <i class="webix_icon_btn wxi-check"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="modal fade" id="DivGroupSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+                                                    <div class="modal-dialog model-sm">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h6 class="modal-title col-md-11 col-lg-11 text-center text-bold" id="myModalLabel">Group</h6>
+                                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">close</span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-12 col-lg-12">
+                                                                        <div style="height: 100%">
+                                                                            <div webix-ui="GvGroup" class="GvGroup" style=" height: 450px; width: 100%; "></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal fade" id="DivAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content ">
+                                                            <div class="modal-header">
+                                                                <h6 class="modal-title">
+                                                                    <asp:Label ID="lblModalTitle" runat="server" Text="Alert"></asp:Label>
+                                                                </h6>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <asp:Label ID="lblAlertPop1" runat="server" Text=""></asp:Label>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Ok" id="btnalrtok">
+                                                                    <i class="fa fa-check"></i>
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                      
+                          
+
+
+
+
+            </div>
+
+
+        </div>
+       
+
+    </section>
+</div>
+<input type="hidden" id="D2No" />
+<input type="hidden" id="RNO" />
+<input type="hidden" id="hdnvRoomTy" />
+<input type="hidden" id="hdnArrTm" />
+<input type="hidden" id="hdnDeptdt" />
+<input type="hidden" id="hdnDeptTm" />
+<input type="hidden" id="hndvResNo" />
+<input type="hidden" id="hdnArrdt" />
+<input type="hidden" id="hdnvUpDt" />
+<input type="hidden" id="hdnBlockSno" />
+<input type="hidden" id="hdnOldRoomNo" />
+<input type="hidden" id="hdnOldBlkSno" />
+<input type="hidden" id="hdnNewRoomNo" />
+
+<input type="hidden" id="hdnCheckinRms" />
+<input type="hidden" id="hdnCheckinPax" />
+<input type="hidden" id="hdnAdult" />
+<input type="hidden" id="hdnChild" />
+<input type="hidden" id="hdnChild2" />
+<input type="hidden" id="hdnChild3" />
+<input type="hidden" id="hdnGstId" />
+<input type="hidden" id="hdnRooms" />
+<input type="hidden" id="hdnGstSno" />
+
+<input type="hidden" id="hdnproperty" />
+<style>
+
+    /*  .webix_dtable_focused .webix_column > div.webix_column_select, .webix_dtable_focused .webix_column > div.webix_row_select {
+        background: none !important;
+    }
+
+    .webix_column > div:nth-child(2n) {
+        background: none !important;
+    }
+
+    .webix_dtable_focused .webix_column > div.webix_row_select {
+        background: none !important;
+    }*/
+
+    .my_style {
+        font-weight: bold;
+        text-align: center !important;
+    }
+
+    .Vacant {
+        background-color: #C0FFFF !important;
+        z-index: 100;
+        color: #475466;
+    }
+
+    .occupied {
+        background-color: #80FF80 !important;
+        color: #475466;
+    }
+
+    .inspect {
+        background-color: #D9DB95 !important;
+        color: #475466;
+    }
+
+    .Dirty {
+        background-color: #CD9D94 !important;
+        color: #475466;
+    }
+
+    .Vacant1 {
+        background-color: #80FF80 !important;
+        color: #475466;
+        z-index: 100;
+    }
+
+    .occupied1 {
+        background-color: #FF0000 !important;
+        color: #475466;
+    }
+
+    .inspect1 {
+        background-color: #D9DB95 !important;
+        color: #475466;
+    }
+
+    .Dirty1 {
+        background-color: #FFFF00 !important;
+        color: #475466;
+    }
+
+    .whitecolor {
+        background-color: #F0F0F0 !important;
+        color: #475466;
+    }
+
+    .displaynone {
+        display: none;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+
+
+        $("#LoadBar").show();
+        $("#LayOutBtn").hide();
+        $("#LayoutText").text('Group Checkin');
+        // $("#LayoutText").text("Group Checkin");
+       // $("#LayOutImg").addClass("fa fa-users");
+        $("#LoadBar").hide();
+        GrpCheckinFn();
+        $("#btnrefresh").click();
+        $("#btnModify").click();
+
+    });
+    $(document).on('shown.lte.pushmenu', function () {
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(1);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+      
+    }).on('collapsed.lte.pushmenu', function(){
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(2);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+    });
+    function  GrpCheckinFn(){
+        var searchicon = "<span class='webix_icon_btn wxi-search'></span>";
+        webix.ui({
+        view: "datatable",
+        id: "GvGrupChkin",
+        container:'GvGrupChkin',
+        select: "row",
+        data: [],
+        height: 450,
+        minWidth: 900,
+        columns: [
+            { header: "Res.No", id: "R_NO",  css: { 'text-align': 'center ! important' } },
+            { header: "Seq.no#", id: "GUEST_SNO",  css: { 'text-align': 'center ! important' } },
+            { header: "Title", id: "GUEST_INFORM_NM",  css: { 'text-align': 'center ! important' } },
+            { header: ["Last Name", ], id: "C2_N2", css: { 'text-align': 'left ! important' } },
+            { header: ["First Name", ], id: "C2_N1",  css: { 'text-align': 'left ! important' } },
+            { header: ["Company Name", ], id: "GUEST_PARTY_NM", css: { 'text-align': 'left ! important' } },
+            { header: "Pax", id: "CHECK_IN_PAX",  css: { 'text-align': 'center ! important' } },
+            { header: "Departure", id: "DEP_DT",  css: { 'text-align': 'center ! important' } },
+            { header: "Time", id: "DEPARTURE_TM",  css: { 'text-align': 'center ! important' } },
+            { header: "Room Type", id: "ROOM_TY_NM", css: { 'text-align': 'center ! important' } },
+            { header: "Billing inst", id: "REM1", hidden: true  },
+            { header: "Ref.No", id: "O_NM", hidden: true},
+            { header: "RoomNo", id: "BLOCK_ROOM_NO1",  cssFormat: BgClr, css: 'my_style' },
+            { //header: "", id: "ICON", width: 30, template: searchicon, css: { 'text-align': 'center ! important', 'padding': '0px ! important' } },
+                header: "", id: "ICON", header: { text: "", }, editor: "searchicon",  css: { 'text-align': 'center ! important', 'padding': '0px ! important' },
+                template: function (obj, common, value, config) {
+                    debugger;
+                    if (obj.CHKBOX == "1") return searchicon;
+                    else return "";
+                }
+            },
+            { header: "Select Pax", id: "SELPAX",  template: "{common.checkbox()}" , css: { 'text-align': 'center ! important' } },
+            //{ header: "Select", id: "SELECT", width: 50, template: "{common.checkbox()}" , css: { 'text-align': 'center ! important' } },
+            {
+                header: "Select", id: "SELECT", header: { text: "Select", }, editor: "Checkbox", width:100, css: "check_box",
+                template: function (obj, common, value, config) {
+                    debugger;
+                    if (obj.CHKBOX == "1") return common.checkbox(obj, common, value, config);
+                    else return "";
+                }
+            },
+            { header: "RoomNo1", id: "BLOCK_ROOM_NO", hidden: true },
+            { header: "Htitle", id: "GUEST_TITLE_ID", hidden: true },
+            { header: "h", id: "UPDATE_DT", hidden: true },
+            { header: "he1", id: "RATE_TY_ID", hidden: true },
+            { header: "he2", id: "TARIFF_DISC_PER", hidden: true },
+            { header: "he3", id: "PLAN_DISC_PER", hidden: true },
+            { header: "h1", id: "GUEST_STATUS_ID", hidden: true },
+            { header: "h2", id: "PLAN_AMT", hidden: true },
+            { header: "h3", id: "RESERVE_NO", hidden: true },
+            { header: "h4", id: "ROOM_TY_ID", hidden: true },
+            { header: "h5", id: "PAX", hidden: true },
+            { header: "h6", id: "CHILD", hidden: true },
+            { header: "h7", id: "ARRIVAL_DT", hidden: true },
+            { header: "h7ARR", id: "ARR_DT", hidden: true },
+            { header: "h8", id: "DEPARTURE_DT", hidden: true },
+            { header: "h9", id: "SH_IND", hidden: true },
+            { header: "h10", id: "A3_NO", hidden: true },
+            { header: "h11", id: "BLOCK_SNO", hidden: true },
+            { header: "h12", id: "CHECK_IN_RMS", hidden: true },
+            { header: "h13", id: "RESERVE_ROOMS", hidden: true },
+            { header: "h14", id: "RM_BLK_NO", hidden: true },
+            { header: "h15", id: "REGN_ID", hidden: true },
+            { header: "h16", id: "CURRENCY_ID", hidden: true },
+            { header: "h17", id: "UPDATE_DT", hidden: true },
+            { header: "h18", id: "GUEST_TY_ID", hidden: true },
+            { header: "h19", id: "PLAN_ID", hidden: true },
+            { header: "h20", id: "ADULT", hidden: true },
+            { header: "h21", id: "CH_2", hidden: true },
+            { header: "h22", id: "CH_3", hidden: true },
+            { header: "h23", id: "CHECK_IN_PAX", hidden: true },
+            { header: "h25", id: "GUEST_NM", hidden: true },
+            { header: "h26", id: "G_ID", hidden: true },
+            { header: "h26", id: "ARRIVAL_TM", hidden: true },
+            { header: "h27", id: "COLOR_CODE", hidden: true },
+            { header: "h28", id: "ROOM_STATUS_IND", hidden: true },
+            { header: "h29", id: "COLOR_CODE_IND", hidden: true },
+            { header: "h30", id: "CHKBOX", hidden: true },
+        ],
+        on: {
+            'onItemClick': function (id) {
+                var getval = this.getItem(id.row);
+                if (id.column == 'ICON' && getval.CHKBOX == "1") {
+                    debugger;
+                    $("#hdnvRoomTy").val(getval.ROOM_TY_ID);
+                    $("#hdnArrTm").val(getval.ARRIVAL_TM);
+                    $("#hdnDeptdt").val(getval.DEP_DT);
+                    $("#hdnDeptTm").val(getval.DEPARTURE_TM);
+                    $("#hndvResNo").val(getval.RESERVE_NO);
+                    $("#hdnArrdt").val(getval.ARR_DT);
+                    $("#hdnBlockSno").val(getval.BLOCK_SNO);
+                    $("#hdnOldRoomNo").val(getval.BLOCK_ROOM_NO);
+                    $("#hdnOldBlkSno").val(getval.BLOCK_SNO);
+                    $("#hdnvUpDt").val(getval.UPDATE_DT);
+                    $("#hdnCheckinRms").val(getval.CHECK_IN_RMS);
+                    $("#hdnCheckinPax").val(getval.CHECK_IN_PAX);
+                    $("#hdnAdult").val(getval.ADULT);
+                    $("#hdnChild").val(getval.CHILD);
+                    $("#hdnChild2").val(getval.CH_2);
+                    $("#hdnChild3").val(getval.CH_3);
+                    $("#hdnGstId").val(getval.G_ID);
+                    $("#hdnRooms").val(getval.RESERVE_ROOMS);
+                    var propId = $$("ddlProperty").getValue();
+                    //var Srch = "http://localhost:50172/FoMstAllRoom.aspx?vRmTy=CT&vFrmDt=04/02/2020&VFrmTm=23:59&vToDt=06/02/2020&VToTm=15:00&VProp=WS&VForm=RMA&GROWID=";
+                    //var Srch = "http://localhost:1001/FoMstAllRoom.aspx?vRmTy=" + getval.ROOM_TY_ID + "&vFrmDt=" + getval.ARR_DT + "&VFrmTm=" + getval.ARRIVAL_TM + "&vToDt=" + getval.DEP_DT + "&VToTm=" + getval.DEPARTURE_TM + "&VProp=" + propId+"&VForm=RMW&GROWID=";
+                    var Srch = "/FO/FoMstAllRoom.aspx?vRmTy=" + getval.ROOM_TY_ID + "&vFrmDt=" + getval.ARR_DT + "&VFrmTm=" + getval.ARRIVAL_TM + "&vToDt=" + getval.DEP_DT + "&VToTm=" + getval.DEPARTURE_TM + "&VProp=" + propId + "&VForm=RMA&GROWID=";
+                    window.open(Srch, '_new', 'width=800px,height=480,scrollbars=no,top=180,left=\'+Mleft+\'', 0);
+
+                }
+            },
+            'onCheck': function (rowId, colId, status) {
+                debugger;
+                if (colId == 'SELECT') {
+                    var getval = this.getItem(rowId);
+                    debugger;
+                    if (status == '1') {
+                        var value = getval.RESERVE_NO;
+                        var dataval = this.serialize();
+                        for (i = 0; i < dataval.length; i++) {
+                            var value = getval.RESERVE_NO;
+                            if (dataval[i].RESERVE_NO == getval.RESERVE_NO) {
+                                dataval[i].SELECT = '1';
+                                dataval[i].SELPAX = '1';
+                            }
+                        }
+
+                    }
+                    else {
+                        var value = getval.RESERVE_NO;
+                        var dataval = this.serialize();
+                        for (i = 0; i < dataval.length; i++) {
+                            var value = getval.RESERVE_NO;
+                            if (dataval[i].RESERVE_NO == getval.RESERVE_NO) {
+                                dataval[i].SELECT = '0';
+                                dataval[i].SELPAX = '0';
+                            }
+                        }
+                    }
+
+                    this.refresh();
+                }
+            }
+        }
+        });
+    }
+
+    function  sidebarFn(val){
+        //var rowDatad = $$("GvGrupChkin").serialize();
+
+        //if ($$("GvGrupChkin"))
+        //    $$("GvGrupChkin").destructor();
+
+        //GrpCheckinFn();
+
+        //$$("GvGrupChkin").clearAll();
+        //$$("GvGrupChkin").parse(rowDatad);
+        $$("GvGrupChkin").resize();
+    }
+    $("#btnAdd").click(function () {
+        CntrlProcess(".ContainerPage", 'E', '', 'C');
+        debugger;
+
+        fnBtnNewprocess();
+        $("#btnModify").removeClass("btnButtonClick");
+        $("#btnAdd").addClass("btnButtonClick");
+        $("#btnrefresh").removeClass("btnButtonClick");
+        $("#btnSave").removeClass("btnButtonClick");
+        $("#btnDelete").removeClass("btnButtonClick");
+        $("#btnView").removeClass("btnButtonClick");
+        $$("ddlProperty").enable();
+        $$("txtGroup").enable();
+        //$("#ddlProperty").prop("disabled", false);
+        //$("#txtGroup").prop("disabled", false);
+    });
+    $("#btnModify").click(function () {
+        CntrlProcess(".ContainerPage", 'E', '', 'C');
+        var Prop_Id =  @Html.Raw(Json.Encode(ViewBag.COMP));
+        $$('ddlProperty').setValue(Prop_Id);
+        fnBtnOpenprocess();
+        fnLoadArrDet();
+        $$('ddlProperty').enable();
+        $("#btnModify").addClass("btnButtonClick");
+        $("#btnAdd").removeClass("btnButtonClick");
+        $("#btnrefresh").removeClass("btnButtonClick");
+        $("#btnSave").removeClass("btnButtonClick");
+        $("#btnDelete").removeClass("btnButtonClick");
+        $("#btnView").removeClass("btnButtonClick");
+        $$("txtGroup").enable();
+       // $$("txtfilter").enable();
+    });
+    $("#btnView").click(function () {
+        CntrlProcess(".ContainerPage", 'E', '', 'C');
+        fnBtnViewprocess();
+        $$('ddlProperty').enable();
+        $("#btnModify").removeClass("btnButtonClick");
+        $("#btnAdd").removeClass("btnButtonClick");
+        $("#btnrefresh").removeClass("btnButtonClick");
+        $("#btnSave").removeClass("btnButtonClick");
+        $("#btnDelete").removeClass("btnButtonClick");
+        $("#btnView").addClass("btnButtonClick");
+        $$('txtGroup').disable();
+    });
+    $("#btnDelete").click(function () {
+        CntrlProcess(".ContainerPage", 'E', '', 'C');
+        $$('ddlProperty').enable();
+        $("#btnModify").removeClass("btnButtonClick");
+        $("#btnAdd").removeClass("btnButtonClick");
+        $("#btnrefresh").removeClass("btnButtonClick");
+        $("#btnSave").removeClass("btnButtonClick");
+        $("#btnDelete").addClass("btnButtonClick");
+        $("#btnView").removeClass("btnButtonClick");
+    });
+    $("#btnrefresh").click(function () {
+        CntrlProcess(".ContainerPage", 'E', '', 'C');
+        fnBtnRefreshprocess();
+        $("#btnModify").removeClass("btnButtonClick");
+        $("#btnAdd").removeClass("btnButtonClick");
+        $("#btnrefresh").addClass("btnButtonClick");
+        $("#btnSave").removeClass("btnButtonClick");
+        $("#btnDelete").removeClass("btnButtonClick");
+        $("#btnView").removeClass("btnButtonClick");
+        //$("#ddlProperty").prop("disabled", true);
+        //$("#txtGroup").prop("disabled", true);
+        $$("ddlProperty").enable();
+        $$("txtGroup").disable();
+
+        window.location.reload();
+    });
+    $("#btnfilter").click(function () {
+        $('#Divfilter').modal('show');
+    });
+
+    $("#btnok").click(function () {
+        fnloadmaingrid1();
+        $('#Divfilter').modal('hide');
+    });
+
+    //$$("ddlProperty").attachEvent("onChange", function (newv, oldv) {
+    //$("#ddlProperty").change(function () {
+    //    debugger;
+    //    fnLoadArrDet();
+    //    fnloadmaingrid();
+    //});
+
+    $("#btnRmSave").click(function () {
+        debugger;
+        // $("#hdnNewRoomNo").val("102");
+        fnsaveselrooms();
+        fnloadmaingrid();
+    });
+
+    $("#btnSave").click(function () {
+        CntrlProcess(".ContainerPage", 'E', '', 'C');
+        //fnBtnRefreshprocess();
+        $$('ddlProperty').enable();
+        $("#btnModify").removeClass("btnButtonClick");
+        $("#btnAdd").removeClass("btnButtonClick");
+        $("#btnrefresh").removeClass("btnButtonClick");
+        $("#btnDelete").removeClass("btnButtonClick");
+        $("#btnView").removeClass("btnButtonClick");
+        fncheckin();
+        //$("#btnSave").addClass("btnButtonClick");
+    });
+
+
+</script>

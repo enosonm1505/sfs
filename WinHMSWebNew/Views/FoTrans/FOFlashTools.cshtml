@@ -1,0 +1,1201 @@
+﻿@{
+    ViewBag.Title = "Flash";
+      //if (ViewBag.VMD == "2") { Layout = "~/Views/Shared/Layout/FO_LayoutSM.cshtml"; }
+    //else
+    //{ Layout = "~/Views/Shared/_FoTransLayout.cshtml"; }
+    Layout = "~/Views/Shared/_FoComLayout.cshtml";
+}
+
+
+<link href="~/FO/CSS/GuestProfPop.css" rel="stylesheet" />
+<link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+<link href="~/Content/sidemenu-custom.css" rel="stylesheet" />
+<link href="../../FO/CSS/RoomSrchCss.css" rel="stylesheet" />
+
+<link href="~/Content/FoCss/FlashTool.css" rel="stylesheet" />
+
+<script src="~/Scripts/JSFoCommon/FoFlashTools.js"></script>
+<script src="~/Scripts/JSFoCommon/FlashToolFun.js"></script>
+
+@*<link href="../../Content/RoomChartFoCss.css" rel="stylesheet" />*@
+<link href="../../Content/ExpressPopCss.css" rel="stylesheet" />
+<link href="../../FO/CSS/RoomPosPop.css" rel="stylesheet" />
+<link href="../../FO/CSS/TarEditPop.css" rel="stylesheet" />
+<link href="../../FO/CSS/FOPakage.css" rel="stylesheet" />
+<link href="../../FO/CSS/FoGstBillDet.css" rel="stylesheet" />
+@*<script src="~/FO/javascript/FoGuestProfPop.js"></script>*@
+@*<script type="text/javascript" src="../../FO/javascript/FoRoomSrch.js"></script>*@
+@*<script src="~/FO/javascript/FoAutoAlocationRooms.js"></script>*@
+
+
+<script type="text/javascript" src="../../Scripts/ExpressPopup.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoRoomSrch.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoGuestProfPop.js"></script>
+<script type="text/javascript" src="../../FO/javascript/RoomPositionPop.js"></script>
+<script type="text/javascript" src="../../FO/javascript/TarrifEditPop.js"></script>
+<script type="text/javascript" src="../../FO/javascript/RoutingPopupTC.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoNewGstCreate.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoPackage.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoTrvAgentSearch.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoGroupSearch.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoAutoAlocationRooms.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoGuestVisitPop.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoGuestPickupDrop.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoRateCodeSrch.js"></script>
+<script src="~/FO/javascript/FoResAmendAuditDet.js"></script>
+<script type="text/javascript" src="../../FO/javascript/FoGuestBillDet.js"></script>
+
+<style>
+    .webix_warning .webix_button {
+        background-color: #ffc107!important;
+        color: #5a0000!important;
+        font-size: 14px;
+    }
+        .webix_warning .webix_button:focus, .webix_warning .webix_button:hover {
+            color: #5a0000 !important;
+            background-color: #ffc107 !important;
+        }
+    label:not(.form-check-label):not(.custom-file-label) {
+        font-weight: 100 !important;
+        /* padding-left: 5px; */
+        vertical-align: 0px;
+    }
+    divOccupDity .webix_dtable {
+        cursor: default;
+        position: relative;
+        z-index: 0;
+    }
+    /*.my_style{width:500px;float:left;border:solid 2px;}*/
+    /*.webix_popup {
+        z-index: 160 !important;
+    }
+    .webix_popup {
+        z-index: 160 !important;
+    }*/
+
+    .webix_column > div.webix_cell_select:nth-child(2n), .webix_column > div.webix_cloumn_select:nth-child(2n), .webix_column > div.webix_row_select:nth-child(2n) {
+        background-color: #ffffff !important;
+    }
+    .optHeight .webix_radio_option {
+        height: 20px;
+    }
+
+    .SubHeadLbl .webix_el_box {
+        font-weight: bold !important;
+        text-decoration: underline;
+        font-size: 14px !important;
+    }
+    /*#txtSAccDt > .webix_inp_static, .webix_el_colorpicker input, .webix_el_combo .webix_inp_static, .webix_el_combo input, .webix_el_datepicker .webix_inp_static, .webix_el_datepicker input, .webix_el_richselect .webix_inp_static, .webix_el_richselect input, .webix_el_search .webix_inp_static, .webix_el_search input {
+        border-color: #0798af !important;
+        color:#454545!important;
+    }*/
+    .grdMnthRmPos .webix_ss_header, .webix_ss_header td, .grdMnthRmPos .webix_ss_vscroll_header {
+        color: white !important;
+        background-color: transparent !important;
+    }
+
+    /*.inhs_gst, .webix_column > div:nth-child(2n) {background-color: none!important;}*/
+    .webix_column > div:nth-child(2n) {
+    background-color: #fff!important;
+}
+
+
+
+</style>
+
+<input type="hidden" id="hdnCompId" />
+<input type="hidden" id="hdnColCodeIndF" />
+<input type="hidden" id="hdnAccountDt" />
+<input type="hidden" id="hdnCurrentDt" />
+<input type="hidden" id="RmPosViewId" />
+<input type="hidden" id="hdnClkBtnId" />
+<input type="hidden" id="ChkRmStsPM" />
+<input type="hidden" id="ChkRmStsSeq" />
+<input type="hidden" id="RoomPosStDt" />
+<input type="hidden" id="RmFeatids" />
+<input type="hidden" id="RmFilter" />
+<input type="hidden" id="RmBuildid" />
+<input type="hidden" id="vFrmRm" />
+<input type="hidden" id="vToRm" />
+<input type="hidden" id="VType" />
+<input type="hidden" id="Filterhead">
+<input type="hidden" id="CURRENCY_FORMAT" />
+<input type="hidden" id="CURRENCY_DELIMIT" />
+<input type="hidden" id="CURRENCY_DECIMLIMIT" />
+<input type="hidden" id="Upgrade_ind" />
+<input type="hidden" id="ConnStr">
+<input type="hidden" id="UserId">
+<input type="hidden" id="hdnA26_ind">
+<input type="hidden" id="VV_IND">
+
+<div class="content-wrapper">
+    <div ng-app="FOTApp" ng-controller="FoTransController" id="FOFlash">
+
+        <div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 45%; top: 45%; height: 100px; width: 100px;" />
+            </div>
+        </div>
+
+        <div class="new_hdr">
+            <div class="page-title-wrapper">
+                <div class="col-xl-12">
+                    <div class="row">
+                        <div class="col-xl-3 col-sm-5 col-md-4 mbl_pb">
+                            <div id="ddlPropertyCont"></div>
+                        </div>
+                        <div class="col-xl-3 col-sm-3 col-md-3 pl-3 mbl_alg mbl_pb mbl_pl mbl_pr text-center">
+                            <i id="LayOutImg" style="width:35px;" class="ViewBag.Icon"></i> <span id="LayoutText" style="font-weight:bold; font-size: 18px;"></span>
+                        </div>
+
+                        <div class="col-xl-6 col-sm-6 col-md-6 text-right mbl_alg">
+                            <div class="text-right mbl_center">
+                                <button type="button" class="wc_hdr_btn1 hdr_active" title="Room Status" id="btnRoomSts">Room Status</button>
+                                <button type="button" class="wc_hdr_btn1 hdr_active" title="InHouse Guest" id="btnInHouseGst">InHouse Guest </button>
+                                <button type="button" class="wc_hdr_btn1 hdr_active" title="Room Position" id="btnRoomPos">Room Position</button>
+                                <button type="button" class=" wc_hdr_btn1 hdr_active" title="Exp.Arrival" id="btnExpArr">Exp.Arrival</button>
+                                <button type="button" class="wc_hdr_btn1 hdr_active" title="Exp.Depart" id="btnExpDepart">Exp.Depart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div id="ContRmStatusInfo" style="float:left;width:100%;padding-top:10px;">
+                    <div style="width:55%;float:left">
+                        <div class="row mt-2">
+                        <div style="float:left;width:10px;">
+                            &nbsp;
+                        </div>
+                        <div style="float:left;width:130px;">
+                            <div webix-ui="ChkSequence"></div>
+                        </div>
+                        <div style="float:left;width:75px;">
+                            <div webix-ui="ChkPM1"></div>
+                        </div>
+                        <div style="float:left;width:95px;">
+                            <div webix-ui="ChkRmstsFeat"></div>
+                        </div>
+                        <div style="float:left;width:50px;">
+                            <div webix-ui="RoomFilter"></div>
+                        </div>
+                       
+                        <div style="float:left;width:100px;">
+                            <div webix-ui="txtRmStsAccDt"></div>
+                        </div>
+                            </div>
+                        <div class="row mt-2" style="padding-left:15px">
+                            <div id="RmSrchdivDueIn1" class="RectDueIn">
+                                <label class="control-label" style='width:30px;'>
+                                    (<label id="lblDueIn" class="control-label"></label>) </label>
+                                <span class="control-label" style="text-decoration: underline !important;"> Due In</span>
+                            </div>
+                            
+                            <div style="float: left; margin-left: 3px;line-height:16px;width:10px">
+                                
+                            </div>
+                            <div id="RmSrchdivDueOut1" class="RectDueIn"><label class="control-label" style='width:38px;'>
+                                (<label id="lblDueOut" class="control-label"></label>)</label>
+                                <span class="control-label"> Due Out</span>
+                            </div>
+
+                            <div style="float: left; margin-left: 3px;line-height:16px;width:10px">
+
+                            </div>
+
+                            <div id="RmSrchdivUnassign" class="RectDueIn" style="width:130px !important">
+                                <label class="control-label" style='width:40px;'>
+                                    (<label id="lblUnassDueIn" class="control-label"></label>)
+                                </label>
+                                <span class="control-label" onclick="CallUnAssArrivals();">Unassigned</span>
+                            </div>
+                            
+                            </div>
+
+                        </div>
+                    <div style="width:45%;float:left">
+                        <table style="width:100%;height:27px; font-size:12px;">
+                            <tr style="height:30px !important">
+                                <td style="width:120px !important">
+                                    <div id="divOcc" class="RectBox"></div>
+                                    <div style="float: left; margin-left: 3px;line-height:16px;">
+                                        (<label id="lblOccupation"></label>)Occupied
+                                    </div>
+                                </td>
+                                <td style="width:120px !important">
+                                    <div id="divDiry" class="RectBox"></div>
+                                    <div style="float: left; margin-left: 3px;line-height:16px;">
+                                        (<label id="lblDirty"></label>)Dirty
+                                    </div>
+
+                                </td>
+                                <td style="width:130px !important">
+                                    <div id="divBMT" class="RectBox"></div>
+                                    <div style="float: left; margin-left: 3px;line-height:16px;">
+                                        (<label id="lblBlckMnt"></label>)Block Maint
+                                    </div>
+
+                                </td>
+                                <td style="width:139px !important">
+                                    <div style="display:block" id="DispInsp">
+                                        <div id="divOccupDity" class="RectBox" style="line-height: 8px;
+    padding-left: 3px;"><i style=" font-size: 8px; color:#f7ff82!important;" class="fas fa-square"></i></div>
+                                        <div style="float: left; margin-left: 3px;line-height:17px;height:20px;">
+                                            (<label id="lblOcpDirty"></label>)OcpDirty
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width:120px !important">
+                                    <div style="display:none" id="DispInsp">
+                                        <div id="divMaid" class="RectBox"></div>
+                                        <div style="float: left; margin-left: 3px;line-height:16px;">
+                                            (<label id="lblMaid"></label>)Vacant MaidIn
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div id="divVacant" class="RectBox"></div>
+                                    <div style="float: left; margin-left: 3px;line-height:16px;">
+                                        (<label id="lblVacant"></label>)Vacant
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="divBG" class="RectBox"></div>
+                                    <div style="float: left; margin-left: 3px;line-height:16px;">
+                                        (<label id="lblBGst"></label>)Block Gst
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="divBMG" class="RectBox"></div>
+                                    <div style="float: left; margin-left: 3px;line-height:16px;">
+                                        (<label id="lblBlckMng"></label>)Block Mng
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div style="display:none" id="DispInsp">
+                                        <div id="divInsp" class="RectBox"></div>
+                                        <div style="float: left; margin-left: 3px;line-height:16px;">
+                                            (<label id="lblInsp"></label>)To be Inspected
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                
+                
+                <div id="grdRoomStatusfrm" style="height:100%;width: 100%;"></div>
+                <div id="grdMnthRmPosition" style="height: 100%; width: 100%;"></div>
+                <div id="grdInHouseGst" style="height:100%;width: 100%;"></div>
+                <div id="grdExpDepart" style="height:100%;width: 100%;"></div>
+                <div id="grdExpArrial" style="height:100%;width: 100%;"></div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+      
+    var UnAssArrApiUrl = "/FoTrans/COMAPI_CALL";
+        $(document).ready(function () {
+            //
+            $("#MenuName").val('FONAFLASHREPORT');
+            $("#MenuLvl").val('FOMNUNA');
+            $("#MenuLvl1").val('');
+            $("#LayoutText").text("Flash");
+            var CompId =@Html.Raw(Json.Encode(ViewBag.COMP));
+            $("#hdnCompId").val(CompId);
+            fnLoadProperty();
+            $("#btnRoomSts").click();
+            LoadCurrDet($("#hdnCompId").val());
+            
+            var UserId =@Html.Raw(Json.Encode(ViewBag.USERID));
+            $("#UserId").val(UserId);
+            var ConnStr =@Html.Raw(Json.Encode(ViewBag.CONNSTR));
+            $("#ConnStr").val(ConnStr);
+            
+            fnGuestProfWindowDesign();
+            RoomPosWindowLoad();
+            fnRoomNoSrchWindowDesign();                    
+    });
+    $(document).on('shown.lte.pushmenu', function () {
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(1);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+      
+    }).on('collapsed.lte.pushmenu', function(){
+        var timeoutID;
+        function delayedStart() {
+            timeoutID = window.setTimeout(resizeAction, 350);
+        }
+
+        function resizeAction() {
+            sidebarFn(2);
+            //  alert("Sidebar is collapsed or expanded!")
+            window.clearTimeout(timeoutID);
+        }
+
+        delayedStart();
+    });
+    function  grdInHouseGst(){
+        var RmBldData = fnRoomBuidingData();
+        webix.ui({
+        id:"grdInHouseGstfrm",
+        view: 'form',
+        //minWidth: 900,
+        container: "grdInHouseGst",
+        //  maxWidth: 1300,
+        //height:500,
+        hidden: true,
+      
+        elements: [
+            {
+                paddingX: 10,
+                PaddingY: 10,
+                cols: [
+                    {
+                        rows: [
+                             {
+                                 cols: [
+                                    {
+                                        view: "datatable",
+                                        id: "grdInHouseGst",                                       
+                                        select: "row",
+                                        disable: true,
+                                        css: "common_grd, inhs_gst",
+                                        //height:475,
+                                        //minWidth: 800,
+                                        data: [],
+                                        
+                                        columns: [
+                                               //{ header: [{ content: "numberFilter" }, "Reserv#."], id: "R_NO", width: 70, css: { 'text-align': 'center ! important' } },
+                                                { header: ["Reserv#", { content: "textFilter" }], id: "R_NO", width: 70, css: { 'text-align': 'center ! important' } },
+                                                { header: ["RegNo", { content: "textFilter" }], id: "REG_NO", width: 70, css: { 'text-align': 'center ! important' } },
+                                                { header: ["RoomNo", { content: "textFilter" }], id: "ROOM_NO", width: 70, css: { 'text-align': 'center ! important' } },
+                                                { header: ["Guest", { content: "textFilter" }], id: "GUEST_NM", width: 240, css: { 'text-align': 'left ! important' } },
+                                                { header: ["Company", { content: "textFilter" }], id: "PARTY_NM", width: 250, css: { 'text-align': 'left ! important' } },
+                                                { header: ["Shr", { content: "textFilter" }], id: "SHR", width: 100, css: { 'text-align': 'center ! important' } },
+                                                { header: ["Status", { content: "textFilter" }], id: "Status", width: 130, css: { 'text-align': 'left ! important' } },
+                                                { header: ["Balance", { content: "textFilter" }], id: "Balance", hidden: true, width: 130, css: { 'text-align': 'right ! important' } },
+                                                { header: ["Refer", { content: "textFilter" }], id: "Refer", hidden: true, width: 200, css: { 'text-align': 'left ! important' } },
+                                                { header: ["Group", { content: "textFilter" }], id: "GROUP_NM", width: 200, css: { 'text-align': 'left ! important' } },
+                                                { header: ["Group", { content: "textFilter" }], id: "GUEST_ID", width: 200, css: { 'text-align': 'left ! important' },hidden:true, },
+                                                { header: ["Advance", { content: "textFilter" }], id: "Advance", hidden: true, width: 130, css: { 'text-align': 'right ! important' } },
+                                        ],
+                                        on: {
+                                            'onItemClick': function (id, index) {
+                                                //
+                                                var getval = this.getItem(id.row);
+
+                                                CallInHseGstPopup(getval.ROOM_NO, getval.REG_NO, getval.GUEST_NM,getval.GUEST_ID);
+
+                                                return false;
+                                            }
+                                        }
+                                    },
+                                    {
+                                        css: "RightTemplate",
+                                        paddingY: 10,
+                                        paddingX: 10,
+                                        rows: [
+                                            {
+                                                view: "text",
+                                                id: "txtInhouseCnt",
+                                                stringResult: true,
+                                                label: "InHouse :",
+                                                disabled: true,
+                                                labelWidth: 80,
+                                                width: 150,
+                                            },
+                                            {
+                                                view: "combo",
+                                                id: "ddlIRmBlock",
+                                                value: "ALL",
+                                                label: "Block",
+                                                disable: false,
+                                                labelWidth: 80,
+                                                width: 220,
+                                                options: RmBldData,
+                                                on: {
+                                                    onChange: function (newval, oldval) {
+
+                                                        fnLoadInHouseGuest();
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                id: "ChkBalance",
+                                                view: "checkbox",
+                                                label: "Balance",
+                                                labelWidth: 60,
+                                                width: 100,
+                                                on: {
+                                                    "onChange": function () {
+                                                        //
+                                                        fnLoadInHouseGuest();
+                                                        if ($$("ChkBalance").getValue() == "1") {
+                                                            $$("ChkRefer").setValue("0")
+                                                            $$("grdInHouseGst").hideColumn("Status");
+                                                            $$("grdInHouseGst").hideColumn("Refer");
+                                                            $$("grdInHouseGst").showColumn("Balance");
+                                                        }
+                                                        else {
+                                                            $$("grdInHouseGst").showColumn("Status");
+                                                            $$("grdInHouseGst").hideColumn("Refer");
+                                                            $$("grdInHouseGst").hideColumn("Balance");
+                                                        }
+                                                        $$("grdInHouseGst").refresh();
+                                                    }
+                                                }
+                                            },
+                                             {
+                                                 id: "ChkRefer",
+                                                 view: "checkbox",
+                                                 label: "#Refer",
+                                                 labelWidth: 60,
+                                                 width: 100,
+                                                 on: {
+                                                     "onChange": function () {
+                                                         if ($$("ChkRefer").getValue() == "1") {
+                                                             $$("ChkBalance").setValue("0");
+                                                             $$("grdInHouseGst").hideColumn("Status");
+                                                             $$("grdInHouseGst").showColumn("Refer");
+                                                             $$("grdInHouseGst").hideColumn("Balance");
+                                                         }
+                                                         else {
+                                                             $$("grdInHouseGst").showColumn("Status");
+                                                             $$("grdInHouseGst").hideColumn("Refer");
+                                                             $$("grdInHouseGst").hideColumn("Balance");
+                                                         }
+                                                         $$("grdInHouseGst").refresh();
+                                                     }
+                                                 }
+                                             },
+                                        {
+                                            id: "ChkInPm",
+                                            view: "checkbox",
+                                            label: "P.M",
+                                            labelWidth: 60,
+                                            width: 100,
+                                            value : $("#hdnA26_ind").val() == "1" ? "1" : "0",
+                                            on: {
+                                                "onChange": function () {
+                                                    fnLoadInHouseGuest();
+                                                }
+                                            }
+                                        },
+                                        {
+                                            id: "ChkInAdvance",
+                                            view: "checkbox",
+                                            label: "Advance",
+                                            labelWidth: 60,
+                                            width: 100,
+                                            on: {
+                                                "onChange": function () {
+                                                    if ($$("ChkInAdvance").getValue() == "1") {
+                                                        $$("grdInHouseGst").showColumn("Advance");
+                                                        
+                                                    }
+                                                    else {
+                                                       
+                                                        $$("grdInHouseGst").hideColumn("Advance");
+                                                        
+                                                    }
+                                                    $$("grdInHouseGst").refresh();
+                                                }
+                                            }
+                                        }
+
+                                        ]
+                                    }
+                                 ]
+                             },
+                        ],
+                    },
+                ]
+            },
+        ]
+        });
+        gridResize("3");
+    }
+    function  grdExpDepart(){
+        webix.ui({
+                id: "grdExpDepartfrm",
+                view: 'form',
+                //minWidth: 900,
+                container: "grdExpDepart",
+                //  maxWidth: 1300,
+                hidden: true,
+                elements: [
+                    {
+                        paddingX: 10,
+                        PaddingY: 10,
+                        cols: [
+                            {
+                                rows: [
+                                     {
+                                         cols: [
+                                            {
+                                                view: "datatable",
+                                                id: "grdExpDepart",
+                                                css: "inhs_gst",
+                                                select: "row",
+                                                disable: true,
+                                                data: [],
+                                                //height: 500,
+                                                //minWidth: 800,
+                                                columns: [
+                                                        { header: ["Type",{ content: "textFilter" }], id: "RoomTy", width: 70, css: { 'text-align': 'center ! important' } },
+                                                        { header: ["RoomNo",{ content: "textFilter" }], id: "RoomNo", width: 70, css: { 'text-align': 'center ! important' } },
+                                                        { header: ["Guest",{ content: "textFilter" }], id: "GuestNm", width: 220, css: { 'text-align': 'left ! important' } },
+                                                        { header: ["Pax",{ content: "textFilter" }], id: "Pax", width: 50, css: { 'text-align': 'center ! important' } },
+                                                        { header: ["Company",{ content: "textFilter" }], id: "Company", width: 200, css: { 'text-align': 'left ! important' } },
+                                                        { header: ["Depart.Tm",{ content: "textFilter" }], id: "DeptTm", width: 80, css: { 'text-align': 'center ! important' } },
+                                                        { header: ["Arrival Dt",{ content: "textFilter" }], id: "ArrDt", width: 100, css: { 'text-align': 'center ! important' } },
+                                                        { header: ["Arrival Tm",{ content: "textFilter" }], id: "ArrTm", width: 80, css: { 'text-align': 'center ! important' } },
+                                                        { header: ["Status",{ content: "textFilter" }], id: "GuestSts", width: 100, css: { 'text-align': 'letf ! important' } },
+                                                        { header: ["Balance",{ content: "textFilter" }], id: "GstBal", hidden: true, width: 100, css: { 'text-align': 'right ! important' } },
+                                                        { header: ["Refer",{ content: "textFilter" }], id: "Refer", hidden: true, width: 200, css: { 'text-align': 'right ! important' } },
+                                                        { header: ["RegNo",{ content: "textFilter" }], id: "RegNo", hidden: true, },
+                                                        { header: ["Group", { content: "textFilter" }], id: "Group", width: 200, css: { 'text-align': 'left ! important' } },
+                                                ],
+                                                on: {
+                                                    'onItemClick': function (id, index) {
+                                                        //
+                                                        var getval = this.getItem(id.row);
+
+                                                        CallExpDepPopup(getval.RoomNo, getval.RegNo, getval.GuestNm);
+
+                                                        return false;
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                css: "RightTemplate",
+                                                paddingY: 20,
+                                                paddingX: 40,
+                                                rows: [
+                                                     {
+                                                         view: "text",
+                                                         id: "txtExDeptCnt",
+                                                         stringResult: true,
+                                                         disabled: true,
+                                                         label: "Exp.Depart :",
+                                                         labelWidth: 80,
+                                                         width: 140,
+                                                     },
+                                                    {
+                                                        view: "datepicker",
+                                                        id: "txtAccDt1",
+                                                        stringResult: true,
+                                                        label: "Account Dt",
+                                                        format: "%d/%m/%Y",
+                                                        value: $("#hdnAccountDt").val(),
+                                                        labelWidth: 80,
+                                                        width: 200,
+                                                        on: {
+                                                            "onChange": function (newval, oldval) {
+                                                                
+                                                                fnLoadExpDepart();
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        id: "ChkDBalance",
+                                                        view: "checkbox",
+                                                        label: "Balance",
+                                                        labelWidth: 80,
+                                                        labelAlign: "Right",
+                                                        width: 130,
+                                                        on: {
+                                                            "onChange": function () {
+
+                                                                if ($$("ChkDBalance").getValue() == "1") {
+                                                                    $$("ChkDRefer").setValue("0");
+                                                                    $$("grdExpDepart").hideColumn("GuestSts");
+                                                                    $$("grdExpDepart").hideColumn("Refer");
+                                                                    $$("grdExpDepart").showColumn("GstBal");
+                                                                }
+                                                                else {
+                                                                    $$("grdExpDepart").showColumn("GuestSts");
+                                                                    $$("grdExpDepart").hideColumn("Refer");
+                                                                    $$("grdExpDepart").hideColumn("GstBal");
+                                                                }
+                                                                $$("grdExpDepart").refresh();
+                                                            }
+                                                        }
+                                                    },
+                                                     {
+                                                         id: "ChkDPM",
+                                                         view: "checkbox",
+                                                         label: "P.M",
+                                                         labelWidth: 80,
+                                                         labelAlign: "Right",
+                                                         width: 130,
+                                                         value : $("#hdnA26_ind").val() == "1" ? "1" : "0",
+                                                         on: {
+                                                             "onChange": function () {
+                                                                 fnLoadExpDepart();
+                                                             }
+                                                         }
+                                                     },
+                                                     {
+                                                         id: "ChkDRefer",
+                                                         view: "checkbox",
+                                                         label: "#Refer",
+                                                         labelWidth: 80,
+                                                         labelAlign: "Right",
+                                                         width: 130,
+                                                         on: {
+                                                             "onChange": function () {
+                                                                 if ($$("ChkDRefer").getValue() == "1") {
+                                                                     $$("ChkDBalance").setValue("0");
+                                                                     $$("grdExpDepart").hideColumn("GuestSts");
+                                                                     $$("grdExpDepart").showColumn("Refer");
+                                                                     $$("grdExpDepart").hideColumn("GstBal");
+                                                                 }
+                                                                 else {
+                                                                     $$("grdExpDepart").showColumn("GuestSts");
+                                                                     $$("grdExpDepart").hideColumn("Refer");
+                                                                     $$("grdExpDepart").hideColumn("GstBal");
+                                                                 }
+                                                                 $$("grdExpDepart").refresh();
+                                                             }
+                                                         }
+                                                     },
+                                                ]
+                                            }
+                                         ]
+                                     },
+                                ],
+                            },
+                        ]
+                    },
+                ]
+        });
+        gridResize("5");
+        }
+        function  grdExpArrial(){
+            webix.ui({
+                    id:"grdExpArrialfrm",
+                    view: 'form',
+                //minWidth: 900, 
+                container: "grdExpArrial",
+                    // maxWidth: 1300,
+                    hidden: true,
+                    elements: [
+                        {
+                            paddingX: 10,
+                            PaddingY: 10,
+                            cols: [
+                                {
+                                    rows: [
+                                         {
+                                             cols: [
+                                                {
+                                                    view: "datatable",
+                                                    id: "grdExpArrial",
+                                                    css: "inhs_gst",
+                                                    select: "row",
+                                                    disable: true,
+                                                    data: [],
+                                                    //height: 500,
+                                                    //minWidth: 800,
+                                                    columns: [
+                                                            { header: ["ResvNo",{ content: "textFilter" }], id: "RNo", width: 70, css: { 'text-align': 'center ! important' } },
+                                                            { header: ["Guest",{ content: "textFilter" } ],id: "GstNm", width: 220, css: { 'text-align': 'left ! important' } },
+                                                            { header: ["Company",{ content: "textFilter" }], id: "Cmpny", width: 200, css: { 'text-align': 'left ! important' } },
+                                                            { header: ["Room Ty",{ content: "textFilter" }], id: "RmTy", width: 80, css: { 'text-align': 'center ! important' } },
+                                                            { header: ["UpgradeFrom",{ content: "textFilter" }], id: "Upgrade",hiddden: true, width: 120, css: { 'text-align': 'center ! important' } },
+                                                            { header: ["Arrival Tm",{ content: "textFilter" }], id: "ArrTm", width: 80, css: { 'text-align': 'center ! important' } },
+                                                            { header: ["ResvStatus",{ content: "textFilter" }], id: "ResvSts", width: 90, css: { 'text-align': 'letf ! important' } },
+                                                            { header: ["Depart Dt",{ content: "textFilter" }], id: "DeptDt", width: 100, css: { 'text-align': 'center ! important' } },
+                                                            {
+                                                                header: ["Room No",{ content: "textFilter" }], id: "Room", width: 80,
+                                                                template: function (obj) {
+
+                                                                    var array = $.trim(obj.Room).split('~');
+                                                                    var RoomNo = array[0].toString();
+                                                                    return RoomNo;
+                                                                },
+                                                                css: { 'text-align': 'center ! important' }
+                                                            },
+                                                            
+                                                            { header: ["No.of.Rms",{ content: "textFilter" }], id: "NoOfRms", width: 90, css: { 'text-align': 'center ! important' } },
+                                                            { header: ["Status",{ content: "textFilter" }], id: "GstSts", width: 100, css: { 'text-align': 'left ! important' } },
+                                                            { header: ["Refer",{ content: "textFilter" }], id: "Refer", hiddden: true, width: 200, css: { 'text-align': 'left ! important' } },
+                                                            { header: ["NetTariff",{ content: "textFilter" }], id: "NetTariff",hiddden: true, width: 100,
+                                                                format: function (value) {
+                                                                    return fnCurrFormat(value);
+                                                                },
+                                                                exportType: "number",
+                                                                exportFormat: "#,##0.00",
+                                                                css: { 'text-align': 'center ! important' } },
+                                                            { header: ["ResvNo",{ content: "textFilter" }], id: "ResvNo", hidden: true },
+                                                            { header: ["Group", { content: "textFilter" }], id: "Group", width: 200, css: { 'text-align': 'left ! important' } },
+                                                            { header: ["GstID", { content: "textFilter" }], id: "GstID", hidden: true },
+                                                            { header: ["SkipTariff", { content: "textFilter" }], id: "SkipTariff", hidden: true },
+                                                            { header: ["Advance",{ content: "textFilter" }], id: "ResAdvance",hiddden: true, width: 100,
+                                                                 format: function (value) {
+                                                                     return fnCurrFormat(value);
+                                                                 },
+                                                                 exportType: "number",
+                                                                 exportFormat: "#,##0.00",
+                                                                 css: { 'text-align': 'right ! important' } },
+                                                    ],
+                                                    on: {
+                                                        'onItemClick': function (id, index) {
+                                                            
+                                                            var getval = this.getItem(id.row);
+
+                                                            var RoomNo = "";
+
+                                                            var array = $.trim(getval.Room).split('~');
+                                                            if (array != "") {
+                                                                RoomNo = array[0].toString();
+                                                            }
+
+                                                            CallExpArrPopup(getval.ResvNo, getval.RNo, RoomNo, getval.GstNm,getval.GstID,getval.SkipTariff);
+
+                                                            return false;
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    css: "RightTemplate",
+                                                    paddingY: 10,
+                                                    paddingX: 40,
+                                                    rows: [
+                                                        {
+                                                            view: "text",
+                                                            id: "txtExArrCnt",
+                                                            stringResult: true,
+                                                            label: "Exp.Arrival :",
+                                                            disabled:true,
+                                                            labelWidth: 80,
+                                                            width: 140,
+                                                        },
+                                                        {
+                                                            view: "datepicker",
+                                                            id: "txtArrAccDt",
+                                                            stringResult: true,
+                                                            label: "Account Dt",
+                                                            format: "%d/%m/%Y",
+                                                            value: $("#hdnAccountDt").val(),
+                                                            //labelAlign: "Right",
+                                                            labelWidth: 80,
+                                                            width: 200,
+                                                            on: {
+                                                                "onChange": function () {
+                                                                    fnLoadExpArrival();
+
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            id: "ChkPM",
+                                                            view: "checkbox",
+                                                            label: "P.M",
+                                                            labelWidth: 100,
+                                                            labelAlign: "Right",
+                                                            width: 130,
+                                                            value : $("#hdnA26_ind").val() == "1" ? "1" : "0",
+                                                            on: {
+                                                                "onChange": function () {
+                                                                    fnLoadExpArrival();
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            id: "ChkERefer",
+                                                            view: "checkbox",
+                                                            label: "#Refer",
+                                                            labelWidth: 100,
+                                                            labelAlign: "Right",
+                                                            width: 130,
+                                                            on: {
+                                                                "onChange": function () {
+                                                                    if ($$("ChkERefer").getValue() == "1") {
+                                                                        $$("grdExpArrial").showColumn("Refer");
+                                                                    }
+                                                                    else {
+                                                                        $$("grdExpArrial").hideColumn("Refer");
+
+                                                                    }
+                                                                    $$("grdExpArrial").refresh();
+                                                                }
+                                                            }
+                                                        },
+                                                        
+                                                        {
+                                                            id: "ChkNetTrff",
+                                                            view: "checkbox",
+                                                            label: "Net Tariff",
+                                                            labelWidth: 100,
+                                                            labelAlign: "Right",
+                                                            width: 130,
+                                                            on: {
+                                                                "onChange": function () {
+                                                                    if ($$("ChkNetTrff").getValue() == "1") {
+                                                                        $$("grdExpArrial").showColumn("NetTariff");
+                                                                    }
+                                                                    else {
+                                                                        $$("grdExpArrial").hideColumn("NetTariff");
+
+                                                                    }
+                                                                    $$("grdExpArrial").refresh();
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            id: "chkAdvance",
+                                                            view: "checkbox",
+                                                            label: "Advance",
+                                                            labelWidth: 100,
+                                                            labelAlign: "Right",
+                                                            width: 130,
+                                                            on: {
+                                                                "onChange": function () {
+                                                                    if ($$("chkAdvance").getValue() == "1") {
+                                                                        $$("grdExpArrial").showColumn("ResAdvance");
+                                                                    }
+                                                                    else {
+                                                                        $$("grdExpArrial").hideColumn("ResAdvance");
+
+                                                                    }
+                                                                    $$("grdExpArrial").refresh();
+                                                                }
+                                                            }
+                                                        },
+
+                                                    ]
+                                                }
+                                             ]
+                                         },
+                                    ],
+                                },
+                            ]
+                        },
+                    ]
+               
+            });
+            gridResize("4");
+
+            }
+    function  sidebarFn(val){
+        
+        var btnInHouseGst = document.getElementById('btnInHouseGst');
+        if(btnInHouseGst.classList[2]=="ClickBtn"){
+            var rowDatad = $$("grdInHouseGst").serialize();
+            if ($$("grdInHouseGstfrm"))
+                $$("grdInHouseGstfrm").destructor();
+           
+            grdInHouseGst();
+            $$("grdInHouseGst").clearAll();
+            $$("grdInHouseGst").parse(rowDatad);
+            $$("grdInHouseGstfrm").show();
+        }
+        var btnExpArr = document.getElementById('btnExpArr');
+        if(btnExpArr.classList[2]=="ClickBtn"){
+            var rowDatad = $$("grdExpArrial").serialize();
+            if ($$("grdExpArrialfrm"))
+                $$("grdExpArrialfrm").destructor();
+
+          
+            grdExpArrial();
+            $$("grdExpArrialfrm").show();
+
+            if ($$("txtArrAccDt"))
+                $$("txtArrAccDt").setValue($("#hdnAccountDt").val());
+           
+            fnLoadExpArrival();
+            $$("grdExpArrial").clearAll();
+            $$("grdExpArrial").parse(rowDatad);
+            $$("grdExpArrialfrm").show();
+        }
+        var btnExpDepart = document.getElementById('btnExpDepart');
+        if(btnExpDepart.classList[2]=="ClickBtn"){
+            var rowDatad = $$("grdExpDepart").serialize();
+            if ($$("grdExpDepartfrm"))
+                $$("grdExpDepartfrm").destructor();
+          
+            grdExpDepart();
+            $$("grdExpDepartfrm").show();
+            // as per edward sir instruction expected dep report loaded based on account date
+            if ($$("txtAccDt1"))
+                $$("txtAccDt1").setValue($("#hdnAccountDt").val());
+                //$$("txtAccDt1").setValue($("#hdnCurrentDt").val());
+           
+            fnLoadExpDepart();
+            $$("grdExpDepart").clearAll();
+            $$("grdExpDepart").parse(rowDatad);
+            $$("grdExpDepartfrm").show();
+        }
+        var btnRoomPos = document.getElementById('btnRoomPos');
+        if(btnRoomPos.classList[2]=="ClickBtn"){
+            var rowDatad = $$("grdMnthRmPos").serialize();
+            if ($$("grdMnthRmPosition"))
+                $$("grdMnthRmPosition").destructor();
+
+            fnMonthLoadRoomSts(0);
+            $$("grdMnthRmPos").clearAll();
+            $$("grdMnthRmPos").parse(rowDatad);
+            $$("grdMnthRmPos").show();
+        }
+        
+        var btnRoomSts = document.getElementById('btnRoomSts');
+        if(btnRoomSts.classList[2]=="ClickBtn"){
+            var rowDatad = $$("grdRoomStatus").serialize();
+            if ($$("grdRoomStatusfrm"))
+                $$("grdRoomStatusfrm").destructor();
+          
+            fnRoomStatusDesign(val);
+            $$("grdRoomStatus").clearAll();
+            $$("grdRoomStatus").parse(rowDatad);
+            $$("grdRoomStatus").show();
+        }
+    }
+        $("#btnRoomSts").click(function () {
+            $('#hdnClkBtnId').val("2");
+            fnLoadData();
+            $("#btnRoomSts").addClass("ClickBtn");
+            $('#ContRmStatusInfo').show();
+            fnRoomStatusLoadData();
+        });
+
+        $("#btnInHouseGst").click(function () {
+
+            $('#hdnClkBtnId').val("1");
+            fnLoadData();
+            $("#btnInHouseGst").addClass("ClickBtn");
+            grdInHouseGst();
+            $$("grdInHouseGstfrm").show();
+
+            fnLoadInHouseGuest();
+        });
+
+        $("#btnRoomPos").click(function () {
+            $('#hdnClkBtnId').val("3");
+            fnLoadData();
+            $("#btnRoomPos").addClass("ClickBtn");
+            $("#RoomPosStDt").val($("#hdnAccountDt").val());
+            fnMonthLoadRoomSts(0);
+        });
+
+        $("#btnExpArr").click(function () {
+            $('#hdnClkBtnId').val("4");
+            fnLoadData();
+            $("#btnExpArr").addClass("ClickBtn");
+            grdExpArrial();
+            $$("grdExpArrialfrm").show();
+
+            if ($$("txtArrAccDt"))
+                $$("txtArrAccDt").setValue($("#hdnAccountDt").val());
+
+            fnLoadExpArrival();
+        });
+
+        $("#btnExpDepart").click(function () {
+            $('#hdnClkBtnId').val("5");
+            fnLoadData();
+            $("#btnExpDepart").addClass("ClickBtn");
+            grdExpDepart();
+            $$("grdExpDepartfrm").show();
+
+            if ($$("txtAccDt1"))
+                $$("txtAccDt1").setValue($("#hdnAccountDt").val());
+                //$$("txtAccDt1").setValue($("#hdnCurrentDt").val());
+           
+            fnLoadExpDepart();
+        });
+
+        function fnLoadData() {
+            //
+            $("#btnInHouseGst").removeClass("ClickBtn");
+            $("#btnRoomSts").removeClass("ClickBtn");
+            $("#btnRoomPos").removeClass("ClickBtn");
+            $("#btnExpArr").removeClass("ClickBtn");
+            $("#btnExpDepart").removeClass("ClickBtn");
+
+            $('#ContRmStatusInfo').hide();
+
+            if ($$("grdRoomStatusfrm"))
+                $$("grdRoomStatusfrm").destructor();
+
+            if ($$("grdInHouseGstfrm"))
+                $$("grdInHouseGstfrm").hide();
+
+            if ($$("grdExpDepartfrm"))
+                $$("grdExpDepartfrm").hide();
+
+            if ($$("grdExpArrialfrm"))
+                $$("grdExpArrialfrm").hide();
+
+            if ($$("grdMnthRmPosition"))
+                $$("grdMnthRmPosition").destructor();
+        }
+
+        function fnCurrFormat(value) {
+
+            var Currfrmt = $("#CURRENCY_FORMAT").val();
+            var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+            var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+            return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+        }
+
+        function LoadCurrDet(vProperty) {
+            //debugger;
+            var reqobj = {};
+            reqobj["REQTYPE"] = "GETCURRFORMATDETAILS";
+            var rowDatad = [];
+            try {
+
+                var dataparam = JSON.stringify(reqobj);
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: "/FoTrans/GetCurrFormatDetails",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({ request: dataparam }),
+                    dataType: "json",
+                    acceptType: "application/json;charset=utf-8",
+                    success: function (d) {
+
+                        if (d != "" && d != undefined && d != null) {
+                            //rowData = JSON.parse(d);
+                            rowData = JSON.parse(d);
+                            $("#CURRENCY_FORMAT").val(rowData.CURRENCY_DECIMLIMIT);
+                            $("#CURRENCY_DELIMIT").val(rowData.CURRENCY_DELIMIT);
+                            $("#CURRENCY_DECIMLIMIT").val(rowData.CURRENCY_DECIMLIMIT);
+
+                        }
+
+
+                    },
+                });
+
+            }
+            catch (e) {
+                console.log(e.message)
+            }
+        };
+        
+        function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+
+
+            if (value == null) return "";
+
+            if (value.toString() != "") {
+
+
+                if (Currfrmt == "L") {
+                    var x = parseFloat(value).toFixed(CurrDecimal);
+                    var neg = false;
+                    if (value < 0) {
+                        neg = true;
+                        //x = math.abs(x);
+                    }
+
+                    x = x.toString();
+                    var afterPoint = '';
+                    if (x.indexOf('.') > 0) {
+                        afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                        afterPoint = CurrDelimit + afterPoint
+                    }
+
+
+
+                    x = Math.floor(x);
+                    x = x.toString();
+                    var lastThree = x.substring(x.length - 3);
+                    var otherNumbers = x.substring(0, x.length - 3);
+                    if (otherNumbers != '' && otherNumbers != '-')
+                        lastThree = ',' + lastThree;
+                    return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                }
+                else {
+                    var x = parseFloat(value).toFixed(CurrDecimal);
+                    var neg = false;
+                    if (value < 0) {
+                        neg = true;
+                        //x = math.abs(x);
+                    }
+
+                    x = x.toString();
+
+                    //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                    //var res = x.replace(/(\d{3})/g, "1,")
+                    var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                    if (res.indexOf('.') > 0) {
+
+                        res = res.replace(".", CurrDelimit)
+                    }
+
+
+                    return res;
+                }
+            }
+            else {
+                return value;
+            }
+        };
+        
+
+</script>
+
+<style>
+    .webix_column > div.webix_cell_select, .webix_column > div.webix_column_select, .webix_column > div.webix_row_select .ClickBtn {
+        background-color: transparent !important;
+        color: #000 !important;
+    }
+
+    .RightTemplate {
+        background-color: #fff !important;
+        border-radius: 0 10px 10px 0;
+        color: #000 !important;
+    }
+
+    .DivStaus {
+        background-color: red;
+        height: 30px;
+        width: 20px;
+    }
+
+    .RectBox {
+        width: 15px;
+        float: left;
+        height: 15px;
+        border: 1px solid #000;
+    }
+
+    .RectDueIn {
+        width: 100px;
+        float: left;
+        height: 30px;
+        border: 1px solid #000;
+        text-align: center;
+        font-style:italic !important;
+    }
+
+</style>

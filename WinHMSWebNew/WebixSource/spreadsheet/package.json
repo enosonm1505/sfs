@@ -1,0 +1,49 @@
+{
+  "_from": "@xbs/spreadsheet",
+  "_id": "@xbs/spreadsheet@6.4.5",
+  "_inBundle": false,
+  "_integrity": "sha512-KlXKeEWtmG4Owr6M0b7Og/9Vq7NZ+hMFO78Ok8vcSYU7oPAnBQ5AJ81A+bSiwHJ2l3WyJPRuXHL9D85edcuM4Q==",
+  "_location": "/@xbs/spreadsheet",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@xbs/spreadsheet",
+    "name": "@xbs/spreadsheet",
+    "escapedName": "@xbs%2fspreadsheet",
+    "scope": "@xbs",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://npm.webix.com/@xbs%2fspreadsheet/-/spreadsheet-6.4.5.tgz",
+  "_shasum": "043904bd5dd938b7f55f2c910ebc4a9fbc7ed04d",
+  "_spec": "@xbs/spreadsheet",
+  "_where": "C:\\Users\\Winsar-Presales",
+  "author": {
+    "name": "XB Software"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Webix UI",
+  "keywords": [
+    "webix",
+    "ui",
+    "widgets"
+  ],
+  "license": "SEE LICENSE IN license.text",
+  "main": "spreadsheet.js",
+  "name": "@xbs/spreadsheet",
+  "publishConfig": {
+    "registry": "https://npm.webix.com"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "types/spreadsheet.d.ts",
+  "version": "6.4.5"
+}

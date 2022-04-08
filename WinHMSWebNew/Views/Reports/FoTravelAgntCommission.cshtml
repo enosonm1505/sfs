@@ -1,0 +1,1283 @@
+﻿@{
+    ViewBag.Title = "OTA Commission";
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+    //if (ViewBag.VMD == "2") { Layout = "~/Views/Shared/Layout/Fo_ReportLayoutSM.cshtml"; }
+    //else { Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml"; }
+}
+<div class="content-wrapper" id="ContWrap">
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <link href="../../Content/Contribute.css" rel="stylesheet" />
+        <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+        <link href="~/FO/CSS/sidemenu-custom.css" rel="stylesheet" />
+        <div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>
+        </div>
+        <div id="divPage">
+            <div class="container-fluid">
+                <div  class="row new_hdr">
+                    @*<div class="logcnt">
+                            <img src="../../Images/Logo.png">
+                        </div>*@
+                    <div class="col-sm-3">
+                        <div class="TextWidth"  id="divPropbox">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-center">                        
+                        <label  class="wc_hdr_tlt" id="lblRptCaption">OTA Commission</label>                        
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="card-tools text-right">
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class="btnXX"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="border:solid transparent;" class="row">
+                    <div class=" col-xl-4 col-md-3 col-sm-3" style="margin-top:10px">                        
+                        <div id="divAll"><label for="ChkAll" class="control-label">OTA All</label>   <input type="checkbox" id="ChkAll" />                           
+                            <img src="../../Images/search_icon.png" id="btnTravelAgnt" onclick="btnTrvelAgntSrchClick()" class="bt_ico_btn20" style="cursor: pointer; display:none" title=" Search" />                            
+                        </div>                                                    
+                    </div>
+
+                    <div class="col-xl-4 col-md-5 col-sm-3 ">
+                        <div class="row">
+                            <div class="col-md-9 ">
+                                <div id="divFrom"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9 col-xs-6">
+                                <div id="divTo"></div>
+                            </div>
+                            <div class="col-md-3  pr-0" style="padding-left:0px !important">
+                                <div id="divbtnDisp"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-md-3 col-sm-6 pr-0">
+                        <div class="row">
+                            <div class="col-md-12 pr-0" style="height:30px">
+                                <label> </label>
+                                @*<div id="dvCommCompute"></div>*@
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 pr-0">
+                                <div id="dvCommCompute"></div>
+                            </div>
+                            <div class="col-md-12 pr-0" style="display:none">
+                                <div id="dvChkIncludePkg" ></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="gridRptt" style="width: 100%; height: 460px"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <input type="hidden" id="Log" />
+
+        <input type="hidden" id="COMPID" />
+        <input type="hidden" id="CURRENCY_FORMAT" />
+        <input type="hidden" id="CURRENCY_DELIMIT" />
+        <input type="hidden" id="CURRENCY_DECIMLIMIT" />
+        <input type="hidden" id="HdnCurrDt" />
+        <input type="hidden" id="HdnCurrMnth" />
+        <input type="hidden" id="HdnAccDt" />
+        <input type="hidden" id="HdnToAccDt" />
+        <input type="hidden" id="HdnAccMnth" />
+        <input type="hidden" id="HdnFrmMnth" />
+        <input type="hidden" id="HdnToMnth" />
+        <input type="hidden" id="HdnYrFrmMnth" />
+        <input type="hidden" id="HdnYrToMnth" />       
+
+       
+        @*Topmenu Style ends*@
+        <style>
+            .Pagefalse {
+                pointer-events: none;
+                opacity: 0.6;
+            }
+                       
+
+            .multiline {
+                line-height: 17px !important;
+                position: relative;
+            }           
+            
+        </style>
+
+        <script>
+
+            var Print = "<span  class='wc_fnt18 fas fa-1x  fa-print'></span>";
+            var excel = "<span  class=' wc_fnt18 far fa-1x fa-file-excel'></span>";
+
+            $(document).ready(function () {
+                debugger;
+                $("#LoadDIv").hide();
+
+                $("#MenuName").val('FOMNUQUAGENT');   
+                $("#MenuLvl").val('FOMNUANL');	      
+                $("#MenuLvl1").val('');	
+
+
+                webix.ready(function () {
+                    GridDesign();
+                    TravelAgentPopWindowLoad();
+                    fnloadCompPopWindow();
+
+                    webix.ui({
+                        view: "button", id: "Print", value: "Print", width: 70, container: "divPrint", label: Print, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnGridPrint();
+                            }
+                        }
+
+                    });
+
+                    webix.ui({
+                        view: "button", id: "Excel", value: "Excel", width: 70, container: "divExcel", label: excel, tooltip: true,
+                        on: {
+                            onItemClick: function () {
+                                fnExcelExport();
+                            }
+                        }
+                    });
+
+
+                    webix.ui({
+                        container: "divFrom", view: "datepicker", label: "Departure From", labelWidth: 100,maxWidth:230, name: "FromDt", id: "FromDt", format: "%d/%m/%Y", stringResult: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();
+                                var frmdate = $$("FromDt").getValue();
+                                var todate = $$("ToDt").getValue();
+                                if (frmdate != "" && todate != "") SMFromDateChange();
+                            }
+                        }
+                    });
+
+                    webix.ui({
+                        container: "divTo", view: "datepicker", label: "To", labelWidth:100,maxWidth:230, name: "ToDt", id: "ToDt", format: "%d/%m/%Y", stringResult: true,
+                        on: {
+                            onChange: function () {
+                                $$("gridRpt").clearAll();
+                                var frmdate = $$("FromDt").getValue();
+                                var todate = $$("ToDt").getValue();
+                                if (frmdate != "" && todate != "") SMToDateChange();
+                            }
+                        }
+                    });
+
+                    webix.ui({ container: "divbtnDisp",css:"webix_primary", view: "button",  id: "btnDisplay", icon: "wxi-check", label: "Display", inputWidth: 60, width: 60, click: function () { fnbtnDisplay(); } }),
+                    //webix.ui({ container: "divAll", view: "checkbox", id: "ChkAll", labelWidth: 55,label:"T.A All", customCheckbox: false, click: function () { fnChkAllClick(); } }),
+                    //webix.ui({ container: "divAllbtn", view: "button", width: 30, type: "icon", borderless: true, id: "btnAll", icon: 'fa fa-search', css: "btn-filter", click: function () { fnbtnAllClick(); } });
+                    //webix.ui({ container: "dvCheckedout", view: "checkbox", id: "chkCheckedout", labelWidth: 5, labelRight: "Checked Out", customCheckbox: false, click: function () { fnChkComplHUClick(); } }),
+                    webix.ui({ container: "dvChkIncludePkg", view: "checkbox", id: "chkIncludePkg",  labelWidth: 5, labelRight: "Include Package", customCheckbox: false, click: function () { fnChkDtwsClick(); } }),
+                    webix.ui({ container: "dvCommCompute",css:"webix_primary", view: "button", id: "btnCompute", icon: "wxi-check", label: "Compute", inputWidth: 70, width: 80, click: function () { fnbtnComputeClick(); } }),
+                    
+
+                    webix.ui({
+                        container: "divPropbox", view: "richselect", id: "Property",//width: 220,//autowidth:true,
+
+                        on: {
+                            onChange: function (NewVal, OldVal) {
+                                if (NewVal != "") {
+                                    debugger;
+                                    $$("gridRpt").clearAll();
+                                    LoadCompChange(NewVal);
+                                }
+                            }
+                        }
+
+                    });
+                    //debugger;
+                    var cmpid= @Html.Raw(Json.Encode(ViewBag.COMP));
+
+                    LoadProperty(cmpid);
+                    $("#gridRptt").show();
+
+                    var propchk = @Html.Raw(Json.Encode(ViewBag.MLTPROPHISHIND));                    
+                    if (propchk == "1") $("#divPropbox").show();
+                    else if (propchk == "0") $("#divPropbox").hide();
+
+
+                });
+
+            });
+            function LoadProperty(cmpid) {
+                debugger;
+                Request = {
+                    REQTYPE: "GET_PROPERTYLOAD",
+                    COMPID: cmpid,
+                }
+                Prop_Id = cmpid;
+                var rowData = [];
+                var options =[];
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            $$("Property").define("options",rowData);
+                            $$("Property").refresh();
+                            $$("Property").setValue(Prop_Id);
+
+                        }
+                    },
+                });
+            };
+            function LoadDate(cmpid) {
+                debugger;
+
+                Request = {
+                    REQTYPE: "GET_FRMMNTHTOMNTH",
+                    COMPID: cmpid,
+                }
+
+                var DataVal = JSON.stringify(Request);
+
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+
+                    success: function (data) {
+                        debugger;
+                        var data1 = JSON.parse(data);
+                        var vCurrDt = data1[0].CURRDT.toString().trim();
+                        var vAccDt = data1[0].TO_ACC_DT2.toString().trim();
+                        var vToAccDt = data1[0].ACC_DT2.toString().trim();
+                        var vAccMnth = data1[0].ACC_MNTH.toString().trim();
+                        var vFromMnth = data1[0].FRMMNTH.toString().trim();
+                        var vToMnth = data1[0].TOMNTH.toString().trim();
+
+                        $("#HdnCurrDt").val(vCurrDt);
+                        $("#HdnAccDt").val(vToAccDt);
+                        $("#HdnToAccDt").val(vAccDt);
+                        $("#HdnAccMnth").val(vAccMnth);
+                        $("#HdnFrmMnth").val(vFromMnth);
+                        $("#HdnToMnth").val(vToMnth);
+
+                        var vFromDt = formatDate1(vAccDt);
+                        var vToDt = formatDate1(vToAccDt);
+                        $$("FromDt").setValue(new Date(vFromDt));
+                        $$("ToDt").setValue(new Date(vToDt));
+
+                    },
+                });
+            };
+            function formatDate1(StrDt) {
+                debugger;
+                var Parts = StrDt.split("/");
+                var Dt = Parts[0];
+                var Mn = Parts[1];
+                var Yr = Parts[2].substring(0, 4);
+                var Str = Yr + "-" + Mn + "-" + Dt;
+                return Str;
+            };
+            function LoadCompChange(CompId) {
+                window.PartyIds = "";
+                LoadControl(CompId);
+                LoadDate(CompId);
+                $$("chkIncludePkg").setValue("0");
+
+
+            };
+            function LoadCurrDet(vProperty) {
+                //debugger;
+                var rowDatad = [];
+                try {
+                    $.ajax({
+                        async: false,
+                        type: "POST",
+                        url: "/Reports/GetCurrFormatDetails",
+                        data: "CmpId=" + vProperty,
+                        success: function (d) {
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+                                $("#CURRENCY_FORMAT").val(rowDatad.CURRENCY_FORMAT);
+                                $("#CURRENCY_DELIMIT").val(rowDatad.CURRENCY_DELIMIT);
+                                $("#CURRENCY_DECIMLIMIT").val(rowDatad.CURRENCY_DECIMLIMIT);
+                            }
+                        }
+                    });
+
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            function LoadControl(CompId) {
+                debugger;
+                var rowDatad = [];
+                window.iCommAppl = "0";
+                window.H11_IND = "0";
+                window.RackRt_Appl = "0";
+                try {
+                    Request = {
+                        REQTYPE: "GET_FNGETLOADCONT",
+                        COMPID: CompId,
+                    }
+
+                    var rowData = [];
+                    var options =[];
+                    var dataparam = JSON.stringify(Request);
+
+
+
+                    $.ajax({
+                        async: false,
+                        url: "/Reports/FOAPI_CALL",
+                        type: 'POST',
+                        data: "request=" + dataparam,
+                        success: function (d) {
+                            debugger;
+                            if (d != "") {
+                                rowDatad = JSON.parse(d);
+
+                                window.iCommAppl = rowDatad.RA2[0].C12_IND;
+                                window.RackRt_Appl = rowDatad.RA2[0].Y19_IND;                                
+                                window.H11_IND = rowDatad.RA3[0].H11_IND;
+
+                                $("#CURRENCY_FORMAT").val(rowDatad.RA[0].CURRENCY_FORMAT);
+                                $("#CURRENCY_DELIMIT").val(rowDatad.RA[0].CURRENCY_DELIMIT);
+                                $("#CURRENCY_DECIMLIMIT").val(rowDatad.RA[0].CURRENCY_DECIMLIMIT);
+                            }
+                        }
+                    });
+
+                    if(window.H11_IND == "1")
+                    {
+                        $("#dvChkIncludePkg").show();
+                    }
+                    else
+                    {
+                        $("#dvChkIncludePkg").hide();                        
+                    }                   
+                    //if(window.RackRt_Appl == "1")
+                    //{
+                    //    $$("gridRpt").getColumnConfig("ixTrAmt").header[0].text = "Rack Rate";   
+                    //    $$("gridRpt").getColumnConfig("ixTrAmt").header[0].css = "";
+                    //}
+                    //else
+                    //{
+                    //    $$("gridRpt").getColumnConfig("ixTrAmt").header[0].text = "Charged Tariff";  
+                    //    $$("gridRpt").getColumnConfig("ixTrAmt").header[0].css = "multiline";
+                    //}
+                    debugger;
+                    $$("gridRpt").refreshColumns();
+
+                }
+                catch (e) {
+                    console.log(e.message)
+                }
+            };
+            function GridDesign() {
+                webix.ui({
+                    id: "gridRpt",
+                    container: "gridRptt",
+                    select: 'row',
+                    view: "treetable",
+                    fixedRowHeight: false,
+                    rowLineHeight: 23,
+                    autoConfig: true,
+                    resizeColumn: true,
+                    resizeRow: true,
+                    spans: true,
+                    //height: 460,
+                    position: "flex",
+                    css: "webix_header_border",
+                    data: [],
+                    columns: [
+                            { id: "ixOtaNm",header: [{text:'OTA Name'}],  minWidth: 180, fillspace:true, css: { 'text-align': 'left ! important' } },
+                            { id: "ixRoomNo",header: [{text:'Room No.',height:34,css:"multiline" }],  width: 60,  css: { 'text-align': 'center ! important' } },
+                            { id: "ixRoomTy", header: { text: "Room Ty.",css:"multiline"  }, width: 60, css: { 'text-align': 'left ! important' }   },
+                            { id: "ixRegNo", header: { text: "Reg No.", }, width: 70, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixResNo", header: { text: "Reserve No.", css:"multiline"}, width: 70, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixInvNo", header: { text: "Invoice No.", },width: 110, css: { 'text-align': 'center ! important' }   },
+                            { id: "ixGuest", header: { text: "Guest", }, minWidth: 170,fillspace:true, css: { 'text-align': 'left ! important' }   },
+                            { id: "IxArDt", header: { text: "Arrival", }, width: 90, css: { 'text-align': 'center ! important' }  },                            
+                            { id: "ixDepDt", header: { text: "Departure", }, width: 90, css: { 'text-align': 'center ! important' }  },
+                            { id: "ixNight", header: { text: "Night", }, width: 60, css: { 'text-align': 'center ! important' } ,hidden:true },
+                            { id: "ixTrAmt", header: { text: "Tariff Charged",css:"multiline" }, width: 80, css: { 'text-align': 'right ! important' }  },
+                            //{ id: "IXCURR", header: { text: "Currency", }, width: 100, css: { 'text-align': 'left ! important' }  },
+                            //{ id: "ixFornAmt", header: { text: "Forign Amt", }, width: 100, css: { 'text-align': 'right ! important' }  },
+                            { id: "IXComPer", header: { text: "Comm %", css:"multiline"}, width: 50, css: { 'text-align': 'center ! important' }, },
+                            { id: "IXComAmt", header: { text: "Commission Amt", css:"multiline"}, width: 100, css: { 'text-align': 'right ! important' } ,},
+                            //{ id: "ixPaid", header: { text: "Paid", }, width: 120, css: { 'text-align': 'right ! important' } ,hidden:true },
+                            //{ id: "ixPaidAmt", header: { text: "Paid Dt", }, width: 100, css: { 'text-align': 'center ! important' } ,hidden:true },
+                            //{ id: "IxNarr", header: { text: "Narration", }, width: 120, css: { 'text-align': 'left ! important' } ,hidden:true },
+                            { id: "CLR", hidden: true },
+                    ],
+
+                    scheme: {
+                        
+                        $init: function (item) {
+                            if (item.CLR != "" && item.CLR != null) {
+                                var Columns = $$('gridRpt').config.columns;
+                                var ColCnt = Columns.length;
+                                if (item.CLR == "GrpHead") {
+                                    debugger;
+                                    $$("gridRpt").addSpan(item.id, "ixRoomNo", 6, 1, null, "GrpHead");
+                                    $$("gridRpt").addSpan(item.id, "IxArDt", 4, 1, null, "GrpHead");
+                                    $$("gridRpt").refresh();
+                                }
+                                else item.$css = item.CLR;
+                            }
+                        },
+                    },
+
+                    on: {
+                        onBeforeClose: function () {
+                            return false;
+                        },
+                        onAfterload: function () {
+                        },
+                        onResize:function (){
+                            debugger;
+                            $$("gridRpt").adjustRowHeight("ixInvNo");
+                        },
+                        onColumnResize:function (id,newWidth,oldWidth,user_action){
+                            debugger;
+                            if(id =="ixInvNo") $$("gridRpt").adjustRowHeight("ixInvNo");
+                        },
+                    },
+                });
+            };
+            function fnCurrFormat(value) {
+
+                var Currfrmt = $("#CURRENCY_FORMAT").val();
+                var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+                var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+                return CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal);
+
+            }
+            function CurrFormat(value, Currfrmt, CurrDelimit, CurrDecimal) {
+                // debugger;
+
+                if (value == null) return "";
+
+                if (value.toString() != "") {
+
+
+                    if (Currfrmt == "L") {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+
+                        x = x.toString();
+                        var afterPoint = '';
+                        if (x.indexOf('.') > 0) {
+                            afterPoint = x.substring(x.indexOf('.') + 1, x.length);
+                            afterPoint = CurrDelimit + afterPoint
+                        }
+
+
+
+                        x = Math.floor(x);
+                        x = x.toString();
+                        var lastThree = x.substring(x.length - 3);
+                        var otherNumbers = x.substring(0, x.length - 3);
+                        if (otherNumbers != '' && otherNumbers != '-')
+                            lastThree = ',' + lastThree;
+                        return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                    }
+                    else {
+                        var x = parseFloat(value).toFixed(CurrDecimal);
+                        var neg = false;
+                        if (value < 0) {
+                            neg = true;
+                            //x = math.abs(x);
+                        }
+
+                        x = x.toString();
+
+                        //var res = x.replace(/(\d)(?=(\d{3})+(?!\d))/g, "1,")  //+ afterPoint;
+                        //var res = x.replace(/(\d{3})/g, "1,")
+                        var res = x.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+                        if (res.indexOf('.') > 0) {
+
+                            res = res.replace(".", CurrDelimit)
+                        }
+
+
+                        return res;
+                    }
+                }
+                else {
+                    return value;
+                }
+            };
+
+            function TravelAgentPopWindowLoad() {
+                //debugger;
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    move: true,
+                    id: "TravelAgentPopup",
+                    head: "Travel Agent",
+                    position: "center",        
+                    maxWidth: 450,
+                    autowidth: true,
+                    body: {
+                        rows: [{
+                            view: "datatable",
+                            id: "dtTravelAgntPop",
+                            select: "row",
+                            css: "webix_header_border",
+                            data: [],
+                            height: 450,
+                            columns: [
+                                   { header: ["Travel Agent", { content: "textFilter" }], id: "value", width: 320, css: { 'text-align': 'left ! important' },fillspace:true, },
+                                   { header: "ID", id: "id", hidden: true, css: { 'text-align': 'center ! important' } },
+                                   { header: ["Select", { content: "masterCheckbox", css: { 'padding': '0px ! important', } }], id: "CHK", editor: 'check', template: "{common.checkbox()}", width: 60, css: { 'text-align': 'center ! important', 'height': '20px', 'width': '20px' } },                       
+                                   
+                            ],
+                            data: [{}],
+                            on: {
+                                'onKeyPress': function (code, e) {
+                                    debugger;
+                                    var selRow = this.getSelectedItem();
+                                    var rowid = selRow.id;
+                                    var charCode = e.which || e.keyCode;
+                                    if (charCode == '13') {
+                                        var valid = this.getSelectedId(true);
+                                        var id = { row: valid[0].row };
+                                        this.callEvent("onItemClick", [id]);
+                                    }
+                                    if (e.ctrlKey == false && e.altKey == false && e.shiftKey == false && charCode == 32) {
+                                        var vChk = selRow.CHK;
+                                        if (vChk == "1") selRow.CHK = "0";
+                                        else selRow.CHK = "1";
+                                        this.updateItem(rowid, selRow)
+                                    }
+                                },
+                                'onBeforeFilter': function () {
+                                    this.select(this.getFirstId());
+                                    webix.UIManager.setFocus(this);
+                                    this.refresh();
+                                },
+                                'onAfterFilter': function () {
+                                    //debugger;
+                                    this.select(this.getFirstId());
+                                    webix.UIManager.setFocus(this);
+                                    this.refresh();
+                                }
+                            }
+                        },
+                        {
+                            margin: 10,
+                            padding: { top: 5, bottom: 5, right: 5 },
+                            cols: [
+                                {
+                                    view: "button",
+                                    //type: "icon",
+                                    //icon: "wxi-check",
+                                    css:"webix_primary",
+                                    label: "Ok",
+                                    inputWidth: 60,
+                                    click: function () {
+                                        debugger;                                        
+                                        ClearGrid();
+                                        var vLedNm = "";
+                                        var vLedId = "";
+                                        window.PartyIds = "";
+                                        
+                                        $$("dtTravelAgntPop").data.each(function (obj) {
+                                            debugger;
+                                            if (obj.CHK=="1") {
+                                                if (vLedNm != "") {
+                                                    vLedNm = vLedNm + "," + obj.value
+                                                }
+                                                else {
+                                                    vLedNm = obj.value
+                                                }
+                                                if (vLedId != "") {
+                                                    vLedId = vLedId + ",'" + obj.id + "'"
+                                                }
+                                                else {
+                                                    vLedId = "'" + obj.id + "'"
+                                                }
+                                            }
+                                        });
+                                        if (vLedId != "") {
+                                            window.PartyIds = vLedId;
+                                            $$("TravelAgentPopup").hide();                                            
+
+                                        }
+                                        else {
+                                            $$("TravelAgentPopup").hide();
+                                            //webix.alert({ text: "Pelase Select any One. ", type: "alert-warning" });
+                                        }
+                                    },
+                                    align: "right"
+                                },
+
+
+                            ]
+
+                        }
+                        ],
+
+                    }
+                });
+            };
+            function btnTrvelAgntSrchClick() {
+                debugger;
+                //if (fnChkSessVal() == false) return;
+                $$("dtTravelAgntPop").eachColumn(function (id, col) {
+                    var filter = this.getFilter(id);
+                    if (filter) {
+                        if (filter.setValue) filter.setValue("");
+                        else filter.value = "";
+                    }
+                });
+                //$$("dtPartyPop").filterByAll();
+                fnLoadTravelGrid();
+                var ids = window.PartyIds;
+                var str = [];
+                if (ids != null && ids != undefined && ids != "") {
+                    ids = ids.replace(/'/g, '');
+                    str = ids.split(',');
+                }
+
+                $$("dtTravelAgntPop").data.each(function (obj) {
+                    debugger;
+
+                    if (str.length > 0) {
+                        var newData = str.filter(function (el) {
+                            debugger;
+                            return el == obj.id;
+                        });
+                        if (newData.length > 0) obj.CHK = "1";
+                        else obj.CHK = "0";
+                    }
+                    else obj.CHK = "0";
+
+                    $$("dtTravelAgntPop").updateItem(obj.id, obj)
+
+                })
+                $$("dtTravelAgntPop").refresh();
+
+                $$("TravelAgentPopup").show();
+                $$("dtTravelAgntPop").select($$("dtTravelAgntPop").getFirstId());
+                webix.UIManager.setFocus($$("dtTravelAgntPop"));
+    
+
+            };
+            function fnLoadTravelGrid() {
+                debugger;
+                var rowDatad = [];
+                var CompId = $$("Property").getValue();
+                
+                Request = {
+                    REQTYPE: "GET_FNLOADTRAVELAGENT",
+                    COMPID: CompId,                    
+                }
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        //debugger;
+                        if (d != "" && d != undefined && d != null) {
+                            rowDatad = JSON.parse(d);
+                            $$("dtTravelAgntPop").clearAll();
+                            $$("dtTravelAgntPop").parse(rowDatad);
+                            $$("dtTravelAgntPop").refresh();
+
+                        }
+                    }
+                })
+
+            };
+            function fnCurrDtTime() {
+                var vDate = "";
+                var vTime = "";
+                var vTimeHHSS = "";
+                var rowData = [];
+                var CompId = $$("Property").getValue();
+                Request = {
+                    REQTYPE: "GET_FNLOADCURRDTTM",
+                    COMPID: CompId,
+                }
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        debugger;
+                        if (d != "") {
+                            rowData = JSON.parse(d);
+                            vDate = rowData.GDate;
+                            vTime = rowData.GTime;
+                            vTimeHHSS = rowData.GTimeHHSS;
+                        }
+                    },
+                });
+
+                return [vDate, vTime,vTimeHHSS];
+
+            };
+
+
+        </script>
+
+
+        <script type="text/javascript">
+
+            $(document).on('shown.lte.pushmenu', function () {
+                debugger;
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+                    
+                //$("#MenuName").val('');
+                //$("#MenuLvl").val('');
+                //$("#MenuLvl1").val('');
+
+                function resizeAction() {
+                    sidebarFn(1);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+
+            }).on('collapsed.lte.pushmenu', function () {
+                debugger;
+                var timeoutID;
+                function delayedStart() {
+                    timeoutID = window.setTimeout(resizeAction, 350);
+                }
+
+                function resizeAction() {
+                    sidebarFn(2);
+                    //  alert("Sidebar is collapsed or expanded!")
+                    window.clearTimeout(timeoutID);
+                }
+
+                delayedStart();
+            });
+
+            $("#ChkAll").click(function () {
+                if($("#ChkAll")[0].checked == true)  $("#btnTravelAgnt").show();
+                else $("#btnTravelAgnt").hide();  
+                window.PartyIds = "";
+
+            });            
+
+            function fnExcelExport() {
+                debugger;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+
+                FullData = $$("gridRpt").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.toExcel($$("gridRpt"), {
+                        filename: vHeader,
+                        styles: true,
+                        name: vHeader,
+                        docHeader: vHeader,
+                        spans:true,
+                        rawValues: true,
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+            };
+            function fnGridPrint() {
+                debugger;
+                var vHeader = $("#lblRptCaption").text();
+                var FullData = "";
+
+                FullData = $$("gridRpt").serialize();
+                var len = FullData.length;
+                if (len > 0) {
+                    webix.print($$("gridRpt"), {
+                        docHeader: { text: vHeader, fontSize: 25 },
+                        fit: "page",
+                        scroll: false,
+                        mode: "landscape"
+                    });
+                }
+                else {
+                    alert("Records not present in Report");
+                }
+
+
+            };
+
+            function fnChkComplHUClick() {
+                ClearGrid();
+            };
+            function fnChkDtwsClick() {
+                ClearGrid();
+
+            };
+
+            function ClearGrid() {
+                $$("gridRpt").clearAll();
+            };
+            function fnbtnDisplay() {
+                debugger;
+                $("#LoadDIv").show();
+                var frmdate = "";
+                var todate = "";
+                var REPTYPE = "";
+                var CHKCOMPLHU = "";
+                ClearGrid();
+
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+
+                REPTYPE = "1";
+
+
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }
+                if (todate == "") {
+                    webix.message("To Date can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }
+
+                var bSucc = "1";
+                var comp = $$("Property").getValue();
+                if (comp == "") {
+                    webix.message("Property can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }
+
+                var ChkPckg = $$("chkIncludePkg").getValue();
+                var TRVIDS = window.PartyIds;
+
+                var Request = {
+                    REQTYPE: "GET_FNTRVAGNTCOMM",
+                    COMPID: comp,
+                    FRMDT:frmdate,
+                    TODT:todate,
+                    ChkPckg : ChkPckg,
+                    TRVIDS:TRVIDS
+
+                }
+                var Currfrmt = $("#CURRENCY_FORMAT").val();
+                var CurrDelimit = $("#CURRENCY_DELIMIT").val();
+                var CurrDecimal = $("#CURRENCY_DECIMLIMIT").val();
+                var dataparam = JSON.stringify(Request);
+                $.ajax({
+                    async: true,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + dataparam,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            var rowDatad = JSON.parse(data);
+                            $$("gridRpt").clearAll();
+                            $$("gridRpt").parse(rowDatad);
+
+                            $$("gridRpt").adjustRowHeight("ixInvNo");
+                        }
+
+                    },
+                    error: function (err) {
+                        $("#LoadDIv").hide();
+                    },
+                    complete: function () {
+                        debugger;
+                        $("#LoadDIv").hide();
+                    }
+                });
+            };
+
+
+            function fnloadCompPopWindow() {
+                webix.ui({
+                    view: "window",
+                    close: true,
+                    modal: true,
+                    id: "CompPopup",
+                    head: "Commission Compute",
+                    position: "center",
+                    css: "WebIxStyle",
+                    height: 450,
+                    width: 400,
+                    move: true,
+                    
+                    body: {
+                        rows: [
+                                {                                    
+                                    padding: { top: 10, left: 20, bottom: 10, right: 10 },
+                                    rows: [                                       
+
+                                        { view: "datepicker", id: "txtLstComDt", labelWidth: 200, label: "Last Commission Compute Date",timepicker: true,  format:"%d/%m/%Y %H:%i:%s", stringResult: true,
+                                            on: {
+                                                onChange: function () { 
+                                                    var DDdate = $$("txtLstComDt").getValue();
+                                                    if (DDdate != "") fnDepartCompDtValidate();
+                                                    
+                                                }
+                                            }
+                                        },
+                                        { view: "text", id: "txtNoOfRec",labelWidth: 200, label: "No of Records Compute",   },                                        
+                                            
+                                            
+                                    ]
+                                },
+                                
+                                { cols: [{}, { view: "button",css:"webix_primary", id: "btnOkCompute", label: "OK", inputWidth: 70, width: 70, click: function () { btnOkCompClick(); } }], }
+                        ]
+
+                    }
+                });
+            };
+
+            function btnOkCompClick(){
+                debugger;
+                $("#LoadDIv").show();
+                var DDdate = "";    
+                
+                var CHKCOMPLHU = "";
+                //ClearGrid(); 
+                
+                DDdate = $$("txtLstComDt").getValue();
+
+                var bSucc = "1";
+                var comp = $$("Property").getValue();
+                if (comp == "") {
+                    webix.message("Property can't be empty", "warning", 500);
+                    $("#LoadDIv").hide();
+                    return;
+                }
+                var ChkPckg = $$("chkIncludePkg").getValue();                
+                var Request = {
+                    REQTYPE: "GET_FNTRVAGNTCOMMCOMP",
+                    COMPID: comp,
+                    DDT:DDdate,                    
+                    ChkPckg : ChkPckg,                    
+                }
+                
+                var dataparam = JSON.stringify(Request);
+                $.ajax({
+                    async: true,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + dataparam,
+                    success: function (data) {
+                        debugger;
+                        if (data != "") {
+                            debugger;
+                            var rowDatad = JSON.parse(data);                            
+                            if(rowDatad.Ret == "1"){
+                                //webix.message.position = "bottom";
+                                webix.message("Computation not applicable", "warning");
+                                $("#LoadDIv").hide();
+                            }
+                            else if(rowDatad.Ret == "2"){
+                                //webix.message.position = "bottom";
+                                webix.message("No Records to compute", "warning");
+                                $("#LoadDIv").hide();
+                            }
+                            else if(rowDatad.Ret == "3"){
+                                // webix.message.position = "bottom";
+                                $$("txtNoOfRec").setValue(rowDatad.NoOfRec);
+                                webix.message(
+                                    text="Computed Successfully", 
+                                    type="success"
+                                );
+                                $("#LoadDIv").hide();
+                                webix.delay(function(a, b){
+                                    fnbtnDisplay();
+                                    $$("CompPopup").hide();
+                                }, '', '', 1000);
+                            }
+                        }
+
+                    },
+                    error: function (err) {
+                        $("#LoadDIv").hide();
+                    },
+                    complete: function () {
+                        debugger;
+                        $("#LoadDIv").hide();
+                    }
+                });
+
+            }
+
+            function fnbtnComputeClick() {
+                $$("txtLstComDt").setValue('');
+                $$("txtNoOfRec").setValue('');
+
+
+                var rowDatad = "";
+                var CompId = $$("Property").getValue();
+                
+                Request = {
+                    REQTYPE: "GET_FNGETMAXDEPDATE",
+                    COMPID: CompId,                    
+                }
+
+                var DataVal = JSON.stringify(Request);
+                $.ajax({
+                    async: false,
+                    url: "/Reports/FOAPI_CALL",
+                    type: 'POST',
+                    data: "request=" + DataVal,
+                    success: function (d) {
+                        //debugger;
+                        if (d != "" && d != undefined && d != null) {
+                            rowDatad = JSON.parse(d);                           
+                            $$("txtLstComDt").setValue(rowDatad);
+                            //$$("txtLstComDt").getPopup().getBody().config.maxDate = new Date(rowDatad);
+                            //$$('txtLstComDt').refresh();
+                        }
+                    }
+                })              
+
+
+                $$("CompPopup").show();
+            };
+
+            function formatDate(StrDt) {
+                //debugger;
+                var Parts = StrDt.split(" ");
+                var MN = FnRetMonth(Parts[0]);
+                var YR = Parts[1];
+                var Str = "01" + "/" + MN + "/" + YR;
+                return Str;
+            };
+
+            function ExcelFormat() {
+                debugger;
+                return //"#,##0.00",
+            };
+
+            function sidebarFn(){
+                debugger;
+                //$$("gridRpt").adjust();
+                $$("gridRpt").resize();
+                //$$("FromDt").resize();
+                //$$("ToDt").resize();
+            }
+
+
+            function SMToDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+                var sFrmDt = $$("ToDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                var bSucc = "1";
+
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+
+
+                if (todate == "") {
+                    webix.message("To Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" +  frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("ToMthDate").setValue(FrmMnth);
+                            var vToDt = formatDate1(sFrmDt);
+                            $$("FromDt").setValue(new Date(vToDt));
+                            //bSucc = "0";
+                        }
+                    }
+                });
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + todate  + "&T=" + vAccDt,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("FromDt").setValue(vAccDt);
+                            var vFromDt = formatDate1(vAccDt);
+                            $$("ToDt").setValue(new Date(vFromDt));
+
+
+                            //bSucc = "0";
+                        }
+                    }
+                });
+
+                //fnHeader();
+
+            };
+
+
+            function SMFromDateChange(e) {
+                debugger;
+                var frmdate = $$("FromDt").getText();
+                var todate = $$("ToDt").getText();
+                var sFrmDt = $$("FromDt").getText();
+                var vAccDt = $("#HdnAccDt").val();
+
+                var bSucc = "1";
+
+                if (frmdate == "") {
+                    webix.message("From Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+
+
+                if (todate == "") {
+                    webix.message("To Date can't be empty", "warning", 800);
+                    $("#LoadDIv").hide();
+                    bSucc = "0";
+                    return bSucc;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + frmdate + "&T=" + todate,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("ToMthDate").setValue(FrmMnth);
+                            var vToDt = formatDate1(sFrmDt);
+                            $$("ToDt").setValue(new Date(vToDt));
+                            //bSucc = "0";
+                        }
+                    }
+                });
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + frmdate  + "&T=" + vAccDt,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;
+                            //webix.message("From Month Should be less than To Month ", "warning", 500);
+                            $("#LoadDIv").hide();
+                            //$$("FromDt").setValue(vAccDt);
+                            var vFromDt = formatDate1(vAccDt);
+                            $$("FromDt").setValue(new Date(vFromDt));
+
+
+                            //bSucc = "0";
+                        }
+                    }
+                });
+
+                //fnHeader();
+
+            };
+
+            function fnDepartCompDtValidate(){
+                debugger;
+                var values = fnCurrDtTime();
+                var vDate = values[0];
+                var vTm = values[1];
+                var vTimeHHSS = values[2];
+                var DDdate = $$("txtLstComDt").getText();
+                var vDateTm = vTimeHHSS;
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Reports/FTDateValidation",
+                    cache: false,
+                    async: false,
+                    charset: 'utf-8',
+                    data: "F=" + DDdate + "&T=" +  vDateTm,
+                    success: function (data) {
+                        if (data.d != "") {
+                            debugger;                                                                                    
+                            //var vToDt = sFrmDt;
+                            $$("txtLstComDt").setValue(new Date(vDateTm));                            
+                        }
+                    }
+                });
+            }           
+
+
+        </script>
+    </section>
+</div>>
+

@@ -1,0 +1,7 @@
+23/12/2021 14:33:00
+D:\Hosted\WinHMSWebNew\LogFile\_Dashboard.txt
+Thread was being aborted.
+Date :23/12/2021 14:33:00
+Thread was being aborted.Date :23/12/2021 15:01:56
+Thread was being aborted.Date :23/12/2021 15:11:35
+Object reference not set to an instance of an object.

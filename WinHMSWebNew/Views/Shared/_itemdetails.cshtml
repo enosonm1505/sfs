@@ -1,0 +1,32 @@
+﻿<div class="modal fade" id="divItemDetails" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:70%; margin-left:20%;">
+            <div class="modal-header">
+                <h4 class="modal-title" id="lblearndect"><i id="earnicon" class="fa fa-plus-circle"></i> <span id="CmnHeading">Item Details </span> </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                   @* <textarea id="txtIntem" style="height:50px" />*@
+                </div>
+            </div>
+
+            <div class="modal-footer" style="float:left;margin-left:250px">
+                <button id="ImtemsOk" type="button" class="btn btn-warning" data-dissmiss="modal"><i class="fa fa-close (alias)"></i> OK</button>
+            </div>
+            <div class="modal-footer">
+                <button id="ImtemsCncl" type="button" class="btn btn-warning" data-dissmiss="modal"><i class="fa fa-close (alias)"></i> Close</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#ImtemsOk").click(function () {
+
+        $("#divItemDetails").modal("hide");
+    });
+
+
+   
+    </script>

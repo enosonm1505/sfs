@@ -1,0 +1,128 @@
+﻿
+.tab1 {
+    background-color:#4CCAEF;
+}
+
+article {
+    float: left;
+    width: 70%;
+}
+.divfield {
+     margin:0px;
+     margin-top:-5px;
+     padding:0px;
+   
+}
+.divfield1 {
+     margin: 5px 5px 5px 5px;
+     margin-top:0px;      
+}
+aside {
+    float: right;
+    width: 25%;
+}
+ aside ul {
+        list-style: none;
+        padding: 0;
+ }
+ aside ul li {
+            /*background: url("../Images/bullet.png") no-repeat 0 50%;
+            padding: 2px 0 2px 20px;*/
+   }
+   #loginForm {
+    border-right: solid 2px #c8c8c8;
+    float: left;
+    width: 55%;
+}
+  #socialLoginForm {
+    margin-left: 40px;
+    float: left;
+    width: 40%;
+}
+.Field {
+    border: 1px solid #666666;
+}
+.Rowcolor {
+    background-color: #000000;
+}
+.FullwidthDIV 
+{    width:100%;
+    float:left;  
+    padding-bottom:5px;  
+}
+.LabelWidth {
+width:110px;
+float:left;
+}
+.TextWidth {
+width:250px;
+float:left;
+}
+
+.DropWidth {
+width:300px;
+float:left;
+}
+
+
+
+.LabelWidth2 {
+width:120px;
+float:left;
+}
+.TextWidth2 {
+width:200px;
+float:left;
+}
+.SmallText {
+width:180px;
+float:left;
+}
+.Searchbox {
+width:25px;
+float:left;
+}
+
+.LabelWidth3 {
+width:90px;
+float:left;
+}
+.TextWidth3 {
+width:200px;
+float:left;
+
+}
+.ButtonWidth {
+width:100%;
+float:right;
+}
+
+.LabelWidthFull {
+width:150px;
+float:left;
+}
+
+.hideClass {
+    display: none;   
+}
+.k-state-selected
+ {
+    background-color: #FF9966;
+}
+
+.k-window-titlebar {
+      line-height:25px;text-align:center;
+    background-color:#4CCAEF;    
+    color:#fff; 
+}
+.k-block, .k-button, .k-textbox, .k-drag-clue, .k-touch-scrollbar, .k-window, .k-window-titleless .k-window-content, .k-window-action, .k-inline-block, .k-grid .k-filter-options, .k-grouping-header .k-group-indicator, .k-autocomplete, .k-multiselect, .k-combobox, .k-dropdown, .k-dropdown-wrap, .k-datepicker, .k-timepicker, .k-colorpicker, .k-datetimepicker, .k-notification, .k-numerictextbox, .k-picker-wrap, .k-numeric-wrap, .k-colorpicker, .k-list-container, .k-calendar-container, .k-calendar td, .k-calendar .k-link, .k-treeview .k-in, .k-editor-inline, .k-tooltip, .k-tile, .k-slider-track, .k-slider-selection, .k-upload, .k-split-button .k-gantt-views, .k-gantt-views>.k-current-view {
+    border-radius: 5px!important;
+    font-size:14px!important;
+}
+.searchicon {
+    width: 20px!important;
+    height: 20px;
+    cursor: pointer;
+    margin-top: 0px!important;
+    vertical-align: middle!important;
+}

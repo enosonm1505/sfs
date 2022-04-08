@@ -1,0 +1,134 @@
+﻿/* TABLES
+------------------------------------------------------------------------- */
+.gtable 
+{
+    width:100%;
+    
+}
+    .gtable td {color:#000
+    }
+.gtable th {
+	text-align: left;
+	padding: 5px 10px;
+}
+.gtable thead tr {
+	color: #333;
+	border: 1px solid #ccc;
+}
+.gtable thead th {
+	background: #efefef;
+}
+.gtable tbody tr td {
+	border-bottom: 1px solid #eee;
+    border-right:1px solid #eee;
+}
+.gtable tbody tr:nth-child(odd) td, .detailtable tbody tr.odd td {
+	background-color: #fff;
+}
+.gtable tbody tr:nth-child(even) td, .detailtable tbody tr.even td {
+	background-color: #f7f7f7;
+}
+.gtable tbody tr:hover td {
+	background-color: #FFFAE3;
+}
+.gtable td {
+	padding: 5px 10px;
+}
+.gtable input {
+	vertical-align: middle;
+}
+.gtable img {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.gtable tr.detail {
+	font-size: 11px;
+}
+.gtable tr.detail td {
+	padding: 0;
+}
+.gtable tr.detail td td, .gtable tr.detail td th {
+	padding: 2px 10px;
+	color: #777;
+}
+.gtable .detail table {
+	width: 100%;
+	border: 5px solid #fff7d1;
+}
+.gtable .detail table tr td, .gtable .detail table tr th {
+	background: #ffffed;
+	border-bottom: 1px solid #fff7d1;
+}
+table.sortable img.move {
+	cursor: move;
+}
+
+.tablefooter {
+	background: #f7f7f7;
+	border-top: 1px solid #fff;
+}
+.tablefooter .actions {
+	float: left;
+	padding: 5px 10px;
+}
+.tablefooter .pagination {
+	float: right;
+	padding: 5px 10px;
+}
+.mGrid
+ { width: 100%; background-color: #fff; margin: 5px 0 10px 0;  border-collapse:collapse; 
+   border-radius:5px;font-family:Arial,Tahoma,Sans-Serif,Verdana;}
+ 
+    .mGrid td { padding: 2px;  color:Black;font-family:Arial,Tahoma,Sans-Serif,Verdana;border-radius:5px; }
+    
+   .mGrid th
+{
+    padding: 4px 2px;
+    color: #fff;
+   
+    
+/*background-color: #43BCC7;*/ 
+    background-color: #D0D0D0;
+    border-color:  #D0D0D0;
+}
+.mGrid1
+ { width: 100%; background-color: #fff; margin: 5px 0 10px 0;  border-collapse:collapse; text-align:center;
+   border-radius:5px;font-family:Arial,Tahoma,Sans-Serif,Verdana;height:25px;}
+ 
+    .mGrid1 td { padding: 2px;font-family:Arial,Tahoma,Sans-Serif,Verdana; }
+
+/*.GridCellDiv {text-align:center;}*/
+
+.mGrid1 th div {text-align:center;}
+
+.mGrid1 GridCellDiv {text-align:center;}
+    
+ .mGrid1 th
+{   
+    color: #333;
+   
+    /*background-image: url('../images/logocolorima.png');*/
+	/*background: #43BCC7;*/
+    background: #D0D0D0;
+     border-color:  #D0D0D0;
+    font-size: 0.9em;padding-top:0;padding-bottom:0;
+    font-family:Arial,Tahoma,Sans-Serif,Verdana;
+}
+.mGrid2
+ { width: 100%; background-color: #fff; margin: 5px 0 10px 0;  border-collapse:collapse; 
+   border-radius:5px;font-family:Arial,Tahoma,Sans-Serif,Verdana;}
+ 
+    .mGrid2 td { padding: 2px;  color:Black;font-family:Arial,Tahoma,Sans-Serif,Verdana; }
+    
+   .mGrid2 th
+{
+    padding: 4px 2px;
+    color: #333;
+   
+    /*background-image: url('../images/logocolorima.png');*/
+	background: #29a1b3;
+	
+    
+    font-size: 0.9em;
+    font-family:Arial,Tahoma,Sans-Serif,Verdana;
+}

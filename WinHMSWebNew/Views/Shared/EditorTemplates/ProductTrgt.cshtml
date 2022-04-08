@@ -1,0 +1,15 @@
+﻿@using Kendo.Mvc.UI
+
+@(Html.Kendo().DropDownList()
+              .Name("ProductTrgt")        
+            .DataTextField("Text")
+            .DataValueField("Value")
+                         .Events(e => e.Change("Prodwisechange")) 
+      .DataSource(d => d.
+              Read(r => r.Action("ProductTrgtLoad", "SalesAndMarket")
+          )
+          )
+)
+
+ 
+        

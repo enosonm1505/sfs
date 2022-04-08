@@ -1,0 +1,22 @@
+.fullwidth{width:100%; float:left;margin-top:5px;}
+.wid100{width:100px;float:left;padding-left:7px}
+.wid85{width:85px;float:left;padding-left:7px}
+.wid80{width:80px;float:left;padding-left:7px}
+.wid200{width:200px;float:left;padding-left:7px}
+.wid300{width:300px;float:left;padding-left:7px}
+.HIDE{display: none}
+.divRev{width: 300px; height: 380px;top:10px;}
+.divrevpp{width: 300px; height: 250px; overflow:scroll}
+.DivRevGr{width: 300px; height: 270px;top:10px;}
+.DivRevGrpp{width: 300px; height: 225px; overflow:scroll}
+.DivRevRv{width: 300px; height: 330px;}
+.DivRevRvpp{width: 300px; float:left}
+.DivRevRvpp tr,.DivRevRvpp .GrdHeader{display:block}
+.divMulti{width: 200px; height:280px;}
+.divMultipp{width: 200px; height: 210px; overflow:scroll}
+.DivRespp{width: 600px; height: 210px; overflow:scroll; margin-top:8px; float:left}
+.DivRes{width: 600px; height: 330px;}
+.DivPM{width: 200px; height: 330px;}
+.DivPMpp{width: 200px; height: 245px; overflow:scroll; margin-top:8px; float:left}
+.divrevpp tr{display:table-row}
+.DivRevRvpp tr, .DivRevGrpp tr{display:table-row}

@@ -1,0 +1,194 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="<%: Url.Content("~/favicon.ico") %>" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <%=Styles.Render("~/Content/Kendo/css") %>
+    <!--This bundle was moved by the Telerik VS Extensions for compatibility reasons-->
+
+    <!--This CSS entry was added by the Telerik VS Extensions for compatibility reasons-->
+    <link href="../../Content/MyDesign.css" rel="stylesheet" />
+
+
+    <link href="<%= Url.Content("~/Content/kendo.compatibility.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.common.min.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.mobile.all.min.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Content/kendo/2015.3.930/kendo.default.min.css") %>" rel="stylesheet" type="text/css" />
+    
+
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/jquery.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/jszip.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/kendo.all.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/kendo.aspnetmvc.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo/2015.3.930/jszip.min.js") %>"></script>
+    <script src="<%= Url.Content("~/Scripts/kendo.modernizr.custom.js") %>"></script>
+    <%--<link id="Link1" runat="server" rel="Shortcut Icon" href="~/Images/winhmslogo.png" />--%>
+    <!--Siva Design-->
+    <link href="../../Content/bluetheme.css" rel="stylesheet" />
+    <link href="../../Content/Calender.css" rel="stylesheet" />
+    <link href="../../Content/Home.css" rel="stylesheet" />
+    
+    <link href="../../webix-pro/webix.min.css" rel="stylesheet" />
+    <link href="../../Content/webixCss.css" rel="stylesheet" />
+    
+    <script src="../../webix-pro/webix.min.js"></script>
+    <script src="../../webix-pro/index.js"></script>
+
+
+</head>
+<script type="text/javascript">
+    function changeHashOnLoad() {
+        window.location.href += "#";
+        setTimeout("changeHashAgain()", "50");
+    }
+
+    function changeHashAgain() {
+        window.location.href += "1";
+    }
+
+    var storedHash = window.location.hash;
+    window.setInterval(function () {
+        if (window.location.hash != storedHash) {
+            window.location.hash = storedHash;
+        }
+    }, 50);
+
+</script>
+<script type="text/javascript">
+
+    document.onkeypress = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-12');
+            return false;
+        }
+        if (event.keyCode == 222) {
+            //alert('No F-12');
+            return false;
+        }
+        if (event.keyCode == 186) {
+            //alert('No F-12');
+            return false;
+        }
+    }
+    document.onmousedown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-keys');
+            return false;
+        }
+        if (event.keyCode == 222) {
+            //alert('No F-12');
+            return false;
+        }
+        if (event.keyCode == 186) {
+            //alert('No F-12');
+            return false;
+        }
+    }
+    document.onkeydown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-keys');
+            return false;
+        }
+        if (event.keyCode == 222) {
+            //alert('No F-12');
+            return false;
+        }
+        if (event.keyCode == 186) {
+            //alert('No F-12');
+            return false;
+        }
+    }
+    /////////////////////end///////////////////////
+
+    //// Disable right click script
+    /////visit http://www.rainbow.arch.scriptmania.com/scripts/
+    ///// var message = "Sorry, right-click has been disabled";
+    /////////////////////////////////
+    //function clickIE() { if (document.all) { (message); return false; } }
+    //function clickNS(e) {
+    //if 
+    //(document.layers || (document.getElementById && !document.all)) {
+    //if (e.which == 2 || e.which == 3) { (message); return false; }
+    //}
+    //}
+    //if (document.layers)
+    //{ document.captureEvents(Event.MOUSEDOWN); document.onmousedown = clickNS; }
+    //else { document.onmouseup = clickNS; document.oncontextmenu = clickIE; }
+    //document.oncontextmenu = new Function("return false")
+
+
+    //function disableCtrlKeyCombination(e) {
+    //    //list all CTRL + key combinations you want to disable
+    //    var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'v', 'j', 'w', 's');
+    //    var key;
+    //    var isCtrl;
+    //    if (window.event) {
+    //        key = window.event.keyCode;     //IE
+    //        if (window.event.ctrlKey)
+    //            isCtrl = true;
+    //        else
+    //            isCtrl = false;
+    //    }
+    //    else {
+    //        key = e.which;     //firefox
+    //        if (e.ctrlKey)
+
+    //            isCtrl = true;
+    //        else
+    //            isCtrl = false;
+    //    }
+    //    //if ctrl is pressed check if other key is in forbidenKeys array
+    //    if (isCtrl) {
+
+    //        for (i = 0; i < forbiddenKeys.length; i++) {
+
+    //            //case-insensitive comparation
+    //            if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+
+
+    //                // alert('Key combination CTRL + ' + String.fromCharCode(key) + ' has been disabled.');
+    //                return false;
+    //            }
+    //        }
+    //    }
+    //    // return true;
+    //}
+</script>
+<body onload="changeHashOnLoad();" style="overflow-y: scroll">
+    <%--<body onload="changeHashOnLoad();" >--%>
+    <div class="divfield">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        <div id="pageloaddiv" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+            <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+        </div>
+    </div>
+    <div class="divfield1">        |
+        <div class="content-wrapper">
+            <asp:ContentPlaceHolder ID="FeaturedContent" runat="server" />
+        </div>
+    </div>
+
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+            </div>
+        </div>
+    </footer>
+    <asp:ContentPlaceHolder ID="ScriptsSection" runat="server" />
+    <script type="text/javascript">
+        $(window).load(function () {
+            $("#pageloaddiv").fadeOut(2000);
+        });
+    </script>
+    <script src="../../Scripts/FTDateValidation.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        webix.ui({
+            view: "window",
+            close: true,
+            modal: true,
+            id: "RpContForcastOpt",
+            head: "Analysis By",
+            position: "center",
+            css: "WebIxStyle",
+            height: 500,
+            width: 300,
+            move: true,
+            body: {
+                padding: { top: 20, left: 30, bottom: 20, right: 10 },
+                rows: [
+                   { view: "checkbox", id: "ChkNight", labelWidth: 5, labelRight: "Nights", customCheckbox: false, },
+                   { view: "checkbox", id: "ChkRev", labelWidth: 5, labelRight: "Revenue", customCheckbox: false, },
+                   { view: "checkbox", id: "ChkARR", labelWidth: 5, labelRight: "ADR", customCheckbox: false, },                   
+                   { view: "checkbox", id: "ChkOthRev", labelWidth: 5, labelRight: "Other Revenue", customCheckbox: false, },
+                   { view: "checkbox", id: "ChkPax", labelWidth: 5, labelRight: "Pax", customCheckbox: false, },
+                   { cols: [{}, { view: "button", type: "icon", id: "Okoptions", icon: "wxi-check", label: "OK", inputWidth: 80, width: 80, click: function () { fnOkClick(); } }], }
+                ]
+            }
+        });
+    });
+
+    function fnOkClick() {
+
+        var CHKREV = $$("ChkRev").getValue();
+        var CHKARR = $$("ChkARR").getValue();
+        var CHKNT = $$("ChkNight").getValue();
+        var CHKOTHREV = $$("ChkOthRev").getValue();
+        var CHKPAX = $$("ChkPax").getValue();
+
+        if (CHKREV == 0 && CHKARR == 0 && CHKNT == 0 && CHKOTHREV == 0 && CHKPAX==0) {
+            webix.message("Select atleast one Analysis By", "warning", 800);
+            return;
+        }
+
+        
+        $("#CHK_NT").val(CHKNT);
+        $("#CHK_REV").val(CHKREV);
+        $("#CHK_ARR").val(CHKARR);        
+        $("#CHK_OTHREV").val(CHKOTHREV);
+        $("#CHK_PAX").val(CHKPAX);
+
+        $$("RpContForcastOpt").hide();        
+        fnbtnDisplay();
+    }
+
+</script>
+

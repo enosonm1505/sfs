@@ -1,0 +1,34 @@
+﻿.divCommon {width:100%;float:left;}
+.fulwidth {float: left; width: 100%;line-height:10px; padding-left:2%;}
+.fulwidth2 {float: left; width: 98%;line-height:40px; padding-left:2%;}
+.fulwidth1 {float: left; width: 98%;line-height:0px; padding-left:2%;}
+.Label1 {float:left;width:90px;}
+.label2 {float:left;width:100px;}
+.label3 {float:left;width:30px;}
+
+.leftbx {float:left;width:150px;}
+.rightbx {float:left;width:200px;}
+
+
+a {color:#fff;}
+.dropdown dd,.dropdown dt {margin:0px;padding:0px;}
+.dropdown ul {margin:-1px 0 0 0;}
+.dropdown dd {position:relative;}
+.dropdown a:visited {color:#fff;text-decoration:none;outline:none;}
+.dropdown dt a {background-color:#456877;display:block;padding:8px 20px 5px 10px;min-height:10px;line-height:10px;overflow:hidden;border:0;width:89px;}
+.dropdown dt a span, multisel span {cursor:pointer;display:inline-block;padding:0 3px 2px 0;}
+.dropdown dd ul {background-color:#4f6877;border:0;color:#fff;display:none;left:0px;padding:2px 15px 2px 5px;position:absolute;top:2px;width:280px;list-style:none;height:100px;overflow:auto;}
+.dropdown span.value {display:none;}
+.dropdown dd ul li a {padding:5px;display:block;}
+.dropdown dd ul li a:hover {background-color: #fff;}
+
+/*Pop Up*/
+.closebtn{float:right;margin-top:-50px;margin-right:-20px}
+.popupMain{background-color: rgba(0, 0, 0, 0.63);display: none; width:100%;position:absolute;left:0;top:0;height:100%;z-index:85}
+.popupTitle{width:100%;float:left;font-size:13px;font-weight: bold;color: White;text-align:center;background-color:#072769;height: 30px;line-height: 30px;border-bottom: 4px solid #FFBE17}
+.popupSrch{font-weight: bold;float:left;height:30px;line-height:30px;color: White;width:100%;background-color:#072769;text-align:center;padding:0px 0px 0px 0px;float:left;text-align:left}
+.popupSrchTxt{float:left;height:20px;line-height:20px;padding-right:5px}
+.divOptMaina{ width: 190px; height:370px; margin:0 auto;border:5px solid #E0DFF0;margin-top: 110px;background-color:#ffffff}
+.divOptInner{width:185px;margin-top:10px;overflow-y:scroll;overflow-x:hidden;float:left;height:300px}
+.divTariffMaina{width: 942px; height:575px; margin:0 auto;border:5px solid #E0DFF0;margin-top: 45px;background-color:#ffffff}
+.divTariffInner{width:940px;height:470px;overflow-y:scroll;overflow-x:hidden;float:left;margin-top:32px}

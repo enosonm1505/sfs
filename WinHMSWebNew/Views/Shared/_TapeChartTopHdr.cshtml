@@ -1,0 +1,60 @@
+﻿
+<div class="TopHdr">
+    <div class="TopHdrMod">
+        <div class="logcnt">
+            <img src="../../Images/logo.png" style="">
+        </div>
+       @using (Html.BeginForm("FOTapeChart", "FO", FormMethod.Post, new { enctype = "multipart/form-data" }))
+       {
+           
+        @(Html.Kendo().DropDownList()
+                                  .Name("Property")
+                                  .DataTextField("COMPANY_NM")
+                                  .DataValueField("COMPANY_ID")
+                                  .HtmlAttributes(new { onchange = "this.form.submit();",@Class= "TextWidth", Style = "margin-left:20px; width:250px; float:left; top:10px; text-align:left;" })
+                                  .DataSource(source =>
+              {
+               })
+                   )
+              
+       }
+      
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+        /*Global Variables of this Project*/
+        window.Prop_Id = "";
+        window.pageurl = "";
+        window.pgindic = "";
+        window.Request = "";
+        /*Global Variables of this Project*/
+
+        var DropCall = function (data) {
+            //debugger;          
+            requestData = data;
+            $.ajax({
+                async: false,
+                url: "/FO/API_CALL",
+                type: 'POST',               
+                datatype: 'json',
+                data: "request=" + requestData,
+                success: function (data) {
+                    var ddlcomp = JSON.parse(data);                  
+                    $("#Property").data("kendoDropDownList").dataSource.data(ddlcomp);
+                    $("#Property").data("kendoDropDownList").value(Prop_Id);
+                },
+                error: function (request, status, error) {
+                    console.log("Error Failrue");
+                }
+            });
+        }
+
+        var adjustDropDownWidth = function (e) {
+            var listenobject = e.sender.list.closest('.k-list-container');
+            listenobject.width(listenobject.width() + kendo.support.scrollbar());
+        }
+     
+        
+</script>

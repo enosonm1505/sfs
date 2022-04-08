@@ -1,0 +1,353 @@
+﻿ .custom .webix_cell {
+        background-color: #fff; /*do not set as !important*/
+        /*margin-bottom: 5px;*/
+        /*margin-left: 3px;*/
+        /*margin-top: 5px;*/
+        /*margin-right: 3px;*/
+        padding-left:1px !important;
+        padding-right:1px !important;        
+        /*border-top: 1px solid #000;
+        border-left: 1px solid #000;*/      
+        border:solid !important;  
+        border-color:transparent !important;
+        border-width : 3px !important;        
+        /*border-right: 1px solid red !important;*/
+        border-radius: 16px;        
+        font-size:12px !important;
+        text-align:center !important;        
+    }
+    /*.webix_dtable .webix_ss_body .webix_column > div, .webix_dtable .webix_ss_body .webix_table_cell {
+        border-left-color: #000 !important;
+        border-right-color: #000 !important;
+    }
+    .webix_column > div, .webix_table_cell {
+        border-bottom: 1px solid #000 !important;
+        border-right: 1px solid #000 !important;
+        padding: 0 9pt;
+    }*/
+
+    
+
+    .my_style .webix_column > div:nth-child(2n) {
+        background-color: #fff !important;
+    }
+
+    .my_style .webix_ss_header {    
+        margin: 0% 0% 0% 0% !important;
+    }  
+
+    /*.my_style .webix_column>div.webix_cell_select
+    {
+        background-color:transparent;
+    }*/
+
+    .my_style .webix_ss_body .webix_column > div,.my_style  .webix_ss_body .webix_table_cell {
+        border-left-color: transparent!important;
+        border-right-color: transparent !important;
+    }
+
+    .RmBgColorD1 {
+        color: #000;
+        border-color: #FFFF00;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#f9f903, #ffff00 60%, #cece04) !important;
+        background-repeat: no-repeat;
+    }
+    .RmBgColorD2 {
+        color: #000;
+        border-color: #CD9D94;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#CD9D94, #CD9D94 60%, #CD9D94) !important;
+        background-repeat: no-repeat;
+    }
+
+    .RmBgColorV1 {
+        color: #000;
+        border-color: #80FF80;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#5ce55c, #21e421 60%, #21ac21) !important;
+        background-repeat: no-repeat;
+    }
+
+    .RmBgColorV2 {
+        color: #000;
+        border-color: #C0FFFF;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#C0FFFF, #C0FFFF 60%, #C0FFFF) !important;
+        background-repeat: no-repeat;
+    }
+
+    .RmBgColorO1 {
+        color: #000;
+        border-color: #FF0000;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#f12424, #fc0707 60%, #ed0c0c) !important;
+        background-repeat: no-repeat;
+       
+    }
+      .RmBgColorO2 {
+        color: #000;
+        border-color: #80FF80;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#80FF80, #80FF80 60%, #80FF80) !important;
+        background-repeat: no-repeat;
+    }
+      
+
+.RmBgColorDB1 {
+    color: #000;
+    border-color: #FFFF00;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    background-image: linear-gradient(#f9f903, #ffff00 60%, #cece04) !important;
+    background-repeat: no-repeat;
+   animation:blinkingText 1.2s infinite;
+}
+.RmBgColorDB2 {
+    color: #000;
+    border-color: #CD9D94;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    background-image: linear-gradient(#CD9D94, #CD9D94 60%, #CD9D94) !important;
+    background-repeat: no-repeat;
+  animation:blinkingText 1.2s infinite;
+}
+
+.RmBgColorVB1 {
+    color: #000;
+    border-color: #80FF80;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    background-image: linear-gradient(#5ce55c, #21e421 60%, #21ac21) !important;
+    background-repeat: no-repeat;
+    animation:blinkingText 1.2s infinite;
+}
+
+.RmBgColorVB2 {
+    color: #000;
+    border-color: #C0FFFF;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    background-image: linear-gradient(#C0FFFF, #C0FFFF 60%, #C0FFFF) !important;
+    background-repeat: no-repeat;
+   animation:blinkingText 1.2s infinite;
+}  
+.RmBgColorOB1 {
+    color: #000;
+    border-color: #FF0000;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    background-image: linear-gradient(#f12424, #fc0707 60%, #ed0c0c) !important;
+    background-repeat: no-repeat;
+    animation:blinkingText 1.2s infinite;
+       
+}
+.RmBgColorOB2 {
+    color: #000;
+    border-color: #80FF80;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    background-image: linear-gradient(#80FF80, #80FF80 60%, #80FF80) !important;
+    background-repeat: no-repeat;
+    animation:blinkingText 1.2s infinite;
+}   
+
+
+.YellowRows {
+    background-color: #295d75;
+    color: #fff;
+    text-align: center;
+    font-family: Arial !important;
+    line-height: 30px !important;
+    height: 30px !important;
+    text-align: center !important;
+}
+
+.YellowRows1 {
+    background-color: #67ddf8;
+    color: #000;
+    text-align: center;
+    font-family: Arial !important;
+    padding: 0px !important;
+}
+
+.HolyDaybg {
+    background-color: red !important;
+    color: White;
+    font-family: Arial !important;
+    text-align: center !important;
+}
+.Emptybg {
+    background-color: #fff !important;
+    line-height: 30px !important;
+}
+
+
+.VacantColor .webix_el_box input,
+.VacantColor .webix_el_box input:focus {    
+    background-color: #5ce55c !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    padding-left:2px !important;
+    padding-right:2px !important;
+}
+
+.VacantColor1 .webix_el_box input, 
+.VacantColor1 .webix_el_box input:focus{    
+    background-color: #C0FFFF !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    padding-left:2px !important;
+    padding-right:2px !important;
+}
+
+.DirtyColor .webix_el_box input,
+.DirtyColor .webix_el_box input:focus {    
+    background-color: #FFFF00 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    padding-left:2px !important;
+    padding-right:2px !important;
+}
+
+.DirtyColor1 .webix_el_box input,
+.DirtyColor.webix_el_box input:focus {    
+    background-color: #CD9D94 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    padding-left:2px !important;
+    padding-right:2px !important;
+}
+
+.OccColor .webix_el_box input,
+.OccColor.webix_el_box input:focus {    
+    background-color: #FF0000 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    padding-left:2px !important;
+    padding-right:2px !important;
+}
+
+.OccColor1 .webix_el_box input,
+.OccColor1 .webix_el_box input:focus{    
+    background-color: #80FF80 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    padding-left:2px !important;
+    padding-right:2px !important;
+}
+.InspColor .webix_el_box input, 
+.InspColor .webix_el_box input:focus{    
+    background-color:#D9DB95 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    padding-left:2px !important;
+    padding-right:2px !important;
+}
+
+.InspColor1 .webix_el_box input, 
+.InspColor1 .webix_el_box input:focus {    
+    background-color: #D9DB95 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    padding-left:2px !important;
+    padding-right:2px !important;
+}
+
+.RmSrchFilter .webix_secondary .webix_button,.RmSrchFilter .webix_img_btn,.RmSrchFilter .webix_icon_btn  {
+    font-size: 14px !important;
+    font-weight: bold;
+}
+
+
+
+
+ .BgColorOD1 {
+        color: #d9ff00 !important;
+        border-color: #FF0000;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#f12424, #fc0707 60%, #ed0c0c) !important;
+        background-repeat: no-repeat;
+    }
+
+    .BgColorOD2 {
+        color: #d9ff00 !important;
+        border-color: #80FF80;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#80FF80, #80FF80 60%, #80FF80) !important;
+        background-repeat: no-repeat;
+    }
+
+    
+ .BgColorODU1 {
+        color: #d9ff00 !important;
+        border-color: #FF0000;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#f12424, #fc0707 60%, #ed0c0c) !important;
+        background-repeat: no-repeat;
+        text-decoration:underline;
+    }
+
+    .BgColorODU2 {
+        color: #d9ff00 !important;
+        border-color: #80FF80;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#80FF80, #80FF80 60%, #80FF80) !important;
+        background-repeat: no-repeat;
+        text-decoration:underline;
+    }
+
+    .RcBox {               
+        height: 20px !important;        
+        border: 1px solid black !important;
+        clear: both !important;
+        float: left;
+        margin-top: 5px;            
+    }
+
+    .BgColorFloor {
+        color:black;
+        border-color: lightgray;
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        background-image: linear-gradient(#f1f1f1, #afafa7 60%, #31312a) !important;
+        background-repeat: no-repeat;
+    }
+    .BgColorHeader {
+        color:black;
+        border-color: lightgray;        
+        text-shadow: 0 1px 0 rgba(0,0,0,0.1);        
+        background-image: linear-gradient(#f1f1f1, #ccd8da 60%, #cdd9e6) !important;
+        background-repeat: no-repeat;           
+        border-radius: 6px !important;             
+    }
+
+    legend {
+        display: block;
+        width: auto;
+        padding: 0;
+        margin-bottom: 2px !important; 
+        font-size: 21px;
+        line-height: inherit;
+        color: #333333;
+        border: 0;
+        border-bottom: 0px solid #e5e5e5;
+    }
+
+    .my_text input {       
+        padding: 0 0;
+        text-align:center !important;
+    }
+
+    .blinking{
+    
+}
+@keyframes blinkingText{
+    0%{     color: #FFFFFF;    }
+    49%{    color: #FFFFFF; }
+    60%{    color: #000000; }
+    99%{    color: #000000;  }
+    100%{   color: #FFFFFF;    }
+}
+
+      
+
+    @keyframes blink {
+  50% { opacity: 0.0; }
+}
+@-webkit-keyframes blink {
+  50% { opacity: 0.0; }
+}

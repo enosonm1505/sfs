@@ -1,0 +1,291 @@
+﻿
+
+
+ .BKinactive_style {
+    height: 10px !important;
+    width: 5px !important;
+    border: 1px solid black !important;
+    background: blue !important;
+    padding-left: 12px !important;
+    border-radius: 4px !important;
+    line-height: 10px !important;
+    margin: 7px 5px 3px 0 !important;
+}
+
+.BKBlacklist_style {
+    height: 10px !important;
+    width: 5px !important;
+    border: 1px solid red !important;
+    background: red !important;
+    padding-left: 12px !important;
+    border-radius: 4px !important;
+    line-height: 10px !important;
+    margin: 7px 5px 3px 0 !important;
+}
+
+
+.BKsearchGuest {
+    padding: 5px;
+    background: #add8e8;
+    border-radius: 5px;
+}
+
+.BKnewguest, .BKadvance_guest {
+    margin-top: 0px !important;
+}
+
+
+.BKblacklist {
+    color: red;
+}
+
+.BKinactive {
+    color: blue;
+}
+
+.BKFloatLeft{
+    float:left !important;
+}
+
+.RmChartTemp .webix_template {    
+    padding-left: 2px !important;
+}
+
+ .ReadOnlyText input:read-only {
+    background-color: #ebedf04d;
+}
+
+ .TopLabel .webix_inp_top_label {                
+    padding-left: 10px !important;
+}
+
+ .ExpBkTextBox  input {   
+    padding: 0 3pt;
+}
+
+ .ExpBkRmNoTextBox  input {   
+    color: #b30c2a;
+}
+
+ .ExpBkPagefalse {
+    pointer-events: none;
+    opacity: 0.6;
+}
+  
+ 
+ .ExpBkSideBar .webix_tree_branch_1>.webix_tree_item {
+    padding-left: 5pt !important;
+    padding-right: 5pt !important;
+}   
+ .ExpBkSideBar {
+ border-radius: 20px;
+ background-color:#e5e5e5 !important;
+ border-color:#144282;
+}
+
+
+ .ExpBkSideBar .webix_sidebar_dir_icon,.ExpBkSideBar .webix_sidebar_icon {
+    color: #144282;
+    font-size: 20px;
+}
+
+ 
+
+  .ExpBkSideBar  .webix_sidebar_popup_title {
+    background-color: #454545;
+    font-size: 18px !important;
+    text-align: center;   
+    color: white !important;
+    font-weight: bold !important;
+}
+
+ .webix_sidebar_popup.ExpBkSideBar {
+    border-radius: 25px !important;
+    
+}
+
+ .ExpBkSideBar .webix_template {    
+    line-height: 32px !important;
+}
+
+.ExpBkHeader .webix_el_box{
+    font-size: 14px !important;
+    text-align: left !important;
+}
+
+.RatePkgCss{
+    color:red !important;
+}
+
+
+.ExpBkTabBar .webix_all_tabs .webix_item_tab.webix_selected
+ {
+    background: linear-gradient(-180deg, #056f86, #28c5e6) !important;
+    color: white !important;    
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px 2px #28c5e6;
+    animation: shake 1.5s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    /*animation-duration:1.5s;*/
+    /*animation-iteration-count: infinite;*/
+}
+
+.ExpBkTabBar .webix_all_tabs .webix_item_tab:not(.webix_selected):hover {
+    background: linear-gradient(-180deg, #b3c2c5, #4b5484) !important;
+    color: white !important;    
+    border-radius: 3px;
+    box-shadow: 0px 0px 1px 2px #4b5484;
+    /*animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;*/
+}
+
+.ExpBkTabBar .webix_all_tabs .webix_item_tab {
+   color: #d4dbdc !important;  
+    font-size: 15px !important;    
+}
+
+.ExpBkTabBar .webix_icon, .webix_input_icon {    
+    font-size: 16px;
+    width: 18px;
+}
+
+.ExpBkTabBar .webix_item_tab {
+   background: linear-gradient(180deg, #b3c2c5, #4b5484) !important;
+}
+
+.ExpBkTabBar .webix_after_all_tabs {
+    background: #28c5e6 !important;    
+}
+
+.webix_el_tabbar+.webix_multiview{
+    margin-top : 0px !important;
+}
+
+.ExpBkForm  {
+    width: calc(100% - 5px) !important;
+    background-color: #fff;
+    border-bottom: 2px solid #28c5e6 !important;
+    border-left: 2px solid #28c5e6 !important;
+    border-right: 2px solid #28c5e6 !important;
+    border-top: 1px solid #28c5e6 !important;
+    height: calc(100% - 5px) !important;
+   
+}
+
+.ExpBkSubHeadLbl .webix_el_box{
+    font-weight:bold !important;
+    text-decoration:underline;
+    font-size:14px !important;
+
+}
+
+.wrapLabel .webix_inp_label {
+    line-height: 15px !important;
+    width: 90px;
+    display: flex;
+    white-space: pre-wrap;
+}
+
+.webix_column > div .ExpBkgridbtn {   
+    padding: 1pt 1pt !important;
+}
+
+.ExpBkgrid .ExpBkgridbtn > div {   
+     padding: 1pt 1pt !important;
+}
+
+
+.ExpBkgrid .ExpBkGridIconBtn:hover {
+    background-color: #1c2e8c !important; 
+    color:white;   
+    border: 1px solid #8e8989;
+}
+
+.ExpBkSugg {
+   width:fit-content ! important;
+   min-width:100px !important;
+   
+}
+
+.ExpBkSugg1 {
+    width:fit-content ! important;
+    min-width:100px !important; 
+}
+
+.ExpBkgrid .webix_column>div.webix_cell_select,.TEgrid .webix_column>div.webix_column_select,.ExpBkgrid .webix_column>div.webix_row_select {
+    background-color: #dcdbbb !important;
+    color: black !important;
+}
+
+.ExpBkgrid .webix_dtable_focused .webix_column > div.webix_column_select,.ExpBkgrid .webix_dtable_focused .webix_column > div.webix_row_select {
+    background-color: #dcdbbb !important;
+    color: black !important;
+} 
+
+.ExpBkgrid .webix_column > div,.ExpBkgrid .webix_table_cell {   
+    padding: 0 3pt;
+    font-size: 13px !important;
+} 
+
+.ExpBkgrid .webix_dt_editor input,.ExpBkgrid .webix_dt_editor select {
+    border-color: #dadee0! important;
+    border-radius: 2px;
+    background-color: white;
+    font-size: 13px !important;
+    padding: 0 5px;
+}
+
+
+
+.ExpBkGridIconBtn {
+    background-color: #dad6d6 !important;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    /* border-color: darkgray; */
+    text-align: center;
+    line-height: 23px;
+    font-size: 15px;
+    border: 1px solid #8e8989;
+    padding-left: 2px;
+}
+
+.ExpBkHide{
+    display:none !important;
+}
+
+.GstPkDrpDetGrid .webix_ss_filter input {
+    height: 22px !important;
+    padding: 0px 5px !important;
+}
+.GstPkDrpDetGrid .webix_hcell.webix_ss_filter {
+    padding: 0px 1px;
+}
+
+.PBtnClr .ExpBkGridIconBtn {
+    background: linear-gradient(180deg, #518994, #74bbec) !important;
+    color: white !important;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    /* border-color: darkgray; */
+    text-align: center;
+    line-height: 23px;
+    font-size: 15px;
+    border: 1px solid #8e8989;
+    padding-left: 2px;
+}
+
+.ExpBkAdvLblBack .webix_el_box {   
+    color: red !important;
+    /*background: linear-gradient(180deg, #518994, #74bbec) !important;
+    color: #fff !important;*/
+}
+ 
+
+
+

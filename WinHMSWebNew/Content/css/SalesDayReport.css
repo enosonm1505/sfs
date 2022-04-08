@@ -1,0 +1,8 @@
+﻿body {
+}
+
+.txtbox{width:60px;float:left}
+.valbox{width:100px;float:left}
+.fulwidth{width:100%;float:left;line-height:25px;}
+.dtbx{width:305px;float:left;margin-left:25%; text-align:center}
+.gridbxdv{width:100%;float:left;margin-top:10px}

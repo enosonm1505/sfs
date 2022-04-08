@@ -1,0 +1,692 @@
+﻿@{
+    ViewBag.Title = "Trace";
+    Layout = "~/Views/Shared/Layout/Fo_PopupLayout.cshtml";
+}    
+
+    <div class="content-wrapper">
+        <div id="LoadDIv" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+            <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+        </div>
+        <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+            <script src="~/FO/javascript/WinTraceScript.js"></script>
+            <link href="../../Content/Contribute.css" rel="stylesheet" />
+            <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+            <link href="../../Content/sidemenu-webix.css" rel="stylesheet" />
+            <link href="../../Content/sidemenu-custom.css" rel="stylesheet" />
+            
+            <div >
+                <div class="container-fluid">
+                    <div class="row new_hdr" style="margin-top:0px !important;display:none">
+                        <div class="col-sm-3" style="max-width:300px">
+                            <div class="TextWidth" id="divPropbox">
+                            </div>
+                        </div>
+                        <div class="col-sm-5 text-center">
+                            <strong>
+                                <label class="wc_hdr_tlt" id="lblRptCaption"><strong></strong>Trace</label>
+                            </strong>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="card-tools text-right mt-2">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row" style="margin-top:10px">
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-12 pr-0 " style="max-width:250px">
+                                    <div id="divTrcCrBy"> </div>
+                                </div>                               
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-1 col-lg-2 col-md-2 col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-12 pr-0 " style="max-width:70px">
+                                    <div id="divTrcCrTy"> </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-4 col-lg-4 col-md-5 col-sm-12" style="max-width: 330px">
+                            <div class="row">
+                                <div class="col-sm-6 pr-0 " style="max-width: 160px">
+                                    <div id="divTrcCrFrmDt"> </div>
+                                </div>
+                                <div class="col-sm-6 pr-0 " style="max-width: 160px">
+                                    <div id="divTrcCrToDt"> </div>
+                                </div>
+                            </div>
+                        </div>                        
+
+                        
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-12" >
+                            <div class="row">
+                                <div class="col-sm-6 pr-0 " style="max-width: 80px">
+                                    <div id="divTrcChkClose"> </div>
+                                </div>
+                                <div class="col-sm-6 pr-0 " style="max-width: 90px;margin-top:8px">
+                                    <div style='float: left; font-size: 12px; '>  <input type='text' style='width: 10px; height: 10px; background-color: lightblue;' disabled='disabled' /> User Create</div>
+
+                                </div>
+                            </div>
+                        </div> 
+                        
+                        <div class="col-xl-1 col-lg-1 col-md-8 col-sm-12" >
+                            <div id="divTrcNewBtn" style="float:right"> </div>
+                        </div> 
+                        
+                        <div class="col-xl-12">
+                            <div style="border: solid transparent; padding-left: 0px !important; padding-right: 0px !important;padding-top:0px" class="row">
+                                <div class=" col-12" style="padding-left: 0px !important; padding-right: 0px !important;">
+                                    <div id="divgridMainTrc" style="width: 100%; padding-left: 0px !important; padding-right: 0px !important;"></div>
+                                </div>
+                            </div>
+                        </div>                       
+                                               
+                    </div>
+                </div>
+            </div>
+            <style>
+                .User_MsgCss .webix_el_box {
+                    color: blue !important;
+                    /*font-weight: bold !important;*/
+                }
+
+                .Lbel_MsgCss .webix_el_box {
+                    color: brown !important;
+                    /*font-weight: bold !important;*/
+                }
+
+                .Gridwrap .webix_cell {
+                    min-height: 30px !important;
+                    line-height: 15px !important;
+                    word-wrap: break-word !important;
+                    white-space: pre-wrap !important;
+                }
+
+                .GridChk .webix_cell {
+                    padding-left: 0px !important;
+                    padding-right: 0px !important;
+                    text-align : center !important ;
+                }
+                .GridCell .webix_cell {
+                    padding-left: 0px !important;
+                    padding-right: 0px !important;
+                    text-align: center !important;
+                }
+                .GrdUserGrClr {
+                    background-color: lightblue !important;                    
+                }
+                .GrdResMatchClr {
+                    background-color: #fbfbac !important;
+                }      
+
+            </style>
+
+            <script>
+                var TRC_ConnStr = @Html.Raw(Json.Encode(ViewBag.CONSTR));
+                var TRC_UserId = @Html.Raw(Json.Encode(ViewBag.USRID)); 
+                var cmpid= @Html.Raw(Json.Encode(ViewBag.COMP)); 
+                var TRC_VIEW_MODE = @Html.Raw(Json.Encode(ViewBag.ViewMode)); 
+                var TRC_REG_NO = @Html.Raw(Json.Encode(ViewBag.REGNO)); 
+                var TRC_RES_TYPE = @Html.Raw(Json.Encode(ViewBag.TYPE)); 
+                var TRC_FROM_PAGE = @Html.Raw(Json.Encode(ViewBag.FromPage)); 
+
+                //TRC_REG_NO = "21718"; 
+                //TRC_RES_TYPE = "2";
+                
+                var TRC_Company = "";
+                var TRC_Depart = "";
+                var TRC_USER = "";
+                var TRC_FRM_DT = "";
+                var TRC_TO_DT = "";
+                var TRC_DEF_CHKOUT_DT = "";
+                var TRC_USER_DEPART = "";
+                var TRC_USER_DEPARTNM = "";
+                var TRC_OPEN_APPL = "0";
+                var TRC_NEW_APPL = "0";
+                var TRC_VIEW_APPL = "0";
+                var TRC_DEL_APPL = "0";
+                var TRC_CLOSE_APPL = "0";                                
+                TraceInitLoad(cmpid);                
+                $(document).ready(function () {
+                    debugger;                    
+                    if (fnTRCChkSessVal() == false) return;                           
+                    //TRC_Company = LoadProperty(cmpid);  
+                    //TRC_Depart = TraceDepartLoadFn(cmpid);
+                    //var datefm = new Date();
+                    //var dateto = addDaysToDate(datefm, 1);
+                    //var UserDt =   UserDetailsLoadFn(cmpid);
+                    //var obj=TRC_Depart.find(obj => obj.id == TRC_USER[0].DEPART_ID);
+                    
+
+                   
+                    webix.ready(function () {
+                        TraceGridDesign();                      
+                        webix.ui({
+                            container: "divPropbox", view: "richselect", id: "Property",maxWidth: 350, options:TRC_Company,readonly:true,
+                            on: {
+                                onChange: function (NewVal, OldVal) {
+                                    if (NewVal != "") {
+                                        debugger;
+                                        LoadCompChange(NewVal);
+                                    }
+                                }
+                            }
+                        });
+
+                        webix.ui({
+                            view: "button", container:"divTrcNewBtn", id: "btnNewTrace", value: "New", label: '<span class="fas fa-plus"></span>', width: 35,  tooltip: true,
+                            hidden:TRC_AMEND_APPL == "0"?true:false,
+                            on: {
+                                "onItemClick": function () {                           
+                                    //TraceGridNewbtnClick();
+                                    if (fnTRCChkSessVal() == false) return;                           
+                                    Trace_Mode = "NEW";
+                                    $("#LoadDIv").show();
+                                    setTimeout(function () {
+                                        TraceDeatilsFn(0);
+                                        $("#LoadDIv").hide();
+                                    }, 0);
+                                   
+                                }
+                            }
+
+                        });
+
+                        webix.ui({
+                            view: 'text', label: 'Department', id: 'TrcDepartment', labelWidth: 80, inputWidth: 250, width: 250, container: "divTrcCrBy",value:TRC_USER_DEPARTNM,  readonly:true,                                                      
+                        }); 
+
+                        webix.ui({
+                            view: 'combo', label: 'Create By', id: 'TrcCreateBy', labelWidth: 80, inputWidth: 250, width: 250, container: "divTrcCrBy",value:TRC_UserId,
+                            options: TRC_Depart,hidden:true,
+                            on: {
+                                onChange: function () {                                    
+                                        TraceDetailsLoadFn();                                    
+                                }
+                            }
+                        }); 
+
+                        webix.ui({
+                            view: 'richselect',
+                            label: '',
+                            id: 'BtnInd',
+                            value:2,
+                            labelWidth: 0,
+                            inputWidth: 100,
+                            width: 100,
+                            container: "divTrcCrTy",
+                            options: [{ "id": "1", "value": "Create" }, { "id": "2", "value": "Reminder" }],
+                            on: {
+                                onChange: function (newVal) {  
+                                    if(newVal == "1"){
+                                        $$("TrcDepartment").hide();
+                                        $$("TrcCreateBy").show();
+                                        $$("ToDate").show();
+                                        $$("FromDate").define("label", "From");
+                                        $$("FromDate").refresh();
+                                        $$("FromDate").blockEvent();
+                                        $$("FromDate").setValue(TRC_FRM_DT);
+                                        $$("FromDate").unblockEvent();
+                                        $$("ToDate").blockEvent();
+                                        $$("ToDate").setValue(TRC_TO_DT);
+                                        $$("ToDate").unblockEvent();
+                                    }
+                                    else{
+                                        $$("TrcDepartment").show();
+                                        $$("TrcCreateBy").hide();
+                                        $$("ToDate").hide();
+                                        $$("FromDate").define("label", "Upto");
+                                        $$("FromDate").refresh();
+                                        $$("FromDate").blockEvent();
+                                        $$("FromDate").setValue(TRC_TO_DT);
+                                        $$("FromDate").unblockEvent();
+                                        $$("ToDate").blockEvent();
+                                        $$("ToDate").setValue(TRC_TO_DT);
+                                        $$("ToDate").unblockEvent();
+                                    }
+                                    TraceDetailsLoadFn();
+                                    
+                                }
+                            }
+                        }); 
+
+                        webix.ui({
+                            view: 'datepicker',
+                            id: 'FromDate',
+                            labelWidth: 40,
+                            inputWidth: 160,
+                            width: 160,
+                            label: 'Upto',
+                            value: TRC_TO_DT,
+                            stringResult: true,
+                            format: "%d/%m/%Y",
+                            container: "divTrcCrFrmDt",
+                            on: {
+                                onChange: function () {                                    
+                                    if (SMFromDateChange() == true)  TraceDetailsLoadFn();                                    
+                                }
+                            }
+                        }); 
+
+
+                        webix.ui({
+                            view: 'datepicker',
+                            id: 'ToDate',
+                            labelWidth: 40,
+                            inputWidth: 160,
+                            width: 160,
+                            label: 'To',
+                            value: TRC_TO_DT,
+                            stringResult: true,
+                            hidden:true,
+                            format: "%d/%m/%Y",
+                            container: "divTrcCrToDt",
+                            on: {
+                                onChange: function () {                                    
+                                   if (SMToDateChange() == true)  TraceDetailsLoadFn();                                    
+                                }
+                            }
+                        }); 
+
+                        
+                        webix.ui({
+                                view: 'checkbox',
+                                labelRight: 'Closed',
+                                id: 'ClosedChk',
+                                labelWidth: 0,
+                                value: 0,
+                                width: 150,
+                                container: "divTrcChkClose",
+                                on: {
+                                    onChange: function (newValue, oldValue, config) {
+                                        if (newValue == 1) {
+                                            if( $$("BtnInd").getValue() == "2" ){
+                                                $$("FromDate").define("label", "From");
+                                                $$("FromDate").refresh();
+                                                $$("FromDate").blockEvent();
+                                                $$("FromDate").setValue(TRC_FRM_DT);
+                                                $$("FromDate").unblockEvent();
+                                                $$("ToDate").show();
+                                            }
+                                            $$('TraceInfoGrid').hideColumn('C_BY');
+                                            $$('TraceInfoGrid').hideColumn('C_DT');
+                                            $$('TraceInfoGrid').showColumn('C_BY1');
+                                            $$('TraceInfoGrid').showColumn('C_DT1');
+                                            $$('TraceInfoGrid').showColumn('C_N');
+
+                                            TraceDetailsLoadFn();                                                            
+                                        }
+                                        else { 
+                                            if( $$("BtnInd").getValue() == "2" ){
+                                                $$("ToDate").hide();
+                                                $$("FromDate").define("label", "Upto");
+                                                $$("FromDate").refresh();
+                                                $$("FromDate").blockEvent();
+                                                $$("FromDate").setValue(TRC_TO_DT);
+                                                $$("FromDate").unblockEvent();
+                                                $$("ToDate").blockEvent();
+                                                $$("ToDate").setValue(TRC_TO_DT);
+                                                $$("ToDate").unblockEvent();
+                                            }                                            
+                                            $$('TraceInfoGrid').showColumn('C_DT');
+                                            $$('TraceInfoGrid').showColumn('CreateDt');
+                                            $$('TraceInfoGrid').hideColumn('C_BY1');
+                                            $$('TraceInfoGrid').hideColumn('C_DT1');
+                                            $$('TraceInfoGrid').hideColumn('C_N');                                            
+                                            TraceDetailsLoadFn();
+                                                            
+                                        }
+                                    }
+                                }
+
+                        });                        
+                        
+
+
+                        var propchk = @Html.Raw(Json.Encode(ViewBag.MLTPROPHISHIND));
+                        if (propchk == "1") $("#divPropbox").show();
+                        else if (propchk == "0") $("#divPropbox").hide();
+                        $$("Property").setValue(cmpid);                       
+                        gridResizeTrace();
+                        $("#LoadDIv").hide();
+                    });
+                    webix.event(window, "resize", function () {
+                        gridResizeTrace();
+                    })
+                });
+
+                function gridResizeTrace(){
+                   // debugger;                
+                    var vheight = window.innerHeight
+                           || document.documentElement.clientHeight
+                           || document.body.clientHeight;
+                    var offset =  $("#divgridMainTrc").offset();
+                    $$("TraceInfoGrid").define("height", ((vheight - offset.top-10)));                
+                    $$("TraceInfoGrid").adjust();
+
+                    var vWidth = window.innerWidth
+                               || document.documentElement.clientWidth
+                               || document.body.clientWidth;
+
+
+                    if($$("TraceCreationPopup")){
+
+                        if (vWidth > 770) {
+                            vWidth = 770;
+                            vheight = 420
+                        }
+
+                        //if (vHeight > 600) vHeight = 350;
+
+                        $$('FRMTRCEDIT').define("width", vWidth);
+                        $$('FRMTRCEDIT').define("height", vheight)
+                        $$('FRMTRCEDIT').resize();
+
+                        $$('TraceCreationPopup').define("width", vWidth);
+                        $$('TraceCreationPopup').define("height", vheight)
+                        $$('TraceCreationPopup').resize();
+                    }
+                };
+
+                function TraceGridDesign() {
+                    //var searchicon = "<span class='fa fa-search ' ></span>";
+                    webix.ui({
+                        id: "TraceInfoGrid",
+                        name: 'TraceInfoGrid',
+                        select: 'row',
+                        view: "datatable",
+                        container:"divgridMainTrc",
+                        fixedRowHeight: false,
+                        autoConfig: true,
+                        editable: true,
+                        position: "flex",
+                        //height:150,
+                        css: "webix_header_border ",
+                        columns: [
+                            { header: ['Reminder Dt', { content: "textFilter" }], id: "DU_DT", width: 90, css: { 'text-align': 'center ! important' } },
+                            { header: ['Time', { content: "textFilter" }], id: "DUE_TM", width: 70, css: "GridCell" },
+                            { header: ['Status', { content: "textFilter" }], id: "STATUS", width: 110,  css: { 'text-align': 'center ! important' },
+                                //template:function(obj){
+                                //    if(obj.M_TY == "1") return "Reservation";
+                                //    else if(obj.M_TY == "2") return "InHouse";
+                                //    else if(obj.M_TY == "3") return "Checkout";
+                                //    else  return "Direct";
+
+                                //}
+                            },
+                            { header: ['Ref. NO.', { content: "textFilter" }],id: "DISP_RESR_NO", width: 80,  css: { 'text-align': 'center ! important' }, },
+                            { header: ['Message', { content: "textFilter" }],  id: "M_S", minWidth: 250,fillspace:true, css: { 'text-align': 'left ! important' }, },
+                            { header: ['Closed Narr', { content: "textFilter" }], id: "C_N", width: 200, css: { 'text-align': 'left ! important' }, hidden: true  },
+                            { header: ['Create By', { content: "textFilter" }], id: "C_BY", width: 100, css: { 'text-align': 'center ! important' }  },
+                            { header: ['Create Dt', { content: "textFilter" }], id: "C_DT", width: 90, css: { 'text-align': 'center ! important' } },
+                            { header: ['Closed By', { content: "textFilter" }], id: "C_BY1", width: 100, css: { 'text-align': 'center ! important' }, hidden: true },
+                            { header: ['Closed Dt', { content: "textFilter" }], id: "C_DT1", width: 90, css: { 'text-align': 'center ! important' }, hidden: true },
+                            { header: ['Time', { content: "textFilter" }],  id: "C_TM", width: 70, css: "GridCell" },
+                            { header: "M_SNO", id: "M_SNO", hidden: true },                            
+                            { header: "M_LK_O", id: "M_LK_O", hidden: true },
+                            { header: "M_LK", id: "M_LK", hidden: true },
+                            { header: "F_D_ID", id: "F_D_ID", hidden: true },
+                            { header: "A_NO", id: "A_NO", hidden: true },
+                            { header: "M_TYt", id: "M_TY", hidden: true },
+                            { header: "A_IND", id: "A_IND", hidden: true },
+                                                    
+                        ],
+                        editable: true,
+                        hight: 350,
+                        data: [],
+                        scheme: {                                                                         
+                            $change: function (item, h) { 
+                                if(item.A_IND){
+                                    if(item.A_IND.toString().trim() == "1"){
+                                        //item.$css = "GrdUserGrClr" ;
+                                        $$("TraceInfoGrid").addCellCss(item.id, "M_S", "GrdUserGrClr");
+                                    }                                    
+                                }
+
+                                if(TRC_RES_TYPE != "" && TRC_REG_NO != "" ){
+                                    if(item.M_LK){
+                                        if(item.M_LK.toString().trim() == TRC_REG_NO && item.M_TY == TRC_RES_TYPE ){
+                                            //item.$css = "GrdResMatchClr" ; 
+                                            $$("TraceInfoGrid").addCellCss(item.id, "DISP_RESR_NO", "GrdResMatchClr");
+                                        }
+                                    }
+                                }
+                            
+                            }                                
+                        },
+                        on: {
+                            'onItemDblClick': function (id) {
+                                debugger;
+                                //if (TRC_OPEN_APPL  == "1" || TRC_CLOSE_APPL == "1" || TRC_VIEW_MODE == "1" || TRC_DEL_APPL == "1" ){
+                                if (fnTRCChkSessVal() == false) return;                           
+                                Trace_Mode = "OPEN";
+                                var getval = this.getItem(id.row);
+
+                                $("#LoadDIv").show();
+                                setTimeout(function () {
+                                    TraceDeatilsFn(1);
+                                    TraceDeatilsOpenFn(getval.M_SNO); 
+                                    $("#LoadDIv").hide();
+                                }, 0);                                    
+                                    
+
+                                if(TRC_VIEW_MODE == "1"){
+                                    $$("ReminderDt").disable();
+                                    $$("Textinp1").disable();
+                                    $$("Textinp2").disable();
+                                    $$("Textinp3").disable();
+                                    $$("Search_BtnGst").disable();  
+                                    $$("ClosedChkDt").disable();
+                                    $$("Messagetxt").disable();
+                                    $$("ClosedBy").disable();
+                                    $$("ClosedDt").disable(); 
+                                    $$("TmieVal").disable();
+                                    $$("Tracetxt").disable();
+                                    $$("SaveTraceBtn").hide();
+                                    $$("UsersChkDt").disable();
+                                    $$("DepartmentChkDt").disable();
+                                    $$("DeleteTraceBtn").hide();
+                                    $$("RepeatChk").disable();
+                                    $$("RepeatIdays").disable();                                        
+
+                                }
+                                //}
+                            }
+                        }
+                        
+                    });               
+
+                };
+
+                function TraceInitLoad(cmpid) {
+                    debugger;
+                    Request = {
+                        REQTYPE: "GET_TRACEINITLOAD",
+                        COMPID: cmpid,
+                        USERID: TRC_UserId,
+                    }
+                    Prop_Id = cmpid;
+                    var rowData = [];               
+
+                    var DataVal = JSON.stringify(Request);
+                    $.ajax({
+                        async: false,
+                        url:"/Reports/TraceAPICall",
+                        type: 'POST',
+                        data: "request=" + DataVal,
+                        success: function (d) {
+                            debugger;
+                            if (d != "") {
+                                rowData = JSON.parse(d);
+                                TRC_Company = rowData.PROPERTY;
+                                TRC_Depart = rowData.DEPART;
+                                TRC_USER = rowData.USER; 
+                                
+                                TRC_Depart.splice(0, 0, { value: "ALL", id: "<-ALL->" });
+                                
+                                TRC_USER_DEPARTNM = rowData.USERDEPTNM.toString().trim();
+                                TRC_USER_DEPART = rowData.USERDEPTID.toString().trim();  
+                                TRC_AMEND_APPL = rowData.TRC_AMEND_APPL.toString().trim();  
+
+                                var dtDate = rowData.DATE;
+                                if(dtDate != null && dtDate != ""){                                    
+                                    TRC_FRM_DT = dtDate[0].CURR_DT1;
+                                    TRC_TO_DT = dtDate[0].CURR_DT;
+                                    TRC_DEF_CHKOUT_DT =  dtDate[0].DEF_CHKOUT_DT;
+                                }
+                                //var dtPriv = rowData.PRIV;
+                                //if(dtPriv != null && dtPriv != ""){  
+                                //    TRC_OPEN_APPL = dtPriv[0].A_3.toString().trim();
+                                //    TRC_NEW_APPL = dtPriv[0].A_2.toString().trim();
+                                //    TRC_DEL_APPL = dtPriv[0].A_4.toString().trim();
+                                //    TRC_CLOSE_APPL = dtPriv[0].A_5.toString().trim();
+                                //    TRC_VIEW_APPL = dtPriv[0].A_1.toString().trim();
+                                //}   
+                                
+                            }
+                        },
+                    });
+                    return rowData;
+                };
+                function LoadCompChange(CompId) {                
+                    //$$("gridMainItBk").clearAll();                
+                    //FnItBkResLoadControls();    
+                    TraceDetailsLoadFn();
+                };
+
+                function SMFromDateChange() {
+                    debugger;
+                    $$("TraceInfoGrid").clearAll();
+                    var frmdate = $$("FromDate").getText();                    
+                    var sFrmDt = $$("FromDate").getText();
+    
+                    var bSucc = "1";
+
+                    if (frmdate == "") {        
+                        bSucc = "0";
+                        return false;
+                    }                   
+                    
+                    if($$("ToDate").isVisible() == false) return true;
+
+                    var todate = $$("ToDate").getText();
+
+                    if (todate == "") {        
+                        bSucc = "0";
+                        return false;
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Reports/FTDateValidation",
+                        cache: false,
+                        async: false,
+                        charset: 'utf-8',
+                        data: "F=" + frmdate + "&T=" + todate,
+                        success: function (data) {
+                            if (data.d != "") {
+                                debugger;                
+                                var vToDt = TrcformatDate(sFrmDt);
+                                $$("ToDate").setValue(new Date(vToDt));
+                                bSucc = "0";
+                            }
+                        }
+                    });
+                    if (bSucc == "0") return false;
+                    else return true;
+
+                };
+                function SMToDateChange() {
+                    debugger;
+                    $$("TraceInfoGrid").clearAll();
+                    var frmdate = $$("FromDate").getText();
+                    var todate = $$("ToDate").getText();
+                    var sFrmDt = $$("ToDate").getText();    
+                    var bSucc = "1";
+                    if (frmdate == "") {
+                        bSucc = "0";
+                        return false;
+                    }
+                    if (todate == "") {
+                        bSucc = "0";
+                        return false;
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Reports/FTDateValidation",
+                        cache: false,
+                        async: false,
+                        charset: 'utf-8',
+                        data: "F=" + frmdate + "&T=" + todate,
+                        success: function (data) {
+                            if (data.d != "") {
+                                debugger;
+                                var vToDt = TrcformatDate(sFrmDt);
+                                $$("FromDate").setValue(new Date(vToDt));
+                                bSucc = "0";
+
+                            }
+                        }
+                    });
+                    if (bSucc == "0") return false;
+                    else return true;
+
+                };
+
+                function TrcformatDate(StrDt) {
+                    debugger;
+                    var Parts = StrDt.split("/");
+                    var Dt = Parts[0];
+                    var Mn = Parts[1];
+                    var Yr = Parts[2];
+                    var Str = Yr + "-" + Mn + "-" + Dt;
+                    return Str;
+                };
+                function TrcformatDate1(StrDt) {
+                    debugger;
+                    var Parts = StrDt.split("-");
+                    var Yr = Parts[0];
+                    var Mn = Parts[1];
+                    var Dt = Parts[2];
+                    var Str = Dt + "/" + Mn + "/" + Yr;
+                    return Str;
+                };
+
+                function fnTRCChkSessVal() {
+                    debugger;
+                    var bVal = "0";
+                    $.ajax({
+                        async: false,
+                        url: "/Reports/fnChkSessionval",
+                        type: 'POST',
+                        success: function (data) {
+                            debugger;
+                            if (data == "1") {
+                                bVal = "1";
+                            }
+                        },
+                        error: function (request, status, error) {
+                            bVal = "0";
+                        }
+                    });
+                    if (bVal == "1") return true;
+                    else {
+                        debugger;
+                        var Host = window.location.host;
+                        var LoadingUrl = "http://" + Host + "/Login.aspx";
+                        window.location.href = LoadingUrl;
+                    }
+                };
+
+
+            </script>
+
+        </section>
+    </div>
+

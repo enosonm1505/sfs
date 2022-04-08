@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsse:UsernameToken>
+        <wsse:Username>SOLANO</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">SOLANO36390</wsse:Password>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soap:Header>
+  <soap:Body>
+    <OTA_HotelAvailNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="2021102611587582" TimeStamp="2021-10-26T11:58:07.582+05:30" Version="1.0">
+      <POS>
+        <Source>
+          <RequestorID Type="22" ID="WINHMS" />
+        </Source>
+      </POS>
+      <AvailStatusMessages HotelCode="WINAU36390">
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-10-25" End="2021-10-25" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-11" End="2021-11-11" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-11" End="2021-11-11" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-12" End="2021-11-12" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-12" End="2021-11-12" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-13" End="2021-11-13" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-13" End="2021-11-13" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-14" End="2021-11-14" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-14" End="2021-11-14" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-15" End="2021-11-15" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-15" End="2021-11-15" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-16" End="2021-11-16" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-16" End="2021-11-16" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-17" End="2021-11-17" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-17" End="2021-11-17" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-18" End="2021-11-18" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-18" End="2021-11-18" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-19" End="2021-11-19" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-19" End="2021-11-19" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-20" End="2021-11-20" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-20" End="2021-11-20" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-21" End="2021-11-21" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-21" End="2021-11-21" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-22" End="2021-11-22" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-22" End="2021-11-22" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-23" End="2021-11-23" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-23" End="2021-11-23" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-24" End="2021-11-24" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-24" End="2021-11-24" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-25" End="2021-11-25" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-25" End="2021-11-25" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-26" End="2021-11-26" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-26" End="2021-11-26" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-27" End="2021-11-27" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-27" End="2021-11-27" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-28" End="2021-11-28" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-28" End="2021-11-28" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-29" End="2021-11-29" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-29" End="2021-11-29" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2021-11-30" End="2021-11-30" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2021-11-30" End="2022-01-31" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-01" End="2022-02-01" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-01" End="2022-02-01" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-02" End="2022-02-02" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-02" End="2022-02-02" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-03" End="2022-02-03" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-03" End="2022-02-03" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-03" End="2022-02-03" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-04" End="2022-02-04" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-04" End="2022-02-04" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-04" End="2022-02-04" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-05" End="2022-02-05" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-05" End="2022-02-05" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-05" End="2022-02-05" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-06" End="2022-02-06" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-06" End="2022-02-06" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-06" End="2022-02-06" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-07" End="2022-02-07" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-07" End="2022-02-07" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-07" End="2022-02-07" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-08" End="2022-02-08" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-08" End="2022-02-08" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-08" End="2022-02-08" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-09" End="2022-02-09" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-09" End="2022-02-09" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-09" End="2022-02-09" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-10" End="2022-02-10" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-10" End="2022-02-10" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-10" End="2022-02-10" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-11" End="2022-02-11" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-11" End="2022-02-11" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-11" End="2022-02-11" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-12" End="2022-02-12" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-12" End="2022-02-12" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-12" End="2022-02-12" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-13" End="2022-02-13" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-13" End="2022-02-13" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-13" End="2022-02-13" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-14" End="2022-02-14" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-14" End="2022-02-14" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-14" End="2022-02-14" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-15" End="2022-02-15" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-15" End="2022-02-15" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-15" End="2022-02-15" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-16" End="2022-02-16" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-16" End="2022-02-16" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-16" End="2022-02-16" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-17" End="2022-02-17" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-17" End="2022-02-17" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-17" End="2022-02-17" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-18" End="2022-02-18" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-18" End="2022-02-18" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-18" End="2022-02-18" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-19" End="2022-02-19" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-19" End="2022-02-19" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-19" End="2022-02-19" InvTypeCode="STC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-20" End="2022-02-20" InvTypeCode="ESC" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="17">
+          <StatusApplicationControl Start="2022-02-20" End="2022-02-20" InvTypeCode="DXD" />
+        </AvailStatusMessage>
+        <AvailStatusMessage BookingLimit="1">
+          <StatusApplicationControl Start="2022-02-20" End="2022-02-20" InvTypeCode="STC" />
+        </AvailStatusMessage>
+      </AvailStatusMessages>
+    </OTA_HotelAvailNotifRQ>
+  </soap:Body>
+</soap:Envelope>

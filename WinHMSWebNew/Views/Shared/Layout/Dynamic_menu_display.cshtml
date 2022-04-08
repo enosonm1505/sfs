@@ -1,0 +1,699 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WINCLOUDPMS</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/web/kendo.bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/web/kendo.common.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/2015.3.930/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/bootstrap.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.aspnetmvc.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.timezones.min.js"></script>
+    <script src="~/Scripts/kendo/2015.3.930/jszip.min.js"></script>
+    <script src="~/dist/js/demo.js"></script>
+    <link href="~/Content/ReservationStyle.css" rel="stylesheet" />
+    <link href="~/bower_components/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/bower_components/ionicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/dist/css/skins/_all-skins.min.css">
+    <link href="~/fonts/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    
+    <script src="/Scripts/jquery-1.7.1.js"></script>
+    <script src="/Scripts/jquery-1.7.1.min.js"></script>
+    <style>
+        #prop_img {
+            background: white;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed">
+    <div class="wrapper">
+        <div id="pageloaddiv" style="position:absolute; left:0px; top:0px; width:100%; height:100%; margin:0px; fit-position:100%; z-index:5000">
+            <img src="../../Images/progress.GIF" style="position:absolute; left:50%; top:25%; height:100px; width:80px;" />
+        </div>
+        <header class="main-header">
+            <a href="" class="logo ">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><img src="../../dist/img/cropped-logo.png" width="50" /></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><img src="../../dist/img/cropped-logo.png" width="120" /></span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="navbar-custom-menu pull-left">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu module" id="FO">
+                            <a href="#">
+                                <img src="../../dist/img/fo1.png" class="user-image" alt="User Image">
+                                <span class="hidden-md hidden-xs">Front Office</span>
+                            </a>
+                        </li>
+                        <li class="dropdown user user-menu module" id="HK">
+                            <a href="#">
+                                <img src="../../dist/img/hk1.png" class="user-image" alt="User Image">
+                                <span class="hidden-md hidden-xs">House Keeping</span>
+                            </a>
+                        </li>
+                        <li class="dropdown user user-menu module" id="PO">
+                            <a href="#">
+                                <img src="../../dist/img/pos1.png" class="user-image" alt="User Image">
+                                <span class="hidden-md hidden-xs">POS</span>
+                            </a>
+
+                        </li>
+                        <li class="dropdown user user-menu module" id="PU">
+                            <a href="#">
+                                <img src="../../dist/img/purchase1.png" class="user-image" alt="User Image">
+                                <span class="hidden-md hidden-xs ">Purchase</span>
+                            </a>
+
+                        </li>
+                        <li class="dropdown user user-menu module" id="IN">
+                            <a href="#">
+                                <img src="../../dist/img/mt1.png" class="user-image" alt="User Image">
+                                <span class="hidden-md hidden-xs">Material</span>
+                            </a>
+                        </li>
+                        @*<li class="dropdown user user-menu module" id="GL">
+                                <a href="#">
+                                    <img src="../../dist/img/gl1.png" class="user-image" alt="User Image">
+                                    <span class="hidden-md hidden-xs">Accounts</span>
+                                </a>
+
+                            </li>*@
+                    </ul>
+                </div>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu module" title="Masters" id="MT">
+                            <a href="#">
+                                <i class="fa fa-cog"></i>
+                            </a>
+                        </li>
+                        <li id="FlashScreen" title="Flash Screen" class="dropdown notifications-menu">
+                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs" id="user">Alexander Pierce</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <p>
+                                        <span id="user_with_depart">Alexander Pierce - FOM</span>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <!-- /.row -->
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div id="Profile" class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div id="SignOut" class="pull-right">
+                                        <a href="../../Login.aspx" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-cogs"></i></a>
+                        </li>
+                        <li id="homeroomchart"><a href=""><i class="fa fa-home"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel hidden-lg hidden-md">
+                    <br>
+                    <br>
+                </div>
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="../../dist/img/oh.jpg" id="prop_img" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p id="cmpny"></p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+                <!-- search form -->
+                <form  class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text"  class="form-control" id="MenuSearch" placeholder="Search...">
+                        <span class="input-group-btn">
+                            <button type="button"  class="btn btn-flat">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree" id="tree">
+                    <li class="header">MAIN NAVIGATION</li>
+                </ul>
+
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane" id="control-sidebar-home-tab">
+                    <h3 class="control-sidebar-heading">Recent Activity</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                    <p>Will be 23 on April 24th</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-user bg-yellow"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                                    <p>New phone +1(800)555-1234</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                                    <p>nora@example.com</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+                                <div class="menu-info">
+                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                                    <p>Execution time 5 seconds</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                    <ul class="control-sidebar-menu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Custom Template Design
+                                    <span class="label label-danger pull-right">70%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Update Resume
+                                    <span class="label label-success pull-right">95%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Laravel Integration
+                                    <span class="label label-warning pull-right">50%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <h4 class="control-sidebar-subheading">
+                                    Back End Framework
+                                    <span class="label label-primary pull-right">68%</span>
+                                </h4>
+
+                                <div class="progress progress-xxs">
+                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.control-sidebar-menu -->
+
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+                    <form method="post">
+                        <h3 class="control-sidebar-heading">General Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Allow mail redirect
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Other sets of options are available
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Expose author name in posts
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+
+                            <p>
+                                Allow the user to show his name in blog posts
+                            </p>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Show me as online
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Turn off notifications
+                                <input type="checkbox" class="pull-right">
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Delete chat history
+                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+                            </label>
+                        </div>
+                        <!-- /.form-group -->
+                    </form>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <input type="text" hidden="hidden" id="module_selected" value="FO" />
+    <script src="../../bower_components/jquery.slimscroll.min.js"></script>
+    <script src="../../bower_components/bootstrap.min.js"></script>
+    <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="~/dist/js/pages/dashboard.js"></script>
+
+</body>
+</html>
+<script>
+    var compid = '@Session["COMPID"].ToString().Trim()';
+    $(document).ready(function (e) {
+        $('.module').hide();
+        $('#MT').show();
+        prev_id = "";
+        p_menu_level = "";
+        node_id_2 = "";
+        node_id_3 = "";
+        node_id_4 = "";
+        node_id_5 = "";
+        n_menu_level = "";
+        n_par_seq_no = "";
+        seq_no = "";
+        load_user_module_details();
+        debugger;
+        load_dynamic_menu();
+        $('#hideWaterMark').hide();
+        $("#pageloaddiv").show();
+        var Embedd = document.getElementById('EmbedingScreen');
+        var clone = Embedd.cloneNode(true);
+        clone.setAttribute('src', '../../Fo/RoomChart');
+        Embedd.parentNode.replaceChild(clone, Embedd);
+        setTimeout(function () {
+                $("#pageloaddiv").hide();
+            }, 5000
+        )
+    });
+    function load_user_module_details() {
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            accepts: "application/json",
+            dataType: "json",
+            url: "/FOMaster/load_user_module_details",
+            cache: false,
+            charset: 'utf-8',
+            async: false,
+            success: function (e) {
+                var module = JSON.parse(e.module);
+                var user = JSON.parse(e.user);
+                $('#cmpny').text(e.comp_nm);
+                imgsrc = '/HmsData/' + compid + '.jpg';
+                $('#prop_img').attr('src', imgsrc);
+                if (user.length > 0) {
+                    $('#user').text(user[0].USER_NM);
+                    $('#user_with_depart').text(user[0].USER_NM + ' - ' + user[0].DEPART_ID);
+                }
+                for (i = 0; i < module.length; i++) {
+                    var mod_id = (module[i].MODULE_ID == null || module[i].MODULE_ID == undefined ? "" : module[i].MODULE_ID.toString().trim().toUpperCase());
+                    if (mod_id == "FO") {
+                        $('#FO').show();
+                    }
+                    //else if (mod_id == "GL") {
+                    //    $('#GL').show();
+                    //}
+                    else if (mod_id == "PO") {
+                        $('#PO').show();
+                    }
+                    //else if (mod_id == "PU") {
+                    //    $('#PU').show();
+                    //}
+                    else if (mod_id == "HK") {
+                        $('#HK').show();
+                    }
+                    //else if (mod_id == "IN") {
+                    //    $('#IN').show();
+                    //}
+                }
+            }
+        });
+    }
+
+    
+    $('#FlashScreen').click(function() {
+        var Embedd = document.getElementById('EmbedingScreen');
+         var clone = Embedd.cloneNode(true);
+         clone.setAttribute('src', '../../FO/FoToolsFlash.aspx');
+         Embedd.parentNode.replaceChild(clone, Embedd);
+    });
+      
+
+    function load_dynamic_menu() {
+        var node1_id = "", node2_id = "", node3_id = "", node4_id = "", node5_id = "";
+      
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: "module_id=" + $('#module_selected').val(),
+            url: "/FOMaster/loadDynamicMenu",
+            success: function (e) {
+                var data = JSON.parse(e);
+                for (i = 0; i < data.length; i++) {
+                    var menu_level = (data[i].MENU_LEVEL == null || data[i].MENU_LEVEL == undefined ? "" : data[i].MENU_LEVEL.toString().trim());
+                    id = (data[i].PROGRAM_LINK_ID == null || data[i].PROGRAM_LINK_ID == undefined ? "" : data[i].PROGRAM_LINK_ID.toString().trim());
+                    link = (data[i].W_LINK == null || data[i].W_LINK == undefined ? "" : data[i].W_LINK.toString().trim());
+                    name = (data[i].MENU_NM == null || data[i].MENU_NM == undefined ? "" : data[i].MENU_NM.toString().trim());
+                    seq_no = (data[i].MNU_SEQ_NO == null || data[i].MNU_SEQ_NO == undefined ? "" : data[i].MNU_SEQ_NO.toString().trim());
+                    if (i + 1 <= data.length - 1) {
+                        n_menu_level = (data[i + 1].MENU_LEVEL == null || data[i + 1].MENU_LEVEL == undefined ? "" : data[i + 1].MENU_LEVEL.toString().trim());
+                        n_par_seq_no = (data[i + 1].MNU_PAR_SEQ_NO == null || data[i + 1].MNU_PAR_SEQ_NO == undefined ? "" : data[i + 1].MNU_PAR_SEQ_NO.toString().trim());
+                    }
+                    if (menu_level == "1") {
+                        var li = '<li class="" id="' + id + '">';
+                        li = li + '<a href="' + link + '"><i class="fa fa-circle"></i><span>' + name + '</span></a></li>';
+                        $('#tree').append(li);
+                        if ((parseInt((menu_level == "" ? "0" : menu_level)) + 1 == parseInt((n_menu_level == "" ? "0" : n_menu_level))) && seq_no == n_par_seq_no) {
+                            if (i == 0)
+                                $('#' + id).addClass("treeview active");
+                            else
+                                $('#' + id).addClass("treeview");
+                        }
+                        node1_id = id;
+                    }
+                    else if (menu_level == "2") {
+                        if ($('#' + node1_id + ' li').length == 0) {
+                            node_id_2 = i + 1 + '_tree_level_2';
+                            var li = '<ul class="treeview-menu" id="' + node_id_2 + '"></ul>';
+                            $('#' + node1_id).append(li);
+                            $('#' + node1_id + ' > a').append('<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>');
+                        }
+                        var li = '<li class="" id="' + id + '">';
+                        li = li + '<a href="' + link + '"> <i class="fa fa-angle-right"></i><span>' + name + '</span></a></li>';
+                        $('#' + node_id_2).append(li);
+                        if ((parseInt((menu_level == "" ? "0" : menu_level)) + 1 == parseInt((n_menu_level == "" ? "0" : n_menu_level))) && seq_no == n_par_seq_no) {
+                            $('#' + id).addClass("treeview");
+                        }
+                        node2_id = id;
+                    }
+                    else if (menu_level == "3") {
+                        if ($('#' + node2_id + ' li').length == 0) {
+                            node_id_3 = i + 1 + '_tree_level_2';
+                            var li = '<ul class="treeview-menu" id="' + node_id_3 + '"></ul>';
+                            $('#' + node2_id).append(li);
+                            $('#' + node2_id + ' > a').append('<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>');
+                        }
+                        var li = '<li class="" id="' + id + '">';
+                        li = li + '<a href="' + link + '"> <i class="fa fa-angle-right"></i><span>' + name + '</span></a></li>';
+                        $('#' + node_id_3).append(li);
+                        if ((parseInt((menu_level == "" ? "0" : menu_level)) + 1 == parseInt((n_menu_level == "" ? "0" : n_menu_level))) && seq_no == n_par_seq_no) {
+                            $('#' + id).addClass("treeview");
+                        }
+                        node3_id = id;
+                    }
+                    else if (menu_level == "4") {
+                        if ($('#' + node3_id + ' li').length == 0) {
+                            node_id_4 = i + 1 + '_tree_level_2';
+                            var li = '<ul class="treeview-menu" id="' + node_id_4 + '"></ul>';
+                            $('#' + node3_id).append(li);
+                            $('#' + node3_id + ' > a').append('<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>');
+                        }
+                        var li = '<li class="" id="' + id + '">';
+                        li = li + '<a href="' + link + '"> <i class="fa fa-angle-right"></i><span>' + name + '</span></a></li>';
+                        $('#' + node_id_4).append(li);
+                        if ((parseInt((menu_level == "" ? "0" : menu_level)) + 1 == parseInt((n_menu_level == "" ? "0" : n_menu_level))) && seq_no == n_par_seq_no) {
+                            $('#' + id).addClass("treeview");
+                        }
+                        node4_id = id;
+                    }
+                    else if (menu_level == "5") {
+                        if ($('#' + node4_id + ' li').length == 0) {
+                            node_id_5 = i + 1 + '_tree_level_2';
+                            var li = '<ul class="treeview-menu" id="' + node_id_5 + '"></ul>';
+                            $('#' + node4_id).append(li);
+                            $('#' + node4_id + ' > a').append('<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>');
+                        }
+                        var li = '<li class="" id="' + id + '">';
+                        li = li + '<a href="' + link + '"> <i class="fa fa-angle-right"></i><span>' + name + '</span></a></li>';
+                        $('#' + node_id_5).append(li);
+                        if ((parseInt((menu_level == "" ? "0" : menu_level)) + 1 == parseInt((n_menu_level == "" ? "0" : n_menu_level))) && seq_no == n_par_seq_no) {
+                            $('#' + id).addClass("treeview");
+                        }
+                        node5_id = id;
+                    }
+                    prev_id = id;
+                    p_menu_level = menu_level;
+                }
+                $("#pageloaddiv").hide();
+            }
+        });
+    }
+
+    $('#tree').on('click','ul li a',function(e) {
+            var Embedd = document.getElementById('EmbedingScreen');
+            // var clone = Embedd.cloneNode(true);
+            // clone.setAttribute('src', '');
+            // Embedd.parentNode.replaceChild(clone, Embedd);
+            // if (!(e.currentTarget.text.toUpperCase().trim() == "RESERVATION" || e.currentTarget.text.toUpperCase().trim() == "TAPE CHART" || e.currentTarget.text.toUpperCase().trim() == "ROOM CHART")) {
+            if (!(e.currentTarget.text.toUpperCase().trim() == "KOT")) {
+                var ahref = e.currentTarget.protocol + '//' + e.currentTarget.host + e.currentTarget.pathname;
+                var location = window.location.protocol + '//' + window.location.host + window.location.pathname;
+                if (ahref != location) {
+                    $('#hideWaterMark').hide();
+                    $("#pageloaddiv").show();
+                    var Embedd = document.getElementById('EmbedingScreen');
+                    var clone = Embedd.cloneNode(true);
+                    clone.setAttribute('src', this.href);
+                    Embedd.parentNode.replaceChild(clone, Embedd);
+                    setTimeout(function() {
+                            $("#pageloaddiv").hide();
+                        },
+                        5000
+                    )
+                }
+                event.preventDefault();
+            } else {
+                window.location.href(this.href);
+            }
+        });
+
+    $('#tree').on('click',
+        'li a',
+        function (e) {
+           
+            var Embedd = document.getElementById('EmbedingScreen');
+            //  var clone = Embedd.cloneNode(true);
+            // clone.setAttribute('src', '');
+            //  Embedd.parentNode.replaceChild(clone, Embedd);
+            //  if (!(e.currentTarget.text.toUpperCase().trim() == "RESERVATION" || e.currentTarget.text.toUpperCase().trim() == "TAPE CHART" || e.currentTarget.text.toUpperCase().trim() == "ROOM CHART")) {
+            if (!(e.currentTarget.text.toUpperCase().trim() == "KOT")) {
+                var ahref = e.currentTarget.protocol + '//' + e.currentTarget.host + e.currentTarget.pathname;
+                var location = window.location.protocol + '//' + window.location.host + window.location.pathname;
+                if (ahref != location) {
+                    $('#hideWaterMark').hide();
+                    $("#pageloaddiv").show();
+                    var Embedd = document.getElementById('EmbedingScreen');
+                    var clone = Embedd.cloneNode(true);
+                    clone.setAttribute('src', this.href);
+                    Embedd.parentNode.replaceChild(clone, Embedd);
+                    setTimeout(function() {
+                            $("#pageloaddiv").hide();
+                        },5000)
+                }
+                event.preventDefault();
+
+            } else {
+                window.location.href(this.href);
+            }
+            // }
+        });
+
+    $('.module').click(function (e) {
+        $('#tree li:not(:first-child)').remove();
+        $('#module_selected').val(e.currentTarget.id);
+        var Embedd = document.getElementById('EmbedingScreen');
+        var clone = Embedd.cloneNode(true);
+        clone.setAttribute('src', '');
+        Embedd.parentNode.replaceChild(clone, Embedd);
+        if (e.currentTarget.id == "FO") {
+            $('#spanPageText').text('Front Office Management');
+            $('#watermarkImg').attr('src', '../Images/imgfo.png');
+        }
+        else if (e.currentTarget.id == "GL") {
+            $('#spanPageText').text('General Ledger');
+            $('#watermarkImg').attr('src', '../Images/imggl.png');
+        }
+        else if (e.currentTarget.id == "HK") {
+            $('#spanPageText').text('House Keeping');
+            $('#watermarkImg').attr('src', '../Images/imghk.png');
+        }
+        else if (e.currentTarget.id == "PO") {
+            $('#spanPageText').text('Point of sale');
+            $('#watermarkImg').attr('src', '../Images/imgpos.png');
+        }
+        else if (e.currentTarget.id == "PU") {
+            $('#spanPageText').text('Purchase');
+            $('#watermarkImg').attr('src', '../Images/imgPur.png');
+        }
+        else if (e.currentTarget.id == "IN") {
+            $('#spanPageText').text('Material Management System');
+            $('#watermarkImg').attr('src', '../Images/img5.png');
+        }
+        else if (e.currentTarget.id = "MT") {
+            $('#spanPageText').text('Master');
+            $('#watermarkImg').attr('src', '../Images/imgmt.png');
+        }
+        load_dynamic_menu();
+    });
+
+
+    $("#MenuSearch").on('input',function() {
+            debugger;
+            var filter = $(this).val();
+            $("#tree > li").each(function() {
+                debugger;
+                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+
+            $("#tree > li > ul > li").each(function() {
+                debugger;
+                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        });
+          
+
+</script>
+

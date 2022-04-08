@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SunInterfaceService.Service1" CodeBehind="SunInterfacePostingService.svc.cs" %>

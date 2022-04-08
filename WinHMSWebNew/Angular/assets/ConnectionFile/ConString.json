@@ -1,0 +1,9 @@
+[
+    {	
+        "COMPID": "WS",
+        "USRID": "ADMIN",
+        "CONSTRING": "server=WSR-STG;database=tirumala;uid=sa;password=Admin@Winsar2019;Max pool size=100;pooling=yes;connection Timeout=900;",
+        "API_URL": "http://15.185.103.218:7777/api/FOAPI"        
+    }
+
+]

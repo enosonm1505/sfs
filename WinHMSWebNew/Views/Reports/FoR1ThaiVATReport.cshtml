@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Thai vat";
+
+    Layout = "~/Views/Shared/Layout/Fo_ReportLayout.cshtml";
+}
+
+<div class="content-wrapper">
+
+    <section class=" col-xl-12 col-md-12 col-sm-12 themedes p-0 ">
+        <script src="~/Scripts/FoThaiVatReportCommon.js"></script>
+        <script src="~/Scripts/FoR1ThaiVATReport.js"></script>
+
+        <input type="hidden" id="hdnCompId" />
+        <input type="hidden" id="HdnCurrDt" />
+        <input type="hidden" id="HdnAccDt" />
+        <input type="hidden" id="HdnDEFDTFORMAT" />
+        <input type="hidden" id="CURRENCY_FORMAT" />
+        <input type="hidden" id="CURRENCY_DELIMIT" />
+        <input type="hidden" id="CURRENCY_DECIMLIMIT" />
+
+        @*<div id="MAIN" class="FullwidthDIV">
+            <div id="LoadDIv" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; fit-position: 100%; z-index: 189">
+                <img src="../../Images/progress.GIF" style="position: absolute; left: 50%; top: 45%; height: 100px; width: 80px;" />
+            </div>
+        </div>*@
+
+        <div id="divPage">
+
+            <div class="container-fluid">
+
+                <link href="../../Content/Contribute.css" rel="stylesheet" />
+                <link href="../../Content/bootstrap-4.4.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+                <link href="../../Content/xlExportCss.css" rel="stylesheet" />
+                <link href="~/Content/sidemenu-webix.css" rel="stylesheet" />
+                <link href="~/FO/CSS/sidemenu-custom.css" rel="stylesheet" />
+                <link href="~/FO/CSS/FoR1ThaiVATReportTopMenu.css" rel="stylesheet" />
+
+                <div style="margin-top: 40px !important;" class="row new_hdr">
+                    <div class="col-sm-3">
+
+                        <div class="TextWidth" style="margin-left: 10px;margin-top:5px;" id="divPropbox">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-center">
+                        <strong>
+                            <label class="wc_hdr_tlt" id="lblRptCaption"><strong>Thai VAT Report</strong></label>
+                        </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card-tools text-right mt-2">
+                            <div id="divPrint" class="btnXX"></div>
+                            <div id="divExcel" class="btnXX"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="border:solid transparent;" class="row">
+                    <div class=" col-xl-3 col-md-3 col-sm-2">
+                    </div>
+                    <div class=" col-xl-2 col-md-2 col-sm-2">
+                        <div class="row">
+                            <div class="col-xl-12 p-0">
+                                <div id="divFrom"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-3 col-sm-3 ">
+                        <div class="row">
+                            <div class="col-xl-12 p-0">
+                                <div id="divTo"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-1 col-md-1 col-sm-1  pr-0">
+                        <div id="divbtnDisp"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="DivGrid" style="padding-top:5px !important; width: 100%; height: 480px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var COMPID= @Html.Raw(Json.Encode(ViewBag.COMP));
+            $("#hdnCompId").val(COMPID);
+
+            $(document).ready(function () {
+
+                $("#LoadDIv").hide();
+                $("#MenuName").val('FORPTGUSTLEDGER');
+                $("#MenuLvl").val('FOMNUREP');
+                $("#MenuLvl1").val('');
+                fnLoadProperty();
+                fnMstCompany();
+                fnAccountDt();
+            });
+        </script>
+    </section>
+</div>

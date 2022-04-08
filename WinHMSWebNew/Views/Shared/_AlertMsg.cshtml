@@ -1,0 +1,36 @@
+﻿
+
+<div class="modal fade" id="DivAlertPopup" tabindex="-1" role="dialog" aria-labelledby="lblmodallabel" data-keyboard="false" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:78%">
+            <div class="modal-header success">
+                <button id="btnpopAlertclose" type="button" class="close" data-dissmiss="modal" aria-hidden="true">x</button>
+                <h4 class="modal-title" id="lblmodallabel">Messages</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div style="width: 9%; float: left;">
+                        <img id="AlertImg" style="display: none; height: 42px; float: left;" />
+                    </div>
+                    <div style="width:80%; float:left">
+                        <div id="AlertPoptxt" style="margin: 11px; padding-left: 39px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnpopAlertOk" type="button" style="display:none" class="btn btn-warning" data-dissmiss="modal">Ok</button>
+                <button id="btnpopAlertcan" type="button" style="display:none" class="btn btn-warning" data-dissmiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#btnpopAlertcan").click(function (e) {
+        debugger;
+        $("#AlertPoptxt").text('');
+        $("#DivAlertPopup").modal('hide');
+    });
+</script>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OTA_HotelInvCountNotifRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" schemaLocation="http://www.opentravel.org/2013A/OTA_HotelInvCountNotifRQ.xsd" EchoToken="20210920164433" TimeStamp="2021-09-20T16:44:33.000+05:30" Target="Production" Version="1.0">
+  <POS>
+    <Source>
+      <RequestorID ID="pms@winsarinfo.com" ID_Context="" MessagePassword="winsar$oft7070" />
+    </Source>
+  </POS>
+  <Inventories HotelCode="2435">
+    <Inventory>
+      <StatusApplicationControl InvTypeCode="5368" Start="2021-09-15" End="2021-09-15" />
+      <InvCounts>
+        <InvCount Count="0" />
+      </InvCounts>
+    </Inventory>
+    <Inventory>
+      <StatusApplicationControl InvTypeCode="5368" Start="2021-09-15" End="2021-09-15" />
+      <InvCounts>
+        <InvCount Count="0" />
+      </InvCounts>
+    </Inventory>
+    <Inventory>
+      <StatusApplicationControl InvTypeCode="5368" Start="2021-09-15" End="2021-09-15" />
+      <InvCounts>
+        <InvCount Count="0" />
+      </InvCounts>
+    </Inventory>
+    <Inventory>
+      <StatusApplicationControl InvTypeCode="5368" Start="2021-09-16" End="2021-09-16" />
+      <InvCounts>
+        <InvCount Count="4" />
+      </InvCounts>
+    </Inventory>
+  </Inventories>
+</OTA_HotelInvCountNotifRQ>

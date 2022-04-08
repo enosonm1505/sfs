@@ -1,0 +1,515 @@
+﻿<div class="float-sm">
+    <div class="fl-fl float-pos" data-float="Position">
+        <i id="divfa" custom="Position" class="fa fa-street-view" style="text-align:center"></i>
+        <a> Position </a>
+    </div>
+    <div class="fl-fl float-tr" data-float="Tariff">
+        <i id="divfa" custom="Tariff" class="fa fa-pencil-square-o" style="text-align:center" ></i>
+        <a > Tariff Edit </a>
+    </div>
+    <div class="fl-fl float-pack" data-float="Packg">
+        <i id="divfa" custom="Packg" class="fa fa-briefcase" style="text-align:center"></i>
+        <a > Packages </a>
+    </div>
+    <div class="fl-fl float-promo" data-float="Promo">
+        <i id="divfa" custom="Promo" class="fa fa-bullhorn" style="text-align:center"></i>
+        <a> Promotion </a>
+    </div>
+    <div class="fl-fl float-route" data-float="Route">
+        <i id="divfa" custom="Route" class="fa fa-code-fork" style="text-align:center"></i>
+        <a> Routing </a>
+    </div>
+    <div class="fl-fl float-auto" data-float="Auto">
+        <i id="divfa" custom="Auto" class="fa fa-dollar (alias)" style="text-align:center"></i>
+        <a> Auto Charge </a>
+    </div>
+    <div class="fl-fl float-amenit" data-float="Amenities">
+        <i id="divfa" custom="Amenities" class="fa fa-rss-square" style="text-align:center"></i>
+        <a> Amenities </a>
+    </div>
+    <div class="fl-fl float-other" data-float="others">
+        <i id="divfa" custom="others" class="fa fa-bed" style="text-align:center"></i>
+        <a> Others </a>
+    </div>
+    <div class="fl-fl float-RoomShift" data-float="RoomShift">
+        <i id="divfa" custom="RoomShift" class="fa fa-exchange" style="text-align:center"></i>
+        <a> Room Shift </a>
+    </div>
+
+
+    @*<div class="fl-fltag float-tag">
+            <img id="tag" src="Images/tag-512.png" width="40" style=" padding-right:-5px;">
+        </div>*@
+</div>
+
+
+
+<script type="text/javascript">
+
+    $(window).load(function () {        
+        $(".fl-fl").on('click', function (e) {
+            //debugger;
+            //var floatbtns = this.previousElementSibling.attributes['custom'].value;
+            var floatbtns = this.firstElementChild.attributes['custom'].value;
+            var _grid_Datas = $("#GrdReservation").data("kendoGrid");
+
+            var selectedItem = _grid_Datas.dataItem(_grid_Datas.select());
+            if (selectedItem != null)
+            {
+                var rowindx = $("#ReservationRowHidden").val();              
+                switch (floatbtns) {
+                    case "others":
+                        $("#Others").modal('show');
+                        break;
+                    case "Amenities":
+                        $("#Amenities").modal('show');
+                        break;
+                    case "Auto":
+                        $("#AutoConfig").modal('show');
+                        break;
+                    case "Route":
+                        $("#RouteConfig").modal('show');
+                        break;
+                    case "Promo":
+                        $("#Promotions").modal('show');
+                        break;
+                    case "Packg":
+                        GrdPackageSearchInit();
+                        var window = $("#PackageSearchPopup");
+                        var kWnd = window.data("kendoWindow");
+                        kWnd.center().open();
+                        break;                        
+                    case "Tariff":
+
+                        GrdTariffGridEditInit();
+                        var BTN_TYPE = $("#BTN_TYPE").val();
+                        if (BTN_TYPE == "N") TarifEditCall(_grid_Datas);
+                        else TarifEditCall_OpenMode(_grid_Datas)
+                           
+                      
+                        break;
+                    case "Position":
+                      //  var window = $("#RoomPositionPop");
+                      //  var kWnd = window.data("kendoWindow");
+                     //   kWnd.center().open();
+
+                      $("#RoomPosition").data("Room", { "GridData": selectedItem, "Row_Index": rowindx, "GridElem": _grid_Datas });
+                     $("#RoomPosition").modal('show');
+                        break;               
+
+                    case "RoomShift":
+                        GrdRoomShiftSearchInit();
+                        RowaddRoomShift();                  
+                        
+                        var window = $("#RoomShiftPoup");
+                        var kWnd = window.data("kendoWindow");
+                        kWnd.center().open();                   
+                        break;
+                 
+                    default:
+                        break;                        
+                }
+            }
+            else {
+                //debugger;
+                $("#DivAlertPopup").modal('show');
+                $(".AlertPoptxt").html("Please Select the Row of Reservation Gird");
+            }
+                        
+        });
+    });
+
+
+
+
+    var TarifEditCall = function (_grid_Datas)
+    {
+        var rowindx = $("#ReservationRowHidden").val();
+        if (_grid_Datas.dataSource._data[rowindx].RES_TYNM != "") {
+            if (_grid_Datas.dataSource._data[rowindx].ADLT != "" || _grid_Datas.dataSource._data[rowindx].CHLD != "" || _grid_Datas.dataSource._data[rowindx].CHLD1 != ""
+            || _grid_Datas.dataSource._data[rowindx].CHLD2 != "") {
+                var RoomTYpe = _grid_Datas.dataSource._data[rowindx].RES_TYNM;
+                var ARRV = _grid_Datas.dataSource._data[rowindx].ARRV;
+                var DEPART = _grid_Datas.dataSource._data[rowindx].DEPART;
+                var ADLT = _grid_Datas.dataSource._data[rowindx].ADLT;
+                var CHLD = _grid_Datas.dataSource._data[rowindx].CHLD;
+                var CHLD1 = _grid_Datas.dataSource._data[rowindx].CHLD1;
+                var CHLD2 = _grid_Datas.dataSource._data[rowindx].CHLD2;
+                var R_TY = _grid_Datas.dataSource._data[rowindx].R_TY;
+                var TARF = _grid_Datas.dataSource._data[rowindx].TARF;
+                var PAX = Number(ADLT) + Number(CHLD) + Number(CHLD1) + Number(CHLD2);
+                ARRV = convert(ARRV);
+                DEPART = convert(DEPART);
+
+                $("#txtTarifRoomType").val(RoomTYpe);
+                $("#txtTariffCurency").val(pgindic.BASE_CURRENCY_ID);
+                $("#txtTariffRateType").val(R_TY)
+                $("#txtTariffArraivalDT").val(ARRV);
+                $("#txtTariffDeptDT").val(DEPART);
+                $("#txtTariffChangePax").val(PAX);
+                $("#txtTotalTariff").val();
+                $("#txtNetTariff").val();
+                var TariffGrid = $("#PromtTariffEditGrid").data("kendoGrid");
+                var days = ((_grid_Datas.dataSource._data[rowindx].DEPART) - (_grid_Datas.dataSource._data[rowindx].ARRV)) / (1000 * 60 * 60 * 24);
+                var no = _grid_Datas.selectable.userEvents.currentTarget.rowIndex;
+                var RowVal = _grid_Datas.dataSource._data[rowindx];
+                var Dtee =  _grid_Datas.dataSource._data[rowindx].DEPART;
+              
+                TariffGrid.dataSource.data([]);
+
+                if (Number(days) != 0) {
+                    for (var i = 0; i < Number(days) ; i++) {
+                        var Dte = _grid_Datas.dataSource._data[rowindx].ARRV;
+                        var Dtt = new Date(Dte);
+                        if (i == 0) {
+                            var Dt = convert(Dtt.setDate(Dtt.getDate() + 0));
+                            var Day = GetdayName(Dtt.setDate(Dtt.getDate() + 0));
+                        }
+                        else {
+                            var Dt = convert(Dtt.setDate(Dtt.getDate() + Number(i)));
+                            var Day = GetdayName(Dtt.setDate(Dtt.getDate() + Number(i)));
+                        }
+                        var Dttt = new Date(Dte);
+                        var Dtee = new Date(Dttt.setDate(Dttt.getDate() + Number(i)));
+                        var GridData = LoadRowRateType(RowVal, Dtee);
+                        var dataVal = {
+                            Date: Dt,
+                            Day: Day,
+                            R_TY_ID: $.trim(GridData.RATE_TARIFF[0].RATE_TY_ID),
+                            R_TY: $.trim(GridData.RATE_TARIFF[0].RATE_TY_NM),
+                            TAR_SINGLE: $.trim(GridData.RATE_TARIFF[0].TAR_SINGLE),
+                            TAR_DOUBLE: $.trim(GridData.RATE_TARIFF[0].TAR_DOUBLE),
+                            TAR_TRIPLE: $.trim(GridData.RATE_TARIFF[0].TAR_TRIPLE),
+                            TAR_QUADR: $.trim(GridData.RATE_TARIFF[0].TAR_QUADR),
+                            TAR_HEX: $.trim(GridData.RATE_TARIFF[0].TAR_HEX),
+                            EXTRA_ADULT: $.trim(GridData.RATE_TARIFF[0].EXTRA_ADULT),
+                            EXTRA_CHILD: $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD),
+                            EXTRA_CHILD2: $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD2),
+                            EXTRA_CHILD3: $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD3),
+                            PLAN_ID: $.trim(GridData.RATE_TARIFF[0].PLAN_ID),
+                            PLAN_NM: $.trim(GridData.RATE_TARIFF[0].PLAN_NM),
+                            PLAN_AMT: $.trim(GridData.RATE_TARIFF[0].PLAN_AMT),
+                            RATE_TY_NM: $.trim(GridData.RATE_TARIFF[0].RATE_TY_NM),
+                            TAR_FIVE: $.trim(GridData.RATE_TARIFF[0].TAR_FIVE),
+                            RATE_CAT: $.trim(GridData.RATE_TARIFF[0].RATE_CAT),
+                            DiscPer: "",
+                            DiscAmt: "",
+                            Reason: "",
+                            Company: "",
+                            CompanyId: "",
+                            TAgent: "",
+                            TAgentId: "",
+                            Adult: "",
+                            Ch1: "",
+                            Ch2: "",
+                            Ch3: "",
+                            PAdult: "",
+                            PCh1: "",
+                            PCh2: "",
+                            PCh3: ""
+                        }
+                        
+                        TariffGrid.dataSource.add(dataVal);
+                    }
+                    var HHTy = pgindic.DEF_TARIFF_CHRG_ID;
+                    var Timechk = "12:00";
+                    if (HHTy == "E") Timechk = "11:00";
+                    else if (HHTy == "Q") Timechk = "14:00";
+                    else if (HHTy == "R") Timechk = "15:00";
+                    else if (HHTy == "U") Timechk = "13:00";
+                    else Timechk = "12:00";
+                    debugger;
+
+                    //server Time Date Setting
+                    var TM = [];
+                    TM = Timechk.split(":");
+                    var date1 = new Date(
+                        new Date(
+                          new Date(
+                        new Date(
+                        _grid_Datas.dataSource._data[rowindx].DEPART
+                        )
+                        .setHours(TM[0]))
+                        .setMinutes(TM[1]))
+                        .setMilliseconds(0)
+                        );
+
+                    //Resevation Time Setting load
+                    var Time1 = _grid_Datas.dataSource._data[rowindx].DEPART_TM;
+                    var TM2 = [];
+                    TM2 = Time1.split(":");
+
+                    var date2 = new Date(
+                        new Date(
+                          new Date(
+                        new Date(
+                        _grid_Datas.dataSource._data[rowindx].DEPART
+                        )
+                        .setHours(TM2[0]))
+                        .setMinutes(TM2[1]))
+                        .setMilliseconds(0)
+                        );
+
+                    if (date2 > date1) {
+                        var Dt = convert(new Date(_grid_Datas.dataSource._data[rowindx].DEPART));
+                        var Day = GetdayName(new Date(_grid_Datas.dataSource._data[rowindx].DEPART));
+
+                        var Dtee = new Date(_grid_Datas.dataSource._data[rowindx].DEPART);
+
+                        var GridData = LoadRowRateType(RowVal, Dtee);
+                        var dataVal = {
+                            Date: Dt,
+                            Day: Day,
+                            R_TY_ID: $.trim(GridData.RATE_TARIFF[0].RATE_TY_ID),
+                            R_TY: $.trim(GridData.RATE_TARIFF[0].RATE_TY_NM),
+                            TAR_SINGLE: $.trim(GridData.RATE_TARIFF[0].TAR_SINGLE),
+                            TAR_DOUBLE: $.trim(GridData.RATE_TARIFF[0].TAR_DOUBLE),
+                            TAR_TRIPLE: $.trim(GridData.RATE_TARIFF[0].TAR_TRIPLE),
+                            TAR_QUADR: $.trim(GridData.RATE_TARIFF[0].TAR_QUADR),
+                            TAR_HEX: $.trim(GridData.RATE_TARIFF[0].TAR_HEX),
+                            EXTRA_ADULT: $.trim(GridData.RATE_TARIFF[0].EXTRA_ADULT),
+                            EXTRA_CHILD: $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD),
+                            EXTRA_CHILD2: $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD2),
+                            EXTRA_CHILD3: $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD3),
+                            PLAN_ID: $.trim(GridData.RATE_TARIFF[0].PLAN_ID),
+                            PLAN_NM: $.trim(GridData.RATE_TARIFF[0].PLAN_NM),
+                            PLAN_AMT: $.trim(GridData.RATE_TARIFF[0].PLAN_AMT),
+                            RATE_TY_NM: $.trim(GridData.RATE_TARIFF[0].RATE_TY_NM),
+                            TAR_FIVE: $.trim(GridData.RATE_TARIFF[0].TAR_FIVE),
+                            RATE_CAT: $.trim(GridData.RATE_TARIFF[0].RATE_CAT),
+                            DiscPer: "",
+                            DiscAmt: "",
+                            Reason: "",
+                            Company: "",
+                            CompanyId: "",
+                            TAgent: "",
+                            TAgentId: "",
+                            Adult: "",
+                            Ch1: "",
+                            Ch2: "",
+                            Ch3: "",
+                            PAdult: "",
+                            PCh1: "",
+                            PCh2: "",
+                            PCh3: ""
+                        }
+                        
+                        TariffGrid.dataSource.add(dataVal);
+                    }
+                }
+                else {
+                    var Dt = convert(new Date(_grid_Datas.dataSource._data[rowindx].ARRV.setDate(_grid_Datas.dataSource._data[rowindx].ARRV.getDate() + 0)));
+                    var Day = GetdayName(new Date(_grid_Datas.dataSource._data[rowindx].ARRV.setDate(_grid_Datas.dataSource._data[rowindx].ARRV.getDate() + 0)));
+
+                    var GridData = LoadRowRateType(RowVal, Dtee);
+                    var dataVal = {
+                        Date: Dt,
+                        Day: Day,
+                        R_TY_ID: $.trim(GridData.RATE_TARIFF[0].RATE_TY_ID),
+                        R_TY: $.trim(GridData.RATE_TARIFF[0].RATE_TY_NM),
+                        TAR_SINGLE: $.trim(GridData.RATE_TARIFF[0].TAR_SINGLE),
+                        TAR_DOUBLE: $.trim(GridData.RATE_TARIFF[0].TAR_DOUBLE),
+                        TAR_TRIPLE: $.trim(GridData.RATE_TARIFF[0].TAR_TRIPLE),
+                        TAR_QUADR: $.trim(GridData.RATE_TARIFF[0].TAR_QUADR),
+                        TAR_HEX: $.trim(GridData.RATE_TARIFF[0].TAR_HEX),
+                        EXTRA_ADULT: $.trim(GridData.RATE_TARIFF[0].EXTRA_ADULT),
+                        EXTRA_CHILD: $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD),
+                        EXTRA_CHILD2: $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD2),
+                        EXTRA_CHILD3: $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD3),
+                        PLAN_ID: $.trim(GridData.RATE_TARIFF[0].PLAN_ID),
+                        PLAN_NM: $.trim(GridData.RATE_TARIFF[0].PLAN_NM),
+                        PLAN_AMT: $.trim(GridData.RATE_TARIFF[0].PLAN_AMT),
+                        RATE_TY_NM: $.trim(GridData.RATE_TARIFF[0].RATE_TY_NM),
+                        TAR_FIVE: $.trim(GridData.RATE_TARIFF[0].TAR_FIVE),
+                        RATE_CAT: $.trim(GridData.RATE_TARIFF[0].RATE_CAT),
+                        DiscPer: "",
+                        DiscAmt: "",
+                        Reason: "",
+                        Company: "",
+                        CompanyId: "",
+                        TAgent: "",
+                        TAgentId: "",
+                        Adult: "",
+                        Ch1: "",
+                        Ch2: "",
+                        Ch3: "",
+                        PAdult: "",
+                        PCh1: "",
+                        PCh2: "",
+                        PCh3: ""
+                    }
+                    TariffGrid.dataSource.add(dataVal);
+                }
+
+                var window = $("#TariffEditWindow");
+                var kWnd = window.data("kendoWindow");
+                kWnd.center().open();
+            }
+            else {
+                $("#DivAlertPopup").modal('show');
+                $(".AlertPoptxt").html("Adult/Child not defined.");
+            }
+        } else {
+            $("#DivAlertPopup").modal('show');
+            $(".AlertPoptxt").html("Room Type Cannot be Empty.");
+
+        }
+
+    }
+
+    var LoadRowRateType = function (RowVal, Dte) {
+        var Grid_Data;
+        var obj = {};
+       var dataparam = JSON.parse(Request);
+        dataparam["COMPID"] = Prop_Id;
+        dataparam["REQTYPE"] = "RATE_TYPE";
+        dataparam["CURRENCY_ID"] = pgindic.BASE_CURRENCY_ID;
+        dataparam["ROOM_TYPE"] = RowVal.RES_TYPE;
+        dataparam["TO_DT"] = Dte;
+        dataparam["RATE_TY_ID"] = RowVal.R_TY_ID;
+        // dataparam = JSON.stringify(dataparam);
+        obj.request = dataparam;
+        var DataVal = JSON.stringify(dataparam);
+
+        $.ajax({
+            async: false,
+            url: "/FO/API_CALL",
+            type: 'POST',
+            datatype: 'json',
+            data: "request=" + DataVal,
+            beforeSend: function () { $("#loading").show(); },
+            success: function (data) {
+                Grid_Data = JSON.parse(data);              
+               return Grid_Data;
+            },
+            error: function (request, status, error) {
+                console.log("Error Failrue");
+            },
+            complete: function () { $("#loading").hide(); }
+        });
+        return Grid_Data;
+    }
+
+
+
+
+    var TarifEditCall_OpenMode = function (_grid_Datas) {
+        var rowindx = $("#ReservationRowHidden").val();
+        if (_grid_Datas.dataSource._data[rowindx].RES_TYNM != "") {
+            if (_grid_Datas.dataSource._data[rowindx].ADLT != "" || _grid_Datas.dataSource._data[rowindx].CHLD != "" || _grid_Datas.dataSource._data[rowindx].CHLD1 != ""
+            || _grid_Datas.dataSource._data[rowindx].CHLD2 != "") {
+                var RoomTYpe = _grid_Datas.dataSource._data[rowindx].RES_TYNM;
+                var ARRV = _grid_Datas.dataSource._data[rowindx].ARRV;
+                var DEPART = _grid_Datas.dataSource._data[rowindx].DEPART;
+                var ADLT = _grid_Datas.dataSource._data[rowindx].ADLT;
+                var CHLD = _grid_Datas.dataSource._data[rowindx].CHLD;
+                var CHLD1 = _grid_Datas.dataSource._data[rowindx].CHLD1;
+                var CHLD2 = _grid_Datas.dataSource._data[rowindx].CHLD2;
+                var R_TY = _grid_Datas.dataSource._data[rowindx].R_TY;
+                var TARF = _grid_Datas.dataSource._data[rowindx].TARF;
+                var PAX = Number(ADLT) + Number(CHLD) + Number(CHLD1) + Number(CHLD2);
+                ARRV = convert(ARRV);
+                DEPART = convert(DEPART);
+
+                $("#txtTarifRoomType").val(RoomTYpe);
+                $("#txtTariffCurency").val(pgindic.BASE_CURRENCY_ID);
+                $("#txtTariffRateType").val(R_TY)
+                $("#txtTariffArraivalDT").val(ARRV);
+                $("#txtTariffDeptDT").val(DEPART);
+                $("#txtTariffChangePax").val(PAX);
+                $("#txtTotalTariff").val();
+                $("#txtNetTariff").val();
+                var TariffGrid = $("#PromtTariffEditGrid").data("kendoGrid");
+                var days = ((_grid_Datas.dataSource._data[rowindx].DEPART) - (_grid_Datas.dataSource._data[rowindx].ARRV)) / (1000 * 60 * 60 * 24);
+                var no = _grid_Datas.selectable.userEvents.currentTarget.rowIndex;
+                var RowVal = _grid_Datas.dataSource._data[rowindx];
+                var Dtee = _grid_Datas.dataSource._data[rowindx].DEPART;
+                var GridData = LoadRowRateType(RowVal, Dtee);
+                var R_TY_ID = $.trim(GridData.RATE_TARIFF[0].RATE_TY_ID);
+                var R_TY = $.trim(GridData.RATE_TARIFF[0].RATE_TY_NM);
+                var TAR_SINGLE = $.trim(GridData.RATE_TARIFF[0].TAR_SINGLE);
+                var TAR_DOUBLE = $.trim(GridData.RATE_TARIFF[0].TAR_DOUBLE);
+                var TAR_TRIPLE = $.trim(GridData.RATE_TARIFF[0].TAR_TRIPLE);
+                var TAR_QUADR = $.trim(GridData.RATE_TARIFF[0].TAR_QUADR);
+                var TAR_HEX = $.trim(GridData.RATE_TARIFF[0].TAR_HEX);
+                var EXTRA_ADULT = $.trim(GridData.RATE_TARIFF[0].EXTRA_ADULT);
+                var EXTRA_CHILD = $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD);
+                var EXTRA_CHILD2 = $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD2);
+                var EXTRA_CHILD3 = $.trim(GridData.RATE_TARIFF[0].EXTRA_CHILD3);
+                var PLAN_ID = $.trim(GridData.RATE_TARIFF[0].PLAN_ID);
+                var PLAN_NM = $.trim(GridData.RATE_TARIFF[0].PLAN_NM);
+                var PLAN_AMT = $.trim(GridData.RATE_TARIFF[0].PLAN_AMT);
+                var RATE_TY_NM = $.trim(GridData.RATE_TARIFF[0].RATE_TY_NM);
+                var TAR_FIVE = $.trim(GridData.RATE_TARIFF[0].TAR_FIVE);
+                var RATE_CAT = $.trim(GridData.RATE_TARIFF[0].RATE_CAT);
+                TariffGrid.dataSource.data([]);
+
+
+                var window = $("#TariffEditWindow");
+                var kWnd = window.data("kendoWindow");
+                kWnd.center().open();
+            }
+            else {
+                $("#DivAlertPopup").modal('show');
+                $(".AlertPoptxt").html("Adult/Child not defined.");
+            }
+        } else {
+            $("#DivAlertPopup").modal('show');
+            $(".AlertPoptxt").html("Room Type Cannot be Empty.");
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function RowaddRoomShift()
+    {
+        var grid = $("#GrdReservation").data("kendoGrid");
+        var total = grid.dataSource.data().length;   
+        debugger;
+            var indx = grid.selectable.userEvents.currentTarget.rowIndex;
+            var LastRowData = grid.dataSource._data[indx];
+
+            var RmShiftGrd = $("#prompRoomShiftGrid").data("kendoGrid");
+            var data = [];
+            var datt = LastRowData.ARRV;
+            
+            data = {
+                RES_TYNM: LastRowData.RES_TYNM,
+                RES_ID: LastRowData.RES_ID,
+                RES_ID: LastRowData.RES_TYPE,                
+                ARRV:LastRowData.ARRV,
+                ARRV_TM: LastRowData.ARRV_TM,              
+                NIGHTS: LastRowData.NIGHTS,
+                DEPART:LastRowData.DEPART,
+                DEPART_TM: LastRowData.DEPART_TM,   
+                ROOM: LastRowData.ROOM,
+                R_TY_ID: LastRowData.R_TY_ID,
+                R_TY: LastRowData.R_TY,
+            }
+            RmShiftGrd.dataSource.add(data);        
+            RmShiftGrd.refresh();
+    }
+    function convert(str) {
+        var date = new Date(str),
+        mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+        day = ("0" + date.getDate()).slice(-2);
+        return [day, mnth, date.getFullYear()].join("/");
+        //return [date.getFullYear(), mnth, day].join("-");
+    }
+
+</script>

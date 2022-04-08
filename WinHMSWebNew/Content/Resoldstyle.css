@@ -1,0 +1,51 @@
+﻿body {
+}
+
+
+.themedes {margin-top:0 !important;}
+ .m-t305{margin-top:5% !important;}
+.wth099{width:100%;}
+#GridControlBtn > .btn{padding: 3px 10px;}
+.colpad5{padding-right: 5px;padding-left: 5px;}
+.colpad05{padding-right: 0px;padding-left: 5px;}
+.TopHdrMod {
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background: #e9eff1;
+    z-index:-1;
+    border-bottom: #d6d6d6 solid 1px;
+    box-shadow: 0px 0px 0px 1px #888484 !important;
+}
+
+.btn_11px{font-size:11px;}
+.PromptBtn {
+    float: left;
+    margin: 0px 0px 0px 1px;
+    padding: 3px 8px 7px 6px !important;
+    box-shadow: -1px -1px 3px 0px #aba8a8;
+    width: 23px;
+    height: 23px;
+    font-size: 11px !important;
+    padding-bottom: 0px;
+}
+
+.TopHdr{width:100%;float:left;line-height:40px;color:#333; background-color:#F7F7F7;}
+.HdrBtnBx{float:right;text-align:right;z-index:5;position:relative;right:8px;}
+.TopHdrMod{font-weight:bold;position:absolute ;text-align:center;width:100%;z-index:1;}
+.TopHdrName{color:#666;z-index:600;right:0;position:fixed;line-height:32px;top:0;text-align:right;}
+.compnys {float:left;padding-right:5px; }
+.usr {float:left;padding-right:5px;}
+.usr img{margin-bottom:1px;
+    vertical-align: text-bottom;
+    padding-right: 4px;
+}
+.dashbrd{float:left;padding-right:2px;}
+.dashbrd img{vertical-align:middle }
+.logcnt{float:left;margin-left:10px;}
+.logcnt img{ vertical-align:middle;width:115px;}
+.w_custom_row {
+    margin-right: -0px !important;
+    margin-left: -0px !important;
+}

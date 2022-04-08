@@ -1,0 +1,44 @@
+body{padding:0;margin:0;background-color:#f6f6f6;font-family:verdana;font-size:12px;}
+.header{line-height:35px;color:#333;width:100%;float:left;background-color:#4ccaef}
+.footer{width:100%;position:fixed;bottom:0;left:0;background-color:#fff;}
+.footer img{padding:6px;width:165px}
+.fullwidth{width:100%;float:left}
+.box1{width:250px;height:84px;float:left;margin-left:20px;margin-top:20px; border-radius:50px;}
+.box1:hover{background-color:#F1F1F1    ;transition:1s;}
+.box2{width:250px;float:left;}
+.imgbx img{width:50px}
+.imgbx{width:50px;padding:2px;float:left;}
+.txtbx{text-shadow:1px 1px rgba(226, 226, 226, 0.47);font-weight:bold;color:#333;width:94%;PADDING:15% 2% 15% 23%; text-align:left; float:left;}
+.txtbx2{ color:#616161;width:168px;float:left;text-align:right;padding-top:8px;/*background-color:rgba(255, 255, 255, 0.43);*/height:76px}
+.btncont{width:94%;padding-right:6%;float:left;}
+.color1{border:solid 3px #FF8D8D; background-color:#fff1f1;}
+.color2{border:solid 3px #bfc042; background-color:#feffbd;}
+.color3{border:solid 3px #eab637; background-color:#fffbf0;}
+.color4{border:solid 3px #46d88f; background-color:#f0fff8;}
+.color5{border:solid 3px #4ccaef; background-color:#effbff;}
+.color6{border:solid 3px #CEB643;}
+.color7{border:solid 3px #ee9bb4; background-color:#ffeff4;}
+.color8{border:solid 3px #6699E4;}
+.color9{border:solid 3px #9359bf; background-color:#e3d4ef;}
+.color10{border:solid 3px #e99a7c; background-color:#ffd8c9;}
+.color11{border:solid 3px #9f6666; background-color:#ffe2e2;}
+.color12{border:solid 3px #267a96; background-color:#eafaff;}
+.color13{border:solid 3px #705685;}
+.color14{border:solid 3px #477567; background-color:#ebfff9;}
+.color15{border:solid 3px #5095c1; background-color:#d9f0ff;}
+.color16{border:solid 3px #fea567; background-color:#ffebde;}
+.color17{border:solid 3px #fd584f;}
+.color18{border:solid 3px #21977d;}
+.color19{border:solid 3px #d87dc1;}
+.color20{border:solid 3px #5e5f07;} 
+.color21{border:solid 3px #387cc2; background-color:#cce6ff;}
+.color22{border:solid 3px #73d5d5; background-color:#c3f7f7;}
+.color23{border:solid 3px #73d5d5; background-color:#c3f7f7;}
+.color24{border:solid 3px #c56b42; background-color:#f7d4c5;}
+.color25 {border: solid 3px #558631;background-color: #f4feed;}
+.btncont img{width:30px;}
+img {border:none;
+}
+a { text-decoration:none;
+}
+

@@ -1,0 +1,73 @@
+23/12/2021 15:11:49
+D:\Hosted\FO_Standalone\WinHMSWebNew\LogFile\ADMIN _FoHome.txt
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)
+Date :23/12/2021 15:11:49
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:11:54
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:11:55
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:11:55
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:11:55
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:13:24
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:13:25
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:13:25
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:13:25
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:13:25
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:13:25
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:13:25
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)Date :23/12/2021 15:13:26
+page load error : System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.WebClient.UploadDataInternal(Uri address, String method, Byte[] data, WebRequest& request)
+   at System.Net.WebClient.UploadString(Uri address, String method, String data)
+   at System.Net.WebClient.UploadString(String address, String data)
+   at WinLogin.FO.FoHome.Page_Load(Object sender, EventArgs e)

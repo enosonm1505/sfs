@@ -1,0 +1,24 @@
+﻿
+
+.xltextBold {
+    font-weight: bold;
+}
+
+.xltextCenter {
+    text-align: center !important;        
+}
+
+.xltextRight {
+    text-align: right !important;        
+}
+.xltextLeft {
+    text-align: left !important;
+}
+.xltextItalic{
+    font-style:italic;
+}
+
+.xlHdRemBorder {
+    border-bottom: 0px solid #0798af !important;
+    border-right: 0px solid #0798af !important;
+}

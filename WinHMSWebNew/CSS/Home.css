@@ -1,0 +1,144 @@
+﻿.homebtnss{float:left;width: 32px;}
+.homebtnss img{vertical-align:sub}
+.rightwidth{width:40%}
+.leftwidth{width:76%}
+/*menu css start */
+#cssmenu ul,
+#cssmenu li,
+#cssmenu span,
+#cssmenu a {color:#595959;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#cssmenu span{}
+
+#cssmenu {float:left;width:100%;position:relative;z-index:10;
+
+  background:#5CD5F9;font-weight:bold;
+}
+#cssmenu:after,
+#cssmenu ul:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#cssmenu a {background: #5CD5F9 ;color: #666666;
+  display: inline-block;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 12px;
+  line-height: 33px;
+  padding: 0 8px;
+  text-decoration: none;
+}
+#cssmenu ul {color:#333333; 
+  list-style: none;
+}
+#cssmenu > ul {
+  float: left;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu > ul > li.active a,
+#cssmenu > ul > li:hover > a {  background: #81E2FF;
+}
+#cssmenu .has-sub {
+  z-index: 1;
+}
+#cssmenu .has-sub:hover > ul {
+  display: block;
+}
+#cssmenu .has-sub ul {
+
+  display: none;
+  position: absolute;
+  width: 210px;
+  top: 100%;
+  left: 0;
+}
+#cssmenu .has-sub ul li a span{color:#fff;}
+#cssmenu .has-sub ul li a {
+  background: #3A3A3A;
+
+  border-bottom: 1px solid #556371;
+
+  color:#fff;
+  display: block;
+  line-height: 140%;
+  padding: 8px 8px;
+  font-size: 12px;
+}
+#cssmenu .has-sub ul li:hover a span{color:#333;}
+#cssmenu .has-sub ul li:hover a {
+  background: #4CCAEF;
+
+}
+#cssmenu .has-sub .has-sub:hover > ul {
+  display: block;
+}
+#cssmenu .has-sub .has-sub ul {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+#cssmenu .has-sub .has-sub ul li a {
+  background: #606f7f;
+
+}
+#cssmenu .has-sub .has-sub ul li a:hover {
+  background: #4a5662;
+
+}
+#lnkLogOut:hover {
+background: #585858;
+
+}
+#cssmenu > ul > li.active a span{color:#333;}
+
+.arrbxa {
+    width: 0;
+    margin-top: 9px;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent transparent #DBDBDB;
+    border-width: 6.5px 0 6.5px 8px;
+    position: relative;
+    top: 0;
+    left: 92%;
+    float: left;
+    z-index: 100000;
+}
+
+#cssmenu ul ul ul {
+                        left: 100% !important;
+                        top: 0 !important;
+                    }
+#cssmenu ul ul ul li {
+                    background-color: rgba(64, 192, 203, 0.69);
+                   
+                }
+
+                   #cssmenu ul ul ul li:hover {
+                        background-color: #3A3A3A;
+                       
+                        color: #fff;
+                    
+                    }
+
+                        #cssmenu ul ul ul li:hover a {
+                            color: #333; background-color: #3A3A3A;
+                        }
+                         #cssmenu ul li:hover > ul {
+                    display: block;
+                }
+                         #cssmenu .has-sub ul ul li:hover a {background-color: #4CCAEF !important;}
+ #cssmenu .has-sub ul ul li:hover a span {
+        color: #fff !important;
+    }
+ #cssmenu .has-sub ul ul li a {background-color: #3A3A3A !important;}
+ #cssmenu .has-sub ul ul li a span {
+        color: #fff !important;
+    }

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="PosService.Analysis" CodeBehind="Analysis.svc.cs" %>
